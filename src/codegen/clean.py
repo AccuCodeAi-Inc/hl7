@@ -75,9 +75,13 @@ def make_table_filename(name: str) -> str:
         .replace("’", "")
         .replace("-", "")
         .replace("'", "")
-        .replace("*", "")
-        .replace(",", "")
+        .replace("*", "_")
+        .replace(",", "_")
+        .replace(".", "_")
+        .replace(",", "_")
         .split("(")[0]
+        .replace(")", "")
+        .replace("(", "")
     )
 
 

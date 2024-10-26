@@ -5,7 +5,7 @@ from src.codegen.session import session
 from jinja2 import Environment, FileSystemLoader
 from pathlib import Path
 
-PRIMITIVES = {"NM", "ST", "ID", "DT", "TM", "DTM", "SI", "IS", "TX"}
+PRIMITIVES = {"NM", "ST", "ID", "DT", "TM", "DTM", "SI", "IS", "TX", "VARIES"}
 
 
 def is_empty_table(hl7_id: str, version: str):
@@ -32,8 +32,12 @@ def generate_component_template(
     buf += "("
     # if defs["fields"]:
     # buf += f" # {usage}"
-    for f in defs["fields"]:
+    fn_set = set()
+    for i, f in enumerate(defs["fields"]):
         fn_name = to_valid_variable_name(f["name"]).lower()
+        if fn_name in fn_set:
+            fn_name = f"{fn_name}_{i}"
+        fn_set.add(fn_name)
         buf += "\n"
         buf += " " * indent
         buf += fn_name
@@ -48,7 +52,7 @@ def generate_component_template(
         if (
             f["tableName"]
             and not is_empty_table(f["tableId"], version)
-            and f["tableName"] not in banned_tables
+            and make_table_filename(f["tableName"]) not in banned_tables
         ):
             if is_empty_table(f["tableId"], version):
                 t = f["dataType"]
@@ -184,18 +188,20 @@ def generate_trigger_event_template(hl7_id: str, version: str, init_indent: 0):
                     for s in seg["segments"]:
                         buf += "\n"
                         buf += " " * (indent + 8)
-                        buf += s["id"].lower()
+                        buf += to_valid_variable_name(s["longName"]).lower()
                         buf += "="
                         # table_imports |= ti
                         # data_type_imports |= di
+                        segment_imports.add(s["id"])
                         buf += f"await build({s["id"].lower()}_{s["sequence"]}),"
+                        if i == 0:
+                            component_ids.append(s["id"])
+                            component_use.append(s["usage"])
+                            component_seq.append(s["sequence"])
                     buf += "\n"
                     buf += " " * (indent + 4)
                     buf += "),"
                     if i == 0:
-                        component_ids.append(s["id"])
-                        component_use.append(s["usage"])
-                        component_seq.append(seg["sequence"])
                         buf += "\n"
             else:
                 pname = f"{defs['id']}_{seg['name']}_GROUP".strip().replace(" ", "_")
@@ -204,11 +210,12 @@ def generate_trigger_event_template(hl7_id: str, version: str, init_indent: 0):
                 for s in seg["segments"]:
                     buf += "\n"
                     buf += " " * (indent + 4)
-                    buf += s["id"].lower()
+                    buf += to_valid_variable_name(s["longName"]).lower()
                     buf += "="
+                    segment_imports.add(s["id"])
                     component_ids.append(s["id"])
                     component_use.append(s["usage"])
-                    component_seq.append(seg["sequence"])
+                    component_seq.append(s["sequence"])
                     # table_imports |= ti
                     # data_type_imports |= di
                     buf += f"await build({s["id"].lower()}_{s["sequence"]}),"

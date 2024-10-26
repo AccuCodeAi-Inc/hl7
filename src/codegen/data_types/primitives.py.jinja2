@@ -21,11 +21,11 @@ class {{ x.id }}(str, HL7Primitive):
     ---
     https://hl7-definition.caristix.com/v2/HL7v{{ version }}/DataTypes/{{ x.id }}
     """
-    _hl7_version = "{{ version }}"
+    _hl7_version = """{{ version }}"""
     _hl7_type = "PRIMITIVE_DATA_TYPE"
     _hl7_length = {{ x.length }}
-    _hl7_id = "{{ x.id }}"
-    _hl7_name = "{{ x.name }}"
+    _hl7_id = """{{ x.id }}"""
+    _hl7_name = """{{ x.name.replace('\"', '') }}"""
     _hl7_description = """{{ short_desc }}"""
     _hl7_ref_url = "https://hl7-definition.caristix.com/v2/HL7v{{ version }}/DataTypes/{{ x.id }}"
 

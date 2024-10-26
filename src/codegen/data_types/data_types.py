@@ -26,6 +26,11 @@ def render_data_type(
             .replace("’", "")
             .replace("-", "")
             .replace("'", "")
+            .replace(",", "_")
+            .replace(".", "_")
+            .replace("*", "_")
+            .replace(")", "")
+            .replace("(", "")
         )
 
     table_imports_list = set(
@@ -43,8 +48,12 @@ def render_data_type(
     data_type_example_imports = ", ".join(data_type_imports_list)
 
     init_params = []
+    fn_name_set = set()
     for i, f in enumerate(defs["fields"]):
         fn_name = to_valid_variable_name(f["name"]).lower()
+        if fn_name in fn_name_set:
+            fn_name = f"{fn_name}_{i}"
+        fn_name_set.add(fn_name)
         param_type = (
             f["tableName"]
             .replace("/", " or ")
@@ -53,6 +62,11 @@ def render_data_type(
             .replace("’", "")
             .replace("-", "")
             .replace("'", "")
+            .replace(",", "_")
+            .replace(".", "_")
+            .replace("*", "_")
+            .replace(")", "")
+            .replace("(", "")
             + " | "
             + f["dataType"]
             if f["tableName"]

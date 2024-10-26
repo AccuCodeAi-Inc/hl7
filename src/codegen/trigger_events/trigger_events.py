@@ -8,15 +8,13 @@ def extract_segment_imports(segments, hl7_id) -> set[str]:
     _set = set()
     for segment in segments:
         if segment["isGroup"]:
+            sname = to_valid_variable_name(segment["name"]).upper()
             _set.add(
-                "from ..segment_groups.{0} import {0}".format(
-                    hl7_id + "_" + segment["name"].replace(" ", "_").strip() + "_GROUP"
-                )
+                "from ..segment_groups.{0} import {0}".format(f"{hl7_id}_{sname}_GROUP")
             )
         else:
-            _set.add(
-                "from ..segments.{0} import {0}".format(segment["id"].replace(" ", "_"))
-            )
+            sname = to_valid_variable_name(segment["id"]).upper()
+            _set.add("from ..segments.{0} import {0}".format(sname))
     return _set
 
 
@@ -25,9 +23,11 @@ def extract_segment_imports_examples(segments, hl7_id) -> tuple[set[str], set[st
     _set_group = set()
     for segment in segments:
         if segment["isGroup"]:
-            _set_group.add(hl7_id + "_" + segment["name"].replace(" ", "_") + "_GROUP")
+            sname = to_valid_variable_name(segment["name"]).upper()
+            _set_group.add(f"{hl7_id}_{sname}_GROUP")
         else:
-            _set.add(segment["id"].replace(" ", "_"))
+            sname = to_valid_variable_name(segment["id"]).upper()
+            _set.add(sname)
     return _set, _set_group
 
 
@@ -72,7 +72,8 @@ def render_trigger_event(
                 x["name"] + "." + x["sequence"] for x in f["segments"] if x["sequence"]
             )
             group_suffix = ", ..." if f["rpt"] != "1" else ""
-            pname = f"{defs['id']}_{f['name']}_GROUP".strip().replace(" ", "_")
+            sname = to_valid_variable_name(f["name"])
+            pname = f"{defs['id']}_{sname}_GROUP".strip().replace(" ", "_")
             # param_type = f"tuple[{segs}{group_suffix}]"
             # group_aliases.append(f"{pname} = {param_type}")
             # group_aliases.append('"""')

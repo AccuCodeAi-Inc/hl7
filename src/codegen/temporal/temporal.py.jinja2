@@ -4,27 +4,27 @@ from datetime import timedelta
 
 # fmt: off
 {% if trigger_event_imports %}
-from utils.hl7.v{{ version.replace(".", "_") }}.trigger_events import (
+from hl7.v{{ version.replace(".", "_") }}.trigger_events import (
     {{ trigger_event_imports|join(", ") if trigger_event_imports }}
 )
 {% endif %}
 {% if segment_group_imports %}
-from utils.hl7.v{{ version.replace(".", "_") }}.segment_groups import (
+from hl7.v{{ version.replace(".", "_") }}.segment_groups import (
     {{ segment_group_imports|join(", ") if segment_imports }}
 )
 {% endif %}
 {% if segment_imports %}
-from utils.hl7.v{{ version.replace(".", "_") }}.segments import (
+from hl7.v{{ version.replace(".", "_") }}.segments import (
     {{ segment_imports|join(", ") if segment_imports }}
 )
 {% endif %}
 {% if data_type_imports %}
-from utils.hl7.v{{ version.replace(".", "_") }}.data_types import (
+from hl7.v{{ version.replace(".", "_") }}.data_types import (
     {{ data_type_imports|join(", ") if data_type_imports }}
 )
 {% endif %}
 {% if table_imports %}
-from utils.hl7.v{{ version.replace(".", "_") }}.tables import (
+from hl7.v{{ version.replace(".", "_") }}.tables import (
     {{ table_imports|join(", ") if table_imports }}
 )
 {% endif %}
@@ -59,7 +59,7 @@ class Build_{{ hl7_id }}:
     {{ description }}
     """
     @workflow.run
-    async def run(self, x: UpstreamInput) -> {{ hl7_id }}:
+    async def run(self, x: UpstreamInput) -> str:
         build = partial(
             workflow.execute_local_activity,
             arg=x,

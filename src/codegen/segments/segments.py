@@ -20,6 +20,11 @@ def render_segment(hl7_id: str, version: str, seg_template: Template, path: Path
             .replace("’", "")
             .replace("-", "")
             .replace("'", "")
+            .replace("*", "_")
+            .replace(")", "")
+            .replace("(", "")
+            .replace(".", "_")
+            .replace(",", "_")
         )
 
     table_imports_list = set(
@@ -45,12 +50,17 @@ def render_segment(hl7_id: str, version: str, seg_template: Template, path: Path
         fn_set.add(fn_name)
         param_type = (
             f["tableName"]
+            .replace("*", "_")
             .replace("/", " or ")
             .title()
             .replace(" ", "")
             .replace("’", "")
             .replace("-", "")
             .replace("'", "")
+            .replace(")", "")
+            .replace("(", "")
+            .replace(".", "_")
+            .replace(",", "_")
             + " | "
             + f["dataType"]
             if f["tableName"]

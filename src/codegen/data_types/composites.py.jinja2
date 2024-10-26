@@ -19,10 +19,10 @@ from utils.hl7.v{{ version.replace(".", "_") }}.data_type import (
 {{ x.id|lower }} = {{ x.id }}(  # {{ x.name }} - {{ short_desc }}
 {% for f in x.fields %}
 {% if is_table %}
-    {% set param_name = f.tableName.replace("/", " or ").lower().replace(" ", "_").replace("’", "").replace("-", "").replace("'", "") %}
-    {% set param_type = f.tableName.replace("/", " or ").title().replace(" ", "").replace("’", "").replace("-", "").replace("'", "") %}
+    {% set param_name = f.tableName.replace("/", " or ").lower().replace(" ", "_").replace("’", "").replace("-", "").replace("'", "").replace("(", "").replace(")","").replace('*','_') %}
+    {% set param_type = f.tableName.replace("/", " or ").title().replace(" ", "").replace("’", "").replace("-", "").replace("'", "").replace("(", "").replace(")","").replace('*','_') %}
 {% else %}
-    {% set param_name = f.dataType.lower().replace(" ", "_").replace("/", "_or_").replace("is", "_is") %}
+    {% set param_name = f.dataType.lower().replace(" ", "_").replace("/", "_or_").replace("is", "_is").replace("-", "_") %}
     {% set param_type = f.dataType %}
 {% endif %}
     {{ f.fn_name }}={{ "None"  if f.usage != "R" else param_name }},  # {{ param_type }}(...) {{ " # Required." if f.usage == "R" }}
@@ -35,11 +35,11 @@ from utils.hl7.v{{ version.replace(".", "_") }}.data_type import (
 class {{ x.id }}({{ x.type }}):
     # fmt: off
 {#    __slots__ = ("{{ x.fields|map(attribute="fn_name")|join('\", \"') + '\"' }}, "__data", "__attrs")#}
-    _hl7_version = "{{ version }}"
-    _hl7_type = "COMPOSITE_DATA_TYPE"
+    _hl7_version = """{{ version }}"""
+    _hl7_type = """COMPOSITE_DATA_TYPE"""
     _hl7_length = {{ x.length }}
-    _hl7_id = "{{ x.id }}"
-    _hl7_name = "{{ x.name }}"
+    _hl7_id = """{{ x.id }}"""
+    _hl7_name = """{{ x.name.replace('\"', '') }}"""
     _hl7_description = """{{ short_desc }}"""
     _hl7_ref_url = "https://hl7-definition.caristix.com/v2/HL7v{{ version }}/DataTypes/{{ x.id }}"
     _c_length = ({{ x.fields|map(attribute="length")|join(", ") }})
@@ -61,7 +61,7 @@ class {{ x.id }}({{ x.type }}):
 
         {% for f in x.fields %}
         {% if f.tableName %}
-        {% set param_type = f.tableName.replace("/", " or ").title().replace(" ", "").replace("’", "").replace("-", "").replace("'", "") + " | " + f.dataType %}
+        {% set param_type = f.tableName.replace("/", " or ").title().replace(" ", "").replace("’", "").replace("-", "").replace("'", "").replace("(", "").replace(")","").replace('*','_') + " | " + f.dataType %}
         {% else %}
         {% set param_type = f.dataType %}
         {% endif %}
@@ -79,10 +79,10 @@ class {{ x.id }}({{ x.type }}):
 
     {% for f in x.fields %}
     {% if f.tableName and f.dataType in ["ST", "ID", "IS"] %}
-    {% set param_name = f.tableName.replace("/", " or ").lower().replace(" ", "_").replace("’", "").replace("-", "").replace("'", "") %}
-    {% set param_type = f.tableName.replace("/", " or ").title().replace(" ", "").replace("’", "").replace("-", "").replace("'", "") %}
+    {% set param_name = f.tableName.replace("/", " or ").lower().replace(" ", "_").replace("’", "").replace("-", "").replace("'", "").replace("(", "").replace(")","").replace('*','_') %}
+    {% set param_type = f.tableName.replace("/", " or ").title().replace(" ", "").replace("’", "").replace("-", "").replace("'", "").replace("(", "").replace(")","").replace('*','_') %}
     {% else %}
-    {% set param_name = f.dataType.lower().replace(" ", "_").replace("/", "_or_").replace("is", "_is") %}
+    {% set param_name = f.dataType.lower().replace(" ", "_").replace("/", "_or_").replace("is", "_is").replace("-", "_") %}
     {% set param_type = f.dataType %}
     {% endif %}
     {% if f.rpt == "1" %}

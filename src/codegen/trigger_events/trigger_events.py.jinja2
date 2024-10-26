@@ -34,13 +34,13 @@ from utils.hl7.v{{ version.replace(".", "_") }}.segment_groups import (
 class {{ x.id.replace(" ", "_") }}({{ parent_class }}):
     # fmt: off
 {#    __slots__ = ("{{ x.segments|map(attribute="fn_name")|join('\", \"') + '\"' }}, "__data", "__attrs")#}
-    _hl7_version = "{{ version }}"
-    _hl7_type = "{{ subtype }}"
+    _hl7_version = """{{ version }}"""
+    _hl7_type = """{{ subtype }}"""
     _hl7_length = -1
-    _hl7_id = "{{ x.id }}"
-    _hl7_name = "{{ x.eventDesc }}"
+    _hl7_id = """{{ x.id }}"""
+    _hl7_name = """{{ x.eventDesc.replace('\"', '') if x.eventDesc }}"""
     _hl7_description = """{{ short_desc }}"""
-    _hl7_ref_url = "https://hl7-definition.caristix.com/v2/HL7v{{ version }}/TriggerEvents/{{ x.id }}"
+    _hl7_ref_url = """https://hl7-definition.caristix.com/v2/HL7v{{ version }}/TriggerEvents/{{ x.id }}"""
     _c_length = ({% for _ in x.segments %}-1,{% endfor %})
     _c_rpt = ({{ x.segments|map(attribute="rpt")|map("replace", "*", "65535")|join(", ") }})
     _c_usage = ("{{ x.segments|map(attribute="usage")|join('\", \"') + '\"' }})
@@ -61,7 +61,7 @@ class {{ x.id.replace(" ", "_") }}({{ parent_class }}):
 
         {% for f in x.segments %}
         {% if f.tableName and f.dataType in ["ST", "ID", "IS"] %}
-        {% set param_type = f.tableName.replace("/", " or ").title().replace(" ", "").replace("’", "").replace("-", "").replace("'", "") %}
+        {% set param_type = f.tableName.replace("/", " or ").title().replace(" ", "").replace("’", "").replace("-", "").replace("'", "").replace("(", "").replace(")","").replace('*','_').replace(".","_").replace(",", "_") %}
         {% else %}
         {% set param_type = f.dataType %}
         {% endif %}
@@ -78,7 +78,7 @@ class {{ x.id.replace(" ", "_") }}({{ parent_class }}):
 
 
     {% for f in x.segments %}
-    {% set param_name = f.name.lower().replace(" ", "_").replace("/", "_or_").replace("is", "_is") %}
+    {% set param_name = f.name.lower().replace(" ", "_").replace("/", "_or_").replace("is", "_is").replace("-", "_").replace(".","_").replace(",","_") %}
 {#    {% if f.isGroup %}#}
 {#    {% set param_name = f.tableName.replace("/", " or ").lower().replace(" ", "_").replace("’", "").replace("-", "").replace("'", "") %}#}
 {#    {% set param_type = f.tableName.replace("/", " or ").title().replace(" ", "").replace("’", "").replace("-", "").replace("'", "") %}#}

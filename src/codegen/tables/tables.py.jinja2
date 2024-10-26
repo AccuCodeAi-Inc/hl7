@@ -19,15 +19,15 @@ class {{ filename }}({{ "HL7Table" if x.entries else "str" }}):
     There are no suggested values for this table.{% endif %}
     """
     {% for e in x.entries %}
-    {{ e.enum }} = "{{ e.value }}" {{ "  # " + e.comment if e.comment }}
-    """ {{ e.description }} """
+    {{ e.enum }} = "{{ e.value }}" {{ "  # " + e.comment|replace('\n', ' ')|replace('"', '')|replace("'", '')|escape if e.comment }}
+    """{{ e.description|replace('\n', ' ')|replace('"', '')|replace("'", '')|escape }}"""
     {% endfor %}
 
     @property
     def description(self):
         desc = {
             {% for e in x.entries %}
-            self.{{ e.enum }}: "{{ e.description }}",
+            self.{{ e.enum }}: """{{ e.description|replace('\n', ' ')|replace('"', '')|replace("'", '')|escape }}""",
             {% endfor %}
         }
         return desc.get(self, str(self))
