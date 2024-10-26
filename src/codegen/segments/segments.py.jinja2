@@ -1,0 +1,140 @@
+from __future__ import annotations
+from ...base import HL7Segment
+{{ data_type_imports if data_type_imports }}
+{{ table_imports if table_imports }}
+
+{% set short_desc = x.description.split(".")[0].replace("\n", "").replace('"', "") if x.description %}
+
+"""
+{{ x.longName }} - {{ x.id }}
+HL7 Version: {{ version }}
+
+-----BEGIN SEGMENT::{{ x.id }} TEMPLATE-----
+
+from utils.hl7.v{{ version.replace(".", "_") }}.data_type import (
+    {{ x.id }},
+{{ "    " }}{{ data_type_example_imports }}
+)
+
+{{ x.id|lower }} = {{ x.id }}(  # {{ x.name }} - {{ short_desc }}
+{% for f in x.fields %}
+{% if is_table %}
+    {% set param_name = f.tableName.replace("/", " or ").lower().replace(" ", "_").replace("’", "").replace("-", "").replace("'", "") %}
+    {% set param_type = f.tableName.replace("/", " or ").title().replace(" ", "").replace("’", "").replace("-", "").replace("'", "") %}
+{% else %}
+    {% set param_name = f.dataType.lower().replace(" ", "_").replace("/", "_or_").replace("is", "_is") %}
+    {% set param_type = f.dataType %}
+{% endif %}
+    {{ f.fn_name }}={{ "None"  if f.usage != "R" else param_name }},  # {{ param_type }}(...) {{ " # Required." if f.usage == "R" }}
+{% endfor %}
+)
+
+-----END SEGMENT::{{ x.id }} TEMPLATE-----
+"""
+
+class {{ x.id }}(HL7Segment):
+    # fmt: off
+{#    __slots__ = ("{{ x.fields|map(attribute="fn_name")|join('\", \"') + '\"' }}, "__data", "__attrs")#}
+    _hl7_version = "{{ version }}"
+    _hl7_type = "SEGMENT"
+    _hl7_length = -1
+    _hl7_id = "{{ x.id }}"
+    _hl7_name = "{{ x.longName }}"
+    _hl7_description = """{{ short_desc }}"""
+    _hl7_ref_url = "https://hl7-definition.caristix.com/v2/HL7v{{ version }}/Segments/{{ x.id }}"
+    _c_length = ({{ x.fields|map(attribute="length")|join(", ") }})
+    _c_rpt = ({{ x.fields|map(attribute="rpt")|map("replace", "*", "65535")|join(", ") }})
+    _c_usage = ("{{ x.fields|map(attribute="usage")|join('\", \"') + '\"' }})
+    _c_components = ({{ x.fields|map(attribute="dataType")|join(', ') }})
+    _c_aliases = ("{{ x.fields|map(attribute="position")|join('\", \"') + '\"' }})
+    _c_names = ("{{ x.fields|map(attribute="name")|join('\", \"') + '\"' }})
+    # fmt: on
+
+
+    def __init__(
+        self,
+{{ init_params }}
+    ):
+        """
+        {{ x.longName }} - `{{ x.id }} <https://hl7-definition.caristix.com/v2/HL7v{{ version }}/Segments/{{ x.id }}>`_
+        {{ x.description.replace("\\", "\\\\") if x.description }}
+
+        {% for f in x.fields %}
+        {% if f.tableName and f.dataType in ["ST", "ID", "IS"] %}
+        {% set param_type = f.tableName.replace("/", " or ").title().replace(" ", "").replace("’", "").replace("-", "").replace("'", "") %}
+        {% else %}
+        {% set param_type = f.dataType %}
+        {% endif %}
+        {% set f_short_desc = f.dataTypeName %}
+        :param {{ f.fn_name }}: {{ f_short_desc }} (id: {{ f.id }} | len: {{ f.length }} | use: {{ f.usage }} | rpt: {{ f.rpt }})
+        {% endfor %}
+        """
+        super().__init__()
+        self._c_data: list[tuple] = [(None,)] * {{ x.fields|length }}
+        self._c_attrs = (self.{{ x.fields|map(attribute="fn_name")|join(", self.") }})
+        {% for f in x.fields %}
+        self.{{ f.fn_name }} = {{ f.fn_name }}
+    {% endfor %}
+
+
+    {% for f in x.fields %}
+    {% if f.tableName  %}
+    {% set param_name = f.tableName.replace("/", " or ").lower().replace(" ", "_").replace("’", "").replace("-", "").replace("'", "") %}
+    {% set param_type = f.tableName.replace("/", " or ").title().replace(" ", "").replace("’", "").replace("-", "").replace("'", "") + " | " + f.dataType %}
+    {% else %}
+    {% set param_name = f.dataType.lower().replace(" ", "_").replace("/", "_or_").replace("is", "_is") %}
+    {% set param_type = f.dataType %}
+    {% endif %}
+    {% if f.rpt == "1" %}
+    @property # get {{ f.position }}
+    def {{ f.fn_name }}(self) -> {{ param_type }}{{ " | None" if not f.usage == "R" }}:
+        """
+        id: {{ f.id }} | len: {{ f.length }} | use: {{ f.usage }} | rpt: {{ f.rpt }}
+        ---
+        return_type: {{ f.dataType }}: {{ f.dataTypeName }}
+        ---
+        https://hl7-definition.caristix.com/v2/HL7v{{ version }}/DataTypes/{{ f.id }}
+        """
+        return self._c_data[{{ loop.index0 }}][0]
+
+    @{{ f.fn_name}}.setter # set {{ f.position }}
+    def {{ f.fn_name }}(self, {{ param_name }}: {{ param_type }}{{ " | None" if f.usage != "R" }}):
+        """
+        id: {{ f.id }} | len: {{ f.length }} | use: {{ f.usage }} | rpt: {{ f.rpt }}
+        ---
+        param_type: {{ f.dataType }}: {{ f.dataTypeName }}
+        ---
+        https://hl7-definition.caristix.com/v2/HL7v{{ version }}/DataTypes/{{ f.id }}
+        """
+        self._c_data[{{ loop.index0 }}] = ({{ param_name }},)
+
+    {% else %}
+    @property
+    def {{ f.fn_name }}(self) -> tuple[{{ param_type }}, ...] {{ "| tuple[None]" if f.usage != "R" }}:
+        """
+        id: {{ f.id }} | len: {{ f.length }} | use: {{ f.usage }} | rpt: {{ f.rpt }}
+        ---
+        return_type: tuple[{{ f.dataType }}, ...]: ({{ f.dataTypeName }}, ...)
+        ---
+        https://hl7-definition.caristix.com/v2/HL7v{{ version }}/DataTypes/{{ f.id }}
+        """
+        return self._c_data[{{ loop.index0 }}]
+
+    @{{ f.fn_name}}.setter # set {{ f.position }}
+    def {{ f.fn_name }}(self, {{ param_name }}: {{ param_type }} | tuple[{{ param_type }}]{{ " | None" if f.usage != "R" }}):
+        """
+        id: {{ f.id }} | len: {{ f.length }} | use: {{ f.usage }} | rpt: {{ f.rpt }}
+        ---
+        param_type: {{ f.dataType }} | tuple[{{ f.dataType }}, ...]: ({{ f.dataTypeName }}, ...)
+        ---
+        https://hl7-definition.caristix.com/v2/HL7v{{ version }}/DataTypes/{{ f.id }}
+        """
+        if isinstance({{ param_name }}, tuple):
+            self._c_data[{{ loop.index0 }}] = {{ param_name }}
+        else:
+            self._c_data[{{ loop.index0 }}] = ({{ param_name }},)
+
+    {% endif %}
+
+
+{% endfor %}

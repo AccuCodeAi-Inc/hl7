@@ -1,0 +1,44 @@
+{{ "from __future__ import annotations" if filename in ["YesOrNoIndicator", "YOrNIndicator"] }}
+{{ "from ...base import HL7Table" if x.entries }}
+"""
+HL7 Version: {{ version }}
+{{ x.name }} - {{ x.id }}
+Table Type: {{ x.tableType }}
+"""
+
+class {{ filename }}({{ "HL7Table" if x.entries else "str" }}):
+    """
+    {{ x.name }} - {{ x.id }} // {{ x.tableType }} table type
+    {% for e in x.entries %}
+    - {{ e.enum }}
+    {% endfor %}
+    https://hl7-definition.caristix.com/v2/HL7v{{ version }}/Tables/{{ x.id }}
+    {% if not x.entries %}
+    User Defined Tables - Tables with data suggested by HL7 organization.
+    Most table are customized to reflect system workflows and coded values (such as lab values).
+    There are no suggested values for this table.{% endif %}
+    """
+    {% for e in x.entries %}
+    {{ e.enum }} = "{{ e.value }}" {{ "  # " + e.comment if e.comment }}
+    """ {{ e.description }} """
+    {% endfor %}
+
+    @property
+    def description(self):
+        desc = {
+            {% for e in x.entries %}
+            self.{{ e.enum }}: "{{ e.description }}",
+            {% endfor %}
+        }
+        return desc.get(self, str(self))
+
+
+    {% if filename in ["YesOrNoIndicator", "YOrNIndicator"] %}
+    @classmethod
+    def from_bool(cls, x: bool) -> {{ filename }}:
+        """
+        - True: YES
+        - False: NO
+        """
+        return {{ filename }}.YES if x else {{ filename }}.NO
+    {% endif %}

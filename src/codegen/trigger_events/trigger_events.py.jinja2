@@ -1,0 +1,141 @@
+from __future__ import annotations
+from ...base import {{ parent_class }}
+{{ segment_imports if segment_imports }}
+
+{% set short_desc = x.description.split(".")[0].replace("\n", "").replace('"', "") if x.description %}
+
+"""
+{{ x.eventDesc }} - {{ x.id }}
+HL7 Version: {{ version }}
+
+-----BEGIN {{ subtype }}::{{ x.id }} TEMPLATE-----
+
+from utils.hl7.v{{ version.replace(".", "_") }}.trigger_events import {{ x.id }}
+from utils.hl7.v{{ version.replace(".", "_") }}.segments import (
+{{ "    " }}{{ segment_imports_examples }}
+)
+{% if segment_group_imports_examples %}
+from utils.hl7.v{{ version.replace(".", "_") }}.segment_groups import (
+{{ "    " }}{{ segment_group_imports_examples }}
+)
+{% endif %}
+
+{{ x.id|lower }} = {{ x.id }}(  # {{ x.name }} - {{ short_desc }}
+{% for f in x.segments %}
+    {{ f.fn_name }}={{ "None"  if f.usage != "R" else f.param_type.lower() }},  # {{ f.param_type }}(...) {{ " # Required." if f.usage == "R" }}
+{% endfor %}
+)
+
+-----END {{ subtype }}::{{ x.id }} TEMPLATE-----
+"""
+
+{{ group_types }}
+
+class {{ x.id.replace(" ", "_") }}({{ parent_class }}):
+    # fmt: off
+{#    __slots__ = ("{{ x.segments|map(attribute="fn_name")|join('\", \"') + '\"' }}, "__data", "__attrs")#}
+    _hl7_version = "{{ version }}"
+    _hl7_type = "{{ subtype }}"
+    _hl7_length = -1
+    _hl7_id = "{{ x.id }}"
+    _hl7_name = "{{ x.eventDesc }}"
+    _hl7_description = """{{ short_desc }}"""
+    _hl7_ref_url = "https://hl7-definition.caristix.com/v2/HL7v{{ version }}/TriggerEvents/{{ x.id }}"
+    _c_length = ({% for _ in x.segments %}-1,{% endfor %})
+    _c_rpt = ({{ x.segments|map(attribute="rpt")|map("replace", "*", "65535")|join(", ") }})
+    _c_usage = ("{{ x.segments|map(attribute="usage")|join('\", \"') + '\"' }})
+    _c_aliases = ("{{ x.segments|map(attribute="sequence")|join('\", \"') + '\"' }})
+    _c_components = ({{ x.segments|map(attribute="param_type")|join(', ') }})
+    _c_name = ("{{ x.segments|map(attribute="name")|join('\", \"') + '\"' }})
+    _c_is_group = ({{ x.segments|map(attribute="isGroup")|join(", ") }})
+    # fmt: on
+
+
+    def __init__(
+        self,
+{{ init_params }}
+    ):
+        """
+        {{ x.longName }} - `{{ x.id }} <https://hl7-definition.caristix.com/v2/HL7v{{ version }}/TriggerEvents/{{ x.id }}>`_
+        {{ x.description.replace("\\", "\\\\") if x.description }}
+
+        {% for f in x.segments %}
+        {% if f.tableName and f.dataType in ["ST", "ID", "IS"] %}
+        {% set param_type = f.tableName.replace("/", " or ").title().replace(" ", "").replace("’", "").replace("-", "").replace("'", "") %}
+        {% else %}
+        {% set param_type = f.dataType %}
+        {% endif %}
+        {% set f_short_desc = f.longName %}
+        :param {{ f.fn_name }}: {{ f_short_desc or f.name.title() + " segment group: [" + f.segs + "]" }} (id: {{ f.name }} | seq: {{ f.sequence or f.segments|map(attribute="sequence")|join(", ") }} | use: {{ f.usage }} | rpt: {{ f.rpt }})
+        {% endfor %}
+        """
+        super().__init__()
+        self._c_data: list[tuple] = [(None,)] * {{ x.segments|length }}
+        self._c_attrs = (self.{{ x.segments|map(attribute="fn_name")|join(", self.") }})
+        {% for f in x.segments %}
+        self.{{ f.fn_name }} = {{ f.fn_name }}
+    {% endfor %}
+
+
+    {% for f in x.segments %}
+    {% set param_name = f.name.lower().replace(" ", "_").replace("/", "_or_").replace("is", "_is") %}
+{#    {% if f.isGroup %}#}
+{#    {% set param_name = f.tableName.replace("/", " or ").lower().replace(" ", "_").replace("’", "").replace("-", "").replace("'", "") %}#}
+{#    {% set param_type = f.tableName.replace("/", " or ").title().replace(" ", "").replace("’", "").replace("-", "").replace("'", "") %}#}
+{#    {% set param_type = "tuple[" + f.segments|map(attribute="id")|join(", ") + "]" %}#}
+{#    {% else %}#}
+{#    {% set param_type = f.dataType %}#}
+{#    {% endif %}#}
+    {% if f.rpt == "1" %}
+    @property # get {{ f.id }}.{{ f.sequence }}
+    def {{ f.fn_name }}(self) -> {{ f.param_type }}{{ " | None" if not f.usage == "R" }}:
+        """
+        id: {{ f.id }} | use: {{ f.usage }} | rpt: {{ f.rpt }} | seq: {{ f.sequence }}
+        ---
+        return_type: {{ f.id }}.{{ f.sequence }}: {{ f.longName }}
+        ---
+        https://hl7-definition.caristix.com/v2/HL7v{{ version }}/Segments/{{ f.id }}
+        """
+        return self._c_data[{{ loop.index0 }}][0]
+
+    @{{ f.fn_name}}.setter # set {{ f.id }}.{{ f.sequence }}
+    def {{ f.fn_name }}(self, {{ param_name }}: {{ f.param_type }}{{ " | None" if f.usage != "R" }}):
+        """
+        id: {{ f.id }} | use: {{ f.usage }} | rpt: {{ f.rpt }} | seq: {{ f.sequence }}
+        ---
+        param_type: {{ f.param_type }}.{{ f.sequence }}: {{ f.longName }}
+        ---
+        https://hl7-definition.caristix.com/v2/HL7v{{ version }}/Segments/{{ f.id }}
+        """
+        self._c_data[{{ loop.index0 }}] = ({{ param_name }},)
+
+    {% else %}
+    @property # get {{ f.name }}
+    def {{ f.fn_name }}(self) -> tuple[{{ f.param_type }}, ...] {{ "| tuple[None]" if f.usage != "R" }}:
+        """
+        id: {{ f.id }} SEGMENT GROUP | use: {{ f.usage }} | rpt: {{ f.rpt }} | seq: {{ f.sequence }}
+        ---
+        return_type: tuple[{{ f.param_type }}, ...]: ({{ f.longName }}, ...)
+        ---
+        https://hl7-definition.caristix.com/v2/HL7v{{ version }}/Segments/{{ f.id }}
+        """
+        return self._c_data[{{ loop.index0 }}]
+
+    @{{ f.fn_name}}.setter # set {{ f.name }}
+    def {{ f.fn_name }}(self, {{ param_name }}: {{ f.param_type }} | tuple[{{ f.param_type }}, ...]{{ " | None" if f.usage != "R" }}):
+        """
+        id: {{ f.name }} SEGMENT GROUP | use: {{ f.usage }} | rpt: {{ f.rpt }} | seq: {{ f.sequence }}
+        ---
+        param_type: {{ f.param_type }}.{{ f.sequence }} | tuple[{{ f.param_type }}, ...]: ({{ f.longName }}, ...)
+        ---
+        https://hl7-definition.caristix.com/v2/HL7v{{ version }}/Segments/{{ f.id }}
+        """
+        if isinstance({{ param_name }}, tuple):
+            self._c_data[{{ loop.index0 }}] = {{ param_name }}
+        else:
+            self._c_data[{{ loop.index0 }}] = ({{ param_name }},)
+
+    {% endif %}
+
+
+{% endfor %}

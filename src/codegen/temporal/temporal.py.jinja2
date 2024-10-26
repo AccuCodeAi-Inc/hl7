@@ -1,0 +1,72 @@
+from temporalio import activity, workflow
+from functools import partial
+from datetime import timedelta
+
+# fmt: off
+{% if trigger_event_imports %}
+from utils.hl7.v{{ version.replace(".", "_") }}.trigger_events import (
+    {{ trigger_event_imports|join(", ") if trigger_event_imports }}
+)
+{% endif %}
+{% if segment_group_imports %}
+from utils.hl7.v{{ version.replace(".", "_") }}.segment_groups import (
+    {{ segment_group_imports|join(", ") if segment_imports }}
+)
+{% endif %}
+{% if segment_imports %}
+from utils.hl7.v{{ version.replace(".", "_") }}.segments import (
+    {{ segment_imports|join(", ") if segment_imports }}
+)
+{% endif %}
+{% if data_type_imports %}
+from utils.hl7.v{{ version.replace(".", "_") }}.data_types import (
+    {{ data_type_imports|join(", ") if data_type_imports }}
+)
+{% endif %}
+{% if table_imports %}
+from utils.hl7.v{{ version.replace(".", "_") }}.tables import (
+    {{ table_imports|join(", ") if table_imports }}
+)
+{% endif %}
+# fmt: on
+
+# sample enum parser for tables (implements base.EnumParser(Protocol))
+def llm_parser(raw_input: str, choices: list[str], descriptions: list[str]) -> str:
+    ...
+
+class UpstreamInput(str):
+    """SAMPLE INPUT: Replace me with refactor > rename function with target input model"""
+    iterable: list
+    ...
+
+{% for activity in activities %}
+@activity.defn(name="build :: {{ hl7_id }} => {{ activity.component_id }}")
+async def {{ activity.component_id.lower() }}_{{ activity.sequence }}(x: UpstreamInput) -> {{ activity.component_id }}:
+    """
+    {{ activity.description }}
+    """
+    {{ activity.component_id.lower() }} = {{ activity.tmpl }}
+
+    return {{ activity.component_id.lower() }}
+
+{% endfor %}
+
+
+@workflow.defn
+class Build_{{ hl7_id }}:
+    """
+    HL7v{{ version }}
+    {{ description }}
+    """
+    @workflow.run
+    async def run(self, x: UpstreamInput) -> {{ hl7_id }}:
+        build = partial(
+            workflow.execute_local_activity,
+            arg=x,
+            start_to_close_timeout=timedelta(seconds=10),
+            # other temporal activity args go here
+        )
+
+{{ tmpl }}
+
+        return {{ hl7_id.lower() }}.to_hl7()
