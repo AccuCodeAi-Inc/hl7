@@ -1,3 +1,5 @@
+import asyncio
+
 from temporalio import activity, workflow
 from functools import partial
 from datetime import timedelta
@@ -22,7 +24,8 @@ from hl7.v2_5_1.tables import (
 
 
 # sample enum parser for tables (implements base.EnumParser(Protocol))
-def llm_parser(raw_input: str, choices: list[str], descriptions: list[str]) -> str: ...
+def llm_parser(raw_input: str, choices: list[str], descriptions: list[str]) -> str:
+    return choices[0]
 
 
 class UpstreamInput(str):
@@ -6771,7 +6774,7 @@ async def ub2_25(x: UpstreamInput) -> UB2:
                 original_text=ST(x),
             ),
             value_amount=MO(
-                quantity=NM(x), denomination=CurrencyCodes.parse(x, using=llm_parser)
+                quantity=NM(x), denomination=CurrencyCodes.aparse(x, using=llm_parser)
             ),
         ),
         occurrence_code_and_date=OCD(
@@ -6813,6 +6816,7 @@ async def ub2_25(x: UpstreamInput) -> UB2:
         ub92_locator_78=ST(x),
         special_visit_count=NM(x),
     )
+
 
     return ub2
 
@@ -7047,12 +7051,13 @@ class Build_ADT_A08:
 
     @workflow.run
     async def run(self, x: UpstreamInput) -> str:
-        build = partial(
-            workflow.execute_local_activity,
-            arg=x,
-            start_to_close_timeout=timedelta(seconds=10),
-            # other temporal activity args go here
-        )
+        # build = partial(
+        #     workflow.execute_local_activity,
+        #     arg=x,
+        #     start_to_close_timeout=timedelta(seconds=10),
+        #     # other temporal activity args go here
+        # )
+        build = lambda f: f(x)
 
         adt_a08 = ADT_A08(
             message_header=await build(msh_1),
@@ -7120,3 +7125,12 @@ class Build_ADT_A08:
         )
 
         return adt_a08.to_hl7()
+
+async def main():
+    print("converting")
+    x = await Build_ADT_A08().run(UpstreamInput("1"))
+    print(x)
+    print("done")
+
+if __name__ == "__main__":
+    asyncio.run(main())

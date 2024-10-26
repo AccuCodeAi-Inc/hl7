@@ -23,14 +23,14 @@ class {{ filename }}({{ "HL7Table" if x.entries else "str" }}):
     """{{ e.description|replace('\n', ' ')|replace('"', '')|replace("'", '')|escape }}"""
     {% endfor %}
 
+
     @property
-    def description(self):
-        desc = {
-            {% for e in x.entries %}
-            self.{{ e.enum }}: """{{ e.description|replace('\n', ' ')|replace('"', '')|replace("'", '')|escape }}""",
-            {% endfor %}
-        }
-        return desc.get(self, str(self))
+    def description(self) -> str:
+        {% if x.entries %}
+        return _desc[self]
+        {% else %}
+        return self
+        {% endif %}
 
 
     {% if filename in ["YesOrNoIndicator", "YOrNIndicator"] %}
@@ -42,3 +42,11 @@ class {{ filename }}({{ "HL7Table" if x.entries else "str" }}):
         """
         return {{ filename }}.YES if x else {{ filename }}.NO
     {% endif %}
+
+{% if x.entries %}
+_desc = {
+    {% for e in x.entries %}
+    {{ filename }}.{{ e.enum }}: "{{ e.description|replace('\n', ' ')|replace('"', '')|replace("'", '')|escape }}",
+    {% endfor %}
+}
+{% endif %}

@@ -25,8 +25,8 @@ if __name__ == "__main__":
     TARGET = Path("../hl7")
 
     for version in get_all_versions():
-        # if version != "2.5.1":
-        #     continue
+        if version != "2.5.1":
+            continue
         render_trigger_events(version, TARGET)
         render_segments(version, TARGET)
         render_data_types(version, TARGET)

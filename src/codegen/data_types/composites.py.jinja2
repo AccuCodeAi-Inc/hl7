@@ -42,12 +42,13 @@ class {{ x.id }}({{ x.type }}):
     _hl7_name = """{{ x.name.replace('\"', '') }}"""
     _hl7_description = """{{ short_desc }}"""
     _hl7_ref_url = "https://hl7-definition.caristix.com/v2/HL7v{{ version }}/DataTypes/{{ x.id }}"
-    _c_length = ({{ x.fields|map(attribute="length")|join(", ") }})
-    _c_rpt = ({{ x.fields|map(attribute="rpt")|map("replace", "*", "65535")|join(", ") }})
-    _c_usage = ("{{ x.fields|map(attribute="usage")|join('\", \"') + '\"' }})
-    _c_aliases = ("{{ x.fields|map(attribute="position")|join('\", \"') + '\"' }})
-    _c_components = ({{ x.fields|map(attribute="dataType")|join(', ') }})
-    _c_names = ("{{ x.fields|map(attribute="name")|join('\", \"') + '\"' }})
+    _c_length = ({{ x.fields|map(attribute="length")|join(", ") }},)
+    _c_rpt = ({{ x.fields|map(attribute="rpt")|map("replace", "*", "65535")|join(", ") }},)
+    _c_usage = ("{{ x.fields|map(attribute="usage")|join('\", \"') + '\"' }},)
+    _c_aliases = ("{{ x.fields|map(attribute="position")|join('\", \"') + '\"' }},)
+    _c_components = ({{ x.fields|map(attribute="dataType")|join(', ') }},)
+    _c_names = ("{{ x.fields|map(attribute="name")|join('\", \"') + '\"' }},)
+    _c_attrs = ("{{ x.fields|map(attribute="fn_name")|join('\", \"') + '\"' }},)
     # fmt: on
 
 
@@ -71,7 +72,6 @@ class {{ x.id }}({{ x.type }}):
         """
         super().__init__()
         self._c_data: list[tuple] = [(None,)] * {{ x.fields|length }}
-        self._c_attrs = (self.{{ x.fields|map(attribute="fn_name")|join(", self.") }})
         {% for f in x.fields %}
         self.{{ f.fn_name }} = {{ f.fn_name }}
         {% endfor %}

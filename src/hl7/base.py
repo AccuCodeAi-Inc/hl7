@@ -3,99 +3,125 @@ from abc import abstractmethod
 from enum import Enum
 from typing import Any, Generic, Protocol, TypeVar
 
+class HL7Delimiters:
+    SEGMENT = '\n'
+    FIELD = '|'
+    COMPONENT = '^'
+    REPETITION = '~'
+    ESCAPE = '\\'
+    SUBCOMPONENT = '&'
 
 class HL7:
-    _rpt = "~"
-    _esc = "\\"
-    _sep = "^"
-    _sub = "&"
-    _delim = "NotImplemented"
+    _delimiters = HL7Delimiters
+    _delimiter = None  # To be set in subclasses
+
 
     @abstractmethod
     def __init__(self):
-        self._c_attrs = ()  # auto populated by codegen; references to setters/getters on self
-        self._c_data = []  # length & default vals initialized by code gen
-        self._hl7_id = "base"
+        ...
 
     @classmethod
-    def _escape(cls, value: str) -> str:
+    def _escape(cls, value: Any) -> str:
         if not value:
             return ""
-        for char in (cls._sep, cls._rpt, cls._esc, cls._sub, cls._delim):
-            value = value.replace(char, f"\\{char}")
+        value = str(value)
+        escape_chars = {
+            cls._delimiters.FIELD: 'F',
+            cls._delimiters.COMPONENT: 'S',
+            cls._delimiters.REPETITION: 'R',
+            cls._delimiters.ESCAPE: 'E',
+            cls._delimiters.SUBCOMPONENT: 'T',
+            cls._delimiters.SEGMENT: 'N',
+        }
+        for char, code in escape_chars.items():
+            value = value.replace(char, f"\\{code}\\")
         return value
 
     def _build_component(self, component) -> str:
+        if not component:
+            return ""
         escaped_values = []
         for value in component:
-            if isinstance(value, HL7):
+            if isinstance(value, HL7Table):
+                escaped_values.append(self._escape(value.value))
+            elif isinstance(value, HL7):
                 escaped_values.append(value._serialize())
             else:
                 escaped_values.append(self._escape(value))
-        return self._rpt.join(escaped_values)
+        return self._delimiter.join(escaped_values)
+
 
     def _serialize(self) -> str:
-        return self._delim.join(
-            self._build_component(component) for component in self._c_data
-        )
+        serialized_fields = []
+        for component in self._c_data:
+            if len(component) > 1:  # Repetitions
+                repeated_components = self._delimiters.REPETITION.join(
+                    self._build_component(rep) for rep in component
+                )
+                serialized_fields.append(repeated_components)
+            else:
+                serialized_fields.append(self._build_component(component))
+        return self._delimiter.join(serialized_fields)
+        # return self._delimiters.FIELD.join(serialized_fields)
 
-    def __len__(self):
-        def _len(val):
-            if isinstance(val, list):
-                return sum(_len(v) for v in val)
-            return len(val)
+    # def _serialize(self) -> str:
+    #     return self._delim.join(
+    #         self._build_component(component) for component in self._c_data
+    #     )
 
-        return _len(self._c_data)
+    # def __len__(self):
+    #     return 0
+        # def _len(val):
+        #     if val is None:
+        #         return 0
+        #     elif isinstance(val, (list, tuple)):
+        #         return sum(_len(v) for v in val)
+        #     else:
+        #         return len(val)
+        #
+        # return _len(self._c_data)
 
-    def __getitem__(self, item: int | type[str]):
-        return self._c_attrs[item]
-
-    def __setitem__(self, idx: int, item: str):
-        self._c_attrs[idx]
-
+    # def __getitem__(self, item: int | str):
+    #     """get 1-indexed HL7 position"""
+    #     if isinstance(item, int):
+    #         attr_name = self._c_attrs[item-1]
+    #     else:
+    #         attr_name = item
+    #     return getattr(self, attr_name)
+    #
+    # def __setitem__(self, idx: int | str, value):
+    #     """set 1-indexed HL7 position"""
+    #     if isinstance(idx, int):
+    #         attr_name = self._c_attrs[idx-1]
+    #     else:
+    #         attr_name = idx
+    #     setattr(self, attr_name, value)
+    #
     def __iter__(self):
-        for v in self._c_attrs:
-            yield v
-
-
-class HL7Segment(HL7):
-    _delim = "|"
-
-    def to_hl7(self) -> str:
-        return f"{self._hl7_id}|{self._serialize()}"
-
-
-class HL7TriggerEvent(HL7):
-    _delim = "\n"
+        for attr_name in self._c_attrs:
+            yield getattr(self, attr_name)
 
     def to_hl7(self) -> str:
         return self._serialize()
+
+
+class HL7Segment(HL7):
+    _delimiter = HL7Delimiters.FIELD
+
+
+class HL7TriggerEvent(HL7):
+    _delimiter = HL7Delimiters.SEGMENT
 
 
 class HL7SegmentGroup(HL7TriggerEvent): ...
 
-
-# class HL7Field(HL7):
-#     _delim = "|"
-#     def to_hl7(self) -> str:
-#         return self._serialize()
-
-
 class HL7Component(HL7):
-    _delim = "^"
-
-    def to_hl7(self, sep="^") -> str:
-        return self._serialize()
+    _delimiter = HL7Delimiters.COMPONENT
 
 
-class DataType(HL7Component): ...
+class DataType(HL7Component):
+    _delimiter = HL7Delimiters.SUBCOMPONENT
 
-
-class HL7Subcomponent(HL7):
-    _delim = "&"
-
-    def to_hl7(self, sep="%") -> str:
-        return self._serialize()
 
 
 class HL7Exception(Exception): ...
@@ -221,6 +247,7 @@ S = TypeVar("S", bound=str)
 
 
 class HL7Primitive(Generic[S]):
+    _delimiter = HL7Delimiters.COMPONENT
     def validate(
         self: S, *, using: StrValidator = None, regex: str | re.Pattern = None
     ) -> bool:
@@ -261,3 +288,10 @@ class HL7Primitive(Generic[S]):
         :raises HL7ParseException: If the value cannot be parsed into a valid enum member.
         """
         return cls(using(value, cls.__doc__))
+
+    # @classmethod
+    # def aparse(cls, value: str, *, using):
+    #     """Async version of parse. Call HL7._resolve_deferred() after HL7.__init__()"""
+    #     async def wrapper():
+    #         return await cls.parse(value, using=using)
+    #     return asyncio.create_task(wrapper())

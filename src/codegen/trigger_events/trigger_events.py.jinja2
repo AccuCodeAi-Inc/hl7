@@ -48,6 +48,7 @@ class {{ x.id.replace(" ", "_") }}({{ parent_class }}):
     _c_components = ({{ x.segments|map(attribute="param_type")|join(', ') }})
     _c_name = ("{{ x.segments|map(attribute="name")|join('\", \"') + '\"' }})
     _c_is_group = ({{ x.segments|map(attribute="isGroup")|join(", ") }})
+    _c_attrs = ("{{ x.segments|map(attribute="fn_name")|join('\", \"') + '\"' }},)
     # fmt: on
 
 
@@ -71,7 +72,6 @@ class {{ x.id.replace(" ", "_") }}({{ parent_class }}):
         """
         super().__init__()
         self._c_data: list[tuple] = [(None,)] * {{ x.segments|length }}
-        self._c_attrs = (self.{{ x.segments|map(attribute="fn_name")|join(", self.") }})
         {% for f in x.segments %}
         self.{{ f.fn_name }} = {{ f.fn_name }}
     {% endfor %}
