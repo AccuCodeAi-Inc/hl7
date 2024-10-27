@@ -1,5 +1,8 @@
 import re
 
+# https://stackoverflow.com/questions/9895686/why-does-naming-a-file-con-txt-in-windows-make-python-write-to-console-not-fi
+naughty_strings = ["CON", "PRN", "AUX", "NUL", "COM", "LPT"]
+
 
 def to_valid_variable_name(s):
     old = s
@@ -68,10 +71,14 @@ def to_valid_variable_name(s):
 
 
 def make_table_filename(name: str) -> str:
+    if name in naughty_strings:
+        name = f"{name}_"
     return (
         name.replace("/", " or ")
         .title()
+        .replace("$", "_")
         .replace(" ", "")
+        .replace("", "")
         .replace("’", "")
         .replace("-", "")
         .replace("'", "")

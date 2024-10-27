@@ -2,6 +2,7 @@ from pathlib import Path
 
 from jinja2 import Template, Environment, FileSystemLoader
 
+from codegen.clean import naughty_strings
 from src.codegen.session import session
 from src.codegen.clean import to_valid_variable_name
 
@@ -69,12 +70,22 @@ def render_segment(hl7_id: str, version: str, seg_template: Template, path: Path
         defs["fields"][i]["param_type"] = param_type
         defs["fields"][i]["fn_name"] = fn_name
         suffix = "" if f["usage"] == "R" else " | None = None"
-        init_params.append(
-            f"        {fn_name}: {param_type}{suffix},  # {f["position"]}"
-        )
 
-    default_params = [ip for ip in init_params if " | None = None" in ip]
-    non_default_params = [ip for ip in init_params if " | None = None" not in ip]
+        if hl7_id == "MSH" and fn_name == "field_separator":
+            init_params.append(
+                f"        {fn_name}: {param_type}{suffix} = {param_type}('|'),  # {f["position"]}"
+            )
+        elif hl7_id == "MSH" and fn_name == "encoding_characters":
+            init_params.append(
+                f"        {fn_name}: {param_type}{suffix} = {param_type}('^~\\\\&'),  # {f["position"]}"
+            )
+        else:
+            init_params.append(
+                f"        {fn_name}: {param_type}{suffix},  # {f["position"]}"
+            )
+
+    default_params = [ip for ip in init_params if "=" in ip]
+    non_default_params = [ip for ip in init_params if "=" not in ip]
     init_params = "\n".join(non_default_params + default_params)
 
     rendered = seg_template.render(
@@ -88,7 +99,8 @@ def render_segment(hl7_id: str, version: str, seg_template: Template, path: Path
     )
 
     path.mkdir(parents=True, exist_ok=True)
-    with open(path / f"{hl7_id}.py", "w") as f:
+    filename = f"{hl7_id}.py" if hl7_id not in naughty_strings else f"{hl7_id}_.py"
+    with open(path / filename, "w") as f:
         f.write(rendered)
 
 
@@ -108,7 +120,8 @@ def render_segments(version: str, target_path: Path):
 
     imports = []
     for hl7_id in get_all_segment_ids(version):
-        imports.append(f"from .{hl7_id} import {hl7_id}")
+        filename = f"{hl7_id}" if hl7_id not in naughty_strings else f"{hl7_id}_"
+        imports.append(f"from .{filename} import {hl7_id}")
         print(f"Rendering {hl7_id}")
         render_segment(hl7_id, version, seg_template, out_dir)
     with open(out_dir / "__init__.py", "w") as f:

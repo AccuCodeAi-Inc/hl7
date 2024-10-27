@@ -3,128 +3,198 @@ from abc import abstractmethod
 from enum import Enum
 from typing import Any, Generic, Protocol, TypeVar
 
-class HL7Delimiters:
-    SEGMENT = '\n'
-    FIELD = '|'
-    COMPONENT = '^'
-    REPETITION = '~'
-    ESCAPE = '\\'
-    SUBCOMPONENT = '&'
+
+class DELIM:
+    seg = "\n"
+    fld = "|"
+    com = "^"
+    rep = "~"
+    esc = "\\"
+    sub = "&"
+
 
 class HL7:
-    _delimiters = HL7Delimiters
-    _delimiter = None  # To be set in subclasses
+    def __str__(self):
+        return str(self.to_hl7())
 
+    def __repr__(self):
+        f"{self.__class__.__name__}('{self.to_hl7()}')"
 
-    @abstractmethod
-    def __init__(self):
-        ...
-
-    @classmethod
-    def _escape(cls, value: Any) -> str:
-        if not value:
-            return ""
-        value = str(value)
-        escape_chars = {
-            cls._delimiters.FIELD: 'F',
-            cls._delimiters.COMPONENT: 'S',
-            cls._delimiters.REPETITION: 'R',
-            cls._delimiters.ESCAPE: 'E',
-            cls._delimiters.SUBCOMPONENT: 'T',
-            cls._delimiters.SEGMENT: 'N',
-        }
-        for char, code in escape_chars.items():
-            value = value.replace(char, f"\\{code}\\")
-        return value
-
-    def _build_component(self, component) -> str:
-        if not component:
-            return ""
-        escaped_values = []
-        for value in component:
-            if isinstance(value, HL7Table):
-                escaped_values.append(self._escape(value.value))
-            elif isinstance(value, HL7):
-                escaped_values.append(value._serialize())
-            else:
-                escaped_values.append(self._escape(value))
-        return self._delimiter.join(escaped_values)
-
-
-    def _serialize(self) -> str:
-        serialized_fields = []
-        for component in self._c_data:
-            if len(component) > 1:  # Repetitions
-                repeated_components = self._delimiters.REPETITION.join(
-                    self._build_component(rep) for rep in component
-                )
-                serialized_fields.append(repeated_components)
-            else:
-                serialized_fields.append(self._build_component(component))
-        return self._delimiter.join(serialized_fields)
-        # return self._delimiters.FIELD.join(serialized_fields)
-
-    # def _serialize(self) -> str:
-    #     return self._delim.join(
-    #         self._build_component(component) for component in self._c_data
-    #     )
-
-    # def __len__(self):
-    #     return 0
-        # def _len(val):
-        #     if val is None:
-        #         return 0
-        #     elif isinstance(val, (list, tuple)):
-        #         return sum(_len(v) for v in val)
-        #     else:
-        #         return len(val)
-        #
-        # return _len(self._c_data)
-
-    # def __getitem__(self, item: int | str):
-    #     """get 1-indexed HL7 position"""
-    #     if isinstance(item, int):
-    #         attr_name = self._c_attrs[item-1]
-    #     else:
-    #         attr_name = item
-    #     return getattr(self, attr_name)
-    #
-    # def __setitem__(self, idx: int | str, value):
-    #     """set 1-indexed HL7 position"""
-    #     if isinstance(idx, int):
-    #         attr_name = self._c_attrs[idx-1]
-    #     else:
-    #         attr_name = idx
-    #     setattr(self, attr_name, value)
-    #
     def __iter__(self):
         for attr_name in self._c_attrs:
             yield getattr(self, attr_name)
 
-    def to_hl7(self) -> str:
-        return self._serialize()
-
 
 class HL7Segment(HL7):
-    _delimiter = HL7Delimiters.FIELD
+    # TODO: validate & escape
+
+    def to_hl7(self, delim=DELIM) -> str:
+        buf = []
+        buf.append(self._hl7_id)
+        is_msh = self._hl7_id == "MSH"
+        for i, rpt in enumerate(self):
+            match rpt:
+                case _ if is_msh and i == 0:
+                    delim.fld = rpt
+                case _ if is_msh and i == 1:
+                    assert len(rpt) == 4, f"invalid MSH.2 field separators: {rpt}"
+                    delim.com, delim.rpt, delim.esc, delim.sub = (
+                        rpt[0],
+                        rpt[1],
+                        rpt[2],
+                        rpt[3],
+                    )
+                    buf.append(rpt)
+                case None:
+                    buf.append("")
+                case str():
+                    buf.append(str(rpt))
+                case tuple():
+                    reps = [c.to_hl7(delim) if c else "" for c in rpt]
+                    val = delim.rep.join(reps).rstrip(delim.rep)
+                    buf.append(val)
+                case _:
+                    buf.append(rpt.to_hl7(delim))
+
+        return delim.fld.join(buf).rstrip(delim.fld)
+
+    @classmethod
+    def from_hl7[T](cls: type[T], hl7_str: str, delim=DELIM) -> T:
+        if hl7_str.startswith("MSH"):
+            h = hl7_str
+            delim.fld, delim.com, delim.rpt, delim.esc, delim.sub = (
+                h[3],
+                h[4],
+                h[5],
+                h[6],
+                h[7],
+            )
+            hl7_str = hl7_str.replace(f"MSH{delim.fld}", f"MSH{delim.fld*2}")
+
+        s = hl7_str.split(delim.fld)
+        s[1] = delim.fld
+        assert (
+            s[0] == cls._hl7_id
+        ), f"invalid segment target: {s[0]} for segment {cls._hl7_id}"
+
+        kwargs = {}
+        for attr_name, component, attr_val in zip(
+            cls._c_attrs, cls._c_components, s[1:]
+        ):
+            if not attr_val:
+                continue
+            if delim.rep in attr_val:
+                rep_vals = attr_val.split(delim.rep)
+                kwargs[attr_name] = (
+                    component.from_hl7(rep_val, delim) for rep_val in rep_vals
+                )
+            else:
+                kwargs[attr_name] = component.from_hl7(attr_val, delim)
+        return cls(**kwargs)
+
+
+class DataType(HL7):
+    def to_hl7(self, delim=DELIM, is_subcomponent=False) -> str:
+        buf = []
+        for rpt in self:
+            match rpt:
+                case None:
+                    buf.append("")
+                case str():
+                    buf.append(str(rpt))
+                case tuple():
+                    reps = [
+                        c.to_hl7(delim, is_subcomponent=True) if c else "" for c in rpt
+                    ]
+                    val = delim.rep.join(reps).rstrip(delim.rep)
+                    buf.append(val)
+                case _:
+                    buf.append(rpt.to_hl7(delim, is_subcomponent=True))
+
+        if is_subcomponent:
+            return delim.sub.join(buf).rstrip(delim.sub)
+        return delim.com.join(buf).rstrip(delim.com)
+
+    @classmethod
+    def from_hl7[T](
+        cls: type[T], hl7_str: str, delim=DELIM, is_subcomponent=False
+    ) -> T:
+        d = delim.com if not is_subcomponent else delim.sub
+        s = hl7_str.split(d)
+        kwargs = {}
+        for attr_name, component, attr_val in zip(cls._c_attrs, cls._c_components, s):
+            if not attr_val:
+                continue
+            if delim.rep in attr_val:
+                rep_vals = attr_val.split(delim.rep)
+                kwargs[attr_name] = (
+                    component.from_hl7(
+                        rep_val, delim, is_subcomponent=delim.sub in rep_val
+                    )
+                    for rep_val in rep_vals
+                )
+            else:
+                kwargs[attr_name] = component.from_hl7(
+                    attr_val, delim, is_subcomponent=delim.sub in attr_val
+                )
+        return cls(**kwargs)
 
 
 class HL7TriggerEvent(HL7):
-    _delimiter = HL7Delimiters.SEGMENT
+    def to_hl7(self, delim=DELIM, is_subcomponent=False) -> str:
+        buf = []
+        for rpt in self:
+            match rpt:
+                case None:
+                    buf.append("")
+                case str():
+                    buf.append(str(rpt))
+                case tuple():
+                    reps = [c.to_hl7(delim) if c else "" for c in rpt]
+                    val = delim.rep.join(reps).rstrip(delim.rep)
+                    buf.append(val)
+                case _:
+                    buf.append(rpt.to_hl7(delim))
+
+        return delim.seg.join(buf).rstrip(delim.seg)
+
+    # TODO: finish parsing method handling for segment groups
+    # @classmethod
+    # def from_hl7[T](cls: type[T], hl7_str: str, delim=DELIM) -> T:
+    #     kwargs = {}
+    #     for attr_name, component, attr_val in zip(cls._c_attrs, cls._c_components, hl7_str.split("\n")):
+    #         if attr_val:
+    #             kwargs[attr_name] = component.from_hl7(attr_val, delim)
+    #     return cls(**kwargs)
 
 
-class HL7SegmentGroup(HL7TriggerEvent): ...
+class HL7SegmentGroup(HL7TriggerEvent):
+    # @classmethod
+    # def from_hl7[T](cls: type[T], hl7_str: str, delim=DELIM) -> T | tuple[T]:
+    #     kwargs = {}
+    #     for attr_name, component, attr_val in zip(cls._c_attrs, cls._c_components, hl7_str.split("\n")):
+    #         if attr_val:
+    #             kwargs[attr_name] = component.from_hl7(attr_val)
+    #     return cls(**kwargs)
 
-class HL7Component(HL7):
-    _delimiter = HL7Delimiters.COMPONENT
+    def to_hl7(self, delim=DELIM, is_subcomponent=False) -> str:
+        from itertools import chain
 
+        buf = []
+        for rpt in self:
+            if isinstance(rpt, tuple):
+                for r in rpt:
+                    buf.append(r.to_hl7(delim))
+            else:
+                buf.append(rpt.to_hl7(delim))
 
-class DataType(HL7Component):
-    _delimiter = HL7Delimiters.SUBCOMPONENT
-
+        return delim.seg.join(buf).rstrip(delim.seg)
 
 
 class HL7Exception(Exception): ...
+
+
+class HL7ExcessiveRepetition(IndexError, HL7Exception): ...
 
 
 class HL7TriggerEventValidationException(ValueError, HL7Exception): ...
@@ -167,6 +237,19 @@ E = TypeVar("E", bound=Enum)
 
 
 class HL7Table(Generic[E], Enum):
+    def __str__(self):
+        return str(self)
+
+    def __repr__(self):
+        f"{self.__class__.__name__}('{str(self)}')"
+
+    def to_hl7(self, delim=DELIM, is_subcomponent=False) -> str:
+        return str(self.value)
+
+    @classmethod
+    def from_hl7(cls: type[E], hl7_str: str, delim=DELIM, is_subcomponent=False) -> E:
+        return cls(hl7_str)
+
     @classmethod
     def parse(cls: type[E], value: Any, *, using: EnumParser) -> E:
         """
@@ -247,7 +330,19 @@ S = TypeVar("S", bound=str)
 
 
 class HL7Primitive(Generic[S]):
-    _delimiter = HL7Delimiters.COMPONENT
+    def __str__(self):
+        return self.to_hl7()
+
+    def __repr__(self):
+        f"{self.__class__.__name__}('{self.to_hl7()}')"
+
+    def to_hl7(self, delim=DELIM, is_subcomponent=False) -> str:
+        return str(self)
+
+    @classmethod
+    def from_hl7(cls: type[E], hl7_str: str, delim=DELIM, is_subcomponent=False) -> E:
+        return cls(hl7_str)
+
     def validate(
         self: S, *, using: StrValidator = None, regex: str | re.Pattern = None
     ) -> bool:
