@@ -15,14 +15,17 @@ class DELIM:
 
 class HL7:
     def __str__(self):
-        return str(self.to_hl7())
+        return str(self.to_hl7()) if self else ""
 
     def __repr__(self):
-        f"{self.__class__.__name__}('{self.to_hl7()}')"
+        return f"{self.__class__.__name__}('{self.to_hl7() if self else ""}')"
 
     def __iter__(self):
         for attr_name in self._c_attrs:
             yield getattr(self, attr_name)
+
+    def __eq__(self, other: str):
+        return str(self).strip() == str(other).strip()
 
 
 class HL7Segment(HL7):
@@ -238,13 +241,13 @@ E = TypeVar("E", bound=Enum)
 
 class HL7Table(Generic[E], Enum):
     def __str__(self):
-        return str(self)
+        return str(self.value) if self.value else ""
 
     def __repr__(self):
-        f"{self.__class__.__name__}('{str(self)}')"
+        return f"{self.__class__.__name__}('{str(self)}')"
 
     def to_hl7(self, delim=DELIM, is_subcomponent=False) -> str:
-        return str(self.value)
+        return str(self.value) if self else ""
 
     @classmethod
     def from_hl7(cls: type[E], hl7_str: str, delim=DELIM, is_subcomponent=False) -> E:
@@ -330,14 +333,17 @@ S = TypeVar("S", bound=str)
 
 
 class HL7Primitive(Generic[S]):
+    def __eq__(self, other: str):
+        return str(self).strip() == str(other).strip()
+
     def __str__(self):
         return self.to_hl7()
 
     def __repr__(self):
-        f"{self.__class__.__name__}('{self.to_hl7()}')"
+        return f"{self.__class__.__name__}('{self.to_hl7() if self else ""}')"
 
     def to_hl7(self, delim=DELIM, is_subcomponent=False) -> str:
-        return str(self)
+        return str(self) if self else ""
 
     @classmethod
     def from_hl7(cls: type[E], hl7_str: str, delim=DELIM, is_subcomponent=False) -> E:
