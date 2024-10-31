@@ -25,7 +25,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: wheels-python-${{ matrix.python-version }}
-          path: dist/*.whl
+          path: dist/*
           
   create-release:
     needs: build-and-publish
@@ -45,7 +45,7 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
-          files: dist/*.whl
+          files: dist/*
           generate_release_notes: true
           draft: false
           prerelease: false
