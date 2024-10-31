@@ -1,0 +1,52 @@
+name: Build and Publish Release
+
+on:
+  push:
+    tags:
+      - 'v*'  # Trigger on version tags
+
+jobs:
+  build-and-publish:
+    name: Build and Publish
+    runs-on: ubuntu-latest
+        
+    steps:
+      - name: Install the latest version of uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          enable-cache: 'true'
+          
+      - name: Build wheel
+        run: |
+          uv build
+          
+      - name: Store wheel artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: wheels-python-${{ matrix.python-version }}
+          path: dist/*.whl
+          
+  create-release:
+    needs: build-and-publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Download all wheels
+        uses: actions/download-artifact@v4
+        with:
+          pattern: wheels-python-*
+          path: dist
+          merge-multiple: true
+          
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/*.whl
+          generate_release_notes: true
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
