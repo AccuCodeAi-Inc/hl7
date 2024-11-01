@@ -8,18 +8,6 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.12"
 [project.optional-dependencies]
-v2_1 = []
-v2_2 = []
-v2_3 = []
-v2_3_1 = []
-v2_4 = []
-v2_5 = []
-v2_5_1 = []
-v2_6 = []
-v2_7 = []
-v2_7_1 = []
-v2_8 = []
-all = ["hl7[v2_1,v2_2,v2_3,v2_3_1,v2_4,v2_5,v2_5_1,v2_6,v2_7,v2_7_1,v2_8]"]
 
 
 [build-system]
