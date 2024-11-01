@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
-from ..data_types.EI import EI
 from ..data_types.ID import ID
+from ..data_types.EI import EI
 from ..data_types.PL import PL
+from ..data_types.CE import CE
 from ..tables.SegmentActionCode import SegmentActionCode
 from ..tables.LocationCharacteristicId import LocationCharacteristicId
 
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     LCH,
-    CE, EI, ID, PL
+    ID, EI, PL, CE
 )
 
 lch = LCH(  #  - The LCH segment is used to identify location characteristics which determine which patients will be assigned to the room or bed
@@ -51,11 +51,16 @@ class LCH(HL7Segment):
 
     def __init__(
         self,
-        primary_key_value_lch: PL,  # LCH.1
-        location_characteristic_id: LocationCharacteristicId | CE,  # LCH.4
-        location_characteristic_value_lch: CE,  # LCH.5
-        segment_action_code: SegmentActionCode | ID | None = None,  # LCH.2
-        segment_unique_key: EI | None = None,  # LCH.3
+        primary_key_value_lch: PL | tuple[PL],  # LCH.1
+        location_characteristic_id: LocationCharacteristicId
+        | CE
+        | tuple[LocationCharacteristicId | CE],  # LCH.4
+        location_characteristic_value_lch: CE | tuple[CE],  # LCH.5
+        segment_action_code: SegmentActionCode
+        | ID
+        | tuple[SegmentActionCode | ID]
+        | None = None,  # LCH.2
+        segment_unique_key: EI | tuple[EI] | None = None,  # LCH.3
     ):
         """
                 Location Characteristic - `LCH <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/LCH>`_

@@ -1,17 +1,17 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
-from ..data_types.OCD import OCD
+from ..data_types.UVC import UVC
+from ..data_types.NM import NM
 from ..data_types.IS import IS
 from ..data_types.DT import DT
-from ..data_types.NM import NM
-from ..data_types.ST import ST
+from ..data_types.OCD import OCD
 from ..data_types.SI import SI
-from ..data_types.UVC import UVC
-from ..tables.PsroOrUrApprovalIndicator import PsroOrUrApprovalIndicator
-from ..tables.OccurrenceSpan import OccurrenceSpan
+from ..data_types.CE import CE
+from ..data_types.ST import ST
 from ..tables.ConditionCode import ConditionCode
+from ..tables.PsroOrUrApprovalIndicator import PsroOrUrApprovalIndicator
 from ..tables.SpecialProgramIndicator import SpecialProgramIndicator
+from ..tables.OccurrenceSpan import OccurrenceSpan
 
 
 """
@@ -22,7 +22,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     UB1,
-    CE, OCD, IS, DT, NM, ST, SI, UVC
+    UVC, NM, IS, DT, OCD, SI, CE, ST
 )
 
 ub1 = UB1(  #  - The UB1 segment contains the data necessary to complete UB82 bills specific to the United States; other realms may choose to implement using regional code sets
@@ -75,31 +75,41 @@ class UB1(HL7Segment):
 
     def __init__(
         self,
-        set_id_ub1: SI | None = None,  # UB1.1
-        blood_deductible: NM | None = None,  # UB1.2
-        blood_furnished_pints_of: NM | None = None,  # UB1.3
-        blood_replaced_pints: NM | None = None,  # UB1.4
-        blood_not_replaced_pints: NM | None = None,  # UB1.5
-        co_insurance_days: NM | None = None,  # UB1.6
-        condition_code: ConditionCode | IS | None = None,  # UB1.7
-        covered_days: NM | None = None,  # UB1.8
-        non_covered_days: NM | None = None,  # UB1.9
-        value_amount_and_code: UVC | None = None,  # UB1.10
-        number_of_grace_days: NM | None = None,  # UB1.11
-        special_program_indicator: SpecialProgramIndicator | CE | None = None,  # UB1.12
+        set_id_ub1: SI | tuple[SI] | None = None,  # UB1.1
+        blood_deductible: NM | tuple[NM] | None = None,  # UB1.2
+        blood_furnished_pints_of: NM | tuple[NM] | None = None,  # UB1.3
+        blood_replaced_pints: NM | tuple[NM] | None = None,  # UB1.4
+        blood_not_replaced_pints: NM | tuple[NM] | None = None,  # UB1.5
+        co_insurance_days: NM | tuple[NM] | None = None,  # UB1.6
+        condition_code: ConditionCode
+        | IS
+        | tuple[ConditionCode | IS]
+        | None = None,  # UB1.7
+        covered_days: NM | tuple[NM] | None = None,  # UB1.8
+        non_covered_days: NM | tuple[NM] | None = None,  # UB1.9
+        value_amount_and_code: UVC | tuple[UVC] | None = None,  # UB1.10
+        number_of_grace_days: NM | tuple[NM] | None = None,  # UB1.11
+        special_program_indicator: SpecialProgramIndicator
+        | CE
+        | tuple[SpecialProgramIndicator | CE]
+        | None = None,  # UB1.12
         psro_or_ur_approval_indicator: PsroOrUrApprovalIndicator
         | CE
+        | tuple[PsroOrUrApprovalIndicator | CE]
         | None = None,  # UB1.13
-        psro_or_ur_approved_stay_fm: DT | None = None,  # UB1.14
-        psro_or_ur_approved_stay_to: DT | None = None,  # UB1.15
-        occurrence: OCD | None = None,  # UB1.16
-        occurrence_span: OccurrenceSpan | CE | None = None,  # UB1.17
-        occur_span_start_date: DT | None = None,  # UB1.18
-        occur_span_end_date: DT | None = None,  # UB1.19
-        ub_82_locator_2: ST | None = None,  # UB1.20
-        ub_82_locator_9: ST | None = None,  # UB1.21
-        ub_82_locator_27: ST | None = None,  # UB1.22
-        ub_82_locator_45: ST | None = None,  # UB1.23
+        psro_or_ur_approved_stay_fm: DT | tuple[DT] | None = None,  # UB1.14
+        psro_or_ur_approved_stay_to: DT | tuple[DT] | None = None,  # UB1.15
+        occurrence: OCD | tuple[OCD] | None = None,  # UB1.16
+        occurrence_span: OccurrenceSpan
+        | CE
+        | tuple[OccurrenceSpan | CE]
+        | None = None,  # UB1.17
+        occur_span_start_date: DT | tuple[DT] | None = None,  # UB1.18
+        occur_span_end_date: DT | tuple[DT] | None = None,  # UB1.19
+        ub_82_locator_2: ST | tuple[ST] | None = None,  # UB1.20
+        ub_82_locator_9: ST | tuple[ST] | None = None,  # UB1.21
+        ub_82_locator_27: ST | tuple[ST] | None = None,  # UB1.22
+        ub_82_locator_45: ST | tuple[ST] | None = None,  # UB1.23
     ):
         """
                 UB82 Data - `UB1 <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/UB1>`_

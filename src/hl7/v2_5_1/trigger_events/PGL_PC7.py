@@ -2,9 +2,9 @@ from __future__ import annotations
 from ...base import HL7TriggerEvent
 from ..segment_groups.PGL_PC7_GOAL_GROUP import PGL_PC7_GOAL_GROUP
 from ..segments.SFT import SFT
-from ..segments.PID import PID
 from ..segments.MSH import MSH
 from ..segment_groups.PGL_PC7_PATIENT_VISIT_GROUP import PGL_PC7_PATIENT_VISIT_GROUP
+from ..segments.PID import PID
 
 
 """

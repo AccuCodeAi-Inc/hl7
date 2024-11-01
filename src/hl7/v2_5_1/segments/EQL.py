@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
-from ..data_types.ST import ST
 from ..data_types.ID import ID
+from ..data_types.ST import ST
+from ..data_types.CE import CE
 from ..tables.QueryOrResponseFormatCode import QueryOrResponseFormatCode
 
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     EQL,
-    CE, ST, ID
+    ID, ST, CE
 )
 
 eql = EQL(  #  - The EQL segment is used to define queries using select statements based on the query language of choice (e
@@ -48,10 +48,12 @@ class EQL(HL7Segment):
 
     def __init__(
         self,
-        query_or_response_format_code: QueryOrResponseFormatCode | ID,  # EQL.2
-        eql_query_name: CE,  # EQL.3
-        eql_query_statement: ST,  # EQL.4
-        query_tag: ST | None = None,  # EQL.1
+        query_or_response_format_code: QueryOrResponseFormatCode
+        | ID
+        | tuple[QueryOrResponseFormatCode | ID],  # EQL.2
+        eql_query_name: CE | tuple[CE],  # EQL.3
+        eql_query_statement: ST | tuple[ST],  # EQL.4
+        query_tag: ST | tuple[ST] | None = None,  # EQL.1
     ):
         """
                 Embedded Query Language - `EQL <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/EQL>`_

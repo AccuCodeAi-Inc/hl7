@@ -43,8 +43,8 @@ class VR(DataType):
 
     def __init__(
         self,
-        first_data_code_value: ST | None = None,  # VR.1
-        last_data_code_value: ST | None = None,  # VR.2
+        first_data_code_value: ST | tuple[ST] | None = None,  # VR.1
+        last_data_code_value: ST | tuple[ST] | None = None,  # VR.2
     ):
         """
                 Value Range - `VR <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/VR>`_

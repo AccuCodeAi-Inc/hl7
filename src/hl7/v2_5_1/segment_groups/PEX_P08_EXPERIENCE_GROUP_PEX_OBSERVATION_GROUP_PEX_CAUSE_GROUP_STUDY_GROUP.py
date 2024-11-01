@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.CSP import CSP
 from ..segments.CSR import CSR
+from ..segments.CSP import CSP
 
 
 """

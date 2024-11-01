@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.NTE import NTE
 from ..segments.ODT import ODT
-from ..segments.ORC import ORC
+from ..segments.NTE import NTE
 from ..segment_groups.OMD_O03_ORDER_TRAY_GROUP_TIMING_TRAY_GROUP import (
     OMD_O03_ORDER_TRAY_GROUP_TIMING_TRAY_GROUP,
 )
+from ..segments.ORC import ORC
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OMD_O03_ORDER_TRAY_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NTE, ODT, ORC
+    ODT, NTE, ORC
 )
 from utils.hl7.v2_5_1.segment_groups import (
     OMD_O03_ORDER_TRAY_GROUP_TIMING_TRAY_GROUP

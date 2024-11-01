@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.QRD import QRD
-from ..segments.NTE import NTE
-from ..segments.SFT import SFT
-from ..segments.DSC import DSC
 from ..segments.ERR import ERR
-from ..segments.MSH import MSH
-from ..segments.MSA import MSA
+from ..segments.DSC import DSC
 from ..segments.QRF import QRF
 from ..segment_groups.OSR_Q06_RESPONSE_GROUP import OSR_Q06_RESPONSE_GROUP
+from ..segments.SFT import SFT
+from ..segments.MSH import MSH
+from ..segments.MSA import MSA
+from ..segments.NTE import NTE
+from ..segments.QRD import QRD
 
 
 """
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OSR_Q06
 from utils.hl7.v2_5_1.segments import (
-    ERR, DSC, NTE, QRF, SFT, MSA, MSH, QRD
+    MSH, QRD, SFT, ERR, NTE, QRF, DSC, MSA
 )
 from utils.hl7.v2_5_1.segment_groups import (
     OSR_Q06_RESPONSE_GROUP

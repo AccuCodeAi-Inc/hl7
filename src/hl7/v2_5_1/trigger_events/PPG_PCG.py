@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.SFT import SFT
-from ..segments.PID import PID
 from ..segment_groups.PPG_PCG_PATHWAY_GROUP import PPG_PCG_PATHWAY_GROUP
+from ..segments.SFT import SFT
 from ..segments.MSH import MSH
+from ..segments.PID import PID
 from ..segment_groups.PPG_PCG_PATIENT_VISIT_GROUP import PPG_PCG_PATIENT_VISIT_GROUP
 
 
@@ -18,7 +18,7 @@ from utils.hl7.v2_5_1.segments import (
     PID, SFT, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    PPG_PCG_PATHWAY_GROUP, PPG_PCG_PATIENT_VISIT_GROUP
+    PPG_PCG_PATIENT_VISIT_GROUP, PPG_PCG_PATHWAY_GROUP
 )
 
 ppg_pcg = PPG_PCG(  #  - 

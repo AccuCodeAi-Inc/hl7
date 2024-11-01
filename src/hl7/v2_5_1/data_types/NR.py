@@ -43,8 +43,8 @@ class NR(DataType):
 
     def __init__(
         self,
-        low_value: NM | None = None,  # NR.1
-        high_value: NM | None = None,  # NR.2
+        low_value: NM | tuple[NM] | None = None,  # NR.1
+        high_value: NM | tuple[NM] | None = None,  # NR.2
     ):
         """
         Numeric Range - `NR <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/NR>`_

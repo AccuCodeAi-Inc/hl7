@@ -42,7 +42,7 @@ class RDT(HL7Segment):
 
     def __init__(
         self,
-        column_value: VARIES,  # RDT.1
+        column_value: VARIES | tuple[VARIES],  # RDT.1
     ):
         """
         Table Row Data - `RDT <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/RDT>`_

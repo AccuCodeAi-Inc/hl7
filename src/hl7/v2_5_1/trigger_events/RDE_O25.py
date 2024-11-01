@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.NTE import NTE
+from ..segment_groups.RDE_O25_PATIENT_GROUP import RDE_O25_PATIENT_GROUP
 from ..segments.SFT import SFT
 from ..segments.MSH import MSH
-from ..segment_groups.RDE_O25_PATIENT_GROUP import RDE_O25_PATIENT_GROUP
 from ..segment_groups.RDE_O25_ORDER_GROUP import RDE_O25_ORDER_GROUP
+from ..segments.NTE import NTE
 
 
 """

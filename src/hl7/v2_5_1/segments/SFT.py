@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ST import ST
-from ..data_types.XON import XON
-from ..data_types.TS import TS
 from ..data_types.TX import TX
+from ..data_types.XON import XON
+from ..data_types.ST import ST
+from ..data_types.TS import TS
 
 
 """
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     SFT,
-    ST, XON, TS, TX
+    TX, XON, ST, TS
 )
 
 sft = SFT(  #  - This segment provides additional information about the software product(s) used as a Sending Application
@@ -50,12 +50,12 @@ class SFT(HL7Segment):
 
     def __init__(
         self,
-        software_vendor_organization: XON,  # SFT.1
-        software_certified_version_or_release_number: ST,  # SFT.2
-        software_product_name: ST,  # SFT.3
-        software_binary_id: ST,  # SFT.4
-        software_product_information: TX | None = None,  # SFT.5
-        software_install_date: TS | None = None,  # SFT.6
+        software_vendor_organization: XON | tuple[XON],  # SFT.1
+        software_certified_version_or_release_number: ST | tuple[ST],  # SFT.2
+        software_product_name: ST | tuple[ST],  # SFT.3
+        software_binary_id: ST | tuple[ST],  # SFT.4
+        software_product_information: TX | tuple[TX] | None = None,  # SFT.5
+        software_install_date: TS | tuple[TS] | None = None,  # SFT.6
     ):
         """
                 Software Segment - `SFT <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/SFT>`_

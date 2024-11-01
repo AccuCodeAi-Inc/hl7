@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.PID import PID
 from ..segment_groups.PRR_PC5_PATIENT_GROUP_PATIENT_VISIT_GROUP import (
     PRR_PC5_PATIENT_GROUP_PATIENT_VISIT_GROUP,
 )
-from ..segments.PID import PID
 from ..segment_groups.PRR_PC5_PATIENT_GROUP_PROBLEM_GROUP import (
     PRR_PC5_PATIENT_GROUP_PROBLEM_GROUP,
 )

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.RDF import RDF
 from ..segments.RDT import RDT
+from ..segments.RDF import RDF
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RTB_K13_ROW_DEFINITION_GROUP
 from utils.hl7.v2_5_1.segments import (
-    RDT, RDF
+    RDF, RDT
 )
 
 rtb_k13_row_definition_group = RTB_K13_ROW_DEFINITION_GROUP(  # ROW DEFINITION - Segment group for RTB_K13 - Tabular Response in Response to QBP_Q13 consisting of RDF, RDT|None

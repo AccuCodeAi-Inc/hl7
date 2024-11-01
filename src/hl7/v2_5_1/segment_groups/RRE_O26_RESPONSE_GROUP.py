@@ -19,7 +19,7 @@ from utils.hl7.v2_5_1.segments import (
     
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    RRE_O26_RESPONSE_GROUP_PATIENT_GROUP, RRE_O26_RESPONSE_GROUP_ORDER_GROUP
+    RRE_O26_RESPONSE_GROUP_ORDER_GROUP, RRE_O26_RESPONSE_GROUP_PATIENT_GROUP
 )
 
 rre_o26_response_group = RRE_O26_RESPONSE_GROUP(  # RESPONSE - Segment group for RRE_O26 - Pharmacy/Treatment Refill Authorization Request Acknowledgment consisting of PATIENT|None, ORDER

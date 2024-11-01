@@ -2,8 +2,8 @@ from __future__ import annotations
 from ...base import DataType
 from .ID import ID
 from .NM import NM
-from ..tables.MoneyOrPercentageIndicator import MoneyOrPercentageIndicator
 from ..tables.CurrencyCodes import CurrencyCodes
+from ..tables.MoneyOrPercentageIndicator import MoneyOrPercentageIndicator
 
 
 """
@@ -47,9 +47,14 @@ class MOP(DataType):
 
     def __init__(
         self,
-        money_or_percentage_indicator: MoneyOrPercentageIndicator | ID,  # MOP.1
-        money_or_percentage_quantity: NM,  # MOP.2
-        currency_denomination: CurrencyCodes | ID | None = None,  # MOP.3
+        money_or_percentage_indicator: MoneyOrPercentageIndicator
+        | ID
+        | tuple[MoneyOrPercentageIndicator | ID],  # MOP.1
+        money_or_percentage_quantity: NM | tuple[NM],  # MOP.2
+        currency_denomination: CurrencyCodes
+        | ID
+        | tuple[CurrencyCodes | ID]
+        | None = None,  # MOP.3
     ):
         """
                 Money or Percentage - `MOP <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/MOP>`_

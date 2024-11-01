@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.MRG import MRG
-from ..segments.PV1 import PV1
 from ..segments.PID import PID
+from ..segments.PV1 import PV1
+from ..segments.MRG import MRG
 from ..segments.PD1 import PD1
 
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ADT_A40_PATIENT_ID_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PD1, PID, PV1, MRG
+    PID, PD1, MRG, PV1
 )
 
 adt_a40_patient_id_group = ADT_A40_PATIENT_ID_GROUP(  # PATIENT ID - Segment group for ADT_A40 - Merge Patient - Patient Identifier List consisting of PID, PD1|None, MRG, PV1|None

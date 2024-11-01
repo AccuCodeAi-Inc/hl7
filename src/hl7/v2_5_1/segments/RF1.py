@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
 from ..data_types.EI import EI
+from ..data_types.CE import CE
 from ..data_types.TS import TS
-from ..tables.ReferralStatus import ReferralStatus
-from ..tables.ReferralDisposition import ReferralDisposition
-from ..tables.ReferralCategory import ReferralCategory
-from ..tables.ReferralReason import ReferralReason
-from ..tables.ReferralType import ReferralType
 from ..tables.ReferralPriority import ReferralPriority
+from ..tables.ReferralStatus import ReferralStatus
+from ..tables.ReferralType import ReferralType
+from ..tables.ReferralDisposition import ReferralDisposition
+from ..tables.ReferralReason import ReferralReason
+from ..tables.ReferralCategory import ReferralCategory
 
 
 """
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RF1,
-    CE, EI, TS
+    EI, CE, TS
 )
 
 rf1 = RF1(  #  - This segment represents information that may be useful when sending referrals from the referring provider to the referred-to provider
@@ -60,17 +60,35 @@ class RF1(HL7Segment):
 
     def __init__(
         self,
-        originating_referral_identifier: EI,  # RF1.6
-        referral_status: ReferralStatus | CE | None = None,  # RF1.1
-        referral_priority: ReferralPriority | CE | None = None,  # RF1.2
-        referral_type: ReferralType | CE | None = None,  # RF1.3
-        referral_disposition: ReferralDisposition | CE | None = None,  # RF1.4
-        referral_category: ReferralCategory | CE | None = None,  # RF1.5
-        effective_date: TS | None = None,  # RF1.7
-        expiration_date: TS | None = None,  # RF1.8
-        process_date: TS | None = None,  # RF1.9
-        referral_reason: ReferralReason | CE | None = None,  # RF1.10
-        external_referral_identifier: EI | None = None,  # RF1.11
+        originating_referral_identifier: EI | tuple[EI],  # RF1.6
+        referral_status: ReferralStatus
+        | CE
+        | tuple[ReferralStatus | CE]
+        | None = None,  # RF1.1
+        referral_priority: ReferralPriority
+        | CE
+        | tuple[ReferralPriority | CE]
+        | None = None,  # RF1.2
+        referral_type: ReferralType
+        | CE
+        | tuple[ReferralType | CE]
+        | None = None,  # RF1.3
+        referral_disposition: ReferralDisposition
+        | CE
+        | tuple[ReferralDisposition | CE]
+        | None = None,  # RF1.4
+        referral_category: ReferralCategory
+        | CE
+        | tuple[ReferralCategory | CE]
+        | None = None,  # RF1.5
+        effective_date: TS | tuple[TS] | None = None,  # RF1.7
+        expiration_date: TS | tuple[TS] | None = None,  # RF1.8
+        process_date: TS | tuple[TS] | None = None,  # RF1.9
+        referral_reason: ReferralReason
+        | CE
+        | tuple[ReferralReason | CE]
+        | None = None,  # RF1.10
+        external_referral_identifier: EI | tuple[EI] | None = None,  # RF1.11
     ):
         """
         Referral Information - `RF1 <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/RF1>`_

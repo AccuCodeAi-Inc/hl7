@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.RXG import RXG
+from ..segments.RXC import RXC
+from ..segments.RXR import RXR
 from ..segment_groups.RGV_O15_ORDER_GROUP_GIVE_GROUP_OBSERVATION_GROUP import (
     RGV_O15_ORDER_GROUP_GIVE_GROUP_OBSERVATION_GROUP,
 )
-from ..segments.RXG import RXG
-from ..segments.RXR import RXR
 from ..segment_groups.RGV_O15_ORDER_GROUP_GIVE_GROUP_TIMING_GIVE_GROUP import (
     RGV_O15_ORDER_GROUP_GIVE_GROUP_TIMING_GIVE_GROUP,
 )
-from ..segments.RXC import RXC
 
 
 """
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RGV_O15_ORDER_GROUP_GIVE_GROUP
 from utils.hl7.v2_5_1.segments import (
-    RXR, RXC, RXG
+    RXR, RXG, RXC
 )
 from utils.hl7.v2_5_1.segment_groups import (
     RGV_O15_ORDER_GROUP_GIVE_GROUP_OBSERVATION_GROUP, RGV_O15_ORDER_GROUP_GIVE_GROUP_TIMING_GIVE_GROUP

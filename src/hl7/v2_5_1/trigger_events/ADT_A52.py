@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.PD1 import PD1
 from ..segments.PV2 import PV2
-from ..segments.EVN import EVN
-from ..segments.SFT import SFT
-from ..segments.PID import PID
-from ..segments.MSH import MSH
 from ..segments.PV1 import PV1
+from ..segments.SFT import SFT
+from ..segments.MSH import MSH
+from ..segments.PD1 import PD1
+from ..segments.PID import PID
+from ..segments.EVN import EVN
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ADT_A52
 from utils.hl7.v2_5_1.segments import (
-    PV2, PV1, EVN, SFT, PID, MSH, PD1
+    PID, MSH, PD1, PV1, PV2, SFT, EVN
 )
 
 adt_a52 = ADT_A52(  #  - The A52 event is sent when an A21 (patient goes on “leave of absence”) event is cancelled, either because of erroneous entry of the A21 event or because of a decision not to put the patient on “leave of absence” after all

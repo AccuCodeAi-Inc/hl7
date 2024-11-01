@@ -1,18 +1,18 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
+from ..data_types.TS import TS
 from ..data_types.ID import ID
 from ..data_types.NM import NM
-from ..data_types.LA2 import LA2
-from ..data_types.ST import ST
-from ..data_types.XCN import XCN
 from ..data_types.CWE import CWE
-from ..data_types.TS import TS
-from ..tables.VaccinesAdministered import VaccinesAdministered
-from ..tables.ActionCode import ActionCode
-from ..tables.ManufacturersOfVaccines import ManufacturersOfVaccines
+from ..data_types.XCN import XCN
+from ..data_types.CE import CE
+from ..data_types.ST import ST
+from ..data_types.LA2 import LA2
 from ..tables.PharmacyOrderTypes import PharmacyOrderTypes
+from ..tables.VaccinesAdministered import VaccinesAdministered
 from ..tables.CompletionStatus import CompletionStatus
+from ..tables.ManufacturersOfVaccines import ManufacturersOfVaccines
+from ..tables.ActionCode import ActionCode
 
 
 """
@@ -23,7 +23,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RXA,
-    CE, ID, NM, LA2, ST, XCN, CWE, TS
+    TS, ID, NM, CWE, XCN, CE, ST, LA2
 )
 
 rxa = RXA(  #  - The ORC must have the filler order number and the order control code RE
@@ -79,34 +79,48 @@ class RXA(HL7Segment):
 
     def __init__(
         self,
-        give_sub_id_counter: NM,  # RXA.1
-        administration_sub_id_counter: NM,  # RXA.2
-        date_or_time_start_of_administration: TS,  # RXA.3
-        date_or_time_end_of_administration: TS,  # RXA.4
-        administered_code: VaccinesAdministered | CE,  # RXA.5
-        administered_amount: NM,  # RXA.6
-        administered_units: CE | None = None,  # RXA.7
-        administered_dosage_form: CE | None = None,  # RXA.8
-        administration_notes: CE | None = None,  # RXA.9
-        administering_provider: XCN | None = None,  # RXA.10
-        administered_at_location: LA2 | None = None,  # RXA.11
-        administered_per: ST | None = None,  # RXA.12
-        administered_strength: NM | None = None,  # RXA.13
-        administered_strength_units: CE | None = None,  # RXA.14
-        substance_lot_number: ST | None = None,  # RXA.15
-        substance_expiration_date: TS | None = None,  # RXA.16
+        give_sub_id_counter: NM | tuple[NM],  # RXA.1
+        administration_sub_id_counter: NM | tuple[NM],  # RXA.2
+        date_or_time_start_of_administration: TS | tuple[TS],  # RXA.3
+        date_or_time_end_of_administration: TS | tuple[TS],  # RXA.4
+        administered_code: VaccinesAdministered
+        | CE
+        | tuple[VaccinesAdministered | CE],  # RXA.5
+        administered_amount: NM | tuple[NM],  # RXA.6
+        administered_units: CE | tuple[CE] | None = None,  # RXA.7
+        administered_dosage_form: CE | tuple[CE] | None = None,  # RXA.8
+        administration_notes: CE | tuple[CE] | None = None,  # RXA.9
+        administering_provider: XCN | tuple[XCN] | None = None,  # RXA.10
+        administered_at_location: LA2 | tuple[LA2] | None = None,  # RXA.11
+        administered_per: ST | tuple[ST] | None = None,  # RXA.12
+        administered_strength: NM | tuple[NM] | None = None,  # RXA.13
+        administered_strength_units: CE | tuple[CE] | None = None,  # RXA.14
+        substance_lot_number: ST | tuple[ST] | None = None,  # RXA.15
+        substance_expiration_date: TS | tuple[TS] | None = None,  # RXA.16
         substance_manufacturer_name: ManufacturersOfVaccines
         | CE
+        | tuple[ManufacturersOfVaccines | CE]
         | None = None,  # RXA.17
-        substance_or_treatment_refusal_reason: CE | None = None,  # RXA.18
-        indication: CE | None = None,  # RXA.19
-        completion_status: CompletionStatus | ID | None = None,  # RXA.20
-        action_code_rxa: ActionCode | ID | None = None,  # RXA.21
-        system_entry_date_or_time: TS | None = None,  # RXA.22
-        administered_drug_strength_volume: NM | None = None,  # RXA.23
-        administered_drug_strength_volume_units: CWE | None = None,  # RXA.24
-        administered_barcode_identifier: CWE | None = None,  # RXA.25
-        pharmacy_order_type: PharmacyOrderTypes | ID | None = None,  # RXA.26
+        substance_or_treatment_refusal_reason: CE | tuple[CE] | None = None,  # RXA.18
+        indication: CE | tuple[CE] | None = None,  # RXA.19
+        completion_status: CompletionStatus
+        | ID
+        | tuple[CompletionStatus | ID]
+        | None = None,  # RXA.20
+        action_code_rxa: ActionCode
+        | ID
+        | tuple[ActionCode | ID]
+        | None = None,  # RXA.21
+        system_entry_date_or_time: TS | tuple[TS] | None = None,  # RXA.22
+        administered_drug_strength_volume: NM | tuple[NM] | None = None,  # RXA.23
+        administered_drug_strength_volume_units: CWE
+        | tuple[CWE]
+        | None = None,  # RXA.24
+        administered_barcode_identifier: CWE | tuple[CWE] | None = None,  # RXA.25
+        pharmacy_order_type: PharmacyOrderTypes
+        | ID
+        | tuple[PharmacyOrderTypes | ID]
+        | None = None,  # RXA.26
     ):
         """
         Pharmacy/Treatment Administration - `RXA <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/RXA>`_

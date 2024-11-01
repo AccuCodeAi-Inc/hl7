@@ -4,13 +4,13 @@ from .IS import IS
 from .HD import HD
 from .CNN import CNN
 from .TS import TS
-from ..tables.PointOfCare import PointOfCare
-from ..tables.Room import Room
 from ..tables.LocationStatus import LocationStatus
-from ..tables.Floor import Floor
-from ..tables.Building import Building
-from ..tables.Bed import Bed
 from ..tables.PersonLocationType import PersonLocationType
+from ..tables.Building import Building
+from ..tables.Floor import Floor
+from ..tables.Room import Room
+from ..tables.Bed import Bed
+from ..tables.PointOfCare import PointOfCare
 
 
 """
@@ -62,17 +62,26 @@ class NDL(DataType):
 
     def __init__(
         self,
-        name: CNN | None = None,  # NDL.1
-        start_date_or_time: TS | None = None,  # NDL.2
-        end_date_or_time: TS | None = None,  # NDL.3
-        point_of_care: PointOfCare | IS | None = None,  # NDL.4
-        room: Room | IS | None = None,  # NDL.5
-        bed: Bed | IS | None = None,  # NDL.6
-        facility: HD | None = None,  # NDL.7
-        location_status: LocationStatus | IS | None = None,  # NDL.8
-        patient_location_type: PersonLocationType | IS | None = None,  # NDL.9
-        building: Building | IS | None = None,  # NDL.10
-        floor: Floor | IS | None = None,  # NDL.11
+        name: CNN | tuple[CNN] | None = None,  # NDL.1
+        start_date_or_time: TS | tuple[TS] | None = None,  # NDL.2
+        end_date_or_time: TS | tuple[TS] | None = None,  # NDL.3
+        point_of_care: PointOfCare
+        | IS
+        | tuple[PointOfCare | IS]
+        | None = None,  # NDL.4
+        room: Room | IS | tuple[Room | IS] | None = None,  # NDL.5
+        bed: Bed | IS | tuple[Bed | IS] | None = None,  # NDL.6
+        facility: HD | tuple[HD] | None = None,  # NDL.7
+        location_status: LocationStatus
+        | IS
+        | tuple[LocationStatus | IS]
+        | None = None,  # NDL.8
+        patient_location_type: PersonLocationType
+        | IS
+        | tuple[PersonLocationType | IS]
+        | None = None,  # NDL.9
+        building: Building | IS | tuple[Building | IS] | None = None,  # NDL.10
+        floor: Floor | IS | tuple[Floor | IS] | None = None,  # NDL.11
     ):
         """
         Name with Date and Location - `NDL <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/NDL>`_

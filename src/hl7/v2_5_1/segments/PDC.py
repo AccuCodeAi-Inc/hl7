@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
-from ..data_types.XON import XON
 from ..data_types.CQ import CQ
-from ..data_types.ID import ID
-from ..data_types.ST import ST
 from ..data_types.TS import TS
+from ..data_types.ID import ID
+from ..data_types.CE import CE
+from ..data_types.ST import ST
+from ..data_types.XON import XON
 from ..tables.MarketingBasis import MarketingBasis
 
 
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PDC,
-    CE, XON, CQ, ID, ST, TS
+    CQ, TS, ID, CE, ST, XON
 )
 
 pdc = PDC(  #  - 
@@ -62,21 +62,24 @@ class PDC(HL7Segment):
 
     def __init__(
         self,
-        manufacturer_or_distributor: XON,  # PDC.1
-        country: CE,  # PDC.2
-        brand_name: ST,  # PDC.3
-        device_family_name: ST | None = None,  # PDC.4
-        generic_name: CE | None = None,  # PDC.5
-        model_identifier: ST | None = None,  # PDC.6
-        catalogue_identifier: ST | None = None,  # PDC.7
-        other_identifier: ST | None = None,  # PDC.8
-        product_code: CE | None = None,  # PDC.9
-        marketing_basis: MarketingBasis | ID | None = None,  # PDC.10
-        marketing_approval_id: ST | None = None,  # PDC.11
-        labeled_shelf_life: CQ | None = None,  # PDC.12
-        expected_shelf_life: CQ | None = None,  # PDC.13
-        date_first_marketed: TS | None = None,  # PDC.14
-        date_last_marketed: TS | None = None,  # PDC.15
+        manufacturer_or_distributor: XON | tuple[XON],  # PDC.1
+        country: CE | tuple[CE],  # PDC.2
+        brand_name: ST | tuple[ST],  # PDC.3
+        device_family_name: ST | tuple[ST] | None = None,  # PDC.4
+        generic_name: CE | tuple[CE] | None = None,  # PDC.5
+        model_identifier: ST | tuple[ST] | None = None,  # PDC.6
+        catalogue_identifier: ST | tuple[ST] | None = None,  # PDC.7
+        other_identifier: ST | tuple[ST] | None = None,  # PDC.8
+        product_code: CE | tuple[CE] | None = None,  # PDC.9
+        marketing_basis: MarketingBasis
+        | ID
+        | tuple[MarketingBasis | ID]
+        | None = None,  # PDC.10
+        marketing_approval_id: ST | tuple[ST] | None = None,  # PDC.11
+        labeled_shelf_life: CQ | tuple[CQ] | None = None,  # PDC.12
+        expected_shelf_life: CQ | tuple[CQ] | None = None,  # PDC.13
+        date_first_marketed: TS | tuple[TS] | None = None,  # PDC.14
+        date_last_marketed: TS | tuple[TS] | None = None,  # PDC.15
     ):
         """
         Product Detail Country - `PDC <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/PDC>`_

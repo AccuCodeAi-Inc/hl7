@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
+from ..segments.SFT import SFT
 from ..segments.MSH import MSH
 from ..segments.MFI import MFI
-from ..segments.SFT import SFT
 from ..segment_groups.MFN_M02_MF_STAFF_GROUP import MFN_M02_MF_STAFF_GROUP
 
 

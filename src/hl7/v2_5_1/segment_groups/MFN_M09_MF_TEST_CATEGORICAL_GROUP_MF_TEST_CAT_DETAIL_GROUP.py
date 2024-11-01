@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.OM3 import OM3
 from ..segments.OM4 import OM4
+from ..segments.OM3 import OM3
 
 
 """

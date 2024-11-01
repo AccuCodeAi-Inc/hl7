@@ -47,9 +47,9 @@ class ECR(HL7Segment):
 
     def __init__(
         self,
-        command_response: CommandResponse | CE,  # ECR.1
-        date_or_time_completed: TS,  # ECR.2
-        command_response_parameters: TX | None = None,  # ECR.3
+        command_response: CommandResponse | CE | tuple[CommandResponse | CE],  # ECR.1
+        date_or_time_completed: TS | tuple[TS],  # ECR.2
+        command_response_parameters: TX | tuple[TX] | None = None,  # ECR.3
     ):
         """
         Equipment Command Response - `ECR <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/ECR>`_

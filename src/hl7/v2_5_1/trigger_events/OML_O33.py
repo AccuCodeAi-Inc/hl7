@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
 from ..segment_groups.OML_O33_PATIENT_GROUP import OML_O33_PATIENT_GROUP
-from ..segments.NTE import NTE
 from ..segments.SFT import SFT
 from ..segments.MSH import MSH
 from ..segment_groups.OML_O33_SPECIMEN_GROUP import OML_O33_SPECIMEN_GROUP
+from ..segments.NTE import NTE
 
 
 """
@@ -18,7 +18,7 @@ from utils.hl7.v2_5_1.segments import (
     NTE, SFT, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    OML_O33_SPECIMEN_GROUP, OML_O33_PATIENT_GROUP
+    OML_O33_PATIENT_GROUP, OML_O33_SPECIMEN_GROUP
 )
 
 oml_o33 = OML_O33(  #  - The trigger event for this message is any change to a laboratory order

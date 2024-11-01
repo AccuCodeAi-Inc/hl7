@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.IS import IS
+from ..data_types.TS import TS
 from ..data_types.ID import ID
+from ..data_types.IS import IS
 from ..data_types.XCN import XCN
 from ..data_types.HD import HD
-from ..data_types.TS import TS
 from ..tables.EventType import EventType
 from ..tables.EventReason import EventReason
 from ..tables.OperatorId import OperatorId
@@ -18,7 +18,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     EVN,
-    IS, ID, XCN, HD, TS
+    TS, ID, IS, XCN, HD
 )
 
 evn = EVN(  #  - The EVN segment is used to communicate necessary trigger event information to receiving applications
@@ -55,13 +55,16 @@ class EVN(HL7Segment):
 
     def __init__(
         self,
-        recorded_date_or_time: TS,  # EVN.2
-        event_type_code: EventType | ID | None = None,  # EVN.1
-        date_or_time_planned_event: TS | None = None,  # EVN.3
-        event_reason_code: EventReason | IS | None = None,  # EVN.4
-        operator_id: OperatorId | XCN | None = None,  # EVN.5
-        event_occurred: TS | None = None,  # EVN.6
-        event_facility: HD | None = None,  # EVN.7
+        recorded_date_or_time: TS | tuple[TS],  # EVN.2
+        event_type_code: EventType | ID | tuple[EventType | ID] | None = None,  # EVN.1
+        date_or_time_planned_event: TS | tuple[TS] | None = None,  # EVN.3
+        event_reason_code: EventReason
+        | IS
+        | tuple[EventReason | IS]
+        | None = None,  # EVN.4
+        operator_id: OperatorId | XCN | tuple[OperatorId | XCN] | None = None,  # EVN.5
+        event_occurred: TS | tuple[TS] | None = None,  # EVN.6
+        event_facility: HD | tuple[HD] | None = None,  # EVN.7
     ):
         """
         Event Type - `EVN <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/EVN>`_

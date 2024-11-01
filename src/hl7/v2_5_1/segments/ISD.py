@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
 from ..data_types.NM import NM
+from ..data_types.CE import CE
 from ..tables.CommandResponse import CommandResponse
 from ..tables.RemoteControlCommand import RemoteControlCommand
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     ISD,
-    CE, NM
+    NM, CE
 )
 
 isd = ISD(  #  - The interaction detail segment contains information about the status of specific interaction (e
@@ -47,9 +47,14 @@ class ISD(HL7Segment):
 
     def __init__(
         self,
-        reference_interaction_number: NM,  # ISD.1
-        interaction_active_state: CommandResponse | CE,  # ISD.3
-        interaction_type_identifier: RemoteControlCommand | CE | None = None,  # ISD.2
+        reference_interaction_number: NM | tuple[NM],  # ISD.1
+        interaction_active_state: CommandResponse
+        | CE
+        | tuple[CommandResponse | CE],  # ISD.3
+        interaction_type_identifier: RemoteControlCommand
+        | CE
+        | tuple[RemoteControlCommand | CE]
+        | None = None,  # ISD.2
     ):
         """
         Interaction Status Detail - `ISD <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/ISD>`_

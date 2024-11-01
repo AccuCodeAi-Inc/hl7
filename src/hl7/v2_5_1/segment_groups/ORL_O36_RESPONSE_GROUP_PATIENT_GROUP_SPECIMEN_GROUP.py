@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.OBX import OBX
 from ..segments.SPM import SPM
+from ..segments.OBX import OBX
 from ..segment_groups.ORL_O36_RESPONSE_GROUP_PATIENT_GROUP_SPECIMEN_GROUP_SPECIMEN_CONTAINER_GROUP import (
     ORL_O36_RESPONSE_GROUP_PATIENT_GROUP_SPECIMEN_GROUP_SPECIMEN_CONTAINER_GROUP,
 )

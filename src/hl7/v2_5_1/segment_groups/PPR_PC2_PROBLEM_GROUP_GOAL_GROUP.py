@@ -3,12 +3,12 @@ from ...base import HL7SegmentGroup
 from ..segment_groups.PPR_PC2_PROBLEM_GROUP_GOAL_GROUP_GOAL_ROLE_GROUP import (
     PPR_PC2_PROBLEM_GROUP_GOAL_GROUP_GOAL_ROLE_GROUP,
 )
+from ..segments.GOL import GOL
+from ..segments.VAR import VAR
+from ..segments.NTE import NTE
 from ..segment_groups.PPR_PC2_PROBLEM_GROUP_GOAL_GROUP_GOAL_OBSERVATION_GROUP import (
     PPR_PC2_PROBLEM_GROUP_GOAL_GROUP_GOAL_OBSERVATION_GROUP,
 )
-from ..segments.VAR import VAR
-from ..segments.NTE import NTE
-from ..segments.GOL import GOL
 
 
 """
@@ -19,10 +19,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PPR_PC2_PROBLEM_GROUP_GOAL_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NTE, GOL, VAR
+    NTE, VAR, GOL
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    PPR_PC2_PROBLEM_GROUP_GOAL_GROUP_GOAL_OBSERVATION_GROUP, PPR_PC2_PROBLEM_GROUP_GOAL_GROUP_GOAL_ROLE_GROUP
+    PPR_PC2_PROBLEM_GROUP_GOAL_GROUP_GOAL_ROLE_GROUP, PPR_PC2_PROBLEM_GROUP_GOAL_GROUP_GOAL_OBSERVATION_GROUP
 )
 
 ppr_pc2_problem_group_goal_group = PPR_PC2_PROBLEM_GROUP_GOAL_GROUP(  # GOAL - Segment group for PPR_PC2_PROBLEM_GROUP - PROBLEM consisting of GOL, NTE|None, VAR|None, GOAL ROLE|None, GOAL OBSERVATION|None

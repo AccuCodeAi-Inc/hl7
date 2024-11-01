@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.RXA import RXA
 from ..segments.RXR import RXR
+from ..segments.RXA import RXA
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import CSU_C11_PATIENT_GROUP_STUDY_PHASE_GROUP_STUDY_SCHEDULE_GROUP_STUDY_PHARM_GROUP_RX_ADMIN_GROUP
 from utils.hl7.v2_5_1.segments import (
-    RXR, RXA
+    RXA, RXR
 )
 
 csu_c11_patient_group_study_phase_group_study_schedule_group_study_pharm_group_rx_admin_group = CSU_C11_PATIENT_GROUP_STUDY_PHASE_GROUP_STUDY_SCHEDULE_GROUP_STUDY_PHARM_GROUP_RX_ADMIN_GROUP(  # RX ADMIN - Segment group for CSU_C11_PATIENT_GROUP_STUDY_PHASE_GROUP_STUDY_SCHEDULE_GROUP_STUDY_PHARM_GROUP - STUDY PHARM consisting of RXA, RXR

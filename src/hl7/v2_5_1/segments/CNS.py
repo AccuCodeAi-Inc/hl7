@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
 from ..data_types.NM import NM
+from ..data_types.CE import CE
 from ..data_types.TS import TS
 
 
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CNS,
-    CE, NM, TS
+    NM, CE, TS
 )
 
 cns = CNS(  #  - The clear equipment notification segment contains the data necessary to allow the receiving equipment to clear any associated notifications
@@ -49,12 +49,12 @@ class CNS(HL7Segment):
 
     def __init__(
         self,
-        starting_notification_reference_number: NM | None = None,  # CNS.1
-        ending_notification_reference_number: NM | None = None,  # CNS.2
-        starting_notification_date_or_time: TS | None = None,  # CNS.3
-        ending_notification_date_or_time: TS | None = None,  # CNS.4
-        starting_notification_code: CE | None = None,  # CNS.5
-        ending_notification_code: CE | None = None,  # CNS.6
+        starting_notification_reference_number: NM | tuple[NM] | None = None,  # CNS.1
+        ending_notification_reference_number: NM | tuple[NM] | None = None,  # CNS.2
+        starting_notification_date_or_time: TS | tuple[TS] | None = None,  # CNS.3
+        ending_notification_date_or_time: TS | tuple[TS] | None = None,  # CNS.4
+        starting_notification_code: CE | tuple[CE] | None = None,  # CNS.5
+        ending_notification_code: CE | tuple[CE] | None = None,  # CNS.6
     ):
         """
         Clear Notification - `CNS <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/CNS>`_

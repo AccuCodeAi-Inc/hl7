@@ -2,16 +2,16 @@ from __future__ import annotations
 from ...base import DataType
 from .IS import IS
 from .ID import ID
-from .ST import ST
 from .HD import HD
-from ..tables.CountryCode import CountryCode
-from ..tables.PointOfCare import PointOfCare
-from ..tables.Room import Room
+from .ST import ST
 from ..tables.LocationStatus import LocationStatus
-from ..tables.Floor import Floor
-from ..tables.Building import Building
-from ..tables.Bed import Bed
 from ..tables.PersonLocationType import PersonLocationType
+from ..tables.Building import Building
+from ..tables.Floor import Floor
+from ..tables.Room import Room
+from ..tables.CountryCode import CountryCode
+from ..tables.Bed import Bed
+from ..tables.PointOfCare import PointOfCare
 from ..tables.AddressType import AddressType
 
 
@@ -23,7 +23,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     LA2,
-    IS, ID, ST, HD
+    IS, ID, HD, ST
 )
 
 la2 = LA2(  # Location with Address Variation 2 - Specifies a location and its address
@@ -69,22 +69,34 @@ class LA2(DataType):
 
     def __init__(
         self,
-        point_of_care: PointOfCare | IS | None = None,  # LA2.1
-        room: Room | IS | None = None,  # LA2.2
-        bed: Bed | IS | None = None,  # LA2.3
-        facility: HD | None = None,  # LA2.4
-        location_status: LocationStatus | IS | None = None,  # LA2.5
-        patient_location_type: PersonLocationType | IS | None = None,  # LA2.6
-        building: Building | IS | None = None,  # LA2.7
-        floor: Floor | IS | None = None,  # LA2.8
-        street_address: ST | None = None,  # LA2.9
-        other_designation: ST | None = None,  # LA2.10
-        city: ST | None = None,  # LA2.11
-        state_or_province: ST | None = None,  # LA2.12
-        zip_or_postal_code: ST | None = None,  # LA2.13
-        country: CountryCode | ID | None = None,  # LA2.14
-        address_type: AddressType | ID | None = None,  # LA2.15
-        other_geographic_designation: ST | None = None,  # LA2.16
+        point_of_care: PointOfCare
+        | IS
+        | tuple[PointOfCare | IS]
+        | None = None,  # LA2.1
+        room: Room | IS | tuple[Room | IS] | None = None,  # LA2.2
+        bed: Bed | IS | tuple[Bed | IS] | None = None,  # LA2.3
+        facility: HD | tuple[HD] | None = None,  # LA2.4
+        location_status: LocationStatus
+        | IS
+        | tuple[LocationStatus | IS]
+        | None = None,  # LA2.5
+        patient_location_type: PersonLocationType
+        | IS
+        | tuple[PersonLocationType | IS]
+        | None = None,  # LA2.6
+        building: Building | IS | tuple[Building | IS] | None = None,  # LA2.7
+        floor: Floor | IS | tuple[Floor | IS] | None = None,  # LA2.8
+        street_address: ST | tuple[ST] | None = None,  # LA2.9
+        other_designation: ST | tuple[ST] | None = None,  # LA2.10
+        city: ST | tuple[ST] | None = None,  # LA2.11
+        state_or_province: ST | tuple[ST] | None = None,  # LA2.12
+        zip_or_postal_code: ST | tuple[ST] | None = None,  # LA2.13
+        country: CountryCode | ID | tuple[CountryCode | ID] | None = None,  # LA2.14
+        address_type: AddressType
+        | ID
+        | tuple[AddressType | ID]
+        | None = None,  # LA2.15
+        other_geographic_designation: ST | tuple[ST] | None = None,  # LA2.16
     ):
         """
         Location with Address Variation 2 - `LA2 <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/LA2>`_

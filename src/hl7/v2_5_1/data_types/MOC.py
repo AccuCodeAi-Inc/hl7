@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import DataType
-from .CE import CE
 from .MO import MO
+from .CE import CE
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     MOC,
-    CE, MO
+    MO, CE
 )
 
 moc = MOC(  # Money and Code - Transmits monetary information and the associated charge code for services performed
@@ -44,8 +44,8 @@ class MOC(DataType):
 
     def __init__(
         self,
-        monetary_amount: MO | None = None,  # MOC.1
-        charge_code: CE | None = None,  # MOC.2
+        monetary_amount: MO | tuple[MO] | None = None,  # MOC.1
+        charge_code: CE | tuple[CE] | None = None,  # MOC.2
     ):
         """
         Money and Code - `MOC <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/MOC>`_

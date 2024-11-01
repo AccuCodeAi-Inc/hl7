@@ -2,8 +2,8 @@ from __future__ import annotations
 from ...base import HL7SegmentGroup
 from ..segments.NTE import NTE
 from ..segments.NST import NST
-from ..segments.NSC import NSC
 from ..segments.NCK import NCK
+from ..segments.NSC import NSC
 
 
 """
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import NMR_N01_CLOCK_AND_STATS_WITH_NOTES_ALT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NCK, NTE, NSC, NST
+    NST, NTE, NSC, NCK
 )
 
 nmr_n01_clock_and_stats_with_notes_alt_group = NMR_N01_CLOCK_AND_STATS_WITH_NOTES_ALT_GROUP(  # CLOCK AND STATS WITH NOTES ALT - Segment group for NMR_N01 - Application management response consisting of NCK|None, NTE|None, NST|None, NTE|None, NSC|None, NTE|None

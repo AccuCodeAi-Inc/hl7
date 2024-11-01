@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.OBX import OBX
-from ..segments.SAC import SAC
 from ..segments.SPM import SPM
+from ..segments.SAC import SAC
+from ..segments.OBX import OBX
 from ..segment_groups.OML_O33_SPECIMEN_GROUP_ORDER_GROUP import (
     OML_O33_SPECIMEN_GROUP_ORDER_GROUP,
 )

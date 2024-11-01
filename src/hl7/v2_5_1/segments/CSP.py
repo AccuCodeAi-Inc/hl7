@@ -46,10 +46,10 @@ class CSP(HL7Segment):
 
     def __init__(
         self,
-        study_phase_identifier: CE,  # CSP.1
-        date_or_time_study_phase_began: TS,  # CSP.2
-        date_or_time_study_phase_ended: TS | None = None,  # CSP.3
-        study_phase_evaluability: CE | None = None,  # CSP.4
+        study_phase_identifier: CE | tuple[CE],  # CSP.1
+        date_or_time_study_phase_began: TS | tuple[TS],  # CSP.2
+        date_or_time_study_phase_ended: TS | tuple[TS] | None = None,  # CSP.3
+        study_phase_evaluability: CE | tuple[CE] | None = None,  # CSP.4
     ):
         """
         Clinical Study Phase - `CSP <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/CSP>`_

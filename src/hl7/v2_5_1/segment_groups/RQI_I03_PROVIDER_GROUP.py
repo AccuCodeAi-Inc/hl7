@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RQI_I03_PROVIDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PRD, CTD
+    CTD, PRD
 )
 
 rqi_i03_provider_group = RQI_I03_PROVIDER_GROUP(  # PROVIDER - Segment group for RQI_I03 - Request/receipt of patient selection list consisting of PRD, CTD|None

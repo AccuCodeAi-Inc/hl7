@@ -2,8 +2,8 @@ from __future__ import annotations
 from ...base import HL7Segment
 from ..data_types.CE import CE
 from ..data_types.TS import TS
-from ..tables.IncidentTypeCode import IncidentTypeCode
 from ..tables.RiskManagementIncidentCode import RiskManagementIncidentCode
+from ..tables.IncidentTypeCode import IncidentTypeCode
 
 
 """
@@ -49,9 +49,13 @@ class RMI(HL7Segment):
         self,
         risk_management_incident_code: RiskManagementIncidentCode
         | CE
+        | tuple[RiskManagementIncidentCode | CE]
         | None = None,  # RMI.1
-        date_or_time_incident: TS | None = None,  # RMI.2
-        incident_type_code: IncidentTypeCode | CE | None = None,  # RMI.3
+        date_or_time_incident: TS | tuple[TS] | None = None,  # RMI.2
+        incident_type_code: IncidentTypeCode
+        | CE
+        | tuple[IncidentTypeCode | CE]
+        | None = None,  # RMI.3
     ):
         """
         Risk Management Incident - `RMI <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/RMI>`_

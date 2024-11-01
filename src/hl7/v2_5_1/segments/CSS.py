@@ -45,9 +45,9 @@ class CSS(HL7Segment):
 
     def __init__(
         self,
-        study_scheduled_time_point: CE,  # CSS.1
-        study_scheduled_patient_time_point: TS | None = None,  # CSS.2
-        study_quality_control_codes: CE | None = None,  # CSS.3
+        study_scheduled_time_point: CE | tuple[CE],  # CSS.1
+        study_scheduled_patient_time_point: TS | tuple[TS] | None = None,  # CSS.2
+        study_quality_control_codes: CE | tuple[CE] | None = None,  # CSS.3
     ):
         """
         Clinical Study Data Schedule Segment - `CSS <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/CSS>`_

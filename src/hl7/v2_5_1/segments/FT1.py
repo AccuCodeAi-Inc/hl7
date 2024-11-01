@@ -1,34 +1,34 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
+from ..data_types.TS import TS
 from ..data_types.CNE import CNE
+from ..data_types.NM import NM
+from ..data_types.CP import CP
+from ..data_types.PL import PL
 from ..data_types.IS import IS
+from ..data_types.DR import DR
 from ..data_types.CX import CX
 from ..data_types.EI import EI
-from ..data_types.NM import NM
-from ..data_types.SI import SI
-from ..data_types.ST import ST
-from ..data_types.XCN import XCN
-from ..data_types.CP import CP
 from ..data_types.CWE import CWE
-from ..data_types.DR import DR
-from ..data_types.PL import PL
-from ..data_types.TS import TS
-from ..tables.TransactionType import TransactionType
-from ..tables.FeeSchedule import FeeSchedule
-from ..tables.TransactionCode import TransactionCode
-from ..tables.PerformedBy import PerformedBy
-from ..tables.ProcedureCodeModifier import ProcedureCodeModifier
-from ..tables.DiagnosisCode import DiagnosisCode
-from ..tables.ProcedureCode import ProcedureCode
+from ..data_types.ST import ST
+from ..data_types.SI import SI
+from ..data_types.CE import CE
+from ..data_types.XCN import XCN
 from ..tables.AdvancedBeneficiaryNoticeCode import AdvancedBeneficiaryNoticeCode
 from ..tables.MedicallyNecessaryDuplicateProcedureReason import (
     MedicallyNecessaryDuplicateProcedureReason,
 )
-from ..tables.PatientType import PatientType
+from ..tables.InsurancePlanId import InsurancePlanId
+from ..tables.PerformedBy import PerformedBy
+from ..tables.ProcedureCode import ProcedureCode
+from ..tables.TransactionType import TransactionType
+from ..tables.DiagnosisCode import DiagnosisCode
 from ..tables.NdcCodes import NdcCodes
 from ..tables.DepartmentCode import DepartmentCode
-from ..tables.InsurancePlanId import InsurancePlanId
+from ..tables.ProcedureCodeModifier import ProcedureCodeModifier
+from ..tables.TransactionCode import TransactionCode
+from ..tables.PatientType import PatientType
+from ..tables.FeeSchedule import FeeSchedule
 
 
 """
@@ -39,7 +39,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     FT1,
-    CE, CNE, IS, CX, EI, NM, SI, ST, XCN, CP, CWE, DR, PL, TS
+    TS, CNE, NM, CP, PL, IS, DR, CX, EI, CWE, ST, SI, CE, XCN
 )
 
 ft1 = FT1(  #  - The FT1 segment contains the detail data necessary to post charges, payments, adjustments, etc
@@ -100,41 +100,67 @@ class FT1(HL7Segment):
 
     def __init__(
         self,
-        transaction_date: DR,  # FT1.4
-        transaction_type: TransactionType | IS,  # FT1.6
-        transaction_code: TransactionCode | CE,  # FT1.7
-        set_id_ft1: SI | None = None,  # FT1.1
-        transaction_id: ST | None = None,  # FT1.2
-        transaction_batch_id: ST | None = None,  # FT1.3
-        transaction_posting_date: TS | None = None,  # FT1.5
-        transaction_description: ST | None = None,  # FT1.8
-        transaction_description_alt: ST | None = None,  # FT1.9
-        transaction_quantity: NM | None = None,  # FT1.10
-        transaction_amount_extended: CP | None = None,  # FT1.11
-        transaction_amount_unit: CP | None = None,  # FT1.12
-        department_code: DepartmentCode | CE | None = None,  # FT1.13
-        insurance_plan_id: InsurancePlanId | CE | None = None,  # FT1.14
-        insurance_amount: CP | None = None,  # FT1.15
-        assigned_patient_location: PL | None = None,  # FT1.16
-        fee_schedule: FeeSchedule | IS | None = None,  # FT1.17
-        patient_type: PatientType | IS | None = None,  # FT1.18
-        diagnosis_code_ft1: DiagnosisCode | CE | None = None,  # FT1.19
-        performed_by_code: PerformedBy | XCN | None = None,  # FT1.20
-        ordered_by_code: XCN | None = None,  # FT1.21
-        unit_cost: CP | None = None,  # FT1.22
-        filler_order_number: EI | None = None,  # FT1.23
-        entered_by_code: XCN | None = None,  # FT1.24
-        procedure_code: ProcedureCode | CE | None = None,  # FT1.25
-        procedure_code_modifier: ProcedureCodeModifier | CE | None = None,  # FT1.26
+        transaction_date: DR | tuple[DR],  # FT1.4
+        transaction_type: TransactionType | IS | tuple[TransactionType | IS],  # FT1.6
+        transaction_code: TransactionCode | CE | tuple[TransactionCode | CE],  # FT1.7
+        set_id_ft1: SI | tuple[SI] | None = None,  # FT1.1
+        transaction_id: ST | tuple[ST] | None = None,  # FT1.2
+        transaction_batch_id: ST | tuple[ST] | None = None,  # FT1.3
+        transaction_posting_date: TS | tuple[TS] | None = None,  # FT1.5
+        transaction_description: ST | tuple[ST] | None = None,  # FT1.8
+        transaction_description_alt: ST | tuple[ST] | None = None,  # FT1.9
+        transaction_quantity: NM | tuple[NM] | None = None,  # FT1.10
+        transaction_amount_extended: CP | tuple[CP] | None = None,  # FT1.11
+        transaction_amount_unit: CP | tuple[CP] | None = None,  # FT1.12
+        department_code: DepartmentCode
+        | CE
+        | tuple[DepartmentCode | CE]
+        | None = None,  # FT1.13
+        insurance_plan_id: InsurancePlanId
+        | CE
+        | tuple[InsurancePlanId | CE]
+        | None = None,  # FT1.14
+        insurance_amount: CP | tuple[CP] | None = None,  # FT1.15
+        assigned_patient_location: PL | tuple[PL] | None = None,  # FT1.16
+        fee_schedule: FeeSchedule
+        | IS
+        | tuple[FeeSchedule | IS]
+        | None = None,  # FT1.17
+        patient_type: PatientType
+        | IS
+        | tuple[PatientType | IS]
+        | None = None,  # FT1.18
+        diagnosis_code_ft1: DiagnosisCode
+        | CE
+        | tuple[DiagnosisCode | CE]
+        | None = None,  # FT1.19
+        performed_by_code: PerformedBy
+        | XCN
+        | tuple[PerformedBy | XCN]
+        | None = None,  # FT1.20
+        ordered_by_code: XCN | tuple[XCN] | None = None,  # FT1.21
+        unit_cost: CP | tuple[CP] | None = None,  # FT1.22
+        filler_order_number: EI | tuple[EI] | None = None,  # FT1.23
+        entered_by_code: XCN | tuple[XCN] | None = None,  # FT1.24
+        procedure_code: ProcedureCode
+        | CE
+        | tuple[ProcedureCode | CE]
+        | None = None,  # FT1.25
+        procedure_code_modifier: ProcedureCodeModifier
+        | CE
+        | tuple[ProcedureCodeModifier | CE]
+        | None = None,  # FT1.26
         advanced_beneficiary_notice_code: AdvancedBeneficiaryNoticeCode
         | CE
+        | tuple[AdvancedBeneficiaryNoticeCode | CE]
         | None = None,  # FT1.27
         medically_necessary_duplicate_procedure_reason: MedicallyNecessaryDuplicateProcedureReason
         | CWE
+        | tuple[MedicallyNecessaryDuplicateProcedureReason | CWE]
         | None = None,  # FT1.28
-        ndc_code: NdcCodes | CNE | None = None,  # FT1.29
-        payment_reference_id: CX | None = None,  # FT1.30
-        transaction_reference_key: SI | None = None,  # FT1.31
+        ndc_code: NdcCodes | CNE | tuple[NdcCodes | CNE] | None = None,  # FT1.29
+        payment_reference_id: CX | tuple[CX] | None = None,  # FT1.30
+        transaction_reference_key: SI | tuple[SI] | None = None,  # FT1.31
     ):
         """
         Financial Transaction - `FT1 <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/FT1>`_

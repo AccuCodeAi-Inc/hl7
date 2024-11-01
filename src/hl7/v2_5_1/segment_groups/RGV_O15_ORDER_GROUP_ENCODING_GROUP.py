@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.RXR import RXR
+from ..segments.RXC import RXC
+from ..segments.RXE import RXE
 from ..segment_groups.RGV_O15_ORDER_GROUP_ENCODING_GROUP_TIMING_ENCODED_GROUP import (
     RGV_O15_ORDER_GROUP_ENCODING_GROUP_TIMING_ENCODED_GROUP,
 )
-from ..segments.RXC import RXC
-from ..segments.RXR import RXR
-from ..segments.RXE import RXE
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RGV_O15_ORDER_GROUP_ENCODING_GROUP
 from utils.hl7.v2_5_1.segments import (
-    RXE, RXR, RXC
+    RXR, RXE, RXC
 )
 from utils.hl7.v2_5_1.segment_groups import (
     RGV_O15_ORDER_GROUP_ENCODING_GROUP_TIMING_ENCODED_GROUP

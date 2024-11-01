@@ -45,8 +45,14 @@ class PT(DataType):
 
     def __init__(
         self,
-        processing_id: ProcessingId | ID | None = None,  # PT.1
-        processing_mode: ProcessingMode | ID | None = None,  # PT.2
+        processing_id: ProcessingId
+        | ID
+        | tuple[ProcessingId | ID]
+        | None = None,  # PT.1
+        processing_mode: ProcessingMode
+        | ID
+        | tuple[ProcessingMode | ID]
+        | None = None,  # PT.2
     ):
         """
         Processing Type - `PT <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/PT>`_

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import DataType
-from .ST import ST
 from .NM import NM
+from .ST import ST
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     ERL,
-    ST, NM
+    NM, ST
 )
 
 erl = ERL(  # Error Location - This data type identifies the segment and its constituent where an error has occurred
@@ -48,12 +48,12 @@ class ERL(DataType):
 
     def __init__(
         self,
-        segment_id: ST,  # ERL.1
-        segment_sequence: NM,  # ERL.2
-        field_position: NM | None = None,  # ERL.3
-        field_repetition: NM | None = None,  # ERL.4
-        component_number: NM | None = None,  # ERL.5
-        sub_component_number: NM | None = None,  # ERL.6
+        segment_id: ST | tuple[ST],  # ERL.1
+        segment_sequence: NM | tuple[NM],  # ERL.2
+        field_position: NM | tuple[NM] | None = None,  # ERL.3
+        field_repetition: NM | tuple[NM] | None = None,  # ERL.4
+        component_number: NM | tuple[NM] | None = None,  # ERL.5
+        sub_component_number: NM | tuple[NM] | None = None,  # ERL.6
     ):
         """
         Error Location - `ERL <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/ERL>`_

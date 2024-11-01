@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import DataType
 from .DT import DT
-from .ST import ST
 from .ID import ID
+from .ST import ST
 from ..tables.CertificationStatus import CertificationStatus
 
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     SPD,
-    DT, ST, ID
+    DT, ID, ST
 )
 
 spd = SPD(  # Specialty Description - This data type specifies the practitioners specialty and related information
@@ -48,10 +48,13 @@ class SPD(DataType):
 
     def __init__(
         self,
-        specialty_name: ST,  # SPD.1
-        governing_board: ST | None = None,  # SPD.2
-        eligible_or_certified: CertificationStatus | ID | None = None,  # SPD.3
-        date_of_certification: DT | None = None,  # SPD.4
+        specialty_name: ST | tuple[ST],  # SPD.1
+        governing_board: ST | tuple[ST] | None = None,  # SPD.2
+        eligible_or_certified: CertificationStatus
+        | ID
+        | tuple[CertificationStatus | ID]
+        | None = None,  # SPD.3
+        date_of_certification: DT | tuple[DT] | None = None,  # SPD.4
     ):
         """
         Specialty Description - `SPD <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/SPD>`_

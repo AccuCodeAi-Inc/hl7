@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.PV1 import PV1
 from ..segments.PID import PID
-from ..segments.PD1 import PD1
+from ..segments.PV1 import PV1
 from ..segments.DB1 import DB1
+from ..segments.PD1 import PD1
 
 
 """
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import BAR_P02_PATIENT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PD1, PID, PV1, DB1
+    DB1, PID, PD1, PV1
 )
 
 bar_p02_patient_group = BAR_P02_PATIENT_GROUP(  # PATIENT - Segment group for BAR_P02 - Purge Patient Accounts consisting of PID, PD1|None, PV1|None, DB1|None

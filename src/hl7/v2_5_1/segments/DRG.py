@@ -1,17 +1,17 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
-from ..data_types.IS import IS
+from ..data_types.TS import TS
 from ..data_types.ID import ID
 from ..data_types.NM import NM
+from ..data_types.IS import IS
+from ..data_types.CE import CE
 from ..data_types.CP import CP
-from ..data_types.TS import TS
-from ..tables.DrgPayor import DrgPayor
 from ..tables.DrgGrouperReviewCode import DrgGrouperReviewCode
-from ..tables.DiagnosisRelatedGroup import DiagnosisRelatedGroup
-from ..tables.DrgTransferType import DrgTransferType
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
 from ..tables.OutlierType import OutlierType
+from ..tables.DiagnosisRelatedGroup import DiagnosisRelatedGroup
+from ..tables.DrgPayor import DrgPayor
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..tables.DrgTransferType import DrgTransferType
 
 
 """
@@ -22,7 +22,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     DRG,
-    CE, IS, ID, NM, CP, TS
+    TS, ID, NM, IS, CE, CP
 )
 
 drg = DRG(  #  - The DRG segment contains diagnoses-related grouping information of various types
@@ -63,17 +63,32 @@ class DRG(HL7Segment):
 
     def __init__(
         self,
-        diagnostic_related_group: DiagnosisRelatedGroup | CE | None = None,  # DRG.1
-        drg_assigned_date_or_time: TS | None = None,  # DRG.2
-        drg_approval_indicator: YesOrNoIndicator | ID | None = None,  # DRG.3
-        drg_grouper_review_code: DrgGrouperReviewCode | IS | None = None,  # DRG.4
-        outlier_type: OutlierType | CE | None = None,  # DRG.5
-        outlier_days: NM | None = None,  # DRG.6
-        outlier_cost: CP | None = None,  # DRG.7
-        drg_payor: DrgPayor | IS | None = None,  # DRG.8
-        outlier_reimbursement: CP | None = None,  # DRG.9
-        confidential_indicator: YesOrNoIndicator | ID | None = None,  # DRG.10
-        drg_transfer_type: DrgTransferType | IS | None = None,  # DRG.11
+        diagnostic_related_group: DiagnosisRelatedGroup
+        | CE
+        | tuple[DiagnosisRelatedGroup | CE]
+        | None = None,  # DRG.1
+        drg_assigned_date_or_time: TS | tuple[TS] | None = None,  # DRG.2
+        drg_approval_indicator: YesOrNoIndicator
+        | ID
+        | tuple[YesOrNoIndicator | ID]
+        | None = None,  # DRG.3
+        drg_grouper_review_code: DrgGrouperReviewCode
+        | IS
+        | tuple[DrgGrouperReviewCode | IS]
+        | None = None,  # DRG.4
+        outlier_type: OutlierType | CE | tuple[OutlierType | CE] | None = None,  # DRG.5
+        outlier_days: NM | tuple[NM] | None = None,  # DRG.6
+        outlier_cost: CP | tuple[CP] | None = None,  # DRG.7
+        drg_payor: DrgPayor | IS | tuple[DrgPayor | IS] | None = None,  # DRG.8
+        outlier_reimbursement: CP | tuple[CP] | None = None,  # DRG.9
+        confidential_indicator: YesOrNoIndicator
+        | ID
+        | tuple[YesOrNoIndicator | ID]
+        | None = None,  # DRG.10
+        drg_transfer_type: DrgTransferType
+        | IS
+        | tuple[DrgTransferType | IS]
+        | None = None,  # DRG.11
     ):
         """
         Diagnosis Related Group - `DRG <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/DRG>`_

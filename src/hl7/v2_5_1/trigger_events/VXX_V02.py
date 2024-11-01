@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.QRD import QRD
+from ..segments.QRF import QRF
 from ..segments.SFT import SFT
 from ..segments.MSH import MSH
 from ..segments.MSA import MSA
 from ..segment_groups.VXX_V02_PATIENT_GROUP import VXX_V02_PATIENT_GROUP
-from ..segments.QRF import QRF
+from ..segments.QRD import QRD
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import VXX_V02
 from utils.hl7.v2_5_1.segments import (
-    QRF, SFT, MSA, MSH, QRD
+    MSH, QRD, SFT, QRF, MSA
 )
 from utils.hl7.v2_5_1.segment_groups import (
     VXX_V02_PATIENT_GROUP

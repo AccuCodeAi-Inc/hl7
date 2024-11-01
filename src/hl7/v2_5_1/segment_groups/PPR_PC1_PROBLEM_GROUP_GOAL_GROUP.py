@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.VAR import VAR
-from ..segments.NTE import NTE
 from ..segments.GOL import GOL
+from ..segments.VAR import VAR
 from ..segment_groups.PPR_PC1_PROBLEM_GROUP_GOAL_GROUP_GOAL_OBSERVATION_GROUP import (
     PPR_PC1_PROBLEM_GROUP_GOAL_GROUP_GOAL_OBSERVATION_GROUP,
 )
 from ..segment_groups.PPR_PC1_PROBLEM_GROUP_GOAL_GROUP_GOAL_ROLE_GROUP import (
     PPR_PC1_PROBLEM_GROUP_GOAL_GROUP_GOAL_ROLE_GROUP,
 )
+from ..segments.NTE import NTE
 
 
 """
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PPR_PC1_PROBLEM_GROUP_GOAL_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NTE, GOL, VAR
+    NTE, VAR, GOL
 )
 from utils.hl7.v2_5_1.segment_groups import (
     PPR_PC1_PROBLEM_GROUP_GOAL_GROUP_GOAL_ROLE_GROUP, PPR_PC1_PROBLEM_GROUP_GOAL_GROUP_GOAL_OBSERVATION_GROUP

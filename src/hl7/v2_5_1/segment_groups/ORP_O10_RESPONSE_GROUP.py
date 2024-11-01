@@ -19,7 +19,7 @@ from utils.hl7.v2_5_1.segments import (
     
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    ORP_O10_RESPONSE_GROUP_ORDER_GROUP, ORP_O10_RESPONSE_GROUP_PATIENT_GROUP
+    ORP_O10_RESPONSE_GROUP_PATIENT_GROUP, ORP_O10_RESPONSE_GROUP_ORDER_GROUP
 )
 
 orp_o10_response_group = ORP_O10_RESPONSE_GROUP(  # RESPONSE - Segment group for ORP_O10 - Pharmacy/Treatment Order Acknowledgement consisting of PATIENT|None, ORDER

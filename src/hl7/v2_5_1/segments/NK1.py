@@ -1,38 +1,38 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
-from ..data_types.XON import XON
-from ..data_types.IS import IS
-from ..data_types.DT import DT
-from ..data_types.CX import CX
+from ..data_types.JCC import JCC
+from ..data_types.XPN import XPN
 from ..data_types.TS import TS
 from ..data_types.ID import ID
-from ..data_types.XTN import XTN
-from ..data_types.XPN import XPN
-from ..data_types.ST import ST
-from ..data_types.JCC import JCC
+from ..data_types.DT import DT
+from ..data_types.CX import CX
+from ..data_types.IS import IS
 from ..data_types.SI import SI
+from ..data_types.XTN import XTN
 from ..data_types.XAD import XAD
+from ..data_types.CE import CE
+from ..data_types.ST import ST
+from ..data_types.XON import XON
 from ..tables.JobStatus import JobStatus
 from ..tables.StudentStatus import StudentStatus
-from ..tables.AmbulatoryStatus import AmbulatoryStatus
-from ..tables.Citizenship import Citizenship
-from ..tables.ContactReason import ContactReason
-from ..tables.PublicityCode import PublicityCode
-from ..tables.Nationality import Nationality
-from ..tables.VipIndicator import VipIndicator
-from ..tables.Race import Race
-from ..tables.MaritalStatus import MaritalStatus
-from ..tables.LivingDependency import LivingDependency
-from ..tables.EthnicGroup import EthnicGroup
 from ..tables.LivingArrangement import LivingArrangement
+from ..tables.Race import Race
+from ..tables.VipIndicator import VipIndicator
+from ..tables.LivingDependency import LivingDependency
+from ..tables.ContactReason import ContactReason
+from ..tables.Handicap import Handicap
 from ..tables.PrimaryLanguage import PrimaryLanguage
+from ..tables.AmbulatoryStatus import AmbulatoryStatus
+from ..tables.ContactRole import ContactRole
 from ..tables.Religion import Religion
 from ..tables.Relationship import Relationship
+from ..tables.Citizenship import Citizenship
 from ..tables.AdministrativeSex import AdministrativeSex
 from ..tables.YesOrNoIndicator import YesOrNoIndicator
-from ..tables.ContactRole import ContactRole
-from ..tables.Handicap import Handicap
+from ..tables.PublicityCode import PublicityCode
+from ..tables.Nationality import Nationality
+from ..tables.EthnicGroup import EthnicGroup
+from ..tables.MaritalStatus import MaritalStatus
 
 
 """
@@ -43,7 +43,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     NK1,
-    CE, XON, IS, DT, CX, TS, ID, XTN, XPN, ST, JCC, SI, XAD
+    JCC, XPN, TS, ID, DT, CX, IS, SI, XTN, XAD, CE, ST, XON
 )
 
 nk1 = NK1(  #  - The NK1 segment contains information about the patients other related parties
@@ -112,46 +112,92 @@ class NK1(HL7Segment):
 
     def __init__(
         self,
-        set_id_nk1: SI,  # NK1.1
-        nk_name: XPN | None = None,  # NK1.2
-        relationship: Relationship | CE | None = None,  # NK1.3
-        address: XAD | None = None,  # NK1.4
-        phone_number: XTN | None = None,  # NK1.5
-        business_phone_number: XTN | None = None,  # NK1.6
-        contact_role: ContactRole | CE | None = None,  # NK1.7
-        start_date: DT | None = None,  # NK1.8
-        end_date: DT | None = None,  # NK1.9
-        next_of_kin_or_associated_parties_job_title: ST | None = None,  # NK1.10
+        set_id_nk1: SI | tuple[SI],  # NK1.1
+        nk_name: XPN | tuple[XPN] | None = None,  # NK1.2
+        relationship: Relationship
+        | CE
+        | tuple[Relationship | CE]
+        | None = None,  # NK1.3
+        address: XAD | tuple[XAD] | None = None,  # NK1.4
+        phone_number: XTN | tuple[XTN] | None = None,  # NK1.5
+        business_phone_number: XTN | tuple[XTN] | None = None,  # NK1.6
+        contact_role: ContactRole | CE | tuple[ContactRole | CE] | None = None,  # NK1.7
+        start_date: DT | tuple[DT] | None = None,  # NK1.8
+        end_date: DT | tuple[DT] | None = None,  # NK1.9
+        next_of_kin_or_associated_parties_job_title: ST
+        | tuple[ST]
+        | None = None,  # NK1.10
         next_of_kin_or_associated_parties_job_code_or_class: JCC
+        | tuple[JCC]
         | None = None,  # NK1.11
-        next_of_kin_or_associated_parties_employee_number: CX | None = None,  # NK1.12
-        organization_name_nk1: XON | None = None,  # NK1.13
-        marital_status: MaritalStatus | CE | None = None,  # NK1.14
-        administrative_sex: AdministrativeSex | IS | None = None,  # NK1.15
-        date_or_time_of_birth: TS | None = None,  # NK1.16
-        living_dependency: LivingDependency | IS | None = None,  # NK1.17
-        ambulatory_status: AmbulatoryStatus | IS | None = None,  # NK1.18
-        citizenship: Citizenship | CE | None = None,  # NK1.19
-        primary_language: PrimaryLanguage | CE | None = None,  # NK1.20
-        living_arrangement: LivingArrangement | IS | None = None,  # NK1.21
-        publicity_code: PublicityCode | CE | None = None,  # NK1.22
-        protection_indicator: YesOrNoIndicator | ID | None = None,  # NK1.23
-        student_indicator: StudentStatus | IS | None = None,  # NK1.24
-        religion: Religion | CE | None = None,  # NK1.25
-        mothers_maiden_name: XPN | None = None,  # NK1.26
-        nationality: Nationality | CE | None = None,  # NK1.27
-        ethnic_group: EthnicGroup | CE | None = None,  # NK1.28
-        contact_reason: ContactReason | CE | None = None,  # NK1.29
-        contact_persons_name: XPN | None = None,  # NK1.30
-        contact_persons_telephone_number: XTN | None = None,  # NK1.31
-        contact_persons_address: XAD | None = None,  # NK1.32
-        next_of_kin_or_associated_partys_identifiers: CX | None = None,  # NK1.33
-        job_status: JobStatus | IS | None = None,  # NK1.34
-        race: Race | CE | None = None,  # NK1.35
-        handicap: Handicap | IS | None = None,  # NK1.36
-        contact_person_social_security_number: ST | None = None,  # NK1.37
-        next_of_kin_birth_place: ST | None = None,  # NK1.38
-        vip_indicator: VipIndicator | IS | None = None,  # NK1.39
+        next_of_kin_or_associated_parties_employee_number: CX
+        | tuple[CX]
+        | None = None,  # NK1.12
+        organization_name_nk1: XON | tuple[XON] | None = None,  # NK1.13
+        marital_status: MaritalStatus
+        | CE
+        | tuple[MaritalStatus | CE]
+        | None = None,  # NK1.14
+        administrative_sex: AdministrativeSex
+        | IS
+        | tuple[AdministrativeSex | IS]
+        | None = None,  # NK1.15
+        date_or_time_of_birth: TS | tuple[TS] | None = None,  # NK1.16
+        living_dependency: LivingDependency
+        | IS
+        | tuple[LivingDependency | IS]
+        | None = None,  # NK1.17
+        ambulatory_status: AmbulatoryStatus
+        | IS
+        | tuple[AmbulatoryStatus | IS]
+        | None = None,  # NK1.18
+        citizenship: Citizenship | CE | tuple[Citizenship | CE] | None = None,  # NK1.19
+        primary_language: PrimaryLanguage
+        | CE
+        | tuple[PrimaryLanguage | CE]
+        | None = None,  # NK1.20
+        living_arrangement: LivingArrangement
+        | IS
+        | tuple[LivingArrangement | IS]
+        | None = None,  # NK1.21
+        publicity_code: PublicityCode
+        | CE
+        | tuple[PublicityCode | CE]
+        | None = None,  # NK1.22
+        protection_indicator: YesOrNoIndicator
+        | ID
+        | tuple[YesOrNoIndicator | ID]
+        | None = None,  # NK1.23
+        student_indicator: StudentStatus
+        | IS
+        | tuple[StudentStatus | IS]
+        | None = None,  # NK1.24
+        religion: Religion | CE | tuple[Religion | CE] | None = None,  # NK1.25
+        mothers_maiden_name: XPN | tuple[XPN] | None = None,  # NK1.26
+        nationality: Nationality | CE | tuple[Nationality | CE] | None = None,  # NK1.27
+        ethnic_group: EthnicGroup
+        | CE
+        | tuple[EthnicGroup | CE]
+        | None = None,  # NK1.28
+        contact_reason: ContactReason
+        | CE
+        | tuple[ContactReason | CE]
+        | None = None,  # NK1.29
+        contact_persons_name: XPN | tuple[XPN] | None = None,  # NK1.30
+        contact_persons_telephone_number: XTN | tuple[XTN] | None = None,  # NK1.31
+        contact_persons_address: XAD | tuple[XAD] | None = None,  # NK1.32
+        next_of_kin_or_associated_partys_identifiers: CX
+        | tuple[CX]
+        | None = None,  # NK1.33
+        job_status: JobStatus | IS | tuple[JobStatus | IS] | None = None,  # NK1.34
+        race: Race | CE | tuple[Race | CE] | None = None,  # NK1.35
+        handicap: Handicap | IS | tuple[Handicap | IS] | None = None,  # NK1.36
+        contact_person_social_security_number: ST | tuple[ST] | None = None,  # NK1.37
+        next_of_kin_birth_place: ST | tuple[ST] | None = None,  # NK1.38
+        vip_indicator: VipIndicator
+        | IS
+        | tuple[VipIndicator | IS]
+        | None = None,  # NK1.39
     ):
         """
         Next of Kin / Associated Parties - `NK1 <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/NK1>`_

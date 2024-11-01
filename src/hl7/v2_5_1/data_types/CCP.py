@@ -44,9 +44,11 @@ class CCP(DataType):
 
     def __init__(
         self,
-        channel_calibration_sensitivity_correction_factor: NM | None = None,  # CCP.1
-        channel_calibration_baseline: NM | None = None,  # CCP.2
-        channel_calibration_time_skew: NM | None = None,  # CCP.3
+        channel_calibration_sensitivity_correction_factor: NM
+        | tuple[NM]
+        | None = None,  # CCP.1
+        channel_calibration_baseline: NM | tuple[NM] | None = None,  # CCP.2
+        channel_calibration_time_skew: NM | tuple[NM] | None = None,  # CCP.3
     ):
         """
         Channel Calibration Parameters - `CCP <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/CCP>`_

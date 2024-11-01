@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.MSH import MSH
 from ..segment_groups.ORU_W01_PATIENT_RESULT_GROUP import ORU_W01_PATIENT_RESULT_GROUP
-from ..segments.SFT import SFT
 from ..segments.DSC import DSC
+from ..segments.SFT import SFT
+from ..segments.MSH import MSH
 
 
 """

@@ -1,13 +1,13 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segment_groups.BAR_P10_PROCEDURE_GROUP import BAR_P10_PROCEDURE_GROUP
-from ..segments.DG1 import DG1
 from ..segments.GP1 import GP1
-from ..segments.EVN import EVN
-from ..segments.SFT import SFT
-from ..segments.PID import PID
-from ..segments.MSH import MSH
 from ..segments.PV1 import PV1
+from ..segments.SFT import SFT
+from ..segments.MSH import MSH
+from ..segment_groups.BAR_P10_PROCEDURE_GROUP import BAR_P10_PROCEDURE_GROUP
+from ..segments.PID import PID
+from ..segments.DG1 import DG1
+from ..segments.EVN import EVN
 
 
 """
@@ -18,7 +18,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import BAR_P10
 from utils.hl7.v2_5_1.segments import (
-    PV1, EVN, GP1, SFT, DG1, PID, MSH
+    PID, MSH, PV1, DG1, GP1, SFT, EVN
 )
 from utils.hl7.v2_5_1.segment_groups import (
     BAR_P10_PROCEDURE_GROUP

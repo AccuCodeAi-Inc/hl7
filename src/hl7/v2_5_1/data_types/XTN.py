@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import DataType
-from .ST import ST
 from .ID import ID
 from .NM import NM
-from ..tables.PhoneNumber import PhoneNumber
-from ..tables.TelecommunicationEquipmentType import TelecommunicationEquipmentType
+from .ST import ST
 from ..tables.TelecommunicationUseCode import TelecommunicationUseCode
+from ..tables.TelecommunicationEquipmentType import TelecommunicationEquipmentType
+from ..tables.PhoneNumber import PhoneNumber
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     XTN,
-    ST, ID, NM
+    ID, NM, ST
 )
 
 xtn = XTN(  # Extended Telecommunication Number - 
@@ -58,22 +58,27 @@ class XTN(DataType):
 
     def __init__(
         self,
-        telephone_number: PhoneNumber | ST | None = None,  # XTN.1
+        telephone_number: PhoneNumber
+        | ST
+        | tuple[PhoneNumber | ST]
+        | None = None,  # XTN.1
         telecommunication_use_code: TelecommunicationUseCode
         | ID
+        | tuple[TelecommunicationUseCode | ID]
         | None = None,  # XTN.2
         telecommunication_equipment_type: TelecommunicationEquipmentType
         | ID
+        | tuple[TelecommunicationEquipmentType | ID]
         | None = None,  # XTN.3
-        email_address: ST | None = None,  # XTN.4
-        country_code: NM | None = None,  # XTN.5
-        area_or_city_code: NM | None = None,  # XTN.6
-        local_number: NM | None = None,  # XTN.7
-        extension: NM | None = None,  # XTN.8
-        any_text: ST | None = None,  # XTN.9
-        extension_prefix: ST | None = None,  # XTN.10
-        speed_dial_code: ST | None = None,  # XTN.11
-        unformatted_telephone_number: ST | None = None,  # XTN.12
+        email_address: ST | tuple[ST] | None = None,  # XTN.4
+        country_code: NM | tuple[NM] | None = None,  # XTN.5
+        area_or_city_code: NM | tuple[NM] | None = None,  # XTN.6
+        local_number: NM | tuple[NM] | None = None,  # XTN.7
+        extension: NM | tuple[NM] | None = None,  # XTN.8
+        any_text: ST | tuple[ST] | None = None,  # XTN.9
+        extension_prefix: ST | tuple[ST] | None = None,  # XTN.10
+        speed_dial_code: ST | tuple[ST] | None = None,  # XTN.11
+        unformatted_telephone_number: ST | tuple[ST] | None = None,  # XTN.12
     ):
         """
                 Extended Telecommunication Number - `XTN <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/XTN>`_

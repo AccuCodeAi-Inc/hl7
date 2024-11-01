@@ -1,27 +1,27 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
-from ..data_types.MOP import MOP
-from ..data_types.IS import IS
-from ..data_types.CX import CX
-from ..data_types.DT import DT
-from ..data_types.DTN import DTN
-from ..data_types.ID import ID
 from ..data_types.XTN import XTN
+from ..data_types.TS import TS
+from ..data_types.ID import ID
+from ..data_types.DT import DT
+from ..data_types.CX import CX
+from ..data_types.DTN import DTN
+from ..data_types.MOP import MOP
 from ..data_types.ICD import ICD
-from ..data_types.ST import ST
+from ..data_types.IS import IS
 from ..data_types.XCN import XCN
 from ..data_types.SI import SI
-from ..data_types.TS import TS
-from ..tables.SecondOpinionStatus import SecondOpinionStatus
-from ..tables.PhysicianId import PhysicianId
-from ..tables.NonConcurCodeOrDescription import NonConcurCodeOrDescription
+from ..data_types.CE import CE
+from ..data_types.ST import ST
 from ..tables.CertificationAgency import CertificationAgency
-from ..tables.AppealReason import AppealReason
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
 from ..tables.SecondOpinionDocumentationReceived import (
     SecondOpinionDocumentationReceived,
 )
+from ..tables.NonConcurCodeOrDescription import NonConcurCodeOrDescription
+from ..tables.SecondOpinionStatus import SecondOpinionStatus
+from ..tables.PhysicianId import PhysicianId
+from ..tables.AppealReason import AppealReason
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
 
 
 """
@@ -32,7 +32,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     IN3,
-    CE, MOP, IS, CX, DT, DTN, ID, XTN, ICD, ST, XCN, SI, TS
+    XTN, TS, ID, DT, CX, DTN, MOP, ICD, IS, XCN, SI, CE, ST
 )
 
 in3 = IN3(  #  - The IN3 segment contains additional insurance information for certifying the need for patient care
@@ -87,35 +87,55 @@ class IN3(HL7Segment):
 
     def __init__(
         self,
-        set_id_in3: SI,  # IN3.1
-        certification_number: CX | None = None,  # IN3.2
-        certified_by: XCN | None = None,  # IN3.3
-        certification_required: YesOrNoIndicator | ID | None = None,  # IN3.4
-        penalty: MOP | None = None,  # IN3.5
-        certification_date_or_time: TS | None = None,  # IN3.6
-        certification_modify_date_or_time: TS | None = None,  # IN3.7
-        operator: XCN | None = None,  # IN3.8
-        certification_begin_date: DT | None = None,  # IN3.9
-        certification_end_date: DT | None = None,  # IN3.10
-        days: DTN | None = None,  # IN3.11
+        set_id_in3: SI | tuple[SI],  # IN3.1
+        certification_number: CX | tuple[CX] | None = None,  # IN3.2
+        certified_by: XCN | tuple[XCN] | None = None,  # IN3.3
+        certification_required: YesOrNoIndicator
+        | ID
+        | tuple[YesOrNoIndicator | ID]
+        | None = None,  # IN3.4
+        penalty: MOP | tuple[MOP] | None = None,  # IN3.5
+        certification_date_or_time: TS | tuple[TS] | None = None,  # IN3.6
+        certification_modify_date_or_time: TS | tuple[TS] | None = None,  # IN3.7
+        operator: XCN | tuple[XCN] | None = None,  # IN3.8
+        certification_begin_date: DT | tuple[DT] | None = None,  # IN3.9
+        certification_end_date: DT | tuple[DT] | None = None,  # IN3.10
+        days: DTN | tuple[DTN] | None = None,  # IN3.11
         non_concur_code_or_description: NonConcurCodeOrDescription
         | CE
+        | tuple[NonConcurCodeOrDescription | CE]
         | None = None,  # IN3.12
-        non_concur_effective_date_or_time: TS | None = None,  # IN3.13
-        physician_reviewer: PhysicianId | XCN | None = None,  # IN3.14
-        certification_contact: ST | None = None,  # IN3.15
-        certification_contact_phone_number: XTN | None = None,  # IN3.16
-        appeal_reason: AppealReason | CE | None = None,  # IN3.17
-        certification_agency: CertificationAgency | CE | None = None,  # IN3.18
-        certification_agency_phone_number: XTN | None = None,  # IN3.19
-        pre_certification_requirement: ICD | None = None,  # IN3.20
-        case_manager: ST | None = None,  # IN3.21
-        second_opinion_date: DT | None = None,  # IN3.22
-        second_opinion_status: SecondOpinionStatus | IS | None = None,  # IN3.23
+        non_concur_effective_date_or_time: TS | tuple[TS] | None = None,  # IN3.13
+        physician_reviewer: PhysicianId
+        | XCN
+        | tuple[PhysicianId | XCN]
+        | None = None,  # IN3.14
+        certification_contact: ST | tuple[ST] | None = None,  # IN3.15
+        certification_contact_phone_number: XTN | tuple[XTN] | None = None,  # IN3.16
+        appeal_reason: AppealReason
+        | CE
+        | tuple[AppealReason | CE]
+        | None = None,  # IN3.17
+        certification_agency: CertificationAgency
+        | CE
+        | tuple[CertificationAgency | CE]
+        | None = None,  # IN3.18
+        certification_agency_phone_number: XTN | tuple[XTN] | None = None,  # IN3.19
+        pre_certification_requirement: ICD | tuple[ICD] | None = None,  # IN3.20
+        case_manager: ST | tuple[ST] | None = None,  # IN3.21
+        second_opinion_date: DT | tuple[DT] | None = None,  # IN3.22
+        second_opinion_status: SecondOpinionStatus
+        | IS
+        | tuple[SecondOpinionStatus | IS]
+        | None = None,  # IN3.23
         second_opinion_documentation_received: SecondOpinionDocumentationReceived
         | IS
+        | tuple[SecondOpinionDocumentationReceived | IS]
         | None = None,  # IN3.24
-        second_opinion_physician: PhysicianId | XCN | None = None,  # IN3.25
+        second_opinion_physician: PhysicianId
+        | XCN
+        | tuple[PhysicianId | XCN]
+        | None = None,  # IN3.25
     ):
         """
         Insurance Additional Information, Certification - `IN3 <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/IN3>`_

@@ -6,8 +6,8 @@ from ..segment_groups.RER_RER_DEFINITION_GROUP_ORDER_GROUP import (
 from ..segment_groups.RER_RER_DEFINITION_GROUP_PATIENT_GROUP import (
     RER_RER_DEFINITION_GROUP_PATIENT_GROUP,
 )
-from ..segments.QRD import QRD
 from ..segments.QRF import QRF
+from ..segments.QRD import QRD
 
 
 """

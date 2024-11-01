@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.PID import PID
 from ..segments.NTE import NTE
+from ..segments.AL1 import AL1
 from ..segment_groups.RGV_O15_PATIENT_GROUP_PATIENT_VISIT_GROUP import (
     RGV_O15_PATIENT_GROUP_PATIENT_VISIT_GROUP,
 )
-from ..segments.PID import PID
-from ..segments.AL1 import AL1
 
 
 """

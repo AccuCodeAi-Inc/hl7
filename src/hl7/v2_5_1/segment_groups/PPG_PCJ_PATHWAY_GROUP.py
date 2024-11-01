@@ -6,9 +6,9 @@ from ..segment_groups.PPG_PCJ_PATHWAY_GROUP_GOAL_GROUP import (
 from ..segment_groups.PPG_PCJ_PATHWAY_GROUP_PATHWAY_ROLE_GROUP import (
     PPG_PCJ_PATHWAY_GROUP_PATHWAY_ROLE_GROUP,
 )
+from ..segments.PTH import PTH
 from ..segments.VAR import VAR
 from ..segments.NTE import NTE
-from ..segments.PTH import PTH
 
 
 """
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PPG_PCJ_PATHWAY_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NTE, PTH, VAR
+    NTE, VAR, PTH
 )
 from utils.hl7.v2_5_1.segment_groups import (
     PPG_PCJ_PATHWAY_GROUP_PATHWAY_ROLE_GROUP, PPG_PCJ_PATHWAY_GROUP_GOAL_GROUP

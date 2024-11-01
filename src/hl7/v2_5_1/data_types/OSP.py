@@ -46,9 +46,11 @@ class OSP(DataType):
 
     def __init__(
         self,
-        occurrence_span_code: OccurrenceSpan | CNE,  # OSP.1
-        occurrence_span_start_date: DT | None = None,  # OSP.2
-        occurrence_span_stop_date: DT | None = None,  # OSP.3
+        occurrence_span_code: OccurrenceSpan
+        | CNE
+        | tuple[OccurrenceSpan | CNE],  # OSP.1
+        occurrence_span_start_date: DT | tuple[DT] | None = None,  # OSP.2
+        occurrence_span_stop_date: DT | tuple[DT] | None = None,  # OSP.3
     ):
         """
                Occurrence Span Code and Date - `OSP <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/OSP>`_

@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segment_groups.ORU_W01_PATIENT_RESULT_GROUP_PATIENT_GROUP import (
-    ORU_W01_PATIENT_RESULT_GROUP_PATIENT_GROUP,
-)
 from ..segment_groups.ORU_W01_PATIENT_RESULT_GROUP_ORDER_OBSERVATION_GROUP import (
     ORU_W01_PATIENT_RESULT_GROUP_ORDER_OBSERVATION_GROUP,
+)
+from ..segment_groups.ORU_W01_PATIENT_RESULT_GROUP_PATIENT_GROUP import (
+    ORU_W01_PATIENT_RESULT_GROUP_PATIENT_GROUP,
 )
 
 
@@ -19,7 +19,7 @@ from utils.hl7.v2_5_1.segments import (
     
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    ORU_W01_PATIENT_RESULT_GROUP_ORDER_OBSERVATION_GROUP, ORU_W01_PATIENT_RESULT_GROUP_PATIENT_GROUP
+    ORU_W01_PATIENT_RESULT_GROUP_PATIENT_GROUP, ORU_W01_PATIENT_RESULT_GROUP_ORDER_OBSERVATION_GROUP
 )
 
 oru_w01_patient_result_group = ORU_W01_PATIENT_RESULT_GROUP(  # PATIENT RESULT - Segment group for ORU_W01 - Waveform result, unsolicited transmission of requested information consisting of PATIENT|None, ORDER OBSERVATION

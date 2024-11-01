@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.FAC import FAC
-from ..segment_groups.SUR_P09_FACILITY_GROUP_FACILITY_DETAIL_GROUP import (
-    SUR_P09_FACILITY_GROUP_FACILITY_DETAIL_GROUP,
-)
 from ..segment_groups.SUR_P09_FACILITY_GROUP_PRODUCT_GROUP import (
     SUR_P09_FACILITY_GROUP_PRODUCT_GROUP,
 )
+from ..segment_groups.SUR_P09_FACILITY_GROUP_FACILITY_DETAIL_GROUP import (
+    SUR_P09_FACILITY_GROUP_FACILITY_DETAIL_GROUP,
+)
+from ..segments.FAC import FAC
 from ..segments.PSH import PSH
 
 
@@ -21,7 +21,7 @@ from utils.hl7.v2_5_1.segments import (
     PSH, FAC
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    SUR_P09_FACILITY_GROUP_PRODUCT_GROUP, SUR_P09_FACILITY_GROUP_FACILITY_DETAIL_GROUP
+    SUR_P09_FACILITY_GROUP_FACILITY_DETAIL_GROUP, SUR_P09_FACILITY_GROUP_PRODUCT_GROUP
 )
 
 sur_p09_facility_group = SUR_P09_FACILITY_GROUP(  # FACILITY - Segment group for SUR_P09 - Summary product experience report consisting of FAC, PRODUCT, PSH, FACILITY DETAIL

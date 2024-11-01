@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RRI_I13_PROVIDER_CONTACT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PRD, CTD
+    CTD, PRD
 )
 
 rri_i13_provider_contact_group = RRI_I13_PROVIDER_CONTACT_GROUP(  # PROVIDER CONTACT - Segment group for RRI_I13 - Modify patient referral acknowledgement consisting of PRD, CTD|None

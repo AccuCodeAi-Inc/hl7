@@ -1,15 +1,15 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.QRD import QRD
-from ..segments.SFT import SFT
-from ..segment_groups.MFR_M07_MF_QUERY_GROUP import MFR_M07_MF_QUERY_GROUP
 from ..segments.ERR import ERR
 from ..segments.DSC import DSC
-from ..segments.MSH import MSH
-from ..segments.MSA import MSA
-from ..segments.MFI import MFI
 from ..segments.QRF import QRF
+from ..segment_groups.MFR_M07_MF_QUERY_GROUP import MFR_M07_MF_QUERY_GROUP
+from ..segments.SFT import SFT
+from ..segments.MSH import MSH
 from ..segments.QAK import QAK
+from ..segments.MSA import MSA
+from ..segments.QRD import QRD
+from ..segments.MFI import MFI
 
 
 """
@@ -20,7 +20,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import MFR_M07
 from utils.hl7.v2_5_1.segments import (
-    ERR, DSC, QRF, MSA, SFT, MFI, MSH, QRD, QAK
+    MSH, QRD, MFI, SFT, ERR, QRF, DSC, QAK, MSA
 )
 from utils.hl7.v2_5_1.segment_groups import (
     MFR_M07_MF_QUERY_GROUP

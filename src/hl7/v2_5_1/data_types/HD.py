@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import DataType
 from .IS import IS
-from .ST import ST
 from .ID import ID
-from ..tables.UniversalIdType import UniversalIdType
+from .ST import ST
 from ..tables.NamespaceId import NamespaceId
+from ..tables.UniversalIdType import UniversalIdType
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     HD,
-    IS, ST, ID
+    IS, ID, ST
 )
 
 hd = HD(  # Hierarchic Designator - The basic definition of the HD is that it identifies an (administrative or system or application or other) entity that has responsibility for managing or assigning a defined set of instance identifiers (such as placer or filler number, patient identifiers, provider identifiers, etc
@@ -48,9 +48,12 @@ class HD(DataType):
 
     def __init__(
         self,
-        namespace_id: NamespaceId | IS | None = None,  # HD.1
-        universal_id: ST | None = None,  # HD.2
-        universal_id_type: UniversalIdType | ID | None = None,  # HD.3
+        namespace_id: NamespaceId | IS | tuple[NamespaceId | IS] | None = None,  # HD.1
+        universal_id: ST | tuple[ST] | None = None,  # HD.2
+        universal_id_type: UniversalIdType
+        | ID
+        | tuple[UniversalIdType | ID]
+        | None = None,  # HD.3
     ):
         """
                 Hierarchic Designator - `HD <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/HD>`_

@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.MSH import MSH
-from ..segments.QPD import QPD
 from ..segments.RCP import RCP
 from ..segments.SFT import SFT
+from ..segments.MSH import MSH
+from ..segments.QPD import QPD
 
 
 """
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import QBP_Z73
 from utils.hl7.v2_5_1.segments import (
-    RCP, QPD, SFT, MSH
+    QPD, SFT, MSH, RCP
 )
 
 qbp_z73 = QBP_Z73(  #  - The purpose of this query/response pair is to retrieve all information about phone calls made during a defined interval either in a detailed or an accumulative format

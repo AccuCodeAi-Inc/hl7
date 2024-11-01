@@ -1,13 +1,13 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
-from ..data_types.EI import EI
+from ..data_types.TS import TS
 from ..data_types.NM import NM
 from ..data_types.ST import ST
+from ..data_types.CE import CE
 from ..data_types.CP import CP
-from ..data_types.TS import TS
-from ..tables.InsuranceCompanyIdCodes import InsuranceCompanyIdCodes
+from ..data_types.EI import EI
 from ..tables.InsurancePlanId import InsurancePlanId
+from ..tables.InsuranceCompanyIdCodes import InsuranceCompanyIdCodes
 
 
 """
@@ -18,7 +18,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     AUT,
-    CE, EI, NM, ST, CP, TS
+    TS, NM, ST, CE, CP, EI
 )
 
 aut = AUT(  #  - This segment represents an authorization or a pre-authorization for a referred procedure or requested service by the payor covering the patients health care
@@ -58,16 +58,21 @@ class AUT(HL7Segment):
 
     def __init__(
         self,
-        authorizing_payor_company_id: InsuranceCompanyIdCodes | CE,  # AUT.2
-        authorizing_payor_plan_id: InsurancePlanId | CE | None = None,  # AUT.1
-        authorizing_payor_company_name: ST | None = None,  # AUT.3
-        authorization_effective_date: TS | None = None,  # AUT.4
-        authorization_expiration_date: TS | None = None,  # AUT.5
-        authorization_identifier: EI | None = None,  # AUT.6
-        reimbursement_limit: CP | None = None,  # AUT.7
-        requested_number_of_treatments: NM | None = None,  # AUT.8
-        authorized_number_of_treatments: NM | None = None,  # AUT.9
-        process_date: TS | None = None,  # AUT.10
+        authorizing_payor_company_id: InsuranceCompanyIdCodes
+        | CE
+        | tuple[InsuranceCompanyIdCodes | CE],  # AUT.2
+        authorizing_payor_plan_id: InsurancePlanId
+        | CE
+        | tuple[InsurancePlanId | CE]
+        | None = None,  # AUT.1
+        authorizing_payor_company_name: ST | tuple[ST] | None = None,  # AUT.3
+        authorization_effective_date: TS | tuple[TS] | None = None,  # AUT.4
+        authorization_expiration_date: TS | tuple[TS] | None = None,  # AUT.5
+        authorization_identifier: EI | tuple[EI] | None = None,  # AUT.6
+        reimbursement_limit: CP | tuple[CP] | None = None,  # AUT.7
+        requested_number_of_treatments: NM | tuple[NM] | None = None,  # AUT.8
+        authorized_number_of_treatments: NM | tuple[NM] | None = None,  # AUT.9
+        process_date: TS | tuple[TS] | None = None,  # AUT.10
     ):
         """
         Authorization Information - `AUT <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/AUT>`_

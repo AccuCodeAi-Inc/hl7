@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import DataType
-from .MO import MO
 from .NM import NM
+from .MO import MO
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     DDI,
-    MO, NM
+    NM, MO
 )
 
 ddi = DDI(  # Daily Deductible Information - This data type specifies the detail information for the daily deductible
@@ -45,9 +45,9 @@ class DDI(DataType):
 
     def __init__(
         self,
-        monetary_amount: MO,  # DDI.2
-        delay_days: NM | None = None,  # DDI.1
-        number_of_days: NM | None = None,  # DDI.3
+        monetary_amount: MO | tuple[MO],  # DDI.2
+        delay_days: NM | tuple[NM] | None = None,  # DDI.1
+        number_of_days: NM | tuple[NM] | None = None,  # DDI.3
     ):
         """
         Daily Deductible Information - `DDI <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/DDI>`_

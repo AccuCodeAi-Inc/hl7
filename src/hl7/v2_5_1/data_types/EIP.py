@@ -43,8 +43,8 @@ class EIP(DataType):
 
     def __init__(
         self,
-        placer_assigned_identifier: EI | None = None,  # EIP.1
-        filler_assigned_identifier: EI | None = None,  # EIP.2
+        placer_assigned_identifier: EI | tuple[EI] | None = None,  # EIP.1
+        filler_assigned_identifier: EI | tuple[EI] | None = None,  # EIP.2
     ):
         """
         Entity Identifier Pair - `EIP <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/EIP>`_

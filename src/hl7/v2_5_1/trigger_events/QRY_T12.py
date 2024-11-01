@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
+from ..segments.QRF import QRF
 from ..segments.MSH import MSH
 from ..segments.QRD import QRD
-from ..segments.QRF import QRF
 
 
 """
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import QRY_T12
 from utils.hl7.v2_5_1.segments import (
-    QRF, QRD, MSH
+    MSH, QRF, QRD
 )
 
 qry_t12 = QRY_T12(  #  - A query may be used to retrieve a list of documents or a specific document

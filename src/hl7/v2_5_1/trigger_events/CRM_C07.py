@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.MSH import MSH
-from ..segments.SFT import SFT
 from ..segment_groups.CRM_C07_PATIENT_GROUP import CRM_C07_PATIENT_GROUP
+from ..segments.SFT import SFT
+from ..segments.MSH import MSH
 
 
 """

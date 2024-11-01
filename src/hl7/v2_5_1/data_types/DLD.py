@@ -45,8 +45,10 @@ class DLD(DataType):
 
     def __init__(
         self,
-        discharge_location: DischargedToLocation | IS,  # DLD.1
-        effective_date: TS | None = None,  # DLD.2
+        discharge_location: DischargedToLocation
+        | IS
+        | tuple[DischargedToLocation | IS],  # DLD.1
+        effective_date: TS | tuple[TS] | None = None,  # DLD.2
     ):
         """
         Discharge Location and Date - `DLD <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/DLD>`_

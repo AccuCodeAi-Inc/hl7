@@ -1,13 +1,13 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.PTH import PTH
 from ..segments.VAR import VAR
 from ..segments.NTE import NTE
-from ..segment_groups.PPG_PCG_PATHWAY_GROUP_PATHWAY_ROLE_GROUP import (
-    PPG_PCG_PATHWAY_GROUP_PATHWAY_ROLE_GROUP,
-)
-from ..segments.PTH import PTH
 from ..segment_groups.PPG_PCG_PATHWAY_GROUP_GOAL_GROUP import (
     PPG_PCG_PATHWAY_GROUP_GOAL_GROUP,
+)
+from ..segment_groups.PPG_PCG_PATHWAY_GROUP_PATHWAY_ROLE_GROUP import (
+    PPG_PCG_PATHWAY_GROUP_PATHWAY_ROLE_GROUP,
 )
 
 
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PPG_PCG_PATHWAY_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NTE, PTH, VAR
+    NTE, VAR, PTH
 )
 from utils.hl7.v2_5_1.segment_groups import (
     PPG_PCG_PATHWAY_GROUP_PATHWAY_ROLE_GROUP, PPG_PCG_PATHWAY_GROUP_GOAL_GROUP

@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7Segment
 from ..data_types.VARIES import VARIES
-from ..data_types.ST import ST
 from ..data_types.ID import ID
+from ..data_types.ST import ST
 from ..data_types.TS import TS
-from ..tables.RecordLevelEventCode import RecordLevelEventCode
 from ..tables.PrimaryKeyValueType import PrimaryKeyValueType
+from ..tables.RecordLevelEventCode import RecordLevelEventCode
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     MFE,
-    VARIES, ST, ID, TS
+    VARIES, ID, ST, TS
 )
 
 mfe = MFE(  #  - The Technical Steward for the MFE segment is CQ
@@ -51,11 +51,15 @@ class MFE(HL7Segment):
 
     def __init__(
         self,
-        record_level_event_code: RecordLevelEventCode | ID,  # MFE.1
-        primary_key_value_mfe: VARIES,  # MFE.4
-        primary_key_value_type: PrimaryKeyValueType | ID,  # MFE.5
-        mfn_control_id: ST | None = None,  # MFE.2
-        effective_date_or_time: TS | None = None,  # MFE.3
+        record_level_event_code: RecordLevelEventCode
+        | ID
+        | tuple[RecordLevelEventCode | ID],  # MFE.1
+        primary_key_value_mfe: VARIES | tuple[VARIES],  # MFE.4
+        primary_key_value_type: PrimaryKeyValueType
+        | ID
+        | tuple[PrimaryKeyValueType | ID],  # MFE.5
+        mfn_control_id: ST | tuple[ST] | None = None,  # MFE.2
+        effective_date_or_time: TS | tuple[TS] | None = None,  # MFE.3
     ):
         """
         Master File Entry - `MFE <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/MFE>`_

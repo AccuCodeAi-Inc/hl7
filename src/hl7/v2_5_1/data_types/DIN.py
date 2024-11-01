@@ -45,8 +45,8 @@ class DIN(DataType):
 
     def __init__(
         self,
-        date: TS,  # DIN.1
-        institution_name: Institution | CE,  # DIN.2
+        date: TS | tuple[TS],  # DIN.1
+        institution_name: Institution | CE | tuple[Institution | CE],  # DIN.2
     ):
         """
         Date and Institution Name - `DIN <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/DIN>`_

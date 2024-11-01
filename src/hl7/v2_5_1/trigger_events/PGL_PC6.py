@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
+from ..segments.SFT import SFT
+from ..segments.MSH import MSH
 from ..segment_groups.PGL_PC6_GOAL_GROUP import PGL_PC6_GOAL_GROUP
 from ..segment_groups.PGL_PC6_PATIENT_VISIT_GROUP import PGL_PC6_PATIENT_VISIT_GROUP
-from ..segments.SFT import SFT
 from ..segments.PID import PID
-from ..segments.MSH import MSH
 
 
 """

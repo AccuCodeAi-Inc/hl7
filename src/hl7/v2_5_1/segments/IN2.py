@@ -1,48 +1,48 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
-from ..data_types.XON import XON
-from ..data_types.PTA import PTA
+from ..data_types.DDI import DDI
+from ..data_types.JCC import JCC
+from ..data_types.XPN import XPN
+from ..data_types.XTN import XTN
+from ..data_types.ID import ID
+from ..data_types.RMC import RMC
 from ..data_types.IS import IS
 from ..data_types.CX import CX
 from ..data_types.DT import DT
-from ..data_types.ID import ID
-from ..data_types.XTN import XTN
-from ..data_types.XPN import XPN
-from ..data_types.ST import ST
-from ..data_types.JCC import JCC
 from ..data_types.XCN import XCN
-from ..data_types.RMC import RMC
-from ..data_types.DDI import DDI
+from ..data_types.ST import ST
+from ..data_types.CE import CE
+from ..data_types.XON import XON
+from ..data_types.PTA import PTA
 from ..tables.JobStatus import JobStatus
-from ..tables.StudentStatus import StudentStatus
-from ..tables.AmbulatoryStatus import AmbulatoryStatus
-from ..tables.Citizenship import Citizenship
-from ..tables.ContactReason import ContactReason
-from ..tables.MilitaryRankOrGrade import MilitaryRankOrGrade
-from ..tables.PublicityCode import PublicityCode
-from ..tables.EmployerInformationData import EmployerInformationData
 from ..tables.MilitaryHandicappedProgramCode import MilitaryHandicappedProgramCode
-from ..tables.Nationality import Nationality
-from ..tables.MilitaryStatus import MilitaryStatus
-from ..tables.PolicySource import PolicySource
-from ..tables.Race import Race
-from ..tables.InsuranceCompanyContactReason import InsuranceCompanyContactReason
-from ..tables.EthnicGroup import EthnicGroup
-from ..tables.LivingDependency import LivingDependency
-from ..tables.MaritalStatus import MaritalStatus
 from ..tables.PolicyScope import PolicyScope
-from ..tables.LivingArrangement import LivingArrangement
-from ..tables.EligibilitySource import EligibilitySource
-from ..tables.MailClaimParty import MailClaimParty
-from ..tables.PrimaryLanguage import PrimaryLanguage
-from ..tables.Religion import Religion
-from ..tables.Relationship import Relationship
-from ..tables.MilitaryRecipient import MilitaryRecipient
-from ..tables.PatientSRelationshipToInsured import PatientSRelationshipToInsured
 from ..tables.NonCoveredInsuranceCode import NonCoveredInsuranceCode
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..tables.MilitaryRankOrGrade import MilitaryRankOrGrade
+from ..tables.StudentStatus import StudentStatus
+from ..tables.LivingArrangement import LivingArrangement
+from ..tables.Race import Race
+from ..tables.EligibilitySource import EligibilitySource
+from ..tables.LivingDependency import LivingDependency
+from ..tables.ContactReason import ContactReason
+from ..tables.PrimaryLanguage import PrimaryLanguage
 from ..tables.MilitaryService import MilitaryService
+from ..tables.MilitaryStatus import MilitaryStatus
+from ..tables.AmbulatoryStatus import AmbulatoryStatus
+from ..tables.Religion import Religion
+from ..tables.EmployerInformationData import EmployerInformationData
+from ..tables.MilitaryRecipient import MilitaryRecipient
+from ..tables.Relationship import Relationship
+from ..tables.PolicySource import PolicySource
+from ..tables.InsuranceCompanyContactReason import InsuranceCompanyContactReason
+from ..tables.MaritalStatus import MaritalStatus
+from ..tables.Citizenship import Citizenship
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..tables.PatientSRelationshipToInsured import PatientSRelationshipToInsured
+from ..tables.PublicityCode import PublicityCode
+from ..tables.Nationality import Nationality
+from ..tables.EthnicGroup import EthnicGroup
+from ..tables.MailClaimParty import MailClaimParty
 
 
 """
@@ -53,7 +53,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     IN2,
-    CE, XON, PTA, IS, CX, DT, ID, XTN, XPN, ST, JCC, XCN, RMC, DDI
+    DDI, JCC, XPN, XTN, ID, RMC, IS, CX, DT, XCN, ST, CE, XON, PTA
 )
 
 in2 = IN2(  #  - The IN2 segment contains additional insurance policy coverage and benefit information necessary for proper billing and reimbursement
@@ -155,85 +155,172 @@ class IN2(HL7Segment):
 
     def __init__(
         self,
-        insureds_employee_id: CX | None = None,  # IN2.1
-        insureds_social_security_number: ST | None = None,  # IN2.2
-        insureds_employers_name_and_id: XCN | None = None,  # IN2.3
-        employer_information_data: EmployerInformationData | IS | None = None,  # IN2.4
-        mail_claim_party: MailClaimParty | IS | None = None,  # IN2.5
-        medicare_health_ins_card_number: ST | None = None,  # IN2.6
-        medicaid_case_name: XPN | None = None,  # IN2.7
-        medicaid_case_number: ST | None = None,  # IN2.8
-        military_sponsor_name: XPN | None = None,  # IN2.9
-        military_id_number: ST | None = None,  # IN2.10
-        dependent_of_military_recipient: MilitaryRecipient | CE | None = None,  # IN2.11
-        military_organization: ST | None = None,  # IN2.12
-        military_station: ST | None = None,  # IN2.13
-        military_service: MilitaryService | IS | None = None,  # IN2.14
-        military_rank_or_grade: MilitaryRankOrGrade | IS | None = None,  # IN2.15
-        military_status: MilitaryStatus | IS | None = None,  # IN2.16
-        military_retire_date: DT | None = None,  # IN2.17
-        military_non_avail_cert_on_file: YesOrNoIndicator | ID | None = None,  # IN2.18
-        baby_coverage: YesOrNoIndicator | ID | None = None,  # IN2.19
-        combine_baby_bill: YesOrNoIndicator | ID | None = None,  # IN2.20
-        blood_deductible: ST | None = None,  # IN2.21
-        special_coverage_approval_name: XPN | None = None,  # IN2.22
-        special_coverage_approval_title: ST | None = None,  # IN2.23
+        insureds_employee_id: CX | tuple[CX] | None = None,  # IN2.1
+        insureds_social_security_number: ST | tuple[ST] | None = None,  # IN2.2
+        insureds_employers_name_and_id: XCN | tuple[XCN] | None = None,  # IN2.3
+        employer_information_data: EmployerInformationData
+        | IS
+        | tuple[EmployerInformationData | IS]
+        | None = None,  # IN2.4
+        mail_claim_party: MailClaimParty
+        | IS
+        | tuple[MailClaimParty | IS]
+        | None = None,  # IN2.5
+        medicare_health_ins_card_number: ST | tuple[ST] | None = None,  # IN2.6
+        medicaid_case_name: XPN | tuple[XPN] | None = None,  # IN2.7
+        medicaid_case_number: ST | tuple[ST] | None = None,  # IN2.8
+        military_sponsor_name: XPN | tuple[XPN] | None = None,  # IN2.9
+        military_id_number: ST | tuple[ST] | None = None,  # IN2.10
+        dependent_of_military_recipient: MilitaryRecipient
+        | CE
+        | tuple[MilitaryRecipient | CE]
+        | None = None,  # IN2.11
+        military_organization: ST | tuple[ST] | None = None,  # IN2.12
+        military_station: ST | tuple[ST] | None = None,  # IN2.13
+        military_service: MilitaryService
+        | IS
+        | tuple[MilitaryService | IS]
+        | None = None,  # IN2.14
+        military_rank_or_grade: MilitaryRankOrGrade
+        | IS
+        | tuple[MilitaryRankOrGrade | IS]
+        | None = None,  # IN2.15
+        military_status: MilitaryStatus
+        | IS
+        | tuple[MilitaryStatus | IS]
+        | None = None,  # IN2.16
+        military_retire_date: DT | tuple[DT] | None = None,  # IN2.17
+        military_non_avail_cert_on_file: YesOrNoIndicator
+        | ID
+        | tuple[YesOrNoIndicator | ID]
+        | None = None,  # IN2.18
+        baby_coverage: YesOrNoIndicator
+        | ID
+        | tuple[YesOrNoIndicator | ID]
+        | None = None,  # IN2.19
+        combine_baby_bill: YesOrNoIndicator
+        | ID
+        | tuple[YesOrNoIndicator | ID]
+        | None = None,  # IN2.20
+        blood_deductible: ST | tuple[ST] | None = None,  # IN2.21
+        special_coverage_approval_name: XPN | tuple[XPN] | None = None,  # IN2.22
+        special_coverage_approval_title: ST | tuple[ST] | None = None,  # IN2.23
         non_covered_insurance_code: NonCoveredInsuranceCode
         | IS
+        | tuple[NonCoveredInsuranceCode | IS]
         | None = None,  # IN2.24
-        payor_id: CX | None = None,  # IN2.25
-        payor_subscriber_id: CX | None = None,  # IN2.26
-        eligibility_source: EligibilitySource | IS | None = None,  # IN2.27
-        room_coverage_type_or_amount: RMC | None = None,  # IN2.28
-        policy_type_or_amount: PTA | None = None,  # IN2.29
-        daily_deductible: DDI | None = None,  # IN2.30
-        living_dependency: LivingDependency | IS | None = None,  # IN2.31
-        ambulatory_status: AmbulatoryStatus | IS | None = None,  # IN2.32
-        citizenship: Citizenship | CE | None = None,  # IN2.33
-        primary_language: PrimaryLanguage | CE | None = None,  # IN2.34
-        living_arrangement: LivingArrangement | IS | None = None,  # IN2.35
-        publicity_code: PublicityCode | CE | None = None,  # IN2.36
-        protection_indicator: YesOrNoIndicator | ID | None = None,  # IN2.37
-        student_indicator: StudentStatus | IS | None = None,  # IN2.38
-        religion: Religion | CE | None = None,  # IN2.39
-        mothers_maiden_name: XPN | None = None,  # IN2.40
-        nationality: Nationality | CE | None = None,  # IN2.41
-        ethnic_group: EthnicGroup | CE | None = None,  # IN2.42
-        marital_status: MaritalStatus | CE | None = None,  # IN2.43
-        insureds_employment_start_date: DT | None = None,  # IN2.44
-        employment_stop_date: DT | None = None,  # IN2.45
-        job_title: ST | None = None,  # IN2.46
-        job_code_or_class: JCC | None = None,  # IN2.47
-        job_status: JobStatus | IS | None = None,  # IN2.48
-        employer_contact_person_name: XPN | None = None,  # IN2.49
-        employer_contact_person_phone_number: XTN | None = None,  # IN2.50
-        employer_contact_reason: ContactReason | IS | None = None,  # IN2.51
-        insureds_contact_persons_name: XPN | None = None,  # IN2.52
-        insureds_contact_person_phone_number: XTN | None = None,  # IN2.53
-        insureds_contact_person_reason: ContactReason | IS | None = None,  # IN2.54
-        relationship_to_the_patient_start_date: DT | None = None,  # IN2.55
-        relationship_to_the_patient_stop_date: DT | None = None,  # IN2.56
+        payor_id: CX | tuple[CX] | None = None,  # IN2.25
+        payor_subscriber_id: CX | tuple[CX] | None = None,  # IN2.26
+        eligibility_source: EligibilitySource
+        | IS
+        | tuple[EligibilitySource | IS]
+        | None = None,  # IN2.27
+        room_coverage_type_or_amount: RMC | tuple[RMC] | None = None,  # IN2.28
+        policy_type_or_amount: PTA | tuple[PTA] | None = None,  # IN2.29
+        daily_deductible: DDI | tuple[DDI] | None = None,  # IN2.30
+        living_dependency: LivingDependency
+        | IS
+        | tuple[LivingDependency | IS]
+        | None = None,  # IN2.31
+        ambulatory_status: AmbulatoryStatus
+        | IS
+        | tuple[AmbulatoryStatus | IS]
+        | None = None,  # IN2.32
+        citizenship: Citizenship | CE | tuple[Citizenship | CE] | None = None,  # IN2.33
+        primary_language: PrimaryLanguage
+        | CE
+        | tuple[PrimaryLanguage | CE]
+        | None = None,  # IN2.34
+        living_arrangement: LivingArrangement
+        | IS
+        | tuple[LivingArrangement | IS]
+        | None = None,  # IN2.35
+        publicity_code: PublicityCode
+        | CE
+        | tuple[PublicityCode | CE]
+        | None = None,  # IN2.36
+        protection_indicator: YesOrNoIndicator
+        | ID
+        | tuple[YesOrNoIndicator | ID]
+        | None = None,  # IN2.37
+        student_indicator: StudentStatus
+        | IS
+        | tuple[StudentStatus | IS]
+        | None = None,  # IN2.38
+        religion: Religion | CE | tuple[Religion | CE] | None = None,  # IN2.39
+        mothers_maiden_name: XPN | tuple[XPN] | None = None,  # IN2.40
+        nationality: Nationality | CE | tuple[Nationality | CE] | None = None,  # IN2.41
+        ethnic_group: EthnicGroup
+        | CE
+        | tuple[EthnicGroup | CE]
+        | None = None,  # IN2.42
+        marital_status: MaritalStatus
+        | CE
+        | tuple[MaritalStatus | CE]
+        | None = None,  # IN2.43
+        insureds_employment_start_date: DT | tuple[DT] | None = None,  # IN2.44
+        employment_stop_date: DT | tuple[DT] | None = None,  # IN2.45
+        job_title: ST | tuple[ST] | None = None,  # IN2.46
+        job_code_or_class: JCC | tuple[JCC] | None = None,  # IN2.47
+        job_status: JobStatus | IS | tuple[JobStatus | IS] | None = None,  # IN2.48
+        employer_contact_person_name: XPN | tuple[XPN] | None = None,  # IN2.49
+        employer_contact_person_phone_number: XTN | tuple[XTN] | None = None,  # IN2.50
+        employer_contact_reason: ContactReason
+        | IS
+        | tuple[ContactReason | IS]
+        | None = None,  # IN2.51
+        insureds_contact_persons_name: XPN | tuple[XPN] | None = None,  # IN2.52
+        insureds_contact_person_phone_number: XTN | tuple[XTN] | None = None,  # IN2.53
+        insureds_contact_person_reason: ContactReason
+        | IS
+        | tuple[ContactReason | IS]
+        | None = None,  # IN2.54
+        relationship_to_the_patient_start_date: DT | tuple[DT] | None = None,  # IN2.55
+        relationship_to_the_patient_stop_date: DT | tuple[DT] | None = None,  # IN2.56
         insurance_co_contact_reason: InsuranceCompanyContactReason
         | IS
+        | tuple[InsuranceCompanyContactReason | IS]
         | None = None,  # IN2.57
-        insurance_co_contact_phone_number: XTN | None = None,  # IN2.58
-        policy_scope: PolicyScope | IS | None = None,  # IN2.59
-        policy_source: PolicySource | IS | None = None,  # IN2.60
-        patient_member_number: CX | None = None,  # IN2.61
-        guarantors_relationship_to_insured: Relationship | CE | None = None,  # IN2.62
-        insureds_phone_number_home: XTN | None = None,  # IN2.63
-        insureds_employer_phone_number: XTN | None = None,  # IN2.64
+        insurance_co_contact_phone_number: XTN | tuple[XTN] | None = None,  # IN2.58
+        policy_scope: PolicyScope
+        | IS
+        | tuple[PolicyScope | IS]
+        | None = None,  # IN2.59
+        policy_source: PolicySource
+        | IS
+        | tuple[PolicySource | IS]
+        | None = None,  # IN2.60
+        patient_member_number: CX | tuple[CX] | None = None,  # IN2.61
+        guarantors_relationship_to_insured: Relationship
+        | CE
+        | tuple[Relationship | CE]
+        | None = None,  # IN2.62
+        insureds_phone_number_home: XTN | tuple[XTN] | None = None,  # IN2.63
+        insureds_employer_phone_number: XTN | tuple[XTN] | None = None,  # IN2.64
         military_handicapped_program: MilitaryHandicappedProgramCode
         | CE
+        | tuple[MilitaryHandicappedProgramCode | CE]
         | None = None,  # IN2.65
-        suspend_flag: YesOrNoIndicator | ID | None = None,  # IN2.66
-        copay_limit_flag: YesOrNoIndicator | ID | None = None,  # IN2.67
-        stoploss_limit_flag: YesOrNoIndicator | ID | None = None,  # IN2.68
-        insured_organization_name_and_id: XON | None = None,  # IN2.69
-        insured_employer_organization_name_and_id: XON | None = None,  # IN2.70
-        race: Race | CE | None = None,  # IN2.71
+        suspend_flag: YesOrNoIndicator
+        | ID
+        | tuple[YesOrNoIndicator | ID]
+        | None = None,  # IN2.66
+        copay_limit_flag: YesOrNoIndicator
+        | ID
+        | tuple[YesOrNoIndicator | ID]
+        | None = None,  # IN2.67
+        stoploss_limit_flag: YesOrNoIndicator
+        | ID
+        | tuple[YesOrNoIndicator | ID]
+        | None = None,  # IN2.68
+        insured_organization_name_and_id: XON | tuple[XON] | None = None,  # IN2.69
+        insured_employer_organization_name_and_id: XON
+        | tuple[XON]
+        | None = None,  # IN2.70
+        race: Race | CE | tuple[Race | CE] | None = None,  # IN2.71
         cms_patients_relationship_to_insured: PatientSRelationshipToInsured
         | CE
+        | tuple[PatientSRelationshipToInsured | CE]
         | None = None,  # IN2.72
     ):
         """

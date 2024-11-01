@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
 from ..data_types.EI import EI
 from ..data_types.ST import ST
+from ..data_types.CE import CE
 
 
 """
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     IPC,
-    CE, EI, ST
+    EI, ST, CE
 )
 
 ipc = IPC(  #  - The IPC segment contains information about tasks that need to be performed in order to fulfill the request for imaging service
@@ -52,15 +52,15 @@ class IPC(HL7Segment):
 
     def __init__(
         self,
-        accession_identifier: EI,  # IPC.1
-        requested_procedure_id: EI,  # IPC.2
-        study_instance_uid: EI,  # IPC.3
-        scheduled_procedure_step_id: EI,  # IPC.4
-        modality: CE | None = None,  # IPC.5
-        protocol_code: CE | None = None,  # IPC.6
-        scheduled_station_name: EI | None = None,  # IPC.7
-        scheduled_procedure_step_location: CE | None = None,  # IPC.8
-        scheduled_ae_title: ST | None = None,  # IPC.9
+        accession_identifier: EI | tuple[EI],  # IPC.1
+        requested_procedure_id: EI | tuple[EI],  # IPC.2
+        study_instance_uid: EI | tuple[EI],  # IPC.3
+        scheduled_procedure_step_id: EI | tuple[EI],  # IPC.4
+        modality: CE | tuple[CE] | None = None,  # IPC.5
+        protocol_code: CE | tuple[CE] | None = None,  # IPC.6
+        scheduled_station_name: EI | tuple[EI] | None = None,  # IPC.7
+        scheduled_procedure_step_location: CE | tuple[CE] | None = None,  # IPC.8
+        scheduled_ae_title: ST | tuple[ST] | None = None,  # IPC.9
     ):
         """
         Imaging Procedure Control Segment - `IPC <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/IPC>`_

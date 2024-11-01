@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import SUR_P09_FACILITY_GROUP_PRODUCT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PDC, PSH
+    PSH, PDC
 )
 
 sur_p09_facility_group_product_group = SUR_P09_FACILITY_GROUP_PRODUCT_GROUP(  # PRODUCT - Segment group for SUR_P09_FACILITY_GROUP - FACILITY consisting of PSH, PDC

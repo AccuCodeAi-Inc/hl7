@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.MSH import MSH
 from ..segments.MSA import MSA
 from ..segments.SFT import SFT
+from ..segments.MSH import MSH
 from ..segments.ERR import ERR
 
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ACK
 from utils.hl7.v2_5_1.segments import (
-    ERR, MSA, SFT, MSH
+    SFT, MSH, MSA, ERR
 )
 
 ack = ACK(  #  - The simple general acknowledgment (ACK) can be used where the application does not define a special application level acknowledgment message or where there has been an error that precludes application processing

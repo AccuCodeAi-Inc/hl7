@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.SFT import SFT
+from ..segments.RCP import RCP
 from ..segments.DSC import DSC
+from ..segments.SFT import SFT
 from ..segments.MSH import MSH
 from ..segments.QPD import QPD
-from ..segments.RCP import RCP
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import QSB_Q16
 from utils.hl7.v2_5_1.segments import (
-    DSC, RCP, QPD, SFT, MSH
+    QPD, MSH, SFT, RCP, DSC
 )
 
 qsb_q16 = QSB_Q16(  #  - 

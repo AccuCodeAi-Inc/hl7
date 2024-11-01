@@ -1,13 +1,13 @@
 from __future__ import annotations
 from ...base import DataType
-from .DT import DT
 from .ID import ID
-from .ST import ST
+from .DT import DT
 from .CWE import CWE
+from .ST import ST
 from .HD import HD
-from ..tables.CheckDigitScheme import CheckDigitScheme
-from ..tables.AssigningAuthority import AssigningAuthority
 from ..tables.IdentifierType import IdentifierType
+from ..tables.AssigningAuthority import AssigningAuthority
+from ..tables.CheckDigitScheme import CheckDigitScheme
 
 
 """
@@ -18,7 +18,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CX,
-    DT, ID, ST, CWE, HD
+    ID, DT, CWE, ST, HD
 )
 
 cx = CX(  # Extended Composite ID with Check Digit - This data type is used for specifying an identifier with its associated administrative detail
@@ -58,16 +58,25 @@ class CX(DataType):
 
     def __init__(
         self,
-        id_number: ST,  # CX.1
-        check_digit: ST | None = None,  # CX.2
-        check_digit_scheme: CheckDigitScheme | ID | None = None,  # CX.3
-        assigning_authority: AssigningAuthority | HD | None = None,  # CX.4
-        identifier_type_code: IdentifierType | ID | None = None,  # CX.5
-        assigning_facility: HD | None = None,  # CX.6
-        effective_date: DT | None = None,  # CX.7
-        expiration_date: DT | None = None,  # CX.8
-        assigning_jurisdiction: CWE | None = None,  # CX.9
-        assigning_agency_or_department: CWE | None = None,  # CX.10
+        id_number: ST | tuple[ST],  # CX.1
+        check_digit: ST | tuple[ST] | None = None,  # CX.2
+        check_digit_scheme: CheckDigitScheme
+        | ID
+        | tuple[CheckDigitScheme | ID]
+        | None = None,  # CX.3
+        assigning_authority: AssigningAuthority
+        | HD
+        | tuple[AssigningAuthority | HD]
+        | None = None,  # CX.4
+        identifier_type_code: IdentifierType
+        | ID
+        | tuple[IdentifierType | ID]
+        | None = None,  # CX.5
+        assigning_facility: HD | tuple[HD] | None = None,  # CX.6
+        effective_date: DT | tuple[DT] | None = None,  # CX.7
+        expiration_date: DT | tuple[DT] | None = None,  # CX.8
+        assigning_jurisdiction: CWE | tuple[CWE] | None = None,  # CX.9
+        assigning_agency_or_department: CWE | tuple[CWE] | None = None,  # CX.10
     ):
         """
                 Extended Composite ID with Check Digit - `CX <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/CX>`_

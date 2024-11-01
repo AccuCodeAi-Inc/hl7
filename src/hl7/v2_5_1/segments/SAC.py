@@ -1,25 +1,25 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
-from ..data_types.SPS import SPS
-from ..data_types.NM import NM
-from ..data_types.NA import NA
-from ..data_types.CWE import CWE
-from ..data_types.SN import SN
-from ..data_types.EI import EI
 from ..data_types.TS import TS
-from ..tables.TrayType import TrayType
+from ..data_types.NM import NM
+from ..data_types.SPS import SPS
+from ..data_types.CWE import CWE
+from ..data_types.NA import NA
+from ..data_types.CE import CE
+from ..data_types.EI import EI
+from ..data_types.SN import SN
 from ..tables.ContainerStatus import ContainerStatus
-from ..tables.SpecialHandlingCode import SpecialHandlingCode
-from ..tables.DrugInterference import DrugInterference
-from ..tables.CapType import CapType
-from ..tables.ArtificialBlood import ArtificialBlood
-from ..tables.AdditiveOrPreservative import AdditiveOrPreservative
+from ..tables.TrayType import TrayType
 from ..tables.SystemInducedContaminants import SystemInducedContaminants
-from ..tables.CarrierType import CarrierType
 from ..tables.OtherEnvironmentalFactors import OtherEnvironmentalFactors
-from ..tables.Treatment import Treatment
+from ..tables.AdditiveOrPreservative import AdditiveOrPreservative
+from ..tables.ArtificialBlood import ArtificialBlood
+from ..tables.CapType import CapType
 from ..tables.SeparatorType import SeparatorType
+from ..tables.DrugInterference import DrugInterference
+from ..tables.SpecialHandlingCode import SpecialHandlingCode
+from ..tables.Treatment import Treatment
+from ..tables.CarrierType import CarrierType
 
 
 """
@@ -30,7 +30,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     SAC,
-    CE, SPS, NM, NA, CWE, SN, EI, TS
+    TS, NM, SPS, CWE, NA, CE, EI, SN
 )
 
 sac = SAC(  #  - The container detail segment is the data necessary to maintain the containers that are being used throughout the Laboratory Automation System
@@ -104,53 +104,75 @@ class SAC(HL7Segment):
 
     def __init__(
         self,
-        external_accession_identifier: EI | None = None,  # SAC.1
-        accession_identifier: EI | None = None,  # SAC.2
-        container_identifier: EI | None = None,  # SAC.3
-        primary: EI | None = None,  # SAC.4
-        equipment_container_identifier: EI | None = None,  # SAC.5
-        specimen_source: SPS | None = None,  # SAC.6
-        registration_date_or_time: TS | None = None,  # SAC.7
-        container_status: ContainerStatus | CE | None = None,  # SAC.8
-        carrier_type: CarrierType | CE | None = None,  # SAC.9
-        carrier_identifier: EI | None = None,  # SAC.10
-        position_in_carrier: NA | None = None,  # SAC.11
-        tray_type_sac: TrayType | CE | None = None,  # SAC.12
-        tray_identifier: EI | None = None,  # SAC.13
-        position_in_tray: NA | None = None,  # SAC.14
-        location: CE | None = None,  # SAC.15
-        container_height: NM | None = None,  # SAC.16
-        container_diameter: NM | None = None,  # SAC.17
-        barrier_delta: NM | None = None,  # SAC.18
-        bottom_delta: NM | None = None,  # SAC.19
-        container_height_or_diameter_or_delta_units: CE | None = None,  # SAC.20
-        container_volume: NM | None = None,  # SAC.21
-        available_specimen_volume: NM | None = None,  # SAC.22
-        initial_specimen_volume: NM | None = None,  # SAC.23
-        volume_units: CE | None = None,  # SAC.24
-        separator_type: SeparatorType | CE | None = None,  # SAC.25
-        cap_type: CapType | CE | None = None,  # SAC.26
-        additive: AdditiveOrPreservative | CWE | None = None,  # SAC.27
-        specimen_component: CE | None = None,  # SAC.28
-        dilution_factor: SN | None = None,  # SAC.29
-        treatment: Treatment | CE | None = None,  # SAC.30
-        temperature: SN | None = None,  # SAC.31
-        hemolysis_index: NM | None = None,  # SAC.32
-        hemolysis_index_units: CE | None = None,  # SAC.33
-        lipemia_index: NM | None = None,  # SAC.34
-        lipemia_index_units: CE | None = None,  # SAC.35
-        icterus_index: NM | None = None,  # SAC.36
-        icterus_index_units: CE | None = None,  # SAC.37
-        fibrin_index: NM | None = None,  # SAC.38
-        fibrin_index_units: CE | None = None,  # SAC.39
+        external_accession_identifier: EI | tuple[EI] | None = None,  # SAC.1
+        accession_identifier: EI | tuple[EI] | None = None,  # SAC.2
+        container_identifier: EI | tuple[EI] | None = None,  # SAC.3
+        primary: EI | tuple[EI] | None = None,  # SAC.4
+        equipment_container_identifier: EI | tuple[EI] | None = None,  # SAC.5
+        specimen_source: SPS | tuple[SPS] | None = None,  # SAC.6
+        registration_date_or_time: TS | tuple[TS] | None = None,  # SAC.7
+        container_status: ContainerStatus
+        | CE
+        | tuple[ContainerStatus | CE]
+        | None = None,  # SAC.8
+        carrier_type: CarrierType | CE | tuple[CarrierType | CE] | None = None,  # SAC.9
+        carrier_identifier: EI | tuple[EI] | None = None,  # SAC.10
+        position_in_carrier: NA | tuple[NA] | None = None,  # SAC.11
+        tray_type_sac: TrayType | CE | tuple[TrayType | CE] | None = None,  # SAC.12
+        tray_identifier: EI | tuple[EI] | None = None,  # SAC.13
+        position_in_tray: NA | tuple[NA] | None = None,  # SAC.14
+        location: CE | tuple[CE] | None = None,  # SAC.15
+        container_height: NM | tuple[NM] | None = None,  # SAC.16
+        container_diameter: NM | tuple[NM] | None = None,  # SAC.17
+        barrier_delta: NM | tuple[NM] | None = None,  # SAC.18
+        bottom_delta: NM | tuple[NM] | None = None,  # SAC.19
+        container_height_or_diameter_or_delta_units: CE
+        | tuple[CE]
+        | None = None,  # SAC.20
+        container_volume: NM | tuple[NM] | None = None,  # SAC.21
+        available_specimen_volume: NM | tuple[NM] | None = None,  # SAC.22
+        initial_specimen_volume: NM | tuple[NM] | None = None,  # SAC.23
+        volume_units: CE | tuple[CE] | None = None,  # SAC.24
+        separator_type: SeparatorType
+        | CE
+        | tuple[SeparatorType | CE]
+        | None = None,  # SAC.25
+        cap_type: CapType | CE | tuple[CapType | CE] | None = None,  # SAC.26
+        additive: AdditiveOrPreservative
+        | CWE
+        | tuple[AdditiveOrPreservative | CWE]
+        | None = None,  # SAC.27
+        specimen_component: CE | tuple[CE] | None = None,  # SAC.28
+        dilution_factor: SN | tuple[SN] | None = None,  # SAC.29
+        treatment: Treatment | CE | tuple[Treatment | CE] | None = None,  # SAC.30
+        temperature: SN | tuple[SN] | None = None,  # SAC.31
+        hemolysis_index: NM | tuple[NM] | None = None,  # SAC.32
+        hemolysis_index_units: CE | tuple[CE] | None = None,  # SAC.33
+        lipemia_index: NM | tuple[NM] | None = None,  # SAC.34
+        lipemia_index_units: CE | tuple[CE] | None = None,  # SAC.35
+        icterus_index: NM | tuple[NM] | None = None,  # SAC.36
+        icterus_index_units: CE | tuple[CE] | None = None,  # SAC.37
+        fibrin_index: NM | tuple[NM] | None = None,  # SAC.38
+        fibrin_index_units: CE | tuple[CE] | None = None,  # SAC.39
         system_induced_contaminants: SystemInducedContaminants
         | CE
+        | tuple[SystemInducedContaminants | CE]
         | None = None,  # SAC.40
-        drug_interference: DrugInterference | CE | None = None,  # SAC.41
-        artificial_blood: ArtificialBlood | CE | None = None,  # SAC.42
-        special_handling_code: SpecialHandlingCode | CWE | None = None,  # SAC.43
+        drug_interference: DrugInterference
+        | CE
+        | tuple[DrugInterference | CE]
+        | None = None,  # SAC.41
+        artificial_blood: ArtificialBlood
+        | CE
+        | tuple[ArtificialBlood | CE]
+        | None = None,  # SAC.42
+        special_handling_code: SpecialHandlingCode
+        | CWE
+        | tuple[SpecialHandlingCode | CWE]
+        | None = None,  # SAC.43
         other_environmental_factors: OtherEnvironmentalFactors
         | CE
+        | tuple[OtherEnvironmentalFactors | CE]
         | None = None,  # SAC.44
     ):
         """

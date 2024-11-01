@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
 from ..data_types.ST import ST
+from ..data_types.CE import CE
 from ..tables.ManufacturerIdentifier import ManufacturerIdentifier
 
 
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     SID,
-    CE, ST
+    ST, CE
 )
 
 sid = SID(  #  - The Substance Identifier segment contains data necessary to identify the substance (e
@@ -47,11 +47,12 @@ class SID(HL7Segment):
 
     def __init__(
         self,
-        application_or_method_identifier: CE | None = None,  # SID.1
-        substance_lot_number: ST | None = None,  # SID.2
-        substance_container_identifier: ST | None = None,  # SID.3
+        application_or_method_identifier: CE | tuple[CE] | None = None,  # SID.1
+        substance_lot_number: ST | tuple[ST] | None = None,  # SID.2
+        substance_container_identifier: ST | tuple[ST] | None = None,  # SID.3
         substance_manufacturer_identifier: ManufacturerIdentifier
         | CE
+        | tuple[ManufacturerIdentifier | CE]
         | None = None,  # SID.4
     ):
         """

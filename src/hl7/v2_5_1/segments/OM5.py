@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
-from ..data_types.ST import ST
 from ..data_types.NM import NM
+from ..data_types.ST import ST
+from ..data_types.CE import CE
 
 
 """
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     OM5,
-    CE, ST, NM
+    NM, ST, CE
 )
 
 om5 = OM5(  #  - This segment contains the information about batteries and supersets (a nature code of F, P or S, as described in OM1-18 - Nature of Service/Test/Observation)
@@ -46,10 +46,13 @@ class OM5(HL7Segment):
 
     def __init__(
         self,
-        sequence_number_test_or_observation_master_file: NM | None = None,  # OM5.1
+        sequence_number_test_or_observation_master_file: NM
+        | tuple[NM]
+        | None = None,  # OM5.1
         test_or_observations_included_within_an_ordered_test_battery: CE
+        | tuple[CE]
         | None = None,  # OM5.2
-        observation_id_suffixes: ST | None = None,  # OM5.3
+        observation_id_suffixes: ST | tuple[ST] | None = None,  # OM5.3
     ):
         """
         Observation Batteries (Sets) - `OM5 <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/OM5>`_

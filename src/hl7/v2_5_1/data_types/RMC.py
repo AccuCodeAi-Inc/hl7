@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import DataType
 from .IS import IS
-from .NM import NM
 from .MOP import MOP
-from ..tables.RoomType import RoomType
+from .NM import NM
 from ..tables.AmountType import AmountType
+from ..tables.RoomType import RoomType
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RMC,
-    IS, NM, MOP
+    IS, MOP, NM
 )
 
 rmc = RMC(  # Room Coverage - This data type specifies insurance coverage detail for a room
@@ -49,10 +49,10 @@ class RMC(DataType):
 
     def __init__(
         self,
-        room_type: RoomType | IS,  # RMC.1
-        money_or_percentage: MOP,  # RMC.4
-        amount_type: AmountType | IS | None = None,  # RMC.2
-        coverage_amount: NM | None = None,  # RMC.3
+        room_type: RoomType | IS | tuple[RoomType | IS],  # RMC.1
+        money_or_percentage: MOP | tuple[MOP],  # RMC.4
+        amount_type: AmountType | IS | tuple[AmountType | IS] | None = None,  # RMC.2
+        coverage_amount: NM | tuple[NM] | None = None,  # RMC.3
     ):
         """
         Room Coverage - `RMC <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/RMC>`_

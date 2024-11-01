@@ -45,8 +45,8 @@ class FC(DataType):
 
     def __init__(
         self,
-        financial_class_code: FinancialClass | IS,  # FC.1
-        effective_date: TS | None = None,  # FC.2
+        financial_class_code: FinancialClass | IS | tuple[FinancialClass | IS],  # FC.1
+        effective_date: TS | tuple[TS] | None = None,  # FC.2
     ):
         """
         Financial Class - `FC <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/FC>`_

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.RXA import RXA
 from ..segments.RXR import RXR
+from ..segments.RXA import RXA
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RRA_O18_RESPONSE_GROUP_ORDER_GROUP_ADMINISTRATION_GROUP
 from utils.hl7.v2_5_1.segments import (
-    RXR, RXA
+    RXA, RXR
 )
 
 rra_o18_response_group_order_group_administration_group = RRA_O18_RESPONSE_GROUP_ORDER_GROUP_ADMINISTRATION_GROUP(  # ADMINISTRATION - Segment group for RRA_O18_RESPONSE_GROUP_ORDER_GROUP - ORDER consisting of RXA, RXR

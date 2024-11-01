@@ -1,35 +1,35 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
+from ..data_types.DIN import DIN
+from ..data_types.JCC import JCC
+from ..data_types.XPN import XPN
+from ..data_types.TS import TS
+from ..data_types.ID import ID
 from ..data_types.IS import IS
 from ..data_types.CX import CX
 from ..data_types.DT import DT
-from ..data_types.ID import ID
-from ..data_types.XTN import XTN
-from ..data_types.XPN import XPN
-from ..data_types.ST import ST
-from ..data_types.DIN import DIN
-from ..data_types.JCC import JCC
-from ..data_types.DLN import DLN
-from ..data_types.CWE import CWE
 from ..data_types.DR import DR
+from ..data_types.CWE import CWE
+from ..data_types.CE import CE
+from ..data_types.XTN import XTN
 from ..data_types.XAD import XAD
-from ..data_types.TS import TS
-from ..tables.Race import Race
-from ..tables.HospitalService import HospitalService
-from ..tables.EmploymentStatus import EmploymentStatus
-from ..tables.ActiveOrInactive import ActiveOrInactive
-from ..tables.Department import Department
-from ..tables.MaritalStatus import MaritalStatus
-from ..tables.EthnicGroup import EthnicGroup
-from ..tables.AdministrativeSex import AdministrativeSex
-from ..tables.Citizenship import Citizenship
+from ..data_types.ST import ST
+from ..data_types.DLN import DLN
 from ..tables.StaffType import StaffType
+from ..tables.HospitalService import HospitalService
 from ..tables.PreferredMethodOfContact import PreferredMethodOfContact
+from ..tables.Race import Race
+from ..tables.EmploymentStatus import EmploymentStatus
+from ..tables.Citizenship import Citizenship
+from ..tables.Department import Department
+from ..tables.ActiveOrInactive import ActiveOrInactive
+from ..tables.AdministrativeSex import AdministrativeSex
 from ..tables.YesOrNoIndicator import YesOrNoIndicator
-from ..tables.InstitutionRelationshipType import InstitutionRelationshipType
 from ..tables.CostCenterCode import CostCenterCode
+from ..tables.InstitutionRelationshipType import InstitutionRelationshipType
 from ..tables.InactiveReasonCode import InactiveReasonCode
+from ..tables.EthnicGroup import EthnicGroup
+from ..tables.MaritalStatus import MaritalStatus
 
 
 """
@@ -40,7 +40,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     STF,
-    CE, IS, CX, DT, ID, XTN, XPN, ST, DIN, JCC, DLN, CWE, DR, XAD, TS
+    DIN, JCC, XPN, TS, ID, IS, CX, DT, DR, CWE, CE, XTN, XAD, ST, DLN
 )
 
 stf = STF(  #  - The STF segment can identify any personnel referenced by information systems
@@ -108,48 +108,92 @@ class STF(HL7Segment):
 
     def __init__(
         self,
-        primary_key_value_stf: CE | None = None,  # STF.1
-        staff_identifier_list: CX | None = None,  # STF.2
-        staff_name: XPN | None = None,  # STF.3
-        staff_type: StaffType | IS | None = None,  # STF.4
-        administrative_sex: AdministrativeSex | IS | None = None,  # STF.5
-        date_or_time_of_birth: TS | None = None,  # STF.6
-        active_or_inactive_flag: ActiveOrInactive | ID | None = None,  # STF.7
-        department: Department | CE | None = None,  # STF.8
-        hospital_service_stf: HospitalService | CE | None = None,  # STF.9
-        phone: XTN | None = None,  # STF.10
-        office_or_home_address_or_birthplace: XAD | None = None,  # STF.11
-        institution_activation_date: DIN | None = None,  # STF.12
-        institution_inactivation_date: DIN | None = None,  # STF.13
-        backup_person_id: CE | None = None,  # STF.14
-        e_mail_address: ST | None = None,  # STF.15
+        primary_key_value_stf: CE | tuple[CE] | None = None,  # STF.1
+        staff_identifier_list: CX | tuple[CX] | None = None,  # STF.2
+        staff_name: XPN | tuple[XPN] | None = None,  # STF.3
+        staff_type: StaffType | IS | tuple[StaffType | IS] | None = None,  # STF.4
+        administrative_sex: AdministrativeSex
+        | IS
+        | tuple[AdministrativeSex | IS]
+        | None = None,  # STF.5
+        date_or_time_of_birth: TS | tuple[TS] | None = None,  # STF.6
+        active_or_inactive_flag: ActiveOrInactive
+        | ID
+        | tuple[ActiveOrInactive | ID]
+        | None = None,  # STF.7
+        department: Department | CE | tuple[Department | CE] | None = None,  # STF.8
+        hospital_service_stf: HospitalService
+        | CE
+        | tuple[HospitalService | CE]
+        | None = None,  # STF.9
+        phone: XTN | tuple[XTN] | None = None,  # STF.10
+        office_or_home_address_or_birthplace: XAD | tuple[XAD] | None = None,  # STF.11
+        institution_activation_date: DIN | tuple[DIN] | None = None,  # STF.12
+        institution_inactivation_date: DIN | tuple[DIN] | None = None,  # STF.13
+        backup_person_id: CE | tuple[CE] | None = None,  # STF.14
+        e_mail_address: ST | tuple[ST] | None = None,  # STF.15
         preferred_method_of_contact: PreferredMethodOfContact
         | CE
+        | tuple[PreferredMethodOfContact | CE]
         | None = None,  # STF.16
-        marital_status: MaritalStatus | CE | None = None,  # STF.17
-        job_title: ST | None = None,  # STF.18
-        job_code_or_class: JCC | None = None,  # STF.19
-        employment_status_code: EmploymentStatus | CE | None = None,  # STF.20
-        additional_insured_on_auto: YesOrNoIndicator | ID | None = None,  # STF.21
-        drivers_license_number_staff: DLN | None = None,  # STF.22
-        copy_auto_ins: YesOrNoIndicator | ID | None = None,  # STF.23
-        auto_ins_expires: DT | None = None,  # STF.24
-        date_last_dmv_review: DT | None = None,  # STF.25
-        date_next_dmv_review: DT | None = None,  # STF.26
-        race: Race | CE | None = None,  # STF.27
-        ethnic_group: EthnicGroup | CE | None = None,  # STF.28
-        re_activation_approval_indicator: YesOrNoIndicator | ID | None = None,  # STF.29
-        citizenship: Citizenship | CWE | None = None,  # STF.30
-        death_date_and_time: TS | None = None,  # STF.31
-        death_indicator: YesOrNoIndicator | ID | None = None,  # STF.32
+        marital_status: MaritalStatus
+        | CE
+        | tuple[MaritalStatus | CE]
+        | None = None,  # STF.17
+        job_title: ST | tuple[ST] | None = None,  # STF.18
+        job_code_or_class: JCC | tuple[JCC] | None = None,  # STF.19
+        employment_status_code: EmploymentStatus
+        | CE
+        | tuple[EmploymentStatus | CE]
+        | None = None,  # STF.20
+        additional_insured_on_auto: YesOrNoIndicator
+        | ID
+        | tuple[YesOrNoIndicator | ID]
+        | None = None,  # STF.21
+        drivers_license_number_staff: DLN | tuple[DLN] | None = None,  # STF.22
+        copy_auto_ins: YesOrNoIndicator
+        | ID
+        | tuple[YesOrNoIndicator | ID]
+        | None = None,  # STF.23
+        auto_ins_expires: DT | tuple[DT] | None = None,  # STF.24
+        date_last_dmv_review: DT | tuple[DT] | None = None,  # STF.25
+        date_next_dmv_review: DT | tuple[DT] | None = None,  # STF.26
+        race: Race | CE | tuple[Race | CE] | None = None,  # STF.27
+        ethnic_group: EthnicGroup
+        | CE
+        | tuple[EthnicGroup | CE]
+        | None = None,  # STF.28
+        re_activation_approval_indicator: YesOrNoIndicator
+        | ID
+        | tuple[YesOrNoIndicator | ID]
+        | None = None,  # STF.29
+        citizenship: Citizenship
+        | CWE
+        | tuple[Citizenship | CWE]
+        | None = None,  # STF.30
+        death_date_and_time: TS | tuple[TS] | None = None,  # STF.31
+        death_indicator: YesOrNoIndicator
+        | ID
+        | tuple[YesOrNoIndicator | ID]
+        | None = None,  # STF.32
         institution_relationship_type_code: InstitutionRelationshipType
         | CWE
+        | tuple[InstitutionRelationshipType | CWE]
         | None = None,  # STF.33
-        institution_relationship_period: DR | None = None,  # STF.34
-        expected_return_date: DT | None = None,  # STF.35
-        cost_center_code: CostCenterCode | CWE | None = None,  # STF.36
-        generic_classification_indicator: YesOrNoIndicator | ID | None = None,  # STF.37
-        inactive_reason_code: InactiveReasonCode | CWE | None = None,  # STF.38
+        institution_relationship_period: DR | tuple[DR] | None = None,  # STF.34
+        expected_return_date: DT | tuple[DT] | None = None,  # STF.35
+        cost_center_code: CostCenterCode
+        | CWE
+        | tuple[CostCenterCode | CWE]
+        | None = None,  # STF.36
+        generic_classification_indicator: YesOrNoIndicator
+        | ID
+        | tuple[YesOrNoIndicator | ID]
+        | None = None,  # STF.37
+        inactive_reason_code: InactiveReasonCode
+        | CWE
+        | tuple[InactiveReasonCode | CWE]
+        | None = None,  # STF.38
     ):
         """
         Staff Identification - `STF <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/STF>`_

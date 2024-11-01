@@ -45,8 +45,8 @@ class OCD(DataType):
 
     def __init__(
         self,
-        occurrence_code: OccurrenceCode | CNE,  # OCD.1
-        occurrence_date: DT,  # OCD.2
+        occurrence_code: OccurrenceCode | CNE | tuple[OccurrenceCode | CNE],  # OCD.1
+        occurrence_date: DT | tuple[DT],  # OCD.2
     ):
         """
                 Occurrence Code and Date - `OCD <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/OCD>`_

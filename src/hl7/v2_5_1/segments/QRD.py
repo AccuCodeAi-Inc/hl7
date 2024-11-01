@@ -1,17 +1,17 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
 from ..data_types.CQ import CQ
-from ..data_types.VR import VR
-from ..data_types.ID import ID
-from ..data_types.ST import ST
-from ..data_types.XCN import XCN
 from ..data_types.TS import TS
-from ..tables.QueryOrResponseFormatCode import QueryOrResponseFormatCode
+from ..data_types.ID import ID
+from ..data_types.VR import VR
+from ..data_types.XCN import XCN
+from ..data_types.ST import ST
+from ..data_types.CE import CE
+from ..tables.QueryPriority import QueryPriority
+from ..tables.WhatSubjectFilter import WhatSubjectFilter
 from ..tables.QueryResultsLevel import QueryResultsLevel
 from ..tables.DeferredResponseType import DeferredResponseType
-from ..tables.WhatSubjectFilter import WhatSubjectFilter
-from ..tables.QueryPriority import QueryPriority
+from ..tables.QueryOrResponseFormatCode import QueryOrResponseFormatCode
 
 
 """
@@ -22,7 +22,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     QRD,
-    CE, CQ, VR, ID, ST, XCN, TS
+    CQ, TS, ID, VR, XCN, ST, CE
 )
 
 qrd = QRD(  #  - This segment is not carried forward to the recommended queries for v 2
@@ -64,18 +64,28 @@ class QRD(HL7Segment):
 
     def __init__(
         self,
-        query_date_or_time: TS,  # QRD.1
-        query_format_code: QueryOrResponseFormatCode | ID,  # QRD.2
-        query_priority: QueryPriority | ID,  # QRD.3
-        query_id: ST,  # QRD.4
-        quantity_limited_request: CQ,  # QRD.7
-        who_subject_filter: XCN,  # QRD.8
-        what_subject_filter: WhatSubjectFilter | CE,  # QRD.9
-        what_department_data_code: CE,  # QRD.10
-        deferred_response_type: DeferredResponseType | ID | None = None,  # QRD.5
-        deferred_response_date_or_time: TS | None = None,  # QRD.6
-        what_data_code_value_qual: VR | None = None,  # QRD.11
-        query_results_level: QueryResultsLevel | ID | None = None,  # QRD.12
+        query_date_or_time: TS | tuple[TS],  # QRD.1
+        query_format_code: QueryOrResponseFormatCode
+        | ID
+        | tuple[QueryOrResponseFormatCode | ID],  # QRD.2
+        query_priority: QueryPriority | ID | tuple[QueryPriority | ID],  # QRD.3
+        query_id: ST | tuple[ST],  # QRD.4
+        quantity_limited_request: CQ | tuple[CQ],  # QRD.7
+        who_subject_filter: XCN | tuple[XCN],  # QRD.8
+        what_subject_filter: WhatSubjectFilter
+        | CE
+        | tuple[WhatSubjectFilter | CE],  # QRD.9
+        what_department_data_code: CE | tuple[CE],  # QRD.10
+        deferred_response_type: DeferredResponseType
+        | ID
+        | tuple[DeferredResponseType | ID]
+        | None = None,  # QRD.5
+        deferred_response_date_or_time: TS | tuple[TS] | None = None,  # QRD.6
+        what_data_code_value_qual: VR | tuple[VR] | None = None,  # QRD.11
+        query_results_level: QueryResultsLevel
+        | ID
+        | tuple[QueryResultsLevel | ID]
+        | None = None,  # QRD.12
     ):
         """
                 Original-Style Query Definition - `QRD <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/QRD>`_

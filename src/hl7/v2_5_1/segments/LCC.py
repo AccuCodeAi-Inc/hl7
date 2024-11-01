@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
 from ..data_types.PL import PL
+from ..data_types.CE import CE
 from ..tables.TransactionCode import TransactionCode
-from ..tables.LocationDepartment import LocationDepartment
 from ..tables.AccommodationCode import AccommodationCode
+from ..tables.LocationDepartment import LocationDepartment
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     LCC,
-    CE, PL
+    PL, CE
 )
 
 lcc = LCC(  #  - The optional LCC segment identifies how a patient location room can be billed by a certain department
@@ -49,10 +49,15 @@ class LCC(HL7Segment):
 
     def __init__(
         self,
-        primary_key_value_lcc: PL,  # LCC.1
-        location_department: LocationDepartment | CE,  # LCC.2
-        charge_code: TransactionCode | CE,  # LCC.4
-        accommodation_type: AccommodationCode | CE | None = None,  # LCC.3
+        primary_key_value_lcc: PL | tuple[PL],  # LCC.1
+        location_department: LocationDepartment
+        | CE
+        | tuple[LocationDepartment | CE],  # LCC.2
+        charge_code: TransactionCode | CE | tuple[TransactionCode | CE],  # LCC.4
+        accommodation_type: AccommodationCode
+        | CE
+        | tuple[AccommodationCode | CE]
+        | None = None,  # LCC.3
     ):
         """
         Location Charge Code - `LCC <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/LCC>`_

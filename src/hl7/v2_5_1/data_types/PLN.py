@@ -48,10 +48,12 @@ class PLN(DataType):
 
     def __init__(
         self,
-        id_number: ST,  # PLN.1
-        type_of_id_number: PractitionerIdNumberType | IS,  # PLN.2
-        state_or_other_qualifying_information: ST | None = None,  # PLN.3
-        expiration_date: DT | None = None,  # PLN.4
+        id_number: ST | tuple[ST],  # PLN.1
+        type_of_id_number: PractitionerIdNumberType
+        | IS
+        | tuple[PractitionerIdNumberType | IS],  # PLN.2
+        state_or_other_qualifying_information: ST | tuple[ST] | None = None,  # PLN.3
+        expiration_date: DT | tuple[DT] | None = None,  # PLN.4
     ):
         """
         Practitioner License or Other ID Number - `PLN <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/PLN>`_

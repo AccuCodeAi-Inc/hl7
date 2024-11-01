@@ -3,11 +3,11 @@ from ...base import HL7SegmentGroup
 from ..segment_groups.RAR_RAR_DEFINITION_GROUP_PATIENT_GROUP import (
     RAR_RAR_DEFINITION_GROUP_PATIENT_GROUP,
 )
+from ..segments.QRF import QRF
 from ..segments.QRD import QRD
 from ..segment_groups.RAR_RAR_DEFINITION_GROUP_ORDER_GROUP import (
     RAR_RAR_DEFINITION_GROUP_ORDER_GROUP,
 )
-from ..segments.QRF import QRF
 
 
 """

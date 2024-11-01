@@ -1,18 +1,18 @@
 from __future__ import annotations
 from ...base import DataType
-from .CE import CE
-from .IS import IS
-from .ID import ID
-from .FN import FN
-from .ST import ST
-from .DR import DR
 from .TS import TS
-from ..tables.DegreeOrLicenseOrCertificate import DegreeOrLicenseOrCertificate
-from ..tables.NameType import NameType
-from ..tables.NameAssemblyOrder import NameAssemblyOrder
+from .ID import ID
+from .IS import IS
+from .DR import DR
+from .ST import ST
+from .CE import CE
+from .FN import FN
 from ..tables.NameContext import NameContext
+from ..tables.NameType import NameType
+from ..tables.DegreeOrLicenseOrCertificate import DegreeOrLicenseOrCertificate
 from ..tables.FirstName import FirstName
 from ..tables.NameOrAddressRepresentation import NameOrAddressRepresentation
+from ..tables.NameAssemblyOrder import NameAssemblyOrder
 
 
 """
@@ -23,7 +23,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     XPN,
-    CE, IS, ID, FN, ST, DR, TS
+    TS, ID, IS, DR, ST, CE, FN
 )
 
 xpn = XPN(  # Extended Person Name - 
@@ -67,22 +67,31 @@ class XPN(DataType):
 
     def __init__(
         self,
-        family_name: FN | None = None,  # XPN.1
-        given_name: FirstName | ST | None = None,  # XPN.2
-        second_and_further_given_names_or_initials_thereof: ST | None = None,  # XPN.3
-        suffix: ST | None = None,  # XPN.4
-        prefix: ST | None = None,  # XPN.5
-        degree: DegreeOrLicenseOrCertificate | IS | None = None,  # XPN.6
-        name_type_code: NameType | ID | None = None,  # XPN.7
+        family_name: FN | tuple[FN] | None = None,  # XPN.1
+        given_name: FirstName | ST | tuple[FirstName | ST] | None = None,  # XPN.2
+        second_and_further_given_names_or_initials_thereof: ST
+        | tuple[ST]
+        | None = None,  # XPN.3
+        suffix: ST | tuple[ST] | None = None,  # XPN.4
+        prefix: ST | tuple[ST] | None = None,  # XPN.5
+        degree: DegreeOrLicenseOrCertificate
+        | IS
+        | tuple[DegreeOrLicenseOrCertificate | IS]
+        | None = None,  # XPN.6
+        name_type_code: NameType | ID | tuple[NameType | ID] | None = None,  # XPN.7
         name_representation_code: NameOrAddressRepresentation
         | ID
+        | tuple[NameOrAddressRepresentation | ID]
         | None = None,  # XPN.8
-        name_context: NameContext | CE | None = None,  # XPN.9
-        name_validity_range: DR | None = None,  # XPN.10
-        name_assembly_order: NameAssemblyOrder | ID | None = None,  # XPN.11
-        effective_date: TS | None = None,  # XPN.12
-        expiration_date: TS | None = None,  # XPN.13
-        professional_suffix: ST | None = None,  # XPN.14
+        name_context: NameContext | CE | tuple[NameContext | CE] | None = None,  # XPN.9
+        name_validity_range: DR | tuple[DR] | None = None,  # XPN.10
+        name_assembly_order: NameAssemblyOrder
+        | ID
+        | tuple[NameAssemblyOrder | ID]
+        | None = None,  # XPN.11
+        effective_date: TS | tuple[TS] | None = None,  # XPN.12
+        expiration_date: TS | tuple[TS] | None = None,  # XPN.13
+        professional_suffix: ST | tuple[ST] | None = None,  # XPN.14
     ):
         """
         Extended Person Name - `XPN <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/XPN>`_

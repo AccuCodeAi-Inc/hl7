@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.RXA import RXA
-from ..segments.RXR import RXR
 from ..segment_groups.VXR_V03_ORDER_GROUP_TIMING_GROUP import (
     VXR_V03_ORDER_GROUP_TIMING_GROUP,
 )
+from ..segments.RXA import RXA
+from ..segments.ORC import ORC
 from ..segment_groups.VXR_V03_ORDER_GROUP_OBSERVATION_GROUP import (
     VXR_V03_ORDER_GROUP_OBSERVATION_GROUP,
 )
-from ..segments.ORC import ORC
+from ..segments.RXR import RXR
 
 
 """
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import VXR_V03_ORDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    RXR, RXA, ORC
+    RXA, RXR, ORC
 )
 from utils.hl7.v2_5_1.segment_groups import (
     VXR_V03_ORDER_GROUP_TIMING_GROUP, VXR_V03_ORDER_GROUP_OBSERVATION_GROUP

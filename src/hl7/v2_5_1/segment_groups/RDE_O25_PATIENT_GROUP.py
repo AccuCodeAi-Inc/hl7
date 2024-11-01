@@ -1,16 +1,16 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.PD1 import PD1
-from ..segments.GT1 import GT1
-from ..segments.NTE import NTE
-from ..segments.PID import PID
+from ..segments.AL1 import AL1
 from ..segment_groups.RDE_O25_PATIENT_GROUP_PATIENT_VISIT_GROUP import (
     RDE_O25_PATIENT_GROUP_PATIENT_VISIT_GROUP,
 )
 from ..segment_groups.RDE_O25_PATIENT_GROUP_INSURANCE_GROUP import (
     RDE_O25_PATIENT_GROUP_INSURANCE_GROUP,
 )
-from ..segments.AL1 import AL1
+from ..segments.GT1 import GT1
+from ..segments.NTE import NTE
+from ..segments.PD1 import PD1
+from ..segments.PID import PID
 
 
 """
@@ -21,10 +21,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RDE_O25_PATIENT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NTE, AL1, PID, GT1, PD1
+    PID, PD1, AL1, GT1, NTE
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    RDE_O25_PATIENT_GROUP_PATIENT_VISIT_GROUP, RDE_O25_PATIENT_GROUP_INSURANCE_GROUP
+    RDE_O25_PATIENT_GROUP_INSURANCE_GROUP, RDE_O25_PATIENT_GROUP_PATIENT_VISIT_GROUP
 )
 
 rde_o25_patient_group = RDE_O25_PATIENT_GROUP(  # PATIENT - Segment group for RDE_O25 - Pharmacy/Treatment Refill Authorization Request consisting of PID, PD1|None, NTE|None, PATIENT VISIT|None, INSURANCE|None, GT1|None, AL1|None

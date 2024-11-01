@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.MSH import MSH
-from ..segments.ERQ import ERQ
 from ..segments.DSC import DSC
 from ..segments.SFT import SFT
+from ..segments.MSH import MSH
+from ..segments.ERQ import ERQ
 
 
 """

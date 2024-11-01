@@ -1,16 +1,16 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TM import TM
 from ..data_types.TX import TX
+from ..data_types.RPT import RPT
+from ..data_types.TS import TS
 from ..data_types.CQ import CQ
 from ..data_types.ID import ID
 from ..data_types.NM import NM
-from ..data_types.RPT import RPT
 from ..data_types.CWE import CWE
 from ..data_types.SI import SI
-from ..data_types.TS import TS
-from ..tables.ExtendedPriorityCodes import ExtendedPriorityCodes
+from ..data_types.TM import TM
 from ..tables.RiskManagementIncidentCode import RiskManagementIncidentCode
+from ..tables.ExtendedPriorityCodes import ExtendedPriorityCodes
 
 
 """
@@ -21,7 +21,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     TQ1,
-    TM, TX, CQ, ID, NM, RPT, CWE, SI, TS
+    TX, RPT, TS, CQ, ID, NM, CWE, SI, TM
 )
 
 tq1 = TQ1(  #  - The TQ1 segment is used to specify the complex timing of events and actions such as those that occur in order management and scheduling systems
@@ -65,20 +65,26 @@ class TQ1(HL7Segment):
 
     def __init__(
         self,
-        set_id_tq1: SI | None = None,  # TQ1.1
-        quantity: CQ | None = None,  # TQ1.2
-        repeat_pattern: RPT | None = None,  # TQ1.3
-        explicit_time: TM | None = None,  # TQ1.4
-        relative_time_and_units: CQ | None = None,  # TQ1.5
-        service_duration: CQ | None = None,  # TQ1.6
-        start_date_or_time: TS | None = None,  # TQ1.7
-        end_date_or_time: TS | None = None,  # TQ1.8
-        priority: ExtendedPriorityCodes | CWE | None = None,  # TQ1.9
-        condition_text: TX | None = None,  # TQ1.10
-        text_instruction: TX | None = None,  # TQ1.11
-        conjunction: RiskManagementIncidentCode | ID | None = None,  # TQ1.12
-        occurrence_duration: CQ | None = None,  # TQ1.13
-        total_occurrences: NM | None = None,  # TQ1.14
+        set_id_tq1: SI | tuple[SI] | None = None,  # TQ1.1
+        quantity: CQ | tuple[CQ] | None = None,  # TQ1.2
+        repeat_pattern: RPT | tuple[RPT] | None = None,  # TQ1.3
+        explicit_time: TM | tuple[TM] | None = None,  # TQ1.4
+        relative_time_and_units: CQ | tuple[CQ] | None = None,  # TQ1.5
+        service_duration: CQ | tuple[CQ] | None = None,  # TQ1.6
+        start_date_or_time: TS | tuple[TS] | None = None,  # TQ1.7
+        end_date_or_time: TS | tuple[TS] | None = None,  # TQ1.8
+        priority: ExtendedPriorityCodes
+        | CWE
+        | tuple[ExtendedPriorityCodes | CWE]
+        | None = None,  # TQ1.9
+        condition_text: TX | tuple[TX] | None = None,  # TQ1.10
+        text_instruction: TX | tuple[TX] | None = None,  # TQ1.11
+        conjunction: RiskManagementIncidentCode
+        | ID
+        | tuple[RiskManagementIncidentCode | ID]
+        | None = None,  # TQ1.12
+        occurrence_duration: CQ | tuple[CQ] | None = None,  # TQ1.13
+        total_occurrences: NM | tuple[NM] | None = None,  # TQ1.14
     ):
         """
         Timing/Quantity - `TQ1 <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/TQ1>`_

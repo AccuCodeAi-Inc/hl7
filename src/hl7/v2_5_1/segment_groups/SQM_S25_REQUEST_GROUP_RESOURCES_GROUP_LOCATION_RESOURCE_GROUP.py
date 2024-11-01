@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.AIL import AIL
 from ..segments.APR import APR
+from ..segments.AIL import AIL
 
 
 """

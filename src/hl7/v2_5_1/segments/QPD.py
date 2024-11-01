@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
 from ..data_types.VARIES import VARIES
 from ..data_types.ST import ST
+from ..data_types.CE import CE
 from ..tables.QueryName import QueryName
 
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     QPD,
-    CE, VARIES, ST
+    VARIES, ST, CE
 )
 
 qpd = QPD(  #  - The QPD segment defines the parameters of the query
@@ -47,9 +47,9 @@ class QPD(HL7Segment):
 
     def __init__(
         self,
-        message_query_name: QueryName | CE,  # QPD.1
-        query_tag: ST | None = None,  # QPD.2
-        user_parameters: VARIES | None = None,  # QPD.3
+        message_query_name: QueryName | CE | tuple[QueryName | CE],  # QPD.1
+        query_tag: ST | tuple[ST] | None = None,  # QPD.2
+        user_parameters: VARIES | tuple[VARIES] | None = None,  # QPD.3
     ):
         """
         Query Parameter Definition - `QPD <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/QPD>`_

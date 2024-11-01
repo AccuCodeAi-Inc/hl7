@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.EVN import EVN
-from ..segments.EDU import EDU
-from ..segments.SFT import SFT
-from ..segments.MSH import MSH
+from ..segments.STF import STF
+from ..segments.ORG import ORG
 from ..segments.PRA import PRA
 from ..segments.AFF import AFF
-from ..segments.ORG import ORG
-from ..segments.STF import STF
+from ..segments.SFT import SFT
+from ..segments.MSH import MSH
+from ..segments.EDU import EDU
 from ..segments.LAN import LAN
+from ..segments.EVN import EVN
 from ..segments.CER import CER
 
 
@@ -20,7 +20,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PMU_B01
 from utils.hl7.v2_5_1.segments import (
-    MSH, EVN, AFF, CER, SFT, STF, LAN, PRA, EDU, ORG
+    MSH, PRA, SFT, AFF, ORG, CER, STF, EDU, LAN, EVN
 )
 
 pmu_b01 = PMU_B01(  #  - An event B01 signals to add a new record for healthcare administration information about an individual healthcare practitioner establishing a relationship between that practitioner and the institution

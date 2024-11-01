@@ -1,15 +1,15 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
-from ..data_types.ID import ID
 from ..data_types.XTN import XTN
-from ..data_types.XCN import XCN
-from ..data_types.EI import EI
-from ..data_types.XAD import XAD
 from ..data_types.TS import TS
-from ..tables.OrganizationUnitType import OrganizationUnitType
+from ..data_types.ID import ID
+from ..data_types.XCN import XCN
+from ..data_types.CE import CE
+from ..data_types.XAD import XAD
+from ..data_types.EI import EI
 from ..tables.ProblemOrGoalActionCode import ProblemOrGoalActionCode
 from ..tables.ProviderRole import ProviderRole
+from ..tables.OrganizationUnitType import OrganizationUnitType
 
 
 """
@@ -20,7 +20,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     ROL,
-    CE, ID, XTN, XCN, EI, XAD, TS
+    XTN, TS, ID, XCN, CE, XAD, EI
 )
 
 rol = ROL(  #  - The role segment contains the data necessary to add, update, correct, and delete from the record persons involved, as well as their functional involvement with the activity being transmitted
@@ -62,18 +62,23 @@ class ROL(HL7Segment):
 
     def __init__(
         self,
-        action_code: ProblemOrGoalActionCode | ID,  # ROL.2
-        role_rol: ProviderRole | CE,  # ROL.3
-        role_person: XCN,  # ROL.4
-        role_instance_id: EI | None = None,  # ROL.1
-        role_begin_date_or_time: TS | None = None,  # ROL.5
-        role_end_date_or_time: TS | None = None,  # ROL.6
-        role_duration: CE | None = None,  # ROL.7
-        role_action_reason: CE | None = None,  # ROL.8
-        provider_type: CE | None = None,  # ROL.9
-        organization_unit_type: OrganizationUnitType | CE | None = None,  # ROL.10
-        office_or_home_address_or_birthplace: XAD | None = None,  # ROL.11
-        phone: XTN | None = None,  # ROL.12
+        action_code: ProblemOrGoalActionCode
+        | ID
+        | tuple[ProblemOrGoalActionCode | ID],  # ROL.2
+        role_rol: ProviderRole | CE | tuple[ProviderRole | CE],  # ROL.3
+        role_person: XCN | tuple[XCN],  # ROL.4
+        role_instance_id: EI | tuple[EI] | None = None,  # ROL.1
+        role_begin_date_or_time: TS | tuple[TS] | None = None,  # ROL.5
+        role_end_date_or_time: TS | tuple[TS] | None = None,  # ROL.6
+        role_duration: CE | tuple[CE] | None = None,  # ROL.7
+        role_action_reason: CE | tuple[CE] | None = None,  # ROL.8
+        provider_type: CE | tuple[CE] | None = None,  # ROL.9
+        organization_unit_type: OrganizationUnitType
+        | CE
+        | tuple[OrganizationUnitType | CE]
+        | None = None,  # ROL.10
+        office_or_home_address_or_birthplace: XAD | tuple[XAD] | None = None,  # ROL.11
+        phone: XTN | tuple[XTN] | None = None,  # ROL.12
     ):
         """
         Role - `ROL <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/ROL>`_

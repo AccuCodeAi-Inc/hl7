@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.PID import PID
 from ..segment_groups.PTR_PCF_PATIENT_GROUP_PATIENT_VISIT_GROUP import (
     PTR_PCF_PATIENT_GROUP_PATIENT_VISIT_GROUP,
 )
-from ..segments.PID import PID
 from ..segment_groups.PTR_PCF_PATIENT_GROUP_PATHWAY_GROUP import (
     PTR_PCF_PATIENT_GROUP_PATHWAY_GROUP,
 )
@@ -20,7 +20,7 @@ from utils.hl7.v2_5_1.segments import (
     PID
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    PTR_PCF_PATIENT_GROUP_PATHWAY_GROUP, PTR_PCF_PATIENT_GROUP_PATIENT_VISIT_GROUP
+    PTR_PCF_PATIENT_GROUP_PATIENT_VISIT_GROUP, PTR_PCF_PATIENT_GROUP_PATHWAY_GROUP
 )
 
 ptr_pcf_patient_group = PTR_PCF_PATIENT_GROUP(  # PATIENT - Segment group for PTR_PCF - Pathway (problem-oriented) query response consisting of PID, PATIENT VISIT|None, PATHWAY

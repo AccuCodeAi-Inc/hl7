@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
+from ..segments.ERR import ERR
+from ..segments.DSC import DSC
 from ..segments.ERQ import ERQ
 from ..segments.SFT import SFT
-from ..segments.DSC import DSC
-from ..segments.ERR import ERR
 from ..segments.MSH import MSH
-from ..segments.MSA import MSA
 from ..segments.QAK import QAK
+from ..segments.MSA import MSA
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ERP_R09
 from utils.hl7.v2_5_1.segments import (
-    ERR, DSC, MSA, SFT, ERQ, MSH, QAK
+    MSH, ERQ, SFT, ERR, DSC, QAK, MSA
 )
 
 erp_r09 = ERP_R09(  #  - 

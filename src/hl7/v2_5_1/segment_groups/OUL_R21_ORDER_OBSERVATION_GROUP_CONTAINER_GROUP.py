@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.SID import SID
 from ..segments.SAC import SAC
+from ..segments.SID import SID
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OUL_R21_ORDER_OBSERVATION_GROUP_CONTAINER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    SID, SAC
+    SAC, SID
 )
 
 oul_r21_order_observation_group_container_group = OUL_R21_ORDER_OBSERVATION_GROUP_CONTAINER_GROUP(  # CONTAINER - Segment group for OUL_R21_ORDER_OBSERVATION_GROUP - ORDER OBSERVATION consisting of SAC, SID|None

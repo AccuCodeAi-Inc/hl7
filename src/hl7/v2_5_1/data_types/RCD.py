@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import DataType
-from .ST import ST
 from .ID import ID
 from .NM import NM
+from .ST import ST
 from ..tables.DataTypes import DataTypes
 
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RCD,
-    ST, ID, NM
+    ID, NM, ST
 )
 
 rcd = RCD(  # Row Column Definition - This specifies the format of a column in terms of a segment field name, a data type, and a maximum length
@@ -47,9 +47,9 @@ class RCD(DataType):
 
     def __init__(
         self,
-        segment_field_name: ST | None = None,  # RCD.1
-        hl7_data_type: DataTypes | ID | None = None,  # RCD.2
-        maximum_column_width: NM | None = None,  # RCD.3
+        segment_field_name: ST | tuple[ST] | None = None,  # RCD.1
+        hl7_data_type: DataTypes | ID | tuple[DataTypes | ID] | None = None,  # RCD.2
+        maximum_column_width: NM | tuple[NM] | None = None,  # RCD.3
     ):
         """
                 Row Column Definition - `RCD <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/RCD>`_

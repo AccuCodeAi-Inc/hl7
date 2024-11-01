@@ -1,15 +1,15 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.ORC import ORC
+from ..segment_groups.OUL_R22_SPECIMEN_GROUP_ORDER_GROUP_TIMING_QTY_GROUP import (
+    OUL_R22_SPECIMEN_GROUP_ORDER_GROUP_TIMING_QTY_GROUP,
+)
+from ..segments.CTI import CTI
 from ..segment_groups.OUL_R22_SPECIMEN_GROUP_ORDER_GROUP_RESULT_GROUP import (
     OUL_R22_SPECIMEN_GROUP_ORDER_GROUP_RESULT_GROUP,
 )
 from ..segments.NTE import NTE
 from ..segments.OBR import OBR
-from ..segments.CTI import CTI
-from ..segment_groups.OUL_R22_SPECIMEN_GROUP_ORDER_GROUP_TIMING_QTY_GROUP import (
-    OUL_R22_SPECIMEN_GROUP_ORDER_GROUP_TIMING_QTY_GROUP,
-)
-from ..segments.ORC import ORC
 
 
 """
@@ -20,10 +20,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OUL_R22_SPECIMEN_GROUP_ORDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NTE, ORC, CTI, OBR
+    OBR, NTE, CTI, ORC
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    OUL_R22_SPECIMEN_GROUP_ORDER_GROUP_TIMING_QTY_GROUP, OUL_R22_SPECIMEN_GROUP_ORDER_GROUP_RESULT_GROUP
+    OUL_R22_SPECIMEN_GROUP_ORDER_GROUP_RESULT_GROUP, OUL_R22_SPECIMEN_GROUP_ORDER_GROUP_TIMING_QTY_GROUP
 )
 
 oul_r22_specimen_group_order_group = OUL_R22_SPECIMEN_GROUP_ORDER_GROUP(  # ORDER - Segment group for OUL_R22_SPECIMEN_GROUP - SPECIMEN consisting of OBR, ORC|None, NTE|None, TIMING QTY|None, RESULT|None, CTI|None

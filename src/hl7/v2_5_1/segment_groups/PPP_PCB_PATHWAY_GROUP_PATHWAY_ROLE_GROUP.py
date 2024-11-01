@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.VAR import VAR
 from ..segments.ROL import ROL
+from ..segments.VAR import VAR
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PPP_PCB_PATHWAY_GROUP_PATHWAY_ROLE_GROUP
 from utils.hl7.v2_5_1.segments import (
-    VAR, ROL
+    ROL, VAR
 )
 
 ppp_pcb_pathway_group_pathway_role_group = PPP_PCB_PATHWAY_GROUP_PATHWAY_ROLE_GROUP(  # PATHWAY ROLE - Segment group for PPP_PCB_PATHWAY_GROUP - PATHWAY consisting of ROL, VAR|None

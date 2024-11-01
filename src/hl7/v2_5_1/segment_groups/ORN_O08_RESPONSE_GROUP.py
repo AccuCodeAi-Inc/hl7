@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segment_groups.ORN_O08_RESPONSE_GROUP_PATIENT_GROUP import (
-    ORN_O08_RESPONSE_GROUP_PATIENT_GROUP,
-)
 from ..segment_groups.ORN_O08_RESPONSE_GROUP_ORDER_GROUP import (
     ORN_O08_RESPONSE_GROUP_ORDER_GROUP,
+)
+from ..segment_groups.ORN_O08_RESPONSE_GROUP_PATIENT_GROUP import (
+    ORN_O08_RESPONSE_GROUP_PATIENT_GROUP,
 )
 
 

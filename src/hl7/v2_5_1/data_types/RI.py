@@ -45,8 +45,11 @@ class RI(DataType):
 
     def __init__(
         self,
-        repeat_pattern: RepeatPattern | IS | None = None,  # RI.1
-        explicit_time_interval: ST | None = None,  # RI.2
+        repeat_pattern: RepeatPattern
+        | IS
+        | tuple[RepeatPattern | IS]
+        | None = None,  # RI.1
+        explicit_time_interval: ST | tuple[ST] | None = None,  # RI.2
     ):
         """
         Repeat Interval - `RI <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/RI>`_

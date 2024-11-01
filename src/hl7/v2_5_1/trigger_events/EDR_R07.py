@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.SFT import SFT
-from ..segments.DSC import DSC
 from ..segments.ERR import ERR
+from ..segments.DSC import DSC
 from ..segments.DSP import DSP
+from ..segments.SFT import SFT
 from ..segments.MSH import MSH
-from ..segments.MSA import MSA
 from ..segments.QAK import QAK
+from ..segments.MSA import MSA
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import EDR_R07
 from utils.hl7.v2_5_1.segments import (
-    DSP, ERR, DSC, MSA, SFT, MSH, QAK
+    MSH, SFT, ERR, DSP, DSC, QAK, MSA
 )
 
 edr_r07 = EDR_R07(  #  - The response to the EQQ could be tabular or display

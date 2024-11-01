@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.NM import NM
 from ..data_types.TX import TX
+from ..data_types.NM import NM
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     OM6,
-    NM, TX
+    TX, NM
 )
 
 om6 = OM6(  #  - This segment contains the information about quantities that are derived from one or more other quantities or direct observations by mathematical or logical means
@@ -44,8 +44,10 @@ class OM6(HL7Segment):
 
     def __init__(
         self,
-        sequence_number_test_or_observation_master_file: NM | None = None,  # OM6.1
-        derivation_rule: TX | None = None,  # OM6.2
+        sequence_number_test_or_observation_master_file: NM
+        | tuple[NM]
+        | None = None,  # OM6.1
+        derivation_rule: TX | tuple[TX] | None = None,  # OM6.2
     ):
         """
         Observations that are Calculated from Other Observations - `OM6 <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/OM6>`_

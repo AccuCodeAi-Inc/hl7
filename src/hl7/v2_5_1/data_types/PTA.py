@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import DataType
 from .IS import IS
-from .NM import NM
 from .MOP import MOP
-from ..tables.PolicyType import PolicyType
+from .NM import NM
 from ..tables.AmountClass import AmountClass
+from ..tables.PolicyType import PolicyType
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PTA,
-    IS, NM, MOP
+    IS, MOP, NM
 )
 
 pta = PTA(  # Policy Type and Amount - This data type specifies the policy type and amount covered by the insurance
@@ -49,10 +49,10 @@ class PTA(DataType):
 
     def __init__(
         self,
-        policy_type: PolicyType | IS,  # PTA.1
-        money_or_percentage: MOP,  # PTA.4
-        amount_class: AmountClass | IS | None = None,  # PTA.2
-        money_or_percentage_quantity: NM | None = None,  # PTA.3
+        policy_type: PolicyType | IS | tuple[PolicyType | IS],  # PTA.1
+        money_or_percentage: MOP | tuple[MOP],  # PTA.4
+        amount_class: AmountClass | IS | tuple[AmountClass | IS] | None = None,  # PTA.2
+        money_or_percentage_quantity: NM | tuple[NM] | None = None,  # PTA.3
     ):
         """
         Policy Type and Amount - `PTA <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/PTA>`_

@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segment_groups.PPT_PCL_PATIENT_GROUP_PATHWAY_GROUP import (
-    PPT_PCL_PATIENT_GROUP_PATHWAY_GROUP,
-)
+from ..segments.PID import PID
 from ..segment_groups.PPT_PCL_PATIENT_GROUP_PATIENT_VISIT_GROUP import (
     PPT_PCL_PATIENT_GROUP_PATIENT_VISIT_GROUP,
 )
-from ..segments.PID import PID
+from ..segment_groups.PPT_PCL_PATIENT_GROUP_PATHWAY_GROUP import (
+    PPT_PCL_PATIENT_GROUP_PATHWAY_GROUP,
+)
 
 
 """

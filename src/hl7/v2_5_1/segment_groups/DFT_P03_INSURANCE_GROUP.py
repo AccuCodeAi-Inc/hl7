@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.IN2 import IN2
-from ..segments.IN3 import IN3
-from ..segments.IN1 import IN1
 from ..segments.ROL import ROL
+from ..segments.IN1 import IN1
+from ..segments.IN3 import IN3
+from ..segments.IN2 import IN2
 
 
 """
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import DFT_P03_INSURANCE_GROUP
 from utils.hl7.v2_5_1.segments import (
-    IN2, IN3, IN1, ROL
+    IN1, ROL, IN2, IN3
 )
 
 dft_p03_insurance_group = DFT_P03_INSURANCE_GROUP(  # INSURANCE - Segment group for DFT_P03 - Post Detail Financial Transactions consisting of IN1, IN2|None, IN3|None, ROL|None

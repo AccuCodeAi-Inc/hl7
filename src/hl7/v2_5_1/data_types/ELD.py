@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import DataType
-from .CE import CE
-from .ST import ST
 from .NM import NM
+from .ST import ST
+from .CE import CE
 from ..tables.MessageErrorConditionCodes import MessageErrorConditionCodes
 
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     ELD,
-    CE, ST, NM
+    NM, ST, CE
 )
 
 eld = ELD(  # Error Location and Description - Specifies the segment that contains an error and describes the nature of the error
@@ -48,10 +48,13 @@ class ELD(DataType):
 
     def __init__(
         self,
-        segment_id: ST | None = None,  # ELD.1
-        segment_sequence: NM | None = None,  # ELD.2
-        field_position: NM | None = None,  # ELD.3
-        code_identifying_error: MessageErrorConditionCodes | CE | None = None,  # ELD.4
+        segment_id: ST | tuple[ST] | None = None,  # ELD.1
+        segment_sequence: NM | tuple[NM] | None = None,  # ELD.2
+        field_position: NM | tuple[NM] | None = None,  # ELD.3
+        code_identifying_error: MessageErrorConditionCodes
+        | CE
+        | tuple[MessageErrorConditionCodes | CE]
+        | None = None,  # ELD.4
     ):
         """
         Error Location and Description - `ELD <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/ELD>`_

@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
+from ..segments.ERR import ERR
+from ..segments.RCP import RCP
+from ..segments.DSC import DSC
 from ..segment_groups.RSP_Z90_QUERY_RESPONSE_GROUP import RSP_Z90_QUERY_RESPONSE_GROUP
 from ..segments.SFT import SFT
-from ..segments.DSC import DSC
-from ..segments.ERR import ERR
 from ..segments.MSH import MSH
+from ..segments.QAK import QAK
 from ..segments.MSA import MSA
 from ..segments.QPD import QPD
-from ..segments.RCP import RCP
-from ..segments.QAK import QAK
 
 
 """
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RSP_Z90
 from utils.hl7.v2_5_1.segments import (
-    ERR, DSC, QPD, MSA, SFT, RCP, MSH, QAK
+    QPD, MSH, SFT, ERR, RCP, DSC, QAK, MSA
 )
 from utils.hl7.v2_5_1.segment_groups import (
     RSP_Z90_QUERY_RESPONSE_GROUP

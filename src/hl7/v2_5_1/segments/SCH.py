@@ -1,16 +1,16 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
 from ..data_types.TQ import TQ
-from ..data_types.NM import NM
 from ..data_types.XTN import XTN
-from ..data_types.XCN import XCN
-from ..data_types.EI import EI
+from ..data_types.NM import NM
 from ..data_types.PL import PL
+from ..data_types.XCN import XCN
+from ..data_types.CE import CE
 from ..data_types.XAD import XAD
+from ..data_types.EI import EI
 from ..tables.AppointmentReasonCodes import AppointmentReasonCodes
-from ..tables.AppointmentTypeCodes import AppointmentTypeCodes
 from ..tables.FillerStatusCodes import FillerStatusCodes
+from ..tables.AppointmentTypeCodes import AppointmentTypeCodes
 
 
 """
@@ -21,7 +21,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     SCH,
-    CE, TQ, NM, XTN, XCN, EI, PL, XAD
+    TQ, XTN, NM, PL, XCN, CE, XAD, EI
 )
 
 sch = SCH(  #  - The SCH segment contains general information about the scheduled appointment
@@ -78,33 +78,42 @@ class SCH(HL7Segment):
 
     def __init__(
         self,
-        event_reason: CE,  # SCH.6
-        filler_contact_person: XCN,  # SCH.16
-        entered_by_person: XCN,  # SCH.20
-        placer_appointment_id: EI | None = None,  # SCH.1
-        filler_appointment_id: EI | None = None,  # SCH.2
-        occurrence_number: NM | None = None,  # SCH.3
-        placer_group_number: EI | None = None,  # SCH.4
-        schedule_id: CE | None = None,  # SCH.5
-        appointment_reason: AppointmentReasonCodes | CE | None = None,  # SCH.7
-        appointment_type: AppointmentTypeCodes | CE | None = None,  # SCH.8
-        appointment_duration: NM | None = None,  # SCH.9
-        appointment_duration_units: CE | None = None,  # SCH.10
-        appointment_timing_quantity: TQ | None = None,  # SCH.11
-        placer_contact_person: XCN | None = None,  # SCH.12
-        placer_contact_phone_number: XTN | None = None,  # SCH.13
-        placer_contact_address: XAD | None = None,  # SCH.14
-        placer_contact_location: PL | None = None,  # SCH.15
-        filler_contact_phone_number: XTN | None = None,  # SCH.17
-        filler_contact_address: XAD | None = None,  # SCH.18
-        filler_contact_location: PL | None = None,  # SCH.19
-        entered_by_phone_number: XTN | None = None,  # SCH.21
-        entered_by_location: PL | None = None,  # SCH.22
-        parent_placer_appointment_id: EI | None = None,  # SCH.23
-        parent_filler_appointment_id: EI | None = None,  # SCH.24
-        filler_status_code: FillerStatusCodes | CE | None = None,  # SCH.25
-        placer_order_number: EI | None = None,  # SCH.26
-        filler_order_number: EI | None = None,  # SCH.27
+        event_reason: CE | tuple[CE],  # SCH.6
+        filler_contact_person: XCN | tuple[XCN],  # SCH.16
+        entered_by_person: XCN | tuple[XCN],  # SCH.20
+        placer_appointment_id: EI | tuple[EI] | None = None,  # SCH.1
+        filler_appointment_id: EI | tuple[EI] | None = None,  # SCH.2
+        occurrence_number: NM | tuple[NM] | None = None,  # SCH.3
+        placer_group_number: EI | tuple[EI] | None = None,  # SCH.4
+        schedule_id: CE | tuple[CE] | None = None,  # SCH.5
+        appointment_reason: AppointmentReasonCodes
+        | CE
+        | tuple[AppointmentReasonCodes | CE]
+        | None = None,  # SCH.7
+        appointment_type: AppointmentTypeCodes
+        | CE
+        | tuple[AppointmentTypeCodes | CE]
+        | None = None,  # SCH.8
+        appointment_duration: NM | tuple[NM] | None = None,  # SCH.9
+        appointment_duration_units: CE | tuple[CE] | None = None,  # SCH.10
+        appointment_timing_quantity: TQ | tuple[TQ] | None = None,  # SCH.11
+        placer_contact_person: XCN | tuple[XCN] | None = None,  # SCH.12
+        placer_contact_phone_number: XTN | tuple[XTN] | None = None,  # SCH.13
+        placer_contact_address: XAD | tuple[XAD] | None = None,  # SCH.14
+        placer_contact_location: PL | tuple[PL] | None = None,  # SCH.15
+        filler_contact_phone_number: XTN | tuple[XTN] | None = None,  # SCH.17
+        filler_contact_address: XAD | tuple[XAD] | None = None,  # SCH.18
+        filler_contact_location: PL | tuple[PL] | None = None,  # SCH.19
+        entered_by_phone_number: XTN | tuple[XTN] | None = None,  # SCH.21
+        entered_by_location: PL | tuple[PL] | None = None,  # SCH.22
+        parent_placer_appointment_id: EI | tuple[EI] | None = None,  # SCH.23
+        parent_filler_appointment_id: EI | tuple[EI] | None = None,  # SCH.24
+        filler_status_code: FillerStatusCodes
+        | CE
+        | tuple[FillerStatusCodes | CE]
+        | None = None,  # SCH.25
+        placer_order_number: EI | tuple[EI] | None = None,  # SCH.26
+        filler_order_number: EI | tuple[EI] | None = None,  # SCH.27
     ):
         """
         Scheduling Activity Information - `SCH <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/SCH>`_

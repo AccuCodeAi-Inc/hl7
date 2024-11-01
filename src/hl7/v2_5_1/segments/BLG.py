@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CX import CX
+from ..data_types.CCD import CCD
 from ..data_types.CWE import CWE
 from ..data_types.ID import ID
-from ..data_types.CCD import CCD
+from ..data_types.CX import CX
 from ..tables.ChargeType import ChargeType
 from ..tables.ChargeTypeReason import ChargeTypeReason
 
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     BLG,
-    CX, CWE, ID, CCD
+    CCD, CWE, ID, CX
 )
 
 blg = BLG(  #  - The BLG segment is used to provide billing information, on the ordered service, to the filling application
@@ -50,10 +50,13 @@ class BLG(HL7Segment):
 
     def __init__(
         self,
-        when_to_charge: CCD | None = None,  # BLG.1
-        charge_type: ChargeType | ID | None = None,  # BLG.2
-        account_id: CX | None = None,  # BLG.3
-        charge_type_reason: ChargeTypeReason | CWE | None = None,  # BLG.4
+        when_to_charge: CCD | tuple[CCD] | None = None,  # BLG.1
+        charge_type: ChargeType | ID | tuple[ChargeType | ID] | None = None,  # BLG.2
+        account_id: CX | tuple[CX] | None = None,  # BLG.3
+        charge_type_reason: ChargeTypeReason
+        | CWE
+        | tuple[ChargeTypeReason | CWE]
+        | None = None,  # BLG.4
     ):
         """
         Billing - `BLG <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/BLG>`_

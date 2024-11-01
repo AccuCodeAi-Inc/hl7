@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
-from ..data_types.SI import SI
-from ..data_types.ID import ID
 from ..data_types.FT import FT
-from ..tables.SourceOfComment import SourceOfComment
+from ..data_types.ID import ID
+from ..data_types.SI import SI
+from ..data_types.CE import CE
 from ..tables.CommentType import CommentType
+from ..tables.SourceOfComment import SourceOfComment
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     NTE,
-    CE, SI, ID, FT
+    FT, ID, SI, CE
 )
 
 nte = NTE(  #  - The NTE segment is defined here for inclusion in messages defined in other chapters
@@ -50,10 +50,13 @@ class NTE(HL7Segment):
 
     def __init__(
         self,
-        set_id_nte: SI | None = None,  # NTE.1
-        source_of_comment: SourceOfComment | ID | None = None,  # NTE.2
-        comment: FT | None = None,  # NTE.3
-        comment_type: CommentType | CE | None = None,  # NTE.4
+        set_id_nte: SI | tuple[SI] | None = None,  # NTE.1
+        source_of_comment: SourceOfComment
+        | ID
+        | tuple[SourceOfComment | ID]
+        | None = None,  # NTE.2
+        comment: FT | tuple[FT] | None = None,  # NTE.3
+        comment_type: CommentType | CE | tuple[CommentType | CE] | None = None,  # NTE.4
     ):
         """
         Notes and Comments - `NTE <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/NTE>`_

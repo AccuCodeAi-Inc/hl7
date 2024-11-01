@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.CM0 import CM0
+from ..segments.MFE import MFE
 from ..segment_groups.MFN_M06_MF_CLIN_STUDY_GROUP_MF_PHASE_SCHED_DETAIL_GROUP import (
     MFN_M06_MF_CLIN_STUDY_GROUP_MF_PHASE_SCHED_DETAIL_GROUP,
 )
-from ..segments.CM0 import CM0
-from ..segments.MFE import MFE
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import MFN_M06_MF_CLIN_STUDY_GROUP
 from utils.hl7.v2_5_1.segments import (
-    MFE, CM0
+    CM0, MFE
 )
 from utils.hl7.v2_5_1.segment_groups import (
     MFN_M06_MF_CLIN_STUDY_GROUP_MF_PHASE_SCHED_DETAIL_GROUP

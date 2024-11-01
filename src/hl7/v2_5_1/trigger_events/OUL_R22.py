@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segment_groups.OUL_R22_VISIT_GROUP import OUL_R22_VISIT_GROUP
-from ..segment_groups.OUL_R22_PATIENT_GROUP import OUL_R22_PATIENT_GROUP
-from ..segments.NTE import NTE
-from ..segments.SFT import SFT
 from ..segments.DSC import DSC
+from ..segments.SFT import SFT
 from ..segments.MSH import MSH
+from ..segment_groups.OUL_R22_PATIENT_GROUP import OUL_R22_PATIENT_GROUP
 from ..segment_groups.OUL_R22_SPECIMEN_GROUP import OUL_R22_SPECIMEN_GROUP
+from ..segments.NTE import NTE
+from ..segment_groups.OUL_R22_VISIT_GROUP import OUL_R22_VISIT_GROUP
 
 
 """
@@ -17,10 +17,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OUL_R22
 from utils.hl7.v2_5_1.segments import (
-    NTE, DSC, SFT, MSH
+    DSC, NTE, SFT, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    OUL_R22_PATIENT_GROUP, OUL_R22_SPECIMEN_GROUP, OUL_R22_VISIT_GROUP
+    OUL_R22_SPECIMEN_GROUP, OUL_R22_PATIENT_GROUP, OUL_R22_VISIT_GROUP
 )
 
 oul_r22 = OUL_R22(  #  - This message was designed to accommodate specimen oriented testing

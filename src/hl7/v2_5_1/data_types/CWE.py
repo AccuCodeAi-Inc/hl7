@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import DataType
-from .ST import ST
 from .ID import ID
+from .ST import ST
 from ..tables.CodingSystem import CodingSystem
 
 
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CWE,
-    ST, ID
+    ID, ST
 )
 
 cwe = CWE(  # Coded with Exceptions - Specifies a coded element and its associated detail
@@ -52,15 +52,21 @@ class CWE(DataType):
 
     def __init__(
         self,
-        identifier: ST | None = None,  # CWE.1
-        text: ST | None = None,  # CWE.2
-        name_of_coding_system: CodingSystem | ID | None = None,  # CWE.3
-        alternate_identifier: ST | None = None,  # CWE.4
-        alternate_text: ST | None = None,  # CWE.5
-        name_of_alternate_coding_system: CodingSystem | ID | None = None,  # CWE.6
-        coding_system_version_id: ST | None = None,  # CWE.7
-        alternate_coding_system_version_id: ST | None = None,  # CWE.8
-        original_text: ST | None = None,  # CWE.9
+        identifier: ST | tuple[ST] | None = None,  # CWE.1
+        text: ST | tuple[ST] | None = None,  # CWE.2
+        name_of_coding_system: CodingSystem
+        | ID
+        | tuple[CodingSystem | ID]
+        | None = None,  # CWE.3
+        alternate_identifier: ST | tuple[ST] | None = None,  # CWE.4
+        alternate_text: ST | tuple[ST] | None = None,  # CWE.5
+        name_of_alternate_coding_system: CodingSystem
+        | ID
+        | tuple[CodingSystem | ID]
+        | None = None,  # CWE.6
+        coding_system_version_id: ST | tuple[ST] | None = None,  # CWE.7
+        alternate_coding_system_version_id: ST | tuple[ST] | None = None,  # CWE.8
+        original_text: ST | tuple[ST] | None = None,  # CWE.9
     ):
         """
         Coded with Exceptions - `CWE <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/CWE>`_

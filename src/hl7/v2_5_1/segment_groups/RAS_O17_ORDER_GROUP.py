@@ -1,19 +1,19 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segment_groups.RAS_O17_ORDER_GROUP_ADMINISTRATION_GROUP import (
+    RAS_O17_ORDER_GROUP_ADMINISTRATION_GROUP,
+)
 from ..segment_groups.RAS_O17_ORDER_GROUP_ORDER_DETAIL_GROUP import (
     RAS_O17_ORDER_GROUP_ORDER_DETAIL_GROUP,
 )
+from ..segments.ORC import ORC
+from ..segments.CTI import CTI
 from ..segment_groups.RAS_O17_ORDER_GROUP_TIMING_GROUP import (
     RAS_O17_ORDER_GROUP_TIMING_GROUP,
 )
 from ..segment_groups.RAS_O17_ORDER_GROUP_ENCODING_GROUP import (
     RAS_O17_ORDER_GROUP_ENCODING_GROUP,
 )
-from ..segment_groups.RAS_O17_ORDER_GROUP_ADMINISTRATION_GROUP import (
-    RAS_O17_ORDER_GROUP_ADMINISTRATION_GROUP,
-)
-from ..segments.CTI import CTI
-from ..segments.ORC import ORC
 
 
 """
@@ -24,10 +24,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RAS_O17_ORDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    ORC, CTI
+    CTI, ORC
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    RAS_O17_ORDER_GROUP_ORDER_DETAIL_GROUP, RAS_O17_ORDER_GROUP_ADMINISTRATION_GROUP, RAS_O17_ORDER_GROUP_TIMING_GROUP, RAS_O17_ORDER_GROUP_ENCODING_GROUP
+    RAS_O17_ORDER_GROUP_ORDER_DETAIL_GROUP, RAS_O17_ORDER_GROUP_TIMING_GROUP, RAS_O17_ORDER_GROUP_ENCODING_GROUP, RAS_O17_ORDER_GROUP_ADMINISTRATION_GROUP
 )
 
 ras_o17_order_group = RAS_O17_ORDER_GROUP(  # ORDER - Segment group for RAS_O17 - Pharmacy/Treatment Administration consisting of ORC, TIMING|None, ORDER DETAIL|None, ENCODING|None, ADMINISTRATION, CTI|None

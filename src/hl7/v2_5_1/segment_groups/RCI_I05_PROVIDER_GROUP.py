@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RCI_I05_PROVIDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PRD, CTD
+    CTD, PRD
 )
 
 rci_i05_provider_group = RCI_I05_PROVIDER_GROUP(  # PROVIDER - Segment group for RCI_I05 - Request for patient clinical information acknowledgement consisting of PRD, CTD|None

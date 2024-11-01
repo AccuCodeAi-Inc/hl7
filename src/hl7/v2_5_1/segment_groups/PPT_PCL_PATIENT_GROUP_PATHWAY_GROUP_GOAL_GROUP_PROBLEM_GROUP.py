@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.VAR import VAR
-from ..segments.NTE import NTE
+from ..segments.PRB import PRB
 from ..segment_groups.PPT_PCL_PATIENT_GROUP_PATHWAY_GROUP_GOAL_GROUP_PROBLEM_GROUP_PROBLEM_ROLE_GROUP import (
     PPT_PCL_PATIENT_GROUP_PATHWAY_GROUP_GOAL_GROUP_PROBLEM_GROUP_PROBLEM_ROLE_GROUP,
 )
-from ..segments.PRB import PRB
 from ..segment_groups.PPT_PCL_PATIENT_GROUP_PATHWAY_GROUP_GOAL_GROUP_PROBLEM_GROUP_PROBLEM_OBSERVATION_GROUP import (
     PPT_PCL_PATIENT_GROUP_PATHWAY_GROUP_GOAL_GROUP_PROBLEM_GROUP_PROBLEM_OBSERVATION_GROUP,
 )
+from ..segments.VAR import VAR
+from ..segments.NTE import NTE
 
 
 """
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PPT_PCL_PATIENT_GROUP_PATHWAY_GROUP_GOAL_GROUP_PROBLEM_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NTE, VAR, PRB
+    PRB, NTE, VAR
 )
 from utils.hl7.v2_5_1.segment_groups import (
     PPT_PCL_PATIENT_GROUP_PATHWAY_GROUP_GOAL_GROUP_PROBLEM_GROUP_PROBLEM_ROLE_GROUP, PPT_PCL_PATIENT_GROUP_PATHWAY_GROUP_GOAL_GROUP_PROBLEM_GROUP_PROBLEM_OBSERVATION_GROUP

@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
-from ..data_types.XTN import XTN
 from ..data_types.XPN import XPN
 from ..data_types.PLN import PLN
 from ..data_types.PL import PL
+from ..data_types.CE import CE
+from ..data_types.XTN import XTN
 from ..data_types.XAD import XAD
 from ..tables.PreferredMethodOfContact import PreferredMethodOfContact
 from ..tables.ContactRole import ContactRole
@@ -18,7 +18,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CTD,
-    CE, XTN, XPN, PLN, PL, XAD
+    XPN, PLN, PL, CE, XTN, XAD
 )
 
 ctd = CTD(  #  - The CTD segment may identify any contact personnel associated with a patient referral message and its related transactions
@@ -55,15 +55,16 @@ class CTD(HL7Segment):
 
     def __init__(
         self,
-        contact_role: ContactRole | CE,  # CTD.1
-        contact_name: XPN | None = None,  # CTD.2
-        contact_address: XAD | None = None,  # CTD.3
-        contact_location: PL | None = None,  # CTD.4
-        contact_communication_information: XTN | None = None,  # CTD.5
+        contact_role: ContactRole | CE | tuple[ContactRole | CE],  # CTD.1
+        contact_name: XPN | tuple[XPN] | None = None,  # CTD.2
+        contact_address: XAD | tuple[XAD] | None = None,  # CTD.3
+        contact_location: PL | tuple[PL] | None = None,  # CTD.4
+        contact_communication_information: XTN | tuple[XTN] | None = None,  # CTD.5
         preferred_method_of_contact: PreferredMethodOfContact
         | CE
+        | tuple[PreferredMethodOfContact | CE]
         | None = None,  # CTD.6
-        contact_identifiers: PLN | None = None,  # CTD.7
+        contact_identifiers: PLN | tuple[PLN] | None = None,  # CTD.7
     ):
         """
         Contact Data - `CTD <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/CTD>`_

@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import DataType
-from .CE import CE
 from .DT import DT
 from .EI import EI
-from ..tables.Privilege import Privilege
+from .CE import CE
 from ..tables.PrivilegeClass import PrivilegeClass
+from ..tables.Privilege import Privilege
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PIP,
-    CE, DT, EI
+    DT, EI, CE
 )
 
 pip = PIP(  # Practitioner Institutional Privileges - This data type specifies the institutional privileges with associated detail granted to a provider
@@ -50,11 +50,14 @@ class PIP(DataType):
 
     def __init__(
         self,
-        privilege: Privilege | CE,  # PIP.1
-        privilege_class: PrivilegeClass | CE | None = None,  # PIP.2
-        expiration_date: DT | None = None,  # PIP.3
-        activation_date: DT | None = None,  # PIP.4
-        facility: EI | None = None,  # PIP.5
+        privilege: Privilege | CE | tuple[Privilege | CE],  # PIP.1
+        privilege_class: PrivilegeClass
+        | CE
+        | tuple[PrivilegeClass | CE]
+        | None = None,  # PIP.2
+        expiration_date: DT | tuple[DT] | None = None,  # PIP.3
+        activation_date: DT | tuple[DT] | None = None,  # PIP.4
+        facility: EI | tuple[EI] | None = None,  # PIP.5
     ):
         """
         Practitioner Institutional Privileges - `PIP <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/PIP>`_

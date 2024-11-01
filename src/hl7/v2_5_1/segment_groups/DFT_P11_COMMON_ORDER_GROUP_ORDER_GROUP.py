@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import DFT_P11_COMMON_ORDER_GROUP_ORDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NTE, OBR
+    OBR, NTE
 )
 
 dft_p11_common_order_group_order_group = DFT_P11_COMMON_ORDER_GROUP_ORDER_GROUP(  # ORDER - Segment group for DFT_P11_COMMON_ORDER_GROUP - COMMON ORDER consisting of OBR, NTE|None

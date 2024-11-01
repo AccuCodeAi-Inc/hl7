@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.PES import PES
 from ..segment_groups.PEX_P08_EXPERIENCE_GROUP_PEX_OBSERVATION_GROUP import (
     PEX_P08_EXPERIENCE_GROUP_PEX_OBSERVATION_GROUP,
 )
+from ..segments.PES import PES
 
 
 """

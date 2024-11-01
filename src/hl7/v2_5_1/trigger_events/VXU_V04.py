@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.PD1 import PD1
-from ..segments.GT1 import GT1
-from ..segment_groups.VXU_V04_PATIENT_GROUP import VXU_V04_PATIENT_GROUP
-from ..segments.SFT import SFT
-from ..segments.PID import PID
-from ..segments.MSH import MSH
-from ..segment_groups.VXU_V04_INSURANCE_GROUP import VXU_V04_INSURANCE_GROUP
-from ..segments.NK1 import NK1
 from ..segment_groups.VXU_V04_ORDER_GROUP import VXU_V04_ORDER_GROUP
+from ..segments.SFT import SFT
+from ..segments.MSH import MSH
+from ..segments.GT1 import GT1
+from ..segment_groups.VXU_V04_INSURANCE_GROUP import VXU_V04_INSURANCE_GROUP
+from ..segments.PD1 import PD1
+from ..segments.PID import PID
+from ..segments.NK1 import NK1
+from ..segment_groups.VXU_V04_PATIENT_GROUP import VXU_V04_PATIENT_GROUP
 
 
 """
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import VXU_V04
 from utils.hl7.v2_5_1.segments import (
-    SFT, PID, GT1, NK1, MSH, PD1
+    PID, MSH, PD1, NK1, SFT, GT1
 )
 from utils.hl7.v2_5_1.segment_groups import (
     VXU_V04_PATIENT_GROUP, VXU_V04_ORDER_GROUP, VXU_V04_INSURANCE_GROUP

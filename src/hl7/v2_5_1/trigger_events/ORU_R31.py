@@ -1,15 +1,15 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segment_groups.ORU_R31_VISIT_GROUP import ORU_R31_VISIT_GROUP
-from ..segments.PD1 import PD1
-from ..segments.NTE import NTE
-from ..segments.OBR import OBR
 from ..segments.SFT import SFT
-from ..segments.PID import PID
-from ..segment_groups.ORU_R31_TIMING_QTY_GROUP import ORU_R31_TIMING_QTY_GROUP
 from ..segments.MSH import MSH
-from ..segment_groups.ORU_R31_OBSERVATION_GROUP import ORU_R31_OBSERVATION_GROUP
 from ..segments.ORC import ORC
+from ..segments.NTE import NTE
+from ..segment_groups.ORU_R31_OBSERVATION_GROUP import ORU_R31_OBSERVATION_GROUP
+from ..segment_groups.ORU_R31_TIMING_QTY_GROUP import ORU_R31_TIMING_QTY_GROUP
+from ..segments.PD1 import PD1
+from ..segments.PID import PID
+from ..segments.OBR import OBR
+from ..segment_groups.ORU_R31_VISIT_GROUP import ORU_R31_VISIT_GROUP
 
 
 """
@@ -20,10 +20,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ORU_R31
 from utils.hl7.v2_5_1.segments import (
-    NTE, SFT, OBR, PID, ORC, MSH, PD1
+    OBR, PID, MSH, PD1, SFT, NTE, ORC
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    ORU_R31_TIMING_QTY_GROUP, ORU_R31_VISIT_GROUP, ORU_R31_OBSERVATION_GROUP
+    ORU_R31_OBSERVATION_GROUP, ORU_R31_TIMING_QTY_GROUP, ORU_R31_VISIT_GROUP
 )
 
 oru_r31 = ORU_R31(  #  - This event trigger instructs the receiving system to search for an existing order for the observation(s) contained in the message

@@ -1,18 +1,18 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
 from ..data_types.TQ import TQ
+from ..data_types.TS import TS
 from ..data_types.ID import ID
 from ..data_types.NM import NM
-from ..data_types.LA2 import LA2
-from ..data_types.ST import ST
 from ..data_types.CWE import CWE
-from ..data_types.TS import TS
-from ..tables.SubstitutionStatus import SubstitutionStatus
-from ..tables.ManufacturersOfVaccines import ManufacturersOfVaccines
+from ..data_types.CE import CE
+from ..data_types.ST import ST
+from ..data_types.LA2 import LA2
 from ..tables.PharmacyOrderTypes import PharmacyOrderTypes
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
 from ..tables.VaccinesAdministered import VaccinesAdministered
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..tables.ManufacturersOfVaccines import ManufacturersOfVaccines
+from ..tables.SubstitutionStatus import SubstitutionStatus
 
 
 """
@@ -23,7 +23,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RXG,
-    CE, TQ, ID, NM, LA2, ST, CWE, TS
+    TQ, TS, ID, NM, CWE, CE, ST, LA2
 )
 
 rxg = RXG(  #  - 
@@ -79,35 +79,48 @@ class RXG(HL7Segment):
 
     def __init__(
         self,
-        give_sub_id_counter: NM,  # RXG.1
-        give_code: VaccinesAdministered | CE,  # RXG.4
-        give_amount_minimum: NM,  # RXG.5
-        give_units: CE,  # RXG.7
-        dispense_sub_id_counter: NM | None = None,  # RXG.2
-        quantity_or_timing: TQ | None = None,  # RXG.3
-        give_amount_maximum: NM | None = None,  # RXG.6
-        give_dosage_form: CE | None = None,  # RXG.8
-        administration_notes: CE | None = None,  # RXG.9
-        substitution_status: SubstitutionStatus | ID | None = None,  # RXG.10
-        dispense_to_location: LA2 | None = None,  # RXG.11
-        needs_human_review: YesOrNoIndicator | ID | None = None,  # RXG.12
+        give_sub_id_counter: NM | tuple[NM],  # RXG.1
+        give_code: VaccinesAdministered
+        | CE
+        | tuple[VaccinesAdministered | CE],  # RXG.4
+        give_amount_minimum: NM | tuple[NM],  # RXG.5
+        give_units: CE | tuple[CE],  # RXG.7
+        dispense_sub_id_counter: NM | tuple[NM] | None = None,  # RXG.2
+        quantity_or_timing: TQ | tuple[TQ] | None = None,  # RXG.3
+        give_amount_maximum: NM | tuple[NM] | None = None,  # RXG.6
+        give_dosage_form: CE | tuple[CE] | None = None,  # RXG.8
+        administration_notes: CE | tuple[CE] | None = None,  # RXG.9
+        substitution_status: SubstitutionStatus
+        | ID
+        | tuple[SubstitutionStatus | ID]
+        | None = None,  # RXG.10
+        dispense_to_location: LA2 | tuple[LA2] | None = None,  # RXG.11
+        needs_human_review: YesOrNoIndicator
+        | ID
+        | tuple[YesOrNoIndicator | ID]
+        | None = None,  # RXG.12
         pharmacy_or_treatment_suppliers_special_administration_instructions: CE
+        | tuple[CE]
         | None = None,  # RXG.13
-        give_per: ST | None = None,  # RXG.14
-        give_rate_amount: ST | None = None,  # RXG.15
-        give_rate_units: CE | None = None,  # RXG.16
-        give_strength: NM | None = None,  # RXG.17
-        give_strength_units: CE | None = None,  # RXG.18
-        substance_lot_number: ST | None = None,  # RXG.19
-        substance_expiration_date: TS | None = None,  # RXG.20
+        give_per: ST | tuple[ST] | None = None,  # RXG.14
+        give_rate_amount: ST | tuple[ST] | None = None,  # RXG.15
+        give_rate_units: CE | tuple[CE] | None = None,  # RXG.16
+        give_strength: NM | tuple[NM] | None = None,  # RXG.17
+        give_strength_units: CE | tuple[CE] | None = None,  # RXG.18
+        substance_lot_number: ST | tuple[ST] | None = None,  # RXG.19
+        substance_expiration_date: TS | tuple[TS] | None = None,  # RXG.20
         substance_manufacturer_name: ManufacturersOfVaccines
         | CE
+        | tuple[ManufacturersOfVaccines | CE]
         | None = None,  # RXG.21
-        indication: CE | None = None,  # RXG.22
-        give_drug_strength_volume: NM | None = None,  # RXG.23
-        give_drug_strength_volume_units: CWE | None = None,  # RXG.24
-        give_barcode_identifier: CWE | None = None,  # RXG.25
-        pharmacy_order_type: PharmacyOrderTypes | ID | None = None,  # RXG.26
+        indication: CE | tuple[CE] | None = None,  # RXG.22
+        give_drug_strength_volume: NM | tuple[NM] | None = None,  # RXG.23
+        give_drug_strength_volume_units: CWE | tuple[CWE] | None = None,  # RXG.24
+        give_barcode_identifier: CWE | tuple[CWE] | None = None,  # RXG.25
+        pharmacy_order_type: PharmacyOrderTypes
+        | ID
+        | tuple[PharmacyOrderTypes | ID]
+        | None = None,  # RXG.26
     ):
         """
         Pharmacy/Treatment Give - `RXG <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/RXG>`_

@@ -19,7 +19,7 @@ from utils.hl7.v2_5_1.segments import (
     
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    RSP_K31_RESPONSE_GROUP_ORDER_GROUP, RSP_K31_RESPONSE_GROUP_PATIENT_GROUP
+    RSP_K31_RESPONSE_GROUP_PATIENT_GROUP, RSP_K31_RESPONSE_GROUP_ORDER_GROUP
 )
 
 rsp_k31_response_group = RSP_K31_RESPONSE_GROUP(  # RESPONSE - Segment group for RSP_K31 - Dispense History Response consisting of PATIENT|None, ORDER

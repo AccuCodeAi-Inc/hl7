@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segment_groups.OML_O21_PATIENT_GROUP import OML_O21_PATIENT_GROUP
-from ..segments.NTE import NTE
 from ..segments.SFT import SFT
 from ..segments.MSH import MSH
+from ..segments.NTE import NTE
+from ..segment_groups.OML_O21_PATIENT_GROUP import OML_O21_PATIENT_GROUP
 from ..segment_groups.OML_O21_ORDER_GROUP import OML_O21_ORDER_GROUP
 
 

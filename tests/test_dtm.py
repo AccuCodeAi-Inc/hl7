@@ -4,6 +4,7 @@ from zoneinfo import ZoneInfo
 from src.hl7.v2_5_1.data_types.DTM import DTM
 from src.hl7.base import HL7PrimitiveParseException
 
+
 class TestDTM:
     def test_valid_dtm_creation(self):
         """Test creation of DTM objects with valid formats."""
@@ -121,8 +122,9 @@ class TestDTM:
         for iso_time in iso_times:
             dtm = DTM.from_iso(iso_time)
             # Convert back to ISO and compare normalized datetime objects
-            assert (datetime.fromisoformat(iso_time) -
-                    datetime.fromisoformat(dtm.to_iso())).total_seconds() == 0
+            assert (
+                datetime.fromisoformat(iso_time) - datetime.fromisoformat(dtm.to_iso())
+            ).total_seconds() == 0
 
     def test_to_iso(self):
         """Test conversion of DTM objects to ISO format."""

@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
 from ..data_types.ID import ID
 from ..data_types.NM import NM
+from ..data_types.CE import CE
 from ..tables.ValueType import ValueType
 
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     OM3,
-    CE, ID, NM
+    ID, NM, CE
 )
 
 om3 = OM3(  #  - This segment applies to free text and other non-numeric data types
@@ -51,13 +51,21 @@ class OM3(HL7Segment):
 
     def __init__(
         self,
-        sequence_number_test_or_observation_master_file: NM | None = None,  # OM3.1
-        preferred_coding_system: CE | None = None,  # OM3.2
-        valid_coded_answers: CE | None = None,  # OM3.3
-        normal_text_or_codes_for_categorical_observations: CE | None = None,  # OM3.4
-        abnormal_text_or_codes_for_categorical_observations: CE | None = None,  # OM3.5
-        critical_text_or_codes_for_categorical_observations: CE | None = None,  # OM3.6
-        value_type: ValueType | ID | None = None,  # OM3.7
+        sequence_number_test_or_observation_master_file: NM
+        | tuple[NM]
+        | None = None,  # OM3.1
+        preferred_coding_system: CE | tuple[CE] | None = None,  # OM3.2
+        valid_coded_answers: CE | tuple[CE] | None = None,  # OM3.3
+        normal_text_or_codes_for_categorical_observations: CE
+        | tuple[CE]
+        | None = None,  # OM3.4
+        abnormal_text_or_codes_for_categorical_observations: CE
+        | tuple[CE]
+        | None = None,  # OM3.5
+        critical_text_or_codes_for_categorical_observations: CE
+        | tuple[CE]
+        | None = None,  # OM3.6
+        value_type: ValueType | ID | tuple[ValueType | ID] | None = None,  # OM3.7
     ):
         """
         Categorical Service/Test/Observation - `OM3 <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/OM3>`_

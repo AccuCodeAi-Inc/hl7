@@ -45,8 +45,11 @@ class MO(DataType):
 
     def __init__(
         self,
-        quantity: NM | None = None,  # MO.1
-        denomination: CurrencyCodes | ID | None = None,  # MO.2
+        quantity: NM | tuple[NM] | None = None,  # MO.1
+        denomination: CurrencyCodes
+        | ID
+        | tuple[CurrencyCodes | ID]
+        | None = None,  # MO.2
     ):
         """
                 Money - `MO <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/MO>`_

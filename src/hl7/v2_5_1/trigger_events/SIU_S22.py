@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.NTE import NTE
-from ..segment_groups.SIU_S22_RESOURCES_GROUP import SIU_S22_RESOURCES_GROUP
-from ..segments.TQ1 import TQ1
-from ..segments.MSH import MSH
 from ..segment_groups.SIU_S22_PATIENT_GROUP import SIU_S22_PATIENT_GROUP
+from ..segments.MSH import MSH
+from ..segments.TQ1 import TQ1
+from ..segment_groups.SIU_S22_RESOURCES_GROUP import SIU_S22_RESOURCES_GROUP
+from ..segments.NTE import NTE
 from ..segments.SCH import SCH
 
 
@@ -16,10 +16,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import SIU_S22
 from utils.hl7.v2_5_1.segments import (
-    TQ1, NTE, SCH, MSH
+    TQ1, NTE, MSH, SCH
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    SIU_S22_PATIENT_GROUP, SIU_S22_RESOURCES_GROUP
+    SIU_S22_RESOURCES_GROUP, SIU_S22_PATIENT_GROUP
 )
 
 siu_s22 = SIU_S22(  #  - A notification of deletion of service/resource is sent by the filler application to other applications when a scheduled appointment requiring a service or resource entered in error has been removed from the system

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import DataType
-from .MO import MO
 from .CNE import CNE
+from .MO import MO
 from ..tables.ValueCode import ValueCode
 
 
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     UVC,
-    MO, CNE
+    CNE, MO
 )
 
 uvc = UVC(  # UB Value Code and Amount - A code structure to relate amounts or values to identified data elements necessary to process this claim as qualified by the payer organization
@@ -45,8 +45,8 @@ class UVC(DataType):
 
     def __init__(
         self,
-        value_code: ValueCode | CNE,  # UVC.1
-        value_amount: MO | None = None,  # UVC.2
+        value_code: ValueCode | CNE | tuple[ValueCode | CNE],  # UVC.1
+        value_amount: MO | tuple[MO] | None = None,  # UVC.2
     ):
         """
         UB Value Code and Amount - `UVC <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/UVC>`_

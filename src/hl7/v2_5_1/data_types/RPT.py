@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import DataType
-from .GTS import GTS
-from .IS import IS
 from .ID import ID
 from .NM import NM
+from .IS import IS
 from .CWE import CWE
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from .GTS import GTS
 from ..tables.RepeatPattern import RepeatPattern
 from ..tables.EventRelatedPeriod import EventRelatedPeriod
 from ..tables.CalendarAlignment import CalendarAlignment
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
 
 
 """
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RPT,
-    GTS, IS, ID, NM, CWE
+    ID, NM, IS, CWE, GTS
 )
 
 rpt = RPT(  # Repeat Pattern - The repeat pattern data type should be used where it is necessary to define the frequency at which an event is to take place
@@ -60,17 +60,26 @@ class RPT(DataType):
 
     def __init__(
         self,
-        repeat_pattern_code: RepeatPattern | CWE,  # RPT.1
-        calendar_alignment: CalendarAlignment | ID | None = None,  # RPT.2
-        phase_range_begin_value: NM | None = None,  # RPT.3
-        phase_range_end_value: NM | None = None,  # RPT.4
-        period_quantity: NM | None = None,  # RPT.5
-        period_units: IS | None = None,  # RPT.6
-        institution_specified_time: YesOrNoIndicator | ID | None = None,  # RPT.7
-        event: EventRelatedPeriod | ID | None = None,  # RPT.8
-        event_offset_quantity: NM | None = None,  # RPT.9
-        event_offset_units: IS | None = None,  # RPT.10
-        general_timing_specification: GTS | None = None,  # RPT.11
+        repeat_pattern_code: RepeatPattern | CWE | tuple[RepeatPattern | CWE],  # RPT.1
+        calendar_alignment: CalendarAlignment
+        | ID
+        | tuple[CalendarAlignment | ID]
+        | None = None,  # RPT.2
+        phase_range_begin_value: NM | tuple[NM] | None = None,  # RPT.3
+        phase_range_end_value: NM | tuple[NM] | None = None,  # RPT.4
+        period_quantity: NM | tuple[NM] | None = None,  # RPT.5
+        period_units: IS | tuple[IS] | None = None,  # RPT.6
+        institution_specified_time: YesOrNoIndicator
+        | ID
+        | tuple[YesOrNoIndicator | ID]
+        | None = None,  # RPT.7
+        event: EventRelatedPeriod
+        | ID
+        | tuple[EventRelatedPeriod | ID]
+        | None = None,  # RPT.8
+        event_offset_quantity: NM | tuple[NM] | None = None,  # RPT.9
+        event_offset_units: IS | tuple[IS] | None = None,  # RPT.10
+        general_timing_specification: GTS | tuple[GTS] | None = None,  # RPT.11
     ):
         """
                 Repeat Pattern - `RPT <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/RPT>`_

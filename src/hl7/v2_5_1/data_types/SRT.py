@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import DataType
-from .ST import ST
 from .ID import ID
+from .ST import ST
 from ..tables.Sequencing import Sequencing
 
 
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     SRT,
-    ST, ID
+    ID, ST
 )
 
 srt = SRT(  # Sort Order - Specifies those parameters by which the response will be sorted and by what method
@@ -45,8 +45,8 @@ class SRT(DataType):
 
     def __init__(
         self,
-        sort_by_field: ST,  # SRT.1
-        sequencing: Sequencing | ID | None = None,  # SRT.2
+        sort_by_field: ST | tuple[ST],  # SRT.1
+        sequencing: Sequencing | ID | tuple[Sequencing | ID] | None = None,  # SRT.2
     ):
         """
                 Sort Order - `SRT <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/SRT>`_

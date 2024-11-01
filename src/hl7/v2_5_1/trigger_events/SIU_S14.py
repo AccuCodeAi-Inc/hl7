@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
 from ..segment_groups.SIU_S14_PATIENT_GROUP import SIU_S14_PATIENT_GROUP
+from ..segments.MSH import MSH
+from ..segments.TQ1 import TQ1
 from ..segments.NTE import NTE
 from ..segment_groups.SIU_S14_RESOURCES_GROUP import SIU_S14_RESOURCES_GROUP
-from ..segments.TQ1 import TQ1
-from ..segments.MSH import MSH
 from ..segments.SCH import SCH
 
 
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import SIU_S14
 from utils.hl7.v2_5_1.segments import (
-    TQ1, NTE, SCH, MSH
+    TQ1, NTE, MSH, SCH
 )
 from utils.hl7.v2_5_1.segment_groups import (
     SIU_S14_RESOURCES_GROUP, SIU_S14_PATIENT_GROUP

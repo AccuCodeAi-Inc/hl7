@@ -1,23 +1,23 @@
 from __future__ import annotations
 from ...base import DataType
-from .CE import CE
-from .IS import IS
-from .ID import ID
-from .FN import FN
-from .ST import ST
-from .CWE import CWE
-from .DR import DR
-from .HD import HD
 from .TS import TS
-from ..tables.DegreeOrLicenseOrCertificate import DegreeOrLicenseOrCertificate
-from ..tables.CheckDigitScheme import CheckDigitScheme
-from ..tables.CnIdSource import CnIdSource
-from ..tables.NameType import NameType
-from ..tables.NameAssemblyOrder import NameAssemblyOrder
-from ..tables.NameContext import NameContext
-from ..tables.NameOrAddressRepresentation import NameOrAddressRepresentation
-from ..tables.AssigningAuthority import AssigningAuthority
+from .ID import ID
+from .IS import IS
+from .DR import DR
+from .CWE import CWE
+from .ST import ST
+from .HD import HD
+from .CE import CE
+from .FN import FN
 from ..tables.IdentifierType import IdentifierType
+from ..tables.NameContext import NameContext
+from ..tables.AssigningAuthority import AssigningAuthority
+from ..tables.NameType import NameType
+from ..tables.CnIdSource import CnIdSource
+from ..tables.CheckDigitScheme import CheckDigitScheme
+from ..tables.DegreeOrLicenseOrCertificate import DegreeOrLicenseOrCertificate
+from ..tables.NameOrAddressRepresentation import NameOrAddressRepresentation
+from ..tables.NameAssemblyOrder import NameAssemblyOrder
 
 
 """
@@ -28,7 +28,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PPN,
-    CE, IS, ID, FN, ST, CWE, DR, HD, TS
+    TS, ID, IS, DR, CWE, ST, HD, CE, FN
 )
 
 ppn = PPN(  # Performing Person Time Stamp - This data type is the equivalent of an XCN data type joined with a TS data type
@@ -82,32 +82,53 @@ class PPN(DataType):
 
     def __init__(
         self,
-        id_number: ST | None = None,  # PPN.1
-        family_name: FN | None = None,  # PPN.2
-        given_name: ST | None = None,  # PPN.3
-        second_and_further_given_names_or_initials_thereof: ST | None = None,  # PPN.4
-        suffix: ST | None = None,  # PPN.5
-        prefix: ST | None = None,  # PPN.6
-        degree: DegreeOrLicenseOrCertificate | IS | None = None,  # PPN.7
-        source_table: CnIdSource | IS | None = None,  # PPN.8
-        assigning_authority: AssigningAuthority | HD | None = None,  # PPN.9
-        name_type_code: NameType | ID | None = None,  # PPN.10
-        identifier_check_digit: ST | None = None,  # PPN.11
-        check_digit_scheme: CheckDigitScheme | ID | None = None,  # PPN.12
-        identifier_type_code: IdentifierType | ID | None = None,  # PPN.13
-        assigning_facility: HD | None = None,  # PPN.14
-        date_or_time_action_performed: TS | None = None,  # PPN.15
+        id_number: ST | tuple[ST] | None = None,  # PPN.1
+        family_name: FN | tuple[FN] | None = None,  # PPN.2
+        given_name: ST | tuple[ST] | None = None,  # PPN.3
+        second_and_further_given_names_or_initials_thereof: ST
+        | tuple[ST]
+        | None = None,  # PPN.4
+        suffix: ST | tuple[ST] | None = None,  # PPN.5
+        prefix: ST | tuple[ST] | None = None,  # PPN.6
+        degree: DegreeOrLicenseOrCertificate
+        | IS
+        | tuple[DegreeOrLicenseOrCertificate | IS]
+        | None = None,  # PPN.7
+        source_table: CnIdSource | IS | tuple[CnIdSource | IS] | None = None,  # PPN.8
+        assigning_authority: AssigningAuthority
+        | HD
+        | tuple[AssigningAuthority | HD]
+        | None = None,  # PPN.9
+        name_type_code: NameType | ID | tuple[NameType | ID] | None = None,  # PPN.10
+        identifier_check_digit: ST | tuple[ST] | None = None,  # PPN.11
+        check_digit_scheme: CheckDigitScheme
+        | ID
+        | tuple[CheckDigitScheme | ID]
+        | None = None,  # PPN.12
+        identifier_type_code: IdentifierType
+        | ID
+        | tuple[IdentifierType | ID]
+        | None = None,  # PPN.13
+        assigning_facility: HD | tuple[HD] | None = None,  # PPN.14
+        date_or_time_action_performed: TS | tuple[TS] | None = None,  # PPN.15
         name_representation_code: NameOrAddressRepresentation
         | ID
+        | tuple[NameOrAddressRepresentation | ID]
         | None = None,  # PPN.16
-        name_context: NameContext | CE | None = None,  # PPN.17
-        name_validity_range: DR | None = None,  # PPN.18
-        name_assembly_order: NameAssemblyOrder | ID | None = None,  # PPN.19
-        effective_date: TS | None = None,  # PPN.20
-        expiration_date: TS | None = None,  # PPN.21
-        professional_suffix: ST | None = None,  # PPN.22
-        assigning_jurisdiction: CWE | None = None,  # PPN.23
-        assigning_agency_or_department: CWE | None = None,  # PPN.24
+        name_context: NameContext
+        | CE
+        | tuple[NameContext | CE]
+        | None = None,  # PPN.17
+        name_validity_range: DR | tuple[DR] | None = None,  # PPN.18
+        name_assembly_order: NameAssemblyOrder
+        | ID
+        | tuple[NameAssemblyOrder | ID]
+        | None = None,  # PPN.19
+        effective_date: TS | tuple[TS] | None = None,  # PPN.20
+        expiration_date: TS | tuple[TS] | None = None,  # PPN.21
+        professional_suffix: ST | tuple[ST] | None = None,  # PPN.22
+        assigning_jurisdiction: CWE | tuple[CWE] | None = None,  # PPN.23
+        assigning_agency_or_department: CWE | tuple[CWE] | None = None,  # PPN.24
     ):
         """
         Performing Person Time Stamp - `PPN <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/PPN>`_

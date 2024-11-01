@@ -45,8 +45,8 @@ class CCD(DataType):
 
     def __init__(
         self,
-        invocation_event: InvocationEvent | ID,  # CCD.1
-        date_or_time: TS | None = None,  # CCD.2
+        invocation_event: InvocationEvent | ID | tuple[InvocationEvent | ID],  # CCD.1
+        date_or_time: TS | tuple[TS] | None = None,  # CCD.2
     ):
         """
         Charge Code and Date - `CCD <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/CCD>`_

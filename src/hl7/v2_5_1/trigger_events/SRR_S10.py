@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.MSH import MSH
 from ..segments.MSA import MSA
-from ..segment_groups.SRR_S10_SCHEDULE_GROUP import SRR_S10_SCHEDULE_GROUP
+from ..segments.MSH import MSH
 from ..segments.ERR import ERR
+from ..segment_groups.SRR_S10_SCHEDULE_GROUP import SRR_S10_SCHEDULE_GROUP
 
 
 """
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import SRR_S10
 from utils.hl7.v2_5_1.segments import (
-    ERR, MSA, MSH
+    MSH, MSA, ERR
 )
 from utils.hl7.v2_5_1.segment_groups import (
     SRR_S10_SCHEDULE_GROUP

@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.NTE import NTE
 from ..segments.SFT import SFT
 from ..segments.MSH import MSH
 from ..segment_groups.BTS_O31_PATIENT_GROUP import BTS_O31_PATIENT_GROUP
 from ..segment_groups.BTS_O31_ORDER_GROUP import BTS_O31_ORDER_GROUP
+from ..segments.NTE import NTE
 
 
 """
@@ -18,7 +18,7 @@ from utils.hl7.v2_5_1.segments import (
     NTE, SFT, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    BTS_O31_PATIENT_GROUP, BTS_O31_ORDER_GROUP
+    BTS_O31_ORDER_GROUP, BTS_O31_PATIENT_GROUP
 )
 
 bts_o31 = BTS_O31(  #  - Blood product transfusion/disposition messages use the BTS and BRT messages

@@ -43,8 +43,8 @@ class QIP(DataType):
 
     def __init__(
         self,
-        segment_field_name: ST,  # QIP.1
-        values: ST,  # QIP.2
+        segment_field_name: ST | tuple[ST],  # QIP.1
+        values: ST | tuple[ST],  # QIP.2
     ):
         """
                 Query Input Parameter List - `QIP <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/QIP>`_

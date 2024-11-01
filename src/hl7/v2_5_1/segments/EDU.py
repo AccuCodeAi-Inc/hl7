@@ -1,15 +1,15 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
-from ..data_types.XON import XON
+from ..data_types.XAD import XAD
 from ..data_types.IS import IS
 from ..data_types.DT import DT
-from ..data_types.DR import DR
 from ..data_types.CWE import CWE
 from ..data_types.SI import SI
-from ..data_types.XAD import XAD
-from ..tables.SchoolType import SchoolType
+from ..data_types.DR import DR
+from ..data_types.CE import CE
+from ..data_types.XON import XON
 from ..tables.DegreeOrLicenseOrCertificate import DegreeOrLicenseOrCertificate
+from ..tables.SchoolType import SchoolType
 
 
 """
@@ -20,7 +20,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     EDU,
-    CE, XON, IS, DT, DR, CWE, SI, XAD
+    XAD, IS, DT, CWE, SI, DR, CE, XON
 )
 
 edu = EDU(  #  - The EDU segment adds detailed educational information to the staff member identified by the STF segment
@@ -59,15 +59,23 @@ class EDU(HL7Segment):
 
     def __init__(
         self,
-        set_id_edu: SI,  # EDU.1
-        academic_degree: DegreeOrLicenseOrCertificate | IS | None = None,  # EDU.2
-        academic_degree_program_date_range: DR | None = None,  # EDU.3
-        academic_degree_program_participation_date_range: DR | None = None,  # EDU.4
-        academic_degree_granted_date: DT | None = None,  # EDU.5
-        school: XON | None = None,  # EDU.6
-        school_type_code: SchoolType | CE | None = None,  # EDU.7
-        school_address: XAD | None = None,  # EDU.8
-        major_field_of_study: CWE | None = None,  # EDU.9
+        set_id_edu: SI | tuple[SI],  # EDU.1
+        academic_degree: DegreeOrLicenseOrCertificate
+        | IS
+        | tuple[DegreeOrLicenseOrCertificate | IS]
+        | None = None,  # EDU.2
+        academic_degree_program_date_range: DR | tuple[DR] | None = None,  # EDU.3
+        academic_degree_program_participation_date_range: DR
+        | tuple[DR]
+        | None = None,  # EDU.4
+        academic_degree_granted_date: DT | tuple[DT] | None = None,  # EDU.5
+        school: XON | tuple[XON] | None = None,  # EDU.6
+        school_type_code: SchoolType
+        | CE
+        | tuple[SchoolType | CE]
+        | None = None,  # EDU.7
+        school_address: XAD | tuple[XAD] | None = None,  # EDU.8
+        major_field_of_study: CWE | tuple[CWE] | None = None,  # EDU.9
     ):
         """
         Educational Detail - `EDU <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/EDU>`_

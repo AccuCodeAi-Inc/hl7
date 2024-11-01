@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.OBX import OBX
-from ..segments.PD1 import PD1
 from ..segments.PV2 import PV2
-from ..segments.EVN import EVN
+from ..segments.OBX import OBX
+from ..segments.PV1 import PV1
 from ..segments.SFT import SFT
-from ..segments.PID import PID
 from ..segments.MSH import MSH
 from ..segments.DB1 import DB1
-from ..segments.PV1 import PV1
+from ..segments.PD1 import PD1
+from ..segments.PID import PID
+from ..segments.EVN import EVN
 
 
 """
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ADT_A32
 from utils.hl7.v2_5_1.segments import (
-    PV2, PV1, EVN, SFT, PID, DB1, MSH, PD1, OBX
+    OBX, PID, MSH, PD1, PV1, PV2, DB1, SFT, EVN
 )
 
 adt_a32 = ADT_A32(  #  - The A32 event is sent when an A10 (patient arriving-tracking) event is cancelled, either because of erroneous entry of the A10 event or because of a decision not to receive the patient after all

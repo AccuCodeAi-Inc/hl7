@@ -1,24 +1,24 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
+from ..segments.AL1 import AL1
+from ..segment_groups.RRI_I12_OBSERVATION_GROUP import RRI_I12_OBSERVATION_GROUP
+from ..segment_groups.RRI_I12_AUTHORIZATION_CONTACT_GROUP import (
+    RRI_I12_AUTHORIZATION_CONTACT_GROUP,
+)
+from ..segments.SFT import SFT
+from ..segments.MSH import MSH
 from ..segments.RF1 import RF1
+from ..segment_groups.RRI_I12_PROVIDER_CONTACT_GROUP import (
+    RRI_I12_PROVIDER_CONTACT_GROUP,
+)
+from ..segments.NTE import NTE
+from ..segment_groups.RRI_I12_PATIENT_VISIT_GROUP import RRI_I12_PATIENT_VISIT_GROUP
+from ..segments.MSA import MSA
+from ..segments.PID import PID
 from ..segments.DG1 import DG1
 from ..segments.ACC import ACC
 from ..segment_groups.RRI_I12_PROCEDURE_GROUP import RRI_I12_PROCEDURE_GROUP
 from ..segments.DRG import DRG
-from ..segments.NTE import NTE
-from ..segments.SFT import SFT
-from ..segments.PID import PID
-from ..segments.MSH import MSH
-from ..segments.MSA import MSA
-from ..segment_groups.RRI_I12_OBSERVATION_GROUP import RRI_I12_OBSERVATION_GROUP
-from ..segment_groups.RRI_I12_PROVIDER_CONTACT_GROUP import (
-    RRI_I12_PROVIDER_CONTACT_GROUP,
-)
-from ..segment_groups.RRI_I12_AUTHORIZATION_CONTACT_GROUP import (
-    RRI_I12_AUTHORIZATION_CONTACT_GROUP,
-)
-from ..segment_groups.RRI_I12_PATIENT_VISIT_GROUP import RRI_I12_PATIENT_VISIT_GROUP
-from ..segments.AL1 import AL1
 
 
 """
@@ -29,10 +29,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RRI_I12
 from utils.hl7.v2_5_1.segments import (
-    RF1, NTE, MSA, SFT, ACC, DG1, PID, AL1, MSH, DRG
+    RF1, MSH, PID, AL1, DG1, SFT, ACC, NTE, DRG, MSA
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    RRI_I12_PROVIDER_CONTACT_GROUP, RRI_I12_OBSERVATION_GROUP, RRI_I12_AUTHORIZATION_CONTACT_GROUP, RRI_I12_PROCEDURE_GROUP, RRI_I12_PATIENT_VISIT_GROUP
+    RRI_I12_PATIENT_VISIT_GROUP, RRI_I12_OBSERVATION_GROUP, RRI_I12_PROCEDURE_GROUP, RRI_I12_PROVIDER_CONTACT_GROUP, RRI_I12_AUTHORIZATION_CONTACT_GROUP
 )
 
 rri_i12 = RRI_I12(  #  - This event triggers a message to be sent from one healthcare provider to another regarding a specific patient

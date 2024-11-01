@@ -45,8 +45,11 @@ class TS(DataType):
 
     def __init__(
         self,
-        time: DTM,  # TS.1
-        degree_of_precision: Precision | ID | None = None,  # TS.2
+        time: DTM | tuple[DTM],  # TS.1
+        degree_of_precision: Precision
+        | ID
+        | tuple[Precision | ID]
+        | None = None,  # TS.2
     ):
         """
                 Time Stamp - `TS <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/TS>`_

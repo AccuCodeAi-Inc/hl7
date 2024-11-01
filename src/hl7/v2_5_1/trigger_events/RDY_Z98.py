@@ -1,13 +1,13 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.SFT import SFT
-from ..segments.DSC import DSC
 from ..segments.ERR import ERR
+from ..segments.DSC import DSC
 from ..segments.DSP import DSP
+from ..segments.SFT import SFT
 from ..segments.MSH import MSH
+from ..segments.QAK import QAK
 from ..segments.MSA import MSA
 from ..segments.QPD import QPD
-from ..segments.QAK import QAK
 
 
 """
@@ -18,7 +18,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RDY_Z98
 from utils.hl7.v2_5_1.segments import (
-    DSP, ERR, DSC, QPD, MSA, SFT, MSH, QAK
+    QPD, MSH, SFT, ERR, DSP, DSC, QAK, MSA
 )
 
 rdy_z98 = RDY_Z98(  #  - The purpose of this query/response pair is to retrieve patient pharmacy dispense history information from the Server

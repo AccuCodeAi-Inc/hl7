@@ -1,13 +1,13 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
-from ..data_types.ID import ID
-from ..data_types.ST import ST
-from ..data_types.XCN import XCN
 from ..data_types.XAD import XAD
 from ..data_types.TS import TS
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..data_types.ID import ID
+from ..data_types.XCN import XCN
+from ..data_types.ST import ST
+from ..data_types.CE import CE
 from ..tables.StateOrProvince import StateOrProvince
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
 from ..tables.AccidentCode import AccidentCode
 
 
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     ACC,
-    CE, ID, ST, XCN, XAD, TS
+    XAD, TS, ID, XCN, ST, CE
 )
 
 acc = ACC(  #  - The ACC segment contains patient information relative to an accident in which the patient has been involved
@@ -60,17 +60,32 @@ class ACC(HL7Segment):
 
     def __init__(
         self,
-        accident_date_or_time: TS | None = None,  # ACC.1
-        accident_code: AccidentCode | CE | None = None,  # ACC.2
-        accident_location: ST | None = None,  # ACC.3
-        auto_accident_state: StateOrProvince | CE | None = None,  # ACC.4
-        accident_job_related_indicator: YesOrNoIndicator | ID | None = None,  # ACC.5
-        accident_death_indicator: YesOrNoIndicator | ID | None = None,  # ACC.6
-        entered_by: XCN | None = None,  # ACC.7
-        accident_description: ST | None = None,  # ACC.8
-        brought_in_by: ST | None = None,  # ACC.9
-        police_notified_indicator: YesOrNoIndicator | ID | None = None,  # ACC.10
-        accident_address: XAD | None = None,  # ACC.11
+        accident_date_or_time: TS | tuple[TS] | None = None,  # ACC.1
+        accident_code: AccidentCode
+        | CE
+        | tuple[AccidentCode | CE]
+        | None = None,  # ACC.2
+        accident_location: ST | tuple[ST] | None = None,  # ACC.3
+        auto_accident_state: StateOrProvince
+        | CE
+        | tuple[StateOrProvince | CE]
+        | None = None,  # ACC.4
+        accident_job_related_indicator: YesOrNoIndicator
+        | ID
+        | tuple[YesOrNoIndicator | ID]
+        | None = None,  # ACC.5
+        accident_death_indicator: YesOrNoIndicator
+        | ID
+        | tuple[YesOrNoIndicator | ID]
+        | None = None,  # ACC.6
+        entered_by: XCN | tuple[XCN] | None = None,  # ACC.7
+        accident_description: ST | tuple[ST] | None = None,  # ACC.8
+        brought_in_by: ST | tuple[ST] | None = None,  # ACC.9
+        police_notified_indicator: YesOrNoIndicator
+        | ID
+        | tuple[YesOrNoIndicator | ID]
+        | None = None,  # ACC.10
+        accident_address: XAD | tuple[XAD] | None = None,  # ACC.11
     ):
         """
         Accident - `ACC <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/ACC>`_

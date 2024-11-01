@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RPA_I10_PROVIDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PRD, CTD
+    CTD, PRD
 )
 
 rpa_i10_provider_group = RPA_I10_PROVIDER_GROUP(  # PROVIDER - Segment group for RPA_I10 - Request for resubmission of an authorization acknowledgement consisting of PRD, CTD|None

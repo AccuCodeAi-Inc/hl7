@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.TQ1 import TQ1
+from ..segment_groups.SQR_S25_SCHEDULE_GROUP_RESOURCES_GROUP import (
+    SQR_S25_SCHEDULE_GROUP_RESOURCES_GROUP,
+)
 from ..segments.NTE import NTE
 from ..segment_groups.SQR_S25_SCHEDULE_GROUP_PATIENT_GROUP import (
     SQR_S25_SCHEDULE_GROUP_PATIENT_GROUP,
 )
-from ..segments.TQ1 import TQ1
 from ..segments.SCH import SCH
-from ..segment_groups.SQR_S25_SCHEDULE_GROUP_RESOURCES_GROUP import (
-    SQR_S25_SCHEDULE_GROUP_RESOURCES_GROUP,
-)
 
 
 """

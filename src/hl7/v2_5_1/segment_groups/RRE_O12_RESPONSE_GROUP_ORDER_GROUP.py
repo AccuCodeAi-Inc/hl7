@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.ORC import ORC
 from ..segment_groups.RRE_O12_RESPONSE_GROUP_ORDER_GROUP_ENCODING_GROUP import (
     RRE_O12_RESPONSE_GROUP_ORDER_GROUP_ENCODING_GROUP,
 )
 from ..segment_groups.RRE_O12_RESPONSE_GROUP_ORDER_GROUP_TIMING_GROUP import (
     RRE_O12_RESPONSE_GROUP_ORDER_GROUP_TIMING_GROUP,
 )
+from ..segments.ORC import ORC
 
 
 """

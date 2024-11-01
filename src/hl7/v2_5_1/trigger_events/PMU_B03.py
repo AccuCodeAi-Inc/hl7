@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.MSH import MSH
 from ..segments.STF import STF
-from ..segments.EVN import EVN
 from ..segments.SFT import SFT
+from ..segments.MSH import MSH
+from ..segments.EVN import EVN
 
 
 """
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PMU_B03
 from utils.hl7.v2_5_1.segments import (
-    EVN, STF, SFT, MSH
+    STF, SFT, MSH, EVN
 )
 
 pmu_b03 = PMU_B03(  #  - An event B03 signals to delete the record with the healthcare administration information about an individual healthcare practitioner to correct erroneous entries

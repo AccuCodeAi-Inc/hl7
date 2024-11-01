@@ -3,12 +3,12 @@ from ...base import HL7SegmentGroup
 from ..segment_groups.SRR_S04_SCHEDULE_GROUP_RESOURCES_GROUP import (
     SRR_S04_SCHEDULE_GROUP_RESOURCES_GROUP,
 )
+from ..segments.SCH import SCH
+from ..segments.TQ1 import TQ1
+from ..segments.NTE import NTE
 from ..segment_groups.SRR_S04_SCHEDULE_GROUP_PATIENT_GROUP import (
     SRR_S04_SCHEDULE_GROUP_PATIENT_GROUP,
 )
-from ..segments.NTE import NTE
-from ..segments.TQ1 import TQ1
-from ..segments.SCH import SCH
 
 
 """
@@ -22,7 +22,7 @@ from utils.hl7.v2_5_1.segments import (
     TQ1, NTE, SCH
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    SRR_S04_SCHEDULE_GROUP_RESOURCES_GROUP, SRR_S04_SCHEDULE_GROUP_PATIENT_GROUP
+    SRR_S04_SCHEDULE_GROUP_PATIENT_GROUP, SRR_S04_SCHEDULE_GROUP_RESOURCES_GROUP
 )
 
 srr_s04_schedule_group = SRR_S04_SCHEDULE_GROUP(  # SCHEDULE - Segment group for SRR_S04 - Scheduled request response - Appointment cancellation consisting of SCH, TQ1|None, NTE|None, PATIENT|None, RESOURCES

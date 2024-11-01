@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ST import ST
 from ..data_types.NM import NM
+from ..data_types.ST import ST
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     FTS,
-    ST, NM
+    NM, ST
 )
 
 fts = FTS(  #  - The FTS segment defines the end of a file
@@ -44,8 +44,8 @@ class FTS(HL7Segment):
 
     def __init__(
         self,
-        file_batch_count: NM | None = None,  # FTS.1
-        file_trailer_comment: ST | None = None,  # FTS.2
+        file_batch_count: NM | tuple[NM] | None = None,  # FTS.1
+        file_trailer_comment: ST | tuple[ST] | None = None,  # FTS.2
     ):
         """
         File Trailer Segment - `FTS <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/FTS>`_

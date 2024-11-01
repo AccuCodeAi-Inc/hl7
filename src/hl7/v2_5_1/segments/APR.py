@@ -52,15 +52,18 @@ class APR(HL7Segment):
         self,
         time_selection_criteria: TimeSelectionCriteriaParameterClassCodes
         | SCV
+        | tuple[TimeSelectionCriteriaParameterClassCodes | SCV]
         | None = None,  # APR.1
         resource_selection_criteria: TimeSelectionCriteriaParameterClassCodes
         | SCV
+        | tuple[TimeSelectionCriteriaParameterClassCodes | SCV]
         | None = None,  # APR.2
         location_selection_criteria: TimeSelectionCriteriaParameterClassCodes
         | SCV
+        | tuple[TimeSelectionCriteriaParameterClassCodes | SCV]
         | None = None,  # APR.3
-        slot_spacing_criteria: NM | None = None,  # APR.4
-        filler_override_criteria: SCV | None = None,  # APR.5
+        slot_spacing_criteria: NM | tuple[NM] | None = None,  # APR.4
+        filler_override_criteria: SCV | tuple[SCV] | None = None,  # APR.5
     ):
         """
         Appointment Preferences - `APR <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/APR>`_

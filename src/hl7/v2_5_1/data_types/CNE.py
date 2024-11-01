@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import DataType
-from .ST import ST
 from .ID import ID
+from .ST import ST
 from ..tables.CodingSystem import CodingSystem
 
 
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CNE,
-    ST, ID
+    ID, ST
 )
 
 cne = CNE(  # Coded with No Exceptions - Specifies a coded element and its associated detail
@@ -52,15 +52,21 @@ class CNE(DataType):
 
     def __init__(
         self,
-        identifier: ST,  # CNE.1
-        text: ST | None = None,  # CNE.2
-        name_of_coding_system: CodingSystem | ID | None = None,  # CNE.3
-        alternate_identifier: ST | None = None,  # CNE.4
-        alternate_text: ST | None = None,  # CNE.5
-        name_of_alternate_coding_system: CodingSystem | ID | None = None,  # CNE.6
-        coding_system_version_id: ST | None = None,  # CNE.7
-        alternate_coding_system_version_id: ST | None = None,  # CNE.8
-        original_text: ST | None = None,  # CNE.9
+        identifier: ST | tuple[ST],  # CNE.1
+        text: ST | tuple[ST] | None = None,  # CNE.2
+        name_of_coding_system: CodingSystem
+        | ID
+        | tuple[CodingSystem | ID]
+        | None = None,  # CNE.3
+        alternate_identifier: ST | tuple[ST] | None = None,  # CNE.4
+        alternate_text: ST | tuple[ST] | None = None,  # CNE.5
+        name_of_alternate_coding_system: CodingSystem
+        | ID
+        | tuple[CodingSystem | ID]
+        | None = None,  # CNE.6
+        coding_system_version_id: ST | tuple[ST] | None = None,  # CNE.7
+        alternate_coding_system_version_id: ST | tuple[ST] | None = None,  # CNE.8
+        original_text: ST | tuple[ST] | None = None,  # CNE.9
     ):
         """
         Coded with No Exceptions - `CNE <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/CNE>`_

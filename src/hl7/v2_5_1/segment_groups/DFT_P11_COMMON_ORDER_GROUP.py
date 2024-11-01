@@ -3,13 +3,13 @@ from ...base import HL7SegmentGroup
 from ..segment_groups.DFT_P11_COMMON_ORDER_GROUP_TIMING_QUANTITY_GROUP import (
     DFT_P11_COMMON_ORDER_GROUP_TIMING_QUANTITY_GROUP,
 )
-from ..segments.ORC import ORC
-from ..segment_groups.DFT_P11_COMMON_ORDER_GROUP_ORDER_GROUP import (
-    DFT_P11_COMMON_ORDER_GROUP_ORDER_GROUP,
-)
 from ..segment_groups.DFT_P11_COMMON_ORDER_GROUP_OBSERVATION_GROUP import (
     DFT_P11_COMMON_ORDER_GROUP_OBSERVATION_GROUP,
 )
+from ..segment_groups.DFT_P11_COMMON_ORDER_GROUP_ORDER_GROUP import (
+    DFT_P11_COMMON_ORDER_GROUP_ORDER_GROUP,
+)
+from ..segments.ORC import ORC
 
 
 """

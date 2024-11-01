@@ -1,34 +1,34 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
+from ..data_types.XPN import XPN
+from ..data_types.XTN import XTN
+from ..data_types.TS import TS
+from ..data_types.ID import ID
+from ..data_types.NM import NM
 from ..data_types.IS import IS
 from ..data_types.CX import CX
-from ..data_types.ID import ID
-from ..data_types.XTN import XTN
-from ..data_types.NM import NM
-from ..data_types.XPN import XPN
-from ..data_types.ST import ST
-from ..data_types.DLN import DLN
-from ..data_types.HD import HD
 from ..data_types.CWE import CWE
 from ..data_types.SI import SI
+from ..data_types.CE import CE
 from ..data_types.XAD import XAD
-from ..data_types.TS import TS
-from ..tables.ProductionClassCode import ProductionClassCode
-from ..tables.Race import Race
-from ..tables.VeteransMilitaryStatus import VeteransMilitaryStatus
-from ..tables.MaritalStatus import MaritalStatus
-from ..tables.CountyOrParish import CountyOrParish
-from ..tables.EthnicGroup import EthnicGroup
-from ..tables.AdministrativeSex import AdministrativeSex
-from ..tables.Citizenship import Citizenship
-from ..tables.BreedCode import BreedCode
-from ..tables.Nationality import Nationality
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..data_types.ST import ST
+from ..data_types.HD import HD
+from ..data_types.DLN import DLN
 from ..tables.SpeciesCode import SpeciesCode
 from ..tables.PrimaryLanguage import PrimaryLanguage
+from ..tables.BreedCode import BreedCode
 from ..tables.IdentityReliabilityCode import IdentityReliabilityCode
+from ..tables.Race import Race
+from ..tables.Citizenship import Citizenship
+from ..tables.AdministrativeSex import AdministrativeSex
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..tables.ProductionClassCode import ProductionClassCode
+from ..tables.CountyOrParish import CountyOrParish
+from ..tables.Nationality import Nationality
 from ..tables.Religion import Religion
+from ..tables.VeteransMilitaryStatus import VeteransMilitaryStatus
+from ..tables.EthnicGroup import EthnicGroup
+from ..tables.MaritalStatus import MaritalStatus
 
 
 """
@@ -39,7 +39,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PID,
-    CE, IS, CX, ID, XTN, NM, XPN, ST, DLN, HD, CWE, SI, XAD, TS
+    XPN, XTN, TS, ID, NM, IS, CX, CWE, SI, CE, XAD, ST, HD, DLN
 )
 
 pid = PID(  #  - The PID segment is used by all applications as the primary means of communicating patient identification information
@@ -108,45 +108,84 @@ class PID(HL7Segment):
 
     def __init__(
         self,
-        patient_identifier_list: CX,  # PID.3
-        patient_name: XPN,  # PID.5
-        set_id_pid: SI | None = None,  # PID.1
-        patient_id: CX | None = None,  # PID.2
-        alternate_patient_id_pid: CX | None = None,  # PID.4
-        mothers_maiden_name: XPN | None = None,  # PID.6
-        date_or_time_of_birth: TS | None = None,  # PID.7
-        administrative_sex: AdministrativeSex | IS | None = None,  # PID.8
-        patient_alias: XPN | None = None,  # PID.9
-        race: Race | CE | None = None,  # PID.10
-        patient_address: XAD | None = None,  # PID.11
-        county_code: CountyOrParish | IS | None = None,  # PID.12
-        phone_number_home: XTN | None = None,  # PID.13
-        phone_number_business: XTN | None = None,  # PID.14
-        primary_language: PrimaryLanguage | CE | None = None,  # PID.15
-        marital_status: MaritalStatus | CE | None = None,  # PID.16
-        religion: Religion | CE | None = None,  # PID.17
-        patient_account_number: CX | None = None,  # PID.18
-        ssn_number_patient: ST | None = None,  # PID.19
-        drivers_license_number_patient: DLN | None = None,  # PID.20
-        mothers_identifier: CX | None = None,  # PID.21
-        ethnic_group: EthnicGroup | CE | None = None,  # PID.22
-        birth_place: ST | None = None,  # PID.23
-        multiple_birth_indicator: YesOrNoIndicator | ID | None = None,  # PID.24
-        birth_order: NM | None = None,  # PID.25
-        citizenship: Citizenship | CE | None = None,  # PID.26
-        veterans_military_status: VeteransMilitaryStatus | CE | None = None,  # PID.27
-        nationality: Nationality | CE | None = None,  # PID.28
-        patient_death_date_and_time: TS | None = None,  # PID.29
-        patient_death_indicator: YesOrNoIndicator | ID | None = None,  # PID.30
-        identity_unknown_indicator: YesOrNoIndicator | ID | None = None,  # PID.31
-        identity_reliability_code: IdentityReliabilityCode | IS | None = None,  # PID.32
-        last_update_date_or_time: TS | None = None,  # PID.33
-        last_update_facility: HD | None = None,  # PID.34
-        species_code: SpeciesCode | CE | None = None,  # PID.35
-        breed_code: BreedCode | CE | None = None,  # PID.36
-        strain: ST | None = None,  # PID.37
-        production_class_code: ProductionClassCode | CE | None = None,  # PID.38
-        tribal_citizenship: Citizenship | CWE | None = None,  # PID.39
+        patient_identifier_list: CX | tuple[CX],  # PID.3
+        patient_name: XPN | tuple[XPN],  # PID.5
+        set_id_pid: SI | tuple[SI] | None = None,  # PID.1
+        patient_id: CX | tuple[CX] | None = None,  # PID.2
+        alternate_patient_id_pid: CX | tuple[CX] | None = None,  # PID.4
+        mothers_maiden_name: XPN | tuple[XPN] | None = None,  # PID.6
+        date_or_time_of_birth: TS | tuple[TS] | None = None,  # PID.7
+        administrative_sex: AdministrativeSex
+        | IS
+        | tuple[AdministrativeSex | IS]
+        | None = None,  # PID.8
+        patient_alias: XPN | tuple[XPN] | None = None,  # PID.9
+        race: Race | CE | tuple[Race | CE] | None = None,  # PID.10
+        patient_address: XAD | tuple[XAD] | None = None,  # PID.11
+        county_code: CountyOrParish
+        | IS
+        | tuple[CountyOrParish | IS]
+        | None = None,  # PID.12
+        phone_number_home: XTN | tuple[XTN] | None = None,  # PID.13
+        phone_number_business: XTN | tuple[XTN] | None = None,  # PID.14
+        primary_language: PrimaryLanguage
+        | CE
+        | tuple[PrimaryLanguage | CE]
+        | None = None,  # PID.15
+        marital_status: MaritalStatus
+        | CE
+        | tuple[MaritalStatus | CE]
+        | None = None,  # PID.16
+        religion: Religion | CE | tuple[Religion | CE] | None = None,  # PID.17
+        patient_account_number: CX | tuple[CX] | None = None,  # PID.18
+        ssn_number_patient: ST | tuple[ST] | None = None,  # PID.19
+        drivers_license_number_patient: DLN | tuple[DLN] | None = None,  # PID.20
+        mothers_identifier: CX | tuple[CX] | None = None,  # PID.21
+        ethnic_group: EthnicGroup
+        | CE
+        | tuple[EthnicGroup | CE]
+        | None = None,  # PID.22
+        birth_place: ST | tuple[ST] | None = None,  # PID.23
+        multiple_birth_indicator: YesOrNoIndicator
+        | ID
+        | tuple[YesOrNoIndicator | ID]
+        | None = None,  # PID.24
+        birth_order: NM | tuple[NM] | None = None,  # PID.25
+        citizenship: Citizenship | CE | tuple[Citizenship | CE] | None = None,  # PID.26
+        veterans_military_status: VeteransMilitaryStatus
+        | CE
+        | tuple[VeteransMilitaryStatus | CE]
+        | None = None,  # PID.27
+        nationality: Nationality | CE | tuple[Nationality | CE] | None = None,  # PID.28
+        patient_death_date_and_time: TS | tuple[TS] | None = None,  # PID.29
+        patient_death_indicator: YesOrNoIndicator
+        | ID
+        | tuple[YesOrNoIndicator | ID]
+        | None = None,  # PID.30
+        identity_unknown_indicator: YesOrNoIndicator
+        | ID
+        | tuple[YesOrNoIndicator | ID]
+        | None = None,  # PID.31
+        identity_reliability_code: IdentityReliabilityCode
+        | IS
+        | tuple[IdentityReliabilityCode | IS]
+        | None = None,  # PID.32
+        last_update_date_or_time: TS | tuple[TS] | None = None,  # PID.33
+        last_update_facility: HD | tuple[HD] | None = None,  # PID.34
+        species_code: SpeciesCode
+        | CE
+        | tuple[SpeciesCode | CE]
+        | None = None,  # PID.35
+        breed_code: BreedCode | CE | tuple[BreedCode | CE] | None = None,  # PID.36
+        strain: ST | tuple[ST] | None = None,  # PID.37
+        production_class_code: ProductionClassCode
+        | CE
+        | tuple[ProductionClassCode | CE]
+        | None = None,  # PID.38
+        tribal_citizenship: Citizenship
+        | CWE
+        | tuple[Citizenship | CWE]
+        | None = None,  # PID.39
     ):
         """
         Patient Identification - `PID <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/PID>`_

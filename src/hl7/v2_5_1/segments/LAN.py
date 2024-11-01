@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
 from ..data_types.SI import SI
+from ..data_types.CE import CE
 from ..tables.LanguageProficiency import LanguageProficiency
 from ..tables.LanguageAbility import LanguageAbility
 from ..tables.PrimaryLanguage import PrimaryLanguage
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     LAN,
-    CE, SI
+    SI, CE
 )
 
 lan = LAN(  #  - The LAN segment adds detailed language information to the staff member identified by the STF segment
@@ -49,10 +49,16 @@ class LAN(HL7Segment):
 
     def __init__(
         self,
-        set_id_lan: SI,  # LAN.1
-        language_code: PrimaryLanguage | CE,  # LAN.2
-        language_ability_code: LanguageAbility | CE | None = None,  # LAN.3
-        language_proficiency_code: LanguageProficiency | CE | None = None,  # LAN.4
+        set_id_lan: SI | tuple[SI],  # LAN.1
+        language_code: PrimaryLanguage | CE | tuple[PrimaryLanguage | CE],  # LAN.2
+        language_ability_code: LanguageAbility
+        | CE
+        | tuple[LanguageAbility | CE]
+        | None = None,  # LAN.3
+        language_proficiency_code: LanguageProficiency
+        | CE
+        | tuple[LanguageProficiency | CE]
+        | None = None,  # LAN.4
     ):
         """
         Language Detail - `LAN <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/LAN>`_

@@ -1,13 +1,13 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.OBX import OBX
+from ..segments.SPM import SPM
 from ..segment_groups.OUL_R22_SPECIMEN_GROUP_CONTAINER_GROUP import (
     OUL_R22_SPECIMEN_GROUP_CONTAINER_GROUP,
 )
-from ..segments.SPM import SPM
 from ..segment_groups.OUL_R22_SPECIMEN_GROUP_ORDER_GROUP import (
     OUL_R22_SPECIMEN_GROUP_ORDER_GROUP,
 )
+from ..segments.OBX import OBX
 
 
 """

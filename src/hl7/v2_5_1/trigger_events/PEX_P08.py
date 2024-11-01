@@ -1,13 +1,13 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segment_groups.PEX_P08_EXPERIENCE_GROUP import PEX_P08_EXPERIENCE_GROUP
-from ..segments.PD1 import PD1
-from ..segments.NTE import NTE
-from ..segments.EVN import EVN
-from ..segments.SFT import SFT
-from ..segments.PID import PID
-from ..segments.MSH import MSH
 from ..segment_groups.PEX_P08_VISIT_GROUP import PEX_P08_VISIT_GROUP
+from ..segments.SFT import SFT
+from ..segments.MSH import MSH
+from ..segment_groups.PEX_P08_EXPERIENCE_GROUP import PEX_P08_EXPERIENCE_GROUP
+from ..segments.NTE import NTE
+from ..segments.PD1 import PD1
+from ..segments.PID import PID
+from ..segments.EVN import EVN
 
 
 """
@@ -18,10 +18,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PEX_P08
 from utils.hl7.v2_5_1.segments import (
-    EVN, NTE, SFT, PID, MSH, PD1
+    PID, MSH, PD1, SFT, NTE, EVN
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    PEX_P08_VISIT_GROUP, PEX_P08_EXPERIENCE_GROUP
+    PEX_P08_EXPERIENCE_GROUP, PEX_P08_VISIT_GROUP
 )
 
 pex_p08 = PEX_P08(  #  - The primary application of this message is to transfer information related to an adverse event occurring while a patient was exposed to a product

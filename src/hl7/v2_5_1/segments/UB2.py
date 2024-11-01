@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.OCD import OCD
-from ..data_types.IS import IS
-from ..data_types.NM import NM
-from ..data_types.ST import ST
-from ..data_types.OSP import OSP
-from ..data_types.SI import SI
 from ..data_types.UVC import UVC
+from ..data_types.OSP import OSP
+from ..data_types.NM import NM
+from ..data_types.IS import IS
+from ..data_types.OCD import OCD
+from ..data_types.ST import ST
+from ..data_types.SI import SI
 from ..tables.ConditionCode import ConditionCode
 
 
@@ -18,7 +18,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     UB2,
-    OCD, IS, NM, ST, OSP, SI, UVC
+    UVC, OSP, NM, IS, OCD, ST, SI
 )
 
 ub2 = UB2(  #  - The UB2 segment contains data necessary to complete UB92 bills specific to the United States; other realms may choose to implement using regional code sets
@@ -65,23 +65,26 @@ class UB2(HL7Segment):
 
     def __init__(
         self,
-        set_id_ub2: SI | None = None,  # UB2.1
-        co_insurance_days: ST | None = None,  # UB2.2
-        condition_code: ConditionCode | IS | None = None,  # UB2.3
-        covered_days: ST | None = None,  # UB2.4
-        non_covered_days: ST | None = None,  # UB2.5
-        value_amount_and_code: UVC | None = None,  # UB2.6
-        occurrence_code_and_date: OCD | None = None,  # UB2.7
-        occurrence_span_code_or_dates: OSP | None = None,  # UB2.8
-        ub92_locator_2: ST | None = None,  # UB2.9
-        ub92_locator_11: ST | None = None,  # UB2.10
-        ub92_locator_31: ST | None = None,  # UB2.11
-        document_control_number: ST | None = None,  # UB2.12
-        ub92_locator_49: ST | None = None,  # UB2.13
-        ub92_locator_56: ST | None = None,  # UB2.14
-        ub92_locator_57: ST | None = None,  # UB2.15
-        ub92_locator_78: ST | None = None,  # UB2.16
-        special_visit_count: NM | None = None,  # UB2.17
+        set_id_ub2: SI | tuple[SI] | None = None,  # UB2.1
+        co_insurance_days: ST | tuple[ST] | None = None,  # UB2.2
+        condition_code: ConditionCode
+        | IS
+        | tuple[ConditionCode | IS]
+        | None = None,  # UB2.3
+        covered_days: ST | tuple[ST] | None = None,  # UB2.4
+        non_covered_days: ST | tuple[ST] | None = None,  # UB2.5
+        value_amount_and_code: UVC | tuple[UVC] | None = None,  # UB2.6
+        occurrence_code_and_date: OCD | tuple[OCD] | None = None,  # UB2.7
+        occurrence_span_code_or_dates: OSP | tuple[OSP] | None = None,  # UB2.8
+        ub92_locator_2: ST | tuple[ST] | None = None,  # UB2.9
+        ub92_locator_11: ST | tuple[ST] | None = None,  # UB2.10
+        ub92_locator_31: ST | tuple[ST] | None = None,  # UB2.11
+        document_control_number: ST | tuple[ST] | None = None,  # UB2.12
+        ub92_locator_49: ST | tuple[ST] | None = None,  # UB2.13
+        ub92_locator_56: ST | tuple[ST] | None = None,  # UB2.14
+        ub92_locator_57: ST | tuple[ST] | None = None,  # UB2.15
+        ub92_locator_78: ST | tuple[ST] | None = None,  # UB2.16
+        special_visit_count: NM | tuple[NM] | None = None,  # UB2.17
     ):
         """
                 UB92 Data - `UB2 <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/UB2>`_

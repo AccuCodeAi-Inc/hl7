@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import DataType
+from .TX import TX
 from .ID import ID
 from .HD import HD
-from .TX import TX
-from ..tables.TypeOfReferencedData import TypeOfReferencedData
 from ..tables.SubtypeOfReferencedData import SubtypeOfReferencedData
+from ..tables.TypeOfReferencedData import TypeOfReferencedData
 from ..tables.Encoding import Encoding
 
 
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     ED,
-    ID, HD, TX
+    TX, ID, HD
 )
 
 ed = ED(  # Encapsulated Data - This data type transmits encapsulated data from a source system to a destination system
@@ -51,11 +51,16 @@ class ED(DataType):
 
     def __init__(
         self,
-        type_of_data: TypeOfReferencedData | ID,  # ED.2
-        encoding: Encoding | ID,  # ED.4
-        data: TX,  # ED.5
-        source_application: HD | None = None,  # ED.1
-        data_subtype: SubtypeOfReferencedData | ID | None = None,  # ED.3
+        type_of_data: TypeOfReferencedData
+        | ID
+        | tuple[TypeOfReferencedData | ID],  # ED.2
+        encoding: Encoding | ID | tuple[Encoding | ID],  # ED.4
+        data: TX | tuple[TX],  # ED.5
+        source_application: HD | tuple[HD] | None = None,  # ED.1
+        data_subtype: SubtypeOfReferencedData
+        | ID
+        | tuple[SubtypeOfReferencedData | ID]
+        | None = None,  # ED.3
     ):
         """
         Encapsulated Data - `ED <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/ED>`_

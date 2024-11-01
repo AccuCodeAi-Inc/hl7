@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
-from ..data_types.CQ import CQ
-from ..data_types.ID import ID
 from ..data_types.SRT import SRT
 from ..data_types.TS import TS
-from ..tables.ModifyIndicator import ModifyIndicator
+from ..data_types.CQ import CQ
+from ..data_types.ID import ID
+from ..data_types.CE import CE
 from ..tables.ResponseModality import ResponseModality
-from ..tables.SegmentGroup import SegmentGroup
 from ..tables.QueryPriority import QueryPriority
+from ..tables.ModifyIndicator import ModifyIndicator
+from ..tables.SegmentGroup import SegmentGroup
 
 
 """
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RCP,
-    CE, CQ, ID, SRT, TS
+    SRT, TS, CQ, ID, CE
 )
 
 rcp = RCP(  #  - The RCP segment is used to restrict the amount of data that should be returned in response to query
@@ -56,13 +56,25 @@ class RCP(HL7Segment):
 
     def __init__(
         self,
-        query_priority: QueryPriority | ID | None = None,  # RCP.1
-        quantity_limited_request: CQ | None = None,  # RCP.2
-        response_modality: ResponseModality | CE | None = None,  # RCP.3
-        execution_and_delivery_time: TS | None = None,  # RCP.4
-        modify_indicator: ModifyIndicator | ID | None = None,  # RCP.5
-        sort_by_field: SRT | None = None,  # RCP.6
-        segment_group_inclusion: SegmentGroup | ID | None = None,  # RCP.7
+        query_priority: QueryPriority
+        | ID
+        | tuple[QueryPriority | ID]
+        | None = None,  # RCP.1
+        quantity_limited_request: CQ | tuple[CQ] | None = None,  # RCP.2
+        response_modality: ResponseModality
+        | CE
+        | tuple[ResponseModality | CE]
+        | None = None,  # RCP.3
+        execution_and_delivery_time: TS | tuple[TS] | None = None,  # RCP.4
+        modify_indicator: ModifyIndicator
+        | ID
+        | tuple[ModifyIndicator | ID]
+        | None = None,  # RCP.5
+        sort_by_field: SRT | tuple[SRT] | None = None,  # RCP.6
+        segment_group_inclusion: SegmentGroup
+        | ID
+        | tuple[SegmentGroup | ID]
+        | None = None,  # RCP.7
     ):
         """
         Response Control Parameter - `RCP <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/RCP>`_

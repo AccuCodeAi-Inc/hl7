@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
 from ..data_types.EI import EI
+from ..data_types.CE import CE
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CTI,
-    CE, EI
+    EI, CE
 )
 
 cti = CTI(  #  - The CTI segment is an optional segment that contains information to identify the clinical trial, phase and time point with which an order or result is associated
@@ -45,9 +45,9 @@ class CTI(HL7Segment):
 
     def __init__(
         self,
-        sponsor_study_id: EI,  # CTI.1
-        study_phase_identifier: CE | None = None,  # CTI.2
-        study_scheduled_time_point: CE | None = None,  # CTI.3
+        sponsor_study_id: EI | tuple[EI],  # CTI.1
+        study_phase_identifier: CE | tuple[CE] | None = None,  # CTI.2
+        study_scheduled_time_point: CE | tuple[CE] | None = None,  # CTI.3
     ):
         """
         Clinical Trial Identification - `CTI <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/CTI>`_

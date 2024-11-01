@@ -1,25 +1,25 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
+from ..segments.OBX import OBX
+from ..segments.MSH import MSH
+from ..segments.DB1 import DB1
+from ..segments.NK1 import NK1
+from ..segments.DRG import DRG
+from ..segments.AL1 import AL1
+from ..segments.UB1 import UB1
+from ..segment_groups.ADT_A28_PROCEDURE_GROUP import ADT_A28_PROCEDURE_GROUP
+from ..segments.ROL import ROL
+from ..segments.DG1 import DG1
 from ..segments.UB2 import UB2
 from ..segments.PV2 import PV2
-from ..segments.EVN import EVN
-from ..segments.UB1 import UB1
-from ..segments.PID import PID
-from ..segments.NK1 import NK1
-from ..segments.DG1 import DG1
-from ..segments.ACC import ACC
-from ..segments.PD1 import PD1
-from ..segments.SFT import SFT
-from ..segments.MSH import MSH
-from ..segments.OBX import OBX
-from ..segments.ROL import ROL
-from ..segments.DB1 import DB1
-from ..segments.PV1 import PV1
 from ..segments.GT1 import GT1
-from ..segments.DRG import DRG
-from ..segment_groups.ADT_A28_PROCEDURE_GROUP import ADT_A28_PROCEDURE_GROUP
+from ..segments.PID import PID
+from ..segments.EVN import EVN
 from ..segment_groups.ADT_A28_INSURANCE_GROUP import ADT_A28_INSURANCE_GROUP
-from ..segments.AL1 import AL1
+from ..segments.PV1 import PV1
+from ..segments.SFT import SFT
+from ..segments.PD1 import PD1
+from ..segments.ACC import ACC
 
 
 """
@@ -30,7 +30,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ADT_A28
 from utils.hl7.v2_5_1.segments import (
-    PV2, PV1, UB2, EVN, SFT, AL1, DG1, ROL, PID, ACC, GT1, DB1, NK1, MSH, UB1, PD1, OBX, DRG
+    OBX, PID, MSH, PD1, PV1, NK1, ROL, PV2, SFT, DB1, AL1, DG1, GT1, UB1, ACC, UB2, DRG, EVN
 )
 from utils.hl7.v2_5_1.segment_groups import (
     ADT_A28_INSURANCE_GROUP, ADT_A28_PROCEDURE_GROUP

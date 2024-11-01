@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import DFT_P03_FINANCIAL_GROUP_FINANCIAL_COMMON_ORDER_GROUP_FINANCIAL_ORDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NTE, OBR
+    OBR, NTE
 )
 
 dft_p03_financial_group_financial_common_order_group_financial_order_group = DFT_P03_FINANCIAL_GROUP_FINANCIAL_COMMON_ORDER_GROUP_FINANCIAL_ORDER_GROUP(  # FINANCIAL ORDER - Segment group for DFT_P03_FINANCIAL_GROUP_FINANCIAL_COMMON_ORDER_GROUP - FINANCIAL COMMON ORDER consisting of OBR, NTE|None

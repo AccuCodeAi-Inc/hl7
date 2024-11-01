@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.RXA import RXA
+from ..segments.RXR import RXR
 from ..segment_groups.RAS_O17_ORDER_GROUP_ADMINISTRATION_GROUP_OBSERVATION_GROUP import (
     RAS_O17_ORDER_GROUP_ADMINISTRATION_GROUP_OBSERVATION_GROUP,
 )
-from ..segments.RXR import RXR
+from ..segments.RXA import RXA
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RAS_O17_ORDER_GROUP_ADMINISTRATION_GROUP
 from utils.hl7.v2_5_1.segments import (
-    RXR, RXA
+    RXA, RXR
 )
 from utils.hl7.v2_5_1.segment_groups import (
     RAS_O17_ORDER_GROUP_ADMINISTRATION_GROUP_OBSERVATION_GROUP

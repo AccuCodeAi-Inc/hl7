@@ -1,20 +1,20 @@
 from __future__ import annotations
 from ...base import HL7Segment
 from ..data_types.IS import IS
+from ..data_types.NM import NM
 from ..data_types.CP import CP
 from ..data_types.CE import CE
-from ..data_types.NM import NM
+from ..tables.PackagingStatusCode import PackagingStatusCode
 from ..tables.DenialOrRejectionCode import DenialOrRejectionCode
 from ..tables.PaymentAdjustmentCode import PaymentAdjustmentCode
-from ..tables.OceEditCode import OceEditCode
-from ..tables.ReimbursementTypeCode import ReimbursementTypeCode
-from ..tables.PackagingStatusCode import PackagingStatusCode
-from ..tables.ModifierEditCode import ModifierEditCode
+from ..tables.ReimbursementActionCode import ReimbursementActionCode
 from ..tables.AmbulatoryPaymentClassificationCode import (
     AmbulatoryPaymentClassificationCode,
 )
+from ..tables.ReimbursementTypeCode import ReimbursementTypeCode
 from ..tables.RevenueCode import RevenueCode
-from ..tables.ReimbursementActionCode import ReimbursementActionCode
+from ..tables.OceEditCode import OceEditCode
+from ..tables.ModifierEditCode import ModifierEditCode
 
 
 """
@@ -25,7 +25,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     GP2,
-    IS, CP, CE, NM
+    IS, NM, CP, CE
 )
 
 gp2 = GP2(  #  - This segment is used for items that pertain to each HCPC/CPT line item
@@ -69,22 +69,44 @@ class GP2(HL7Segment):
 
     def __init__(
         self,
-        revenue_code: RevenueCode | IS | None = None,  # GP2.1
-        number_of_service_units: NM | None = None,  # GP2.2
-        charge: CP | None = None,  # GP2.3
-        reimbursement_action_code: ReimbursementActionCode | IS | None = None,  # GP2.4
-        denial_or_rejection_code: DenialOrRejectionCode | IS | None = None,  # GP2.5
-        oce_edit_code: OceEditCode | IS | None = None,  # GP2.6
+        revenue_code: RevenueCode | IS | tuple[RevenueCode | IS] | None = None,  # GP2.1
+        number_of_service_units: NM | tuple[NM] | None = None,  # GP2.2
+        charge: CP | tuple[CP] | None = None,  # GP2.3
+        reimbursement_action_code: ReimbursementActionCode
+        | IS
+        | tuple[ReimbursementActionCode | IS]
+        | None = None,  # GP2.4
+        denial_or_rejection_code: DenialOrRejectionCode
+        | IS
+        | tuple[DenialOrRejectionCode | IS]
+        | None = None,  # GP2.5
+        oce_edit_code: OceEditCode
+        | IS
+        | tuple[OceEditCode | IS]
+        | None = None,  # GP2.6
         ambulatory_payment_classification_code: AmbulatoryPaymentClassificationCode
         | CE
+        | tuple[AmbulatoryPaymentClassificationCode | CE]
         | None = None,  # GP2.7
-        modifier_edit_code: ModifierEditCode | IS | None = None,  # GP2.8
-        payment_adjustment_code: PaymentAdjustmentCode | IS | None = None,  # GP2.9
-        packaging_status_code: PackagingStatusCode | IS | None = None,  # GP2.10
-        expected_cms_payment_amount: CP | None = None,  # GP2.11
-        reimbursement_type_code: ReimbursementTypeCode | IS | None = None,  # GP2.12
-        co_pay_amount: CP | None = None,  # GP2.13
-        pay_rate_per_service_unit: NM | None = None,  # GP2.14
+        modifier_edit_code: ModifierEditCode
+        | IS
+        | tuple[ModifierEditCode | IS]
+        | None = None,  # GP2.8
+        payment_adjustment_code: PaymentAdjustmentCode
+        | IS
+        | tuple[PaymentAdjustmentCode | IS]
+        | None = None,  # GP2.9
+        packaging_status_code: PackagingStatusCode
+        | IS
+        | tuple[PackagingStatusCode | IS]
+        | None = None,  # GP2.10
+        expected_cms_payment_amount: CP | tuple[CP] | None = None,  # GP2.11
+        reimbursement_type_code: ReimbursementTypeCode
+        | IS
+        | tuple[ReimbursementTypeCode | IS]
+        | None = None,  # GP2.12
+        co_pay_amount: CP | tuple[CP] | None = None,  # GP2.13
+        pay_rate_per_service_unit: NM | tuple[NM] | None = None,  # GP2.14
     ):
         """
         Grouping/Reimbursement - Procedure Line Item - `GP2 <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/GP2>`_

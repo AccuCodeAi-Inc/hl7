@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.RXA import RXA
 from ..segments.RXR import RXR
+from ..segments.RXA import RXA
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PEX_P07_EXPERIENCE_GROUP_PEX_OBSERVATION_GROUP_PEX_CAUSE_GROUP_ASSOCIATED_PERSON_GROUP_ASSOCIATED_RX_ADMIN_GROUP
 from utils.hl7.v2_5_1.segments import (
-    RXR, RXA
+    RXA, RXR
 )
 
 pex_p07_experience_group_pex_observation_group_pex_cause_group_associated_person_group_associated_rx_admin_group = PEX_P07_EXPERIENCE_GROUP_PEX_OBSERVATION_GROUP_PEX_CAUSE_GROUP_ASSOCIATED_PERSON_GROUP_ASSOCIATED_RX_ADMIN_GROUP(  # ASSOCIATED RX ADMIN - Segment group for PEX_P07_EXPERIENCE_GROUP_PEX_OBSERVATION_GROUP_PEX_CAUSE_GROUP_ASSOCIATED_PERSON_GROUP - ASSOCIATED PERSON consisting of RXA, RXR|None

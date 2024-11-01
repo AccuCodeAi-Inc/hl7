@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.RXA import RXA
 from ..segment_groups.VXU_V04_ORDER_GROUP_TIMING_GROUP import (
     VXU_V04_ORDER_GROUP_TIMING_GROUP,
 )
-from ..segments.RXR import RXR
 from ..segment_groups.VXU_V04_ORDER_GROUP_OBSERVATION_GROUP import (
     VXU_V04_ORDER_GROUP_OBSERVATION_GROUP,
 )
+from ..segments.RXA import RXA
 from ..segments.ORC import ORC
+from ..segments.RXR import RXR
 
 
 """
@@ -19,10 +19,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import VXU_V04_ORDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    RXR, RXA, ORC
+    RXA, RXR, ORC
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    VXU_V04_ORDER_GROUP_OBSERVATION_GROUP, VXU_V04_ORDER_GROUP_TIMING_GROUP
+    VXU_V04_ORDER_GROUP_TIMING_GROUP, VXU_V04_ORDER_GROUP_OBSERVATION_GROUP
 )
 
 vxu_v04_order_group = VXU_V04_ORDER_GROUP(  # ORDER - Segment group for VXU_V04 - Unsolicited Vaccination Record Update consisting of ORC, TIMING|None, RXA, RXR|None, OBSERVATION|None

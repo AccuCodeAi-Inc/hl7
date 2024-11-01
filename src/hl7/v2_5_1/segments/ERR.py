@@ -1,19 +1,19 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ELD import ELD
 from ..data_types.TX import TX
-from ..data_types.IS import IS
-from ..data_types.ERL import ERL
 from ..data_types.ID import ID
-from ..data_types.XTN import XTN
-from ..data_types.ST import ST
+from ..data_types.ERL import ERL
+from ..data_types.IS import IS
+from ..data_types.ELD import ELD
 from ..data_types.CWE import CWE
-from ..tables.ApplicationErrorCode import ApplicationErrorCode
-from ..tables.OverrideType import OverrideType
-from ..tables.ErrorSeverity import ErrorSeverity
-from ..tables.InformPersonCode import InformPersonCode
-from ..tables.OverrideReason import OverrideReason
+from ..data_types.ST import ST
+from ..data_types.XTN import XTN
 from ..tables.MessageErrorConditionCodes import MessageErrorConditionCodes
+from ..tables.OverrideType import OverrideType
+from ..tables.ApplicationErrorCode import ApplicationErrorCode
+from ..tables.ErrorSeverity import ErrorSeverity
+from ..tables.OverrideReason import OverrideReason
+from ..tables.InformPersonCode import InformPersonCode
 
 
 """
@@ -24,7 +24,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     ERR,
-    ELD, TX, IS, ERL, ID, XTN, ST, CWE
+    TX, ID, ERL, IS, ELD, CWE, ST, XTN
 )
 
 err = ERR(  #  - The ERR segment is used to add error comments to acknowledgment messages
@@ -66,18 +66,32 @@ class ERR(HL7Segment):
 
     def __init__(
         self,
-        hl7_error_code: MessageErrorConditionCodes | CWE,  # ERR.3
-        severity: ErrorSeverity | ID,  # ERR.4
-        error_code_and_location: ELD | None = None,  # ERR.1
-        error_location: ERL | None = None,  # ERR.2
-        application_error_code: ApplicationErrorCode | CWE | None = None,  # ERR.5
-        application_error_parameter: ST | None = None,  # ERR.6
-        diagnostic_information: TX | None = None,  # ERR.7
-        user_message: TX | None = None,  # ERR.8
-        inform_person_indicator: InformPersonCode | IS | None = None,  # ERR.9
-        override_type: OverrideType | CWE | None = None,  # ERR.10
-        override_reason_code: OverrideReason | CWE | None = None,  # ERR.11
-        help_desk_contact_point: XTN | None = None,  # ERR.12
+        hl7_error_code: MessageErrorConditionCodes
+        | CWE
+        | tuple[MessageErrorConditionCodes | CWE],  # ERR.3
+        severity: ErrorSeverity | ID | tuple[ErrorSeverity | ID],  # ERR.4
+        error_code_and_location: ELD | tuple[ELD] | None = None,  # ERR.1
+        error_location: ERL | tuple[ERL] | None = None,  # ERR.2
+        application_error_code: ApplicationErrorCode
+        | CWE
+        | tuple[ApplicationErrorCode | CWE]
+        | None = None,  # ERR.5
+        application_error_parameter: ST | tuple[ST] | None = None,  # ERR.6
+        diagnostic_information: TX | tuple[TX] | None = None,  # ERR.7
+        user_message: TX | tuple[TX] | None = None,  # ERR.8
+        inform_person_indicator: InformPersonCode
+        | IS
+        | tuple[InformPersonCode | IS]
+        | None = None,  # ERR.9
+        override_type: OverrideType
+        | CWE
+        | tuple[OverrideType | CWE]
+        | None = None,  # ERR.10
+        override_reason_code: OverrideReason
+        | CWE
+        | tuple[OverrideReason | CWE]
+        | None = None,  # ERR.11
+        help_desk_contact_point: XTN | tuple[XTN] | None = None,  # ERR.12
     ):
         """
         Error - `ERR <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/ERR>`_

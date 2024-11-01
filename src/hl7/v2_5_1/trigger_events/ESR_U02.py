@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
+from ..segments.ROL import ROL
+from ..segments.SFT import SFT
 from ..segments.MSH import MSH
 from ..segments.EQU import EQU
-from ..segments.SFT import SFT
-from ..segments.ROL import ROL
 
 
 """
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ESR_U02
 from utils.hl7.v2_5_1.segments import (
-    EQU, ROL, SFT, MSH
+    EQU, SFT, MSH, ROL
 )
 
 esr_u02 = ESR_U02(  #  - This message is used to request information about a device's or piece of equipment's status from one application to another (e

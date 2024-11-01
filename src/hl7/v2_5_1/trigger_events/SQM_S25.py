@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.QRD import QRD
-from ..segment_groups.SQM_S25_REQUEST_GROUP import SQM_S25_REQUEST_GROUP
 from ..segments.DSC import DSC
-from ..segments.MSH import MSH
 from ..segments.QRF import QRF
+from ..segments.MSH import MSH
+from ..segment_groups.SQM_S25_REQUEST_GROUP import SQM_S25_REQUEST_GROUP
+from ..segments.QRD import QRD
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import SQM_S25
 from utils.hl7.v2_5_1.segments import (
-    QRF, QRD, DSC, MSH
+    DSC, MSH, QRF, QRD
 )
 from utils.hl7.v2_5_1.segment_groups import (
     SQM_S25_REQUEST_GROUP

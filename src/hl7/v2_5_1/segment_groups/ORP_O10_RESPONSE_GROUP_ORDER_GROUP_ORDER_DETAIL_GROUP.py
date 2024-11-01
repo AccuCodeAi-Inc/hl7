@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.NTE import NTE
-from ..segments.RXR import RXR
+from ..segments.RXO import RXO
 from ..segment_groups.ORP_O10_RESPONSE_GROUP_ORDER_GROUP_ORDER_DETAIL_GROUP_COMPONENT_GROUP import (
     ORP_O10_RESPONSE_GROUP_ORDER_GROUP_ORDER_DETAIL_GROUP_COMPONENT_GROUP,
 )
-from ..segments.RXO import RXO
+from ..segments.NTE import NTE
+from ..segments.RXR import RXR
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ORP_O10_RESPONSE_GROUP_ORDER_GROUP_ORDER_DETAIL_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NTE, RXR, RXO
+    RXO, RXR, NTE
 )
 from utils.hl7.v2_5_1.segment_groups import (
     ORP_O10_RESPONSE_GROUP_ORDER_GROUP_ORDER_DETAIL_GROUP_COMPONENT_GROUP

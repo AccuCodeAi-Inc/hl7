@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.SAC import SAC
-from ..segments.INV import INV
 from ..segment_groups.OUL_R23_SPECIMEN_GROUP_CONTAINER_GROUP_ORDER_GROUP import (
     OUL_R23_SPECIMEN_GROUP_CONTAINER_GROUP_ORDER_GROUP,
 )
+from ..segments.SAC import SAC
+from ..segments.INV import INV
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OUL_R23_SPECIMEN_GROUP_CONTAINER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    INV, SAC
+    SAC, INV
 )
 from utils.hl7.v2_5_1.segment_groups import (
     OUL_R23_SPECIMEN_GROUP_CONTAINER_GROUP_ORDER_GROUP

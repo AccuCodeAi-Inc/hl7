@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.NTE import NTE
-from ..segments.EDU import EDU
+from ..segments.STF import STF
+from ..segments.ORG import ORG
 from ..segments.PRA import PRA
 from ..segments.AFF import AFF
-from ..segments.ORG import ORG
 from ..segments.MFE import MFE
-from ..segments.STF import STF
+from ..segments.EDU import EDU
+from ..segments.NTE import NTE
 from ..segments.LAN import LAN
 from ..segments.CER import CER
 
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import MFK_M02_MF_STAFF_GROUP
 from utils.hl7.v2_5_1.segments import (
-    MFE, NTE, AFF, CER, STF, LAN, PRA, EDU, ORG
+    PRA, MFE, AFF, ORG, NTE, CER, STF, EDU, LAN
 )
 
 mfk_m02_mf_staff_group = MFK_M02_MF_STAFF_GROUP(  # MF STAFF - Segment group for MFK_M02 - Master file acknowledgment - Staff/practitioner master file consisting of MFE, STF, PRA|None, ORG|None, AFF|None, LAN|None, EDU|None, CER|None, NTE|None

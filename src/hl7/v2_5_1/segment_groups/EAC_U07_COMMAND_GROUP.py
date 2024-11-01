@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.CNS import CNS
 from ..segments.ECD import ECD
+from ..segments.CNS import CNS
 from ..segment_groups.EAC_U07_COMMAND_GROUP_SPECIMEN_CONTAINER_GROUP import (
     EAC_U07_COMMAND_GROUP_SPECIMEN_CONTAINER_GROUP,
 )
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import EAC_U07_COMMAND_GROUP
 from utils.hl7.v2_5_1.segments import (
-    TQ1, CNS, ECD
+    TQ1, ECD, CNS
 )
 from utils.hl7.v2_5_1.segment_groups import (
     EAC_U07_COMMAND_GROUP_SPECIMEN_CONTAINER_GROUP

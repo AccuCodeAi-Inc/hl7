@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import DataType
-from .TM import TM
 from .ID import ID
+from .TM import TM
 from ..tables.DaysOfTheWeek import DaysOfTheWeek
 
 
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     VH,
-    TM, ID
+    ID, TM
 )
 
 vh = VH(  # Visiting Hours - This data type contains the hours when a patient location is open for visiting
@@ -47,10 +47,16 @@ class VH(DataType):
 
     def __init__(
         self,
-        start_day_range: DaysOfTheWeek | ID | None = None,  # VH.1
-        end_day_range: DaysOfTheWeek | ID | None = None,  # VH.2
-        start_hour_range: TM | None = None,  # VH.3
-        end_hour_range: TM | None = None,  # VH.4
+        start_day_range: DaysOfTheWeek
+        | ID
+        | tuple[DaysOfTheWeek | ID]
+        | None = None,  # VH.1
+        end_day_range: DaysOfTheWeek
+        | ID
+        | tuple[DaysOfTheWeek | ID]
+        | None = None,  # VH.2
+        start_hour_range: TM | tuple[TM] | None = None,  # VH.3
+        end_hour_range: TM | tuple[TM] | None = None,  # VH.4
     ):
         """
         Visiting Hours - `VH <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/VH>`_

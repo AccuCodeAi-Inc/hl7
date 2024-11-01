@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segment_groups.PPG_PCJ_PATIENT_VISIT_GROUP import PPG_PCJ_PATIENT_VISIT_GROUP
 from ..segments.SFT import SFT
-from ..segments.PID import PID
 from ..segments.MSH import MSH
+from ..segment_groups.PPG_PCJ_PATIENT_VISIT_GROUP import PPG_PCJ_PATIENT_VISIT_GROUP
 from ..segment_groups.PPG_PCJ_PATHWAY_GROUP import PPG_PCJ_PATHWAY_GROUP
+from ..segments.PID import PID
 
 
 """

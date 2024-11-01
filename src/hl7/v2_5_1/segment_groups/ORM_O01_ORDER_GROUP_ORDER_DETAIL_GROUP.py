@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segment_groups.ORM_O01_ORDER_GROUP_ORDER_DETAIL_GROUP_ORDER_DETAIL_SEGMENT_GROUP import (
-    ORM_O01_ORDER_GROUP_ORDER_DETAIL_GROUP_ORDER_DETAIL_SEGMENT_GROUP,
-)
-from ..segments.DG1 import DG1
-from ..segments.NTE import NTE
+from ..segments.CTD import CTD
 from ..segment_groups.ORM_O01_ORDER_GROUP_ORDER_DETAIL_GROUP_OBSERVATION_GROUP import (
     ORM_O01_ORDER_GROUP_ORDER_DETAIL_GROUP_OBSERVATION_GROUP,
 )
-from ..segments.CTD import CTD
+from ..segments.NTE import NTE
+from ..segments.DG1 import DG1
+from ..segment_groups.ORM_O01_ORDER_GROUP_ORDER_DETAIL_GROUP_ORDER_DETAIL_SEGMENT_GROUP import (
+    ORM_O01_ORDER_GROUP_ORDER_DETAIL_GROUP_ORDER_DETAIL_SEGMENT_GROUP,
+)
 
 
 """
@@ -19,10 +19,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ORM_O01_ORDER_GROUP_ORDER_DETAIL_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NTE, CTD, DG1
+    CTD, NTE, DG1
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    ORM_O01_ORDER_GROUP_ORDER_DETAIL_GROUP_OBSERVATION_GROUP, ORM_O01_ORDER_GROUP_ORDER_DETAIL_GROUP_ORDER_DETAIL_SEGMENT_GROUP
+    ORM_O01_ORDER_GROUP_ORDER_DETAIL_GROUP_ORDER_DETAIL_SEGMENT_GROUP, ORM_O01_ORDER_GROUP_ORDER_DETAIL_GROUP_OBSERVATION_GROUP
 )
 
 orm_o01_order_group_order_detail_group = ORM_O01_ORDER_GROUP_ORDER_DETAIL_GROUP(  # ORDER DETAIL - Segment group for ORM_O01_ORDER_GROUP - ORDER consisting of ORDER DETAIL SEGMENT, NTE|None, CTD|None, DG1|None, OBSERVATION|None

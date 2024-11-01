@@ -45,9 +45,9 @@ class AUI(DataType):
 
     def __init__(
         self,
-        authorization_number: ST | None = None,  # AUI.1
-        date: DT | None = None,  # AUI.2
-        source: ST | None = None,  # AUI.3
+        authorization_number: ST | tuple[ST] | None = None,  # AUI.1
+        date: DT | tuple[DT] | None = None,  # AUI.2
+        source: ST | tuple[ST] | None = None,  # AUI.3
     ):
         """
         Authorization Information - `AUI <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/AUI>`_

@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.MSH import MSH
 from ..segment_groups.NMD_N02_CLOCK_AND_STATS_WITH_NOTES_GROUP import (
     NMD_N02_CLOCK_AND_STATS_WITH_NOTES_GROUP,
 )
 from ..segments.SFT import SFT
+from ..segments.MSH import MSH
 
 
 """

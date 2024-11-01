@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.EVN import EVN
+from ..segments.STF import STF
+from ..segments.PRA import PRA
 from ..segments.SFT import SFT
 from ..segments.MSH import MSH
-from ..segments.PRA import PRA
-from ..segments.STF import STF
+from ..segments.EVN import EVN
 from ..segments.CER import CER
 
 
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PMU_B08
 from utils.hl7.v2_5_1.segments import (
-    MSH, EVN, CER, SFT, STF, PRA
+    MSH, PRA, SFT, CER, STF, EVN
 )
 
 pmu_b08 = PMU_B08(  #  - An event B08 indicates that a certificate/permission for a health professional is revoked

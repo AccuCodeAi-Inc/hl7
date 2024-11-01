@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import DataType
 from .IS import IS
-from .ST import ST
 from .ID import ID
-from ..tables.UniversalIdType import UniversalIdType
+from .ST import ST
 from ..tables.AssigningAuthority import AssigningAuthority
+from ..tables.UniversalIdType import UniversalIdType
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     EI,
-    IS, ST, ID
+    IS, ID, ST
 )
 
 ei = EI(  # Entity Identifier - The entity identifier defines a given entity within a specified series of identifiers
@@ -49,10 +49,16 @@ class EI(DataType):
 
     def __init__(
         self,
-        entity_identifier: ST | None = None,  # EI.1
-        namespace_id: AssigningAuthority | IS | None = None,  # EI.2
-        universal_id: ST | None = None,  # EI.3
-        universal_id_type: UniversalIdType | ID | None = None,  # EI.4
+        entity_identifier: ST | tuple[ST] | None = None,  # EI.1
+        namespace_id: AssigningAuthority
+        | IS
+        | tuple[AssigningAuthority | IS]
+        | None = None,  # EI.2
+        universal_id: ST | tuple[ST] | None = None,  # EI.3
+        universal_id_type: UniversalIdType
+        | ID
+        | tuple[UniversalIdType | ID]
+        | None = None,  # EI.4
     ):
         """
         Entity Identifier - `EI <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/EI>`_

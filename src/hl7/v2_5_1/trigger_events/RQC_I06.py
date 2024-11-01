@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segment_groups.RQC_I06_PROVIDER_GROUP import RQC_I06_PROVIDER_GROUP
-from ..segments.QRD import QRD
+from ..segments.QRF import QRF
+from ..segments.SFT import SFT
+from ..segments.MSH import MSH
 from ..segments.GT1 import GT1
 from ..segments.NTE import NTE
-from ..segments.SFT import SFT
+from ..segment_groups.RQC_I06_PROVIDER_GROUP import RQC_I06_PROVIDER_GROUP
 from ..segments.PID import PID
-from ..segments.MSH import MSH
-from ..segments.QRF import QRF
 from ..segments.NK1 import NK1
+from ..segments.QRD import QRD
 
 
 """
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RQC_I06
 from utils.hl7.v2_5_1.segments import (
-    NTE, QRF, SFT, PID, GT1, NK1, MSH, QRD
+    PID, MSH, QRD, NK1, SFT, GT1, NTE, QRF
 )
 from utils.hl7.v2_5_1.segment_groups import (
     RQC_I06_PROVIDER_GROUP

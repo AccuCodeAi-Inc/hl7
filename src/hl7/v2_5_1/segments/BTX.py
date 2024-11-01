@@ -1,24 +1,24 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
-from ..data_types.XON import XON
+from ..data_types.TS import TS
 from ..data_types.CNE import CNE
-from ..data_types.EI import EI
 from ..data_types.ID import ID
 from ..data_types.NM import NM
 from ..data_types.CWE import CWE
-from ..data_types.XCN import XCN
 from ..data_types.SI import SI
-from ..data_types.TS import TS
-from ..tables.TransfusionInterruptedReason import TransfusionInterruptedReason
+from ..data_types.CE import CE
+from ..data_types.XCN import XCN
+from ..data_types.EI import EI
+from ..data_types.XON import XON
 from ..tables.BloodProductTransfusionOrDispositionStatus import (
     BloodProductTransfusionOrDispositionStatus,
 )
+from ..tables.CommercialProduct import CommercialProduct
 from ..tables.TransfusionAdverseReaction import TransfusionAdverseReaction
 from ..tables.BpObservationStatusCodesInterpretation import (
     BpObservationStatusCodesInterpretation,
 )
-from ..tables.CommercialProduct import CommercialProduct
+from ..tables.TransfusionInterruptedReason import TransfusionInterruptedReason
 
 
 """
@@ -29,7 +29,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     BTX,
-    CE, XON, CNE, EI, ID, NM, CWE, XCN, SI, TS
+    TS, CNE, ID, NM, CWE, SI, CE, XCN, EI, XON
 )
 
 btx = BTX(  #  - 
@@ -78,29 +78,41 @@ class BTX(HL7Segment):
 
     def __init__(
         self,
-        set_id_btx: SI,  # BTX.1
-        bp_quantity: NM,  # BTX.8
+        set_id_btx: SI | tuple[SI],  # BTX.1
+        bp_quantity: NM | tuple[NM],  # BTX.8
         bp_transfusion_or_disposition_status: BloodProductTransfusionOrDispositionStatus
-        | CWE,  # BTX.11
-        bp_message_status: BpObservationStatusCodesInterpretation | ID,  # BTX.12
-        bp_date_or_time_of_status: TS,  # BTX.13
-        bc_donation_id: EI | None = None,  # BTX.2
-        bc_component: CNE | None = None,  # BTX.3
-        bc_blood_group: CNE | None = None,  # BTX.4
-        cp_commercial_product: CommercialProduct | CWE | None = None,  # BTX.5
-        cp_manufacturer: XON | None = None,  # BTX.6
-        cp_lot_number: EI | None = None,  # BTX.7
-        bp_amount: NM | None = None,  # BTX.9
-        bp_units: CE | None = None,  # BTX.10
-        bp_administrator: XCN | None = None,  # BTX.14
-        bp_verifier: XCN | None = None,  # BTX.15
-        bp_transfusion_start_date_or_time_of_status: TS | None = None,  # BTX.16
-        bp_transfusion_end_date_or_time_of_status: TS | None = None,  # BTX.17
+        | CWE
+        | tuple[BloodProductTransfusionOrDispositionStatus | CWE],  # BTX.11
+        bp_message_status: BpObservationStatusCodesInterpretation
+        | ID
+        | tuple[BpObservationStatusCodesInterpretation | ID],  # BTX.12
+        bp_date_or_time_of_status: TS | tuple[TS],  # BTX.13
+        bc_donation_id: EI | tuple[EI] | None = None,  # BTX.2
+        bc_component: CNE | tuple[CNE] | None = None,  # BTX.3
+        bc_blood_group: CNE | tuple[CNE] | None = None,  # BTX.4
+        cp_commercial_product: CommercialProduct
+        | CWE
+        | tuple[CommercialProduct | CWE]
+        | None = None,  # BTX.5
+        cp_manufacturer: XON | tuple[XON] | None = None,  # BTX.6
+        cp_lot_number: EI | tuple[EI] | None = None,  # BTX.7
+        bp_amount: NM | tuple[NM] | None = None,  # BTX.9
+        bp_units: CE | tuple[CE] | None = None,  # BTX.10
+        bp_administrator: XCN | tuple[XCN] | None = None,  # BTX.14
+        bp_verifier: XCN | tuple[XCN] | None = None,  # BTX.15
+        bp_transfusion_start_date_or_time_of_status: TS
+        | tuple[TS]
+        | None = None,  # BTX.16
+        bp_transfusion_end_date_or_time_of_status: TS
+        | tuple[TS]
+        | None = None,  # BTX.17
         bp_adverse_reaction_type: TransfusionAdverseReaction
         | CWE
+        | tuple[TransfusionAdverseReaction | CWE]
         | None = None,  # BTX.18
         bp_transfusion_interrupted_reason: TransfusionInterruptedReason
         | CWE
+        | tuple[TransfusionInterruptedReason | CWE]
         | None = None,  # BTX.19
     ):
         """

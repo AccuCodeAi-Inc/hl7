@@ -1,15 +1,15 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
 from ..segments.BLG import BLG
-from ..segments.FT1 import FT1
-from ..segments.CTI import CTI
 from ..segment_groups.OML_O35_SPECIMEN_GROUP_SPECIMEN_CONTAINER_GROUP_ORDER_GROUP_OBSERVATION_REQUEST_GROUP import (
     OML_O35_SPECIMEN_GROUP_SPECIMEN_CONTAINER_GROUP_ORDER_GROUP_OBSERVATION_REQUEST_GROUP,
 )
+from ..segments.ORC import ORC
+from ..segments.FT1 import FT1
 from ..segment_groups.OML_O35_SPECIMEN_GROUP_SPECIMEN_CONTAINER_GROUP_ORDER_GROUP_TIIMING_GROUP import (
     OML_O35_SPECIMEN_GROUP_SPECIMEN_CONTAINER_GROUP_ORDER_GROUP_TIIMING_GROUP,
 )
-from ..segments.ORC import ORC
+from ..segments.CTI import CTI
 
 
 """
@@ -20,7 +20,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OML_O35_SPECIMEN_GROUP_SPECIMEN_CONTAINER_GROUP_ORDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    BLG, ORC, CTI, FT1
+    FT1, BLG, CTI, ORC
 )
 from utils.hl7.v2_5_1.segment_groups import (
     OML_O35_SPECIMEN_GROUP_SPECIMEN_CONTAINER_GROUP_ORDER_GROUP_TIIMING_GROUP, OML_O35_SPECIMEN_GROUP_SPECIMEN_CONTAINER_GROUP_ORDER_GROUP_OBSERVATION_REQUEST_GROUP

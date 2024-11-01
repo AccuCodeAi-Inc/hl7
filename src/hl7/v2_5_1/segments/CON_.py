@@ -1,24 +1,24 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CNE import CNE
-from ..data_types.IS import IS
-from ..data_types.EI import EI
-from ..data_types.ID import ID
 from ..data_types.XPN import XPN
-from ..data_types.ST import ST
-from ..data_types.CWE import CWE
-from ..data_types.FT import FT
-from ..data_types.SI import SI
 from ..data_types.TS import TS
+from ..data_types.CNE import CNE
+from ..data_types.ID import ID
+from ..data_types.IS import IS
+from ..data_types.CWE import CWE
+from ..data_types.SI import SI
+from ..data_types.ST import ST
+from ..data_types.FT import FT
+from ..data_types.EI import EI
 from ..tables.ConsentBypassReason import ConsentBypassReason
+from ..tables.PrimaryLanguage import PrimaryLanguage
+from ..tables.ConsentType import ConsentType
 from ..tables.NonSubjectConsenterReason import NonSubjectConsenterReason
 from ..tables.ConsentStatus import ConsentStatus
-from ..tables.ConsentType import ConsentType
 from ..tables.YesOrNoIndicator import YesOrNoIndicator
-from ..tables.ConsentNonDisclosureReason import ConsentNonDisclosureReason
-from ..tables.PrimaryLanguage import PrimaryLanguage
-from ..tables.ConsentDisclosureLevel import ConsentDisclosureLevel
 from ..tables.SignatorySRelationshipToSubject import SignatorySRelationshipToSubject
+from ..tables.ConsentDisclosureLevel import ConsentDisclosureLevel
+from ..tables.ConsentNonDisclosureReason import ConsentNonDisclosureReason
 from ..tables.ConsentMode import ConsentMode
 
 
@@ -30,7 +30,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CON,
-    CNE, IS, EI, ID, XPN, ST, CWE, FT, SI, TS
+    XPN, TS, CNE, ID, IS, CWE, SI, ST, FT, EI
 )
 
 con = CON(  #  - The consent segment provides details about a specific consent by a patient or staff member
@@ -85,36 +85,62 @@ class CON(HL7Segment):
 
     def __init__(
         self,
-        set_id_con: SI,  # CON.1
-        consent_status: ConsentStatus | CNE,  # CON.11
-        consenter_id: XPN,  # CON.24
-        relationship_to_subject_table: SignatorySRelationshipToSubject | IS,  # CON.25
-        consent_type: ConsentType | CWE | None = None,  # CON.2
-        consent_form_id: ST | None = None,  # CON.3
-        consent_form_number: EI | None = None,  # CON.4
-        consent_text: FT | None = None,  # CON.5
-        subject_specific_consent_text: FT | None = None,  # CON.6
-        consent_background: FT | None = None,  # CON.7
-        subject_specific_consent_background: FT | None = None,  # CON.8
-        consenter_imposed_limitations: FT | None = None,  # CON.9
-        consent_mode: ConsentMode | CNE | None = None,  # CON.10
-        consent_discussion_date_or_time: TS | None = None,  # CON.12
-        consent_decision_date_or_time: TS | None = None,  # CON.13
-        consent_effective_date_or_time: TS | None = None,  # CON.14
-        consent_end_date_or_time: TS | None = None,  # CON.15
-        subject_competence_indicator: YesOrNoIndicator | ID | None = None,  # CON.16
-        translator_assistance_indicator: YesOrNoIndicator | ID | None = None,  # CON.17
-        language_translated_to: PrimaryLanguage | ID | None = None,  # CON.18
+        set_id_con: SI | tuple[SI],  # CON.1
+        consent_status: ConsentStatus | CNE | tuple[ConsentStatus | CNE],  # CON.11
+        consenter_id: XPN | tuple[XPN],  # CON.24
+        relationship_to_subject_table: SignatorySRelationshipToSubject
+        | IS
+        | tuple[SignatorySRelationshipToSubject | IS],  # CON.25
+        consent_type: ConsentType
+        | CWE
+        | tuple[ConsentType | CWE]
+        | None = None,  # CON.2
+        consent_form_id: ST | tuple[ST] | None = None,  # CON.3
+        consent_form_number: EI | tuple[EI] | None = None,  # CON.4
+        consent_text: FT | tuple[FT] | None = None,  # CON.5
+        subject_specific_consent_text: FT | tuple[FT] | None = None,  # CON.6
+        consent_background: FT | tuple[FT] | None = None,  # CON.7
+        subject_specific_consent_background: FT | tuple[FT] | None = None,  # CON.8
+        consenter_imposed_limitations: FT | tuple[FT] | None = None,  # CON.9
+        consent_mode: ConsentMode
+        | CNE
+        | tuple[ConsentMode | CNE]
+        | None = None,  # CON.10
+        consent_discussion_date_or_time: TS | tuple[TS] | None = None,  # CON.12
+        consent_decision_date_or_time: TS | tuple[TS] | None = None,  # CON.13
+        consent_effective_date_or_time: TS | tuple[TS] | None = None,  # CON.14
+        consent_end_date_or_time: TS | tuple[TS] | None = None,  # CON.15
+        subject_competence_indicator: YesOrNoIndicator
+        | ID
+        | tuple[YesOrNoIndicator | ID]
+        | None = None,  # CON.16
+        translator_assistance_indicator: YesOrNoIndicator
+        | ID
+        | tuple[YesOrNoIndicator | ID]
+        | None = None,  # CON.17
+        language_translated_to: PrimaryLanguage
+        | ID
+        | tuple[PrimaryLanguage | ID]
+        | None = None,  # CON.18
         informational_material_supplied_indicator: YesOrNoIndicator
         | ID
+        | tuple[YesOrNoIndicator | ID]
         | None = None,  # CON.19
-        consent_bypass_reason: ConsentBypassReason | CWE | None = None,  # CON.20
-        consent_disclosure_level: ConsentDisclosureLevel | ID | None = None,  # CON.21
+        consent_bypass_reason: ConsentBypassReason
+        | CWE
+        | tuple[ConsentBypassReason | CWE]
+        | None = None,  # CON.20
+        consent_disclosure_level: ConsentDisclosureLevel
+        | ID
+        | tuple[ConsentDisclosureLevel | ID]
+        | None = None,  # CON.21
         consent_non_disclosure_reason: ConsentNonDisclosureReason
         | CWE
+        | tuple[ConsentNonDisclosureReason | CWE]
         | None = None,  # CON.22
         non_subject_consenter_reason: NonSubjectConsenterReason
         | CWE
+        | tuple[NonSubjectConsenterReason | CWE]
         | None = None,  # CON.23
     ):
         """

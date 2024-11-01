@@ -2,8 +2,8 @@ from __future__ import annotations
 from ...base import DataType
 from .IS import IS
 from .TX import TX
-from ..tables.EmployeeClassification import EmployeeClassification
 from ..tables.JobCode import JobCode
+from ..tables.EmployeeClassification import EmployeeClassification
 
 
 """
@@ -49,9 +49,12 @@ Example 2: Uncodified job (where job codes are not codified and PT represents pa
 
     def __init__(
         self,
-        job_code: JobCode | IS | None = None,  # JCC.1
-        job_class: EmployeeClassification | IS | None = None,  # JCC.2
-        job_description_text: TX | None = None,  # JCC.3
+        job_code: JobCode | IS | tuple[JobCode | IS] | None = None,  # JCC.1
+        job_class: EmployeeClassification
+        | IS
+        | tuple[EmployeeClassification | IS]
+        | None = None,  # JCC.2
+        job_description_text: TX | tuple[TX] | None = None,  # JCC.3
     ):
         """
                 Job Code/Class - `JCC <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/JCC>`_

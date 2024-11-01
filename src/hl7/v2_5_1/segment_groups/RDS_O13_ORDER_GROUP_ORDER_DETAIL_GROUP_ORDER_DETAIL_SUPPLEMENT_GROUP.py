@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RDS_O13_ORDER_GROUP_ORDER_DETAIL_GROUP_ORDER_DETAIL_SUPPLEMENT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NTE, RXR
+    RXR, NTE
 )
 from utils.hl7.v2_5_1.segment_groups import (
     RDS_O13_ORDER_GROUP_ORDER_DETAIL_GROUP_ORDER_DETAIL_SUPPLEMENT_GROUP_COMPONENT_GROUP

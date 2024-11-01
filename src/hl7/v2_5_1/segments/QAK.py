@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
-from ..data_types.ST import ST
 from ..data_types.ID import ID
 from ..data_types.NM import NM
+from ..data_types.ST import ST
+from ..data_types.CE import CE
 from ..tables.QueryName import QueryName
 from ..tables.QueryResponseStatus import QueryResponseStatus
 
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     QAK,
-    CE, ST, ID, NM
+    ID, NM, ST, CE
 )
 
 qak = QAK(  #  - The QAK segment contains information sent with responses to a query
@@ -52,12 +52,18 @@ class QAK(HL7Segment):
 
     def __init__(
         self,
-        query_tag: ST | None = None,  # QAK.1
-        query_response_status: QueryResponseStatus | ID | None = None,  # QAK.2
-        message_query_name: QueryName | CE | None = None,  # QAK.3
-        hit_count: NM | None = None,  # QAK.4
-        this_payload: NM | None = None,  # QAK.5
-        hits_remaining: NM | None = None,  # QAK.6
+        query_tag: ST | tuple[ST] | None = None,  # QAK.1
+        query_response_status: QueryResponseStatus
+        | ID
+        | tuple[QueryResponseStatus | ID]
+        | None = None,  # QAK.2
+        message_query_name: QueryName
+        | CE
+        | tuple[QueryName | CE]
+        | None = None,  # QAK.3
+        hit_count: NM | tuple[NM] | None = None,  # QAK.4
+        this_payload: NM | tuple[NM] | None = None,  # QAK.5
+        hits_remaining: NM | tuple[NM] | None = None,  # QAK.6
     ):
         """
         Query Acknowledgment - `QAK <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/QAK>`_

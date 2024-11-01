@@ -1,13 +1,13 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segment_groups.ROR_ROR_DEFINITION_GROUP_PATIENT_GROUP import (
-    ROR_ROR_DEFINITION_GROUP_PATIENT_GROUP,
-)
 from ..segment_groups.ROR_ROR_DEFINITION_GROUP_ORDER_GROUP import (
     ROR_ROR_DEFINITION_GROUP_ORDER_GROUP,
 )
-from ..segments.QRD import QRD
 from ..segments.QRF import QRF
+from ..segments.QRD import QRD
+from ..segment_groups.ROR_ROR_DEFINITION_GROUP_PATIENT_GROUP import (
+    ROR_ROR_DEFINITION_GROUP_PATIENT_GROUP,
+)
 
 
 """

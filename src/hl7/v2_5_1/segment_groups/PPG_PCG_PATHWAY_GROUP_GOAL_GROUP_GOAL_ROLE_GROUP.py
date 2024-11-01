@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.VAR import VAR
 from ..segments.ROL import ROL
+from ..segments.VAR import VAR
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PPG_PCG_PATHWAY_GROUP_GOAL_GROUP_GOAL_ROLE_GROUP
 from utils.hl7.v2_5_1.segments import (
-    VAR, ROL
+    ROL, VAR
 )
 
 ppg_pcg_pathway_group_goal_group_goal_role_group = PPG_PCG_PATHWAY_GROUP_GOAL_GROUP_GOAL_ROLE_GROUP(  # GOAL ROLE - Segment group for PPG_PCG_PATHWAY_GROUP_GOAL_GROUP - GOAL consisting of ROL, VAR|None

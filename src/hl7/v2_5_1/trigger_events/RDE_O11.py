@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segment_groups.RDE_O11_PATIENT_GROUP import RDE_O11_PATIENT_GROUP
-from ..segments.NTE import NTE
+from ..segment_groups.RDE_O11_ORDER_GROUP import RDE_O11_ORDER_GROUP
 from ..segments.SFT import SFT
 from ..segments.MSH import MSH
-from ..segment_groups.RDE_O11_ORDER_GROUP import RDE_O11_ORDER_GROUP
+from ..segments.NTE import NTE
+from ..segment_groups.RDE_O11_PATIENT_GROUP import RDE_O11_PATIENT_GROUP
 
 
 """
@@ -18,7 +18,7 @@ from utils.hl7.v2_5_1.segments import (
     NTE, SFT, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    RDE_O11_PATIENT_GROUP, RDE_O11_ORDER_GROUP
+    RDE_O11_ORDER_GROUP, RDE_O11_PATIENT_GROUP
 )
 
 rde_o11 = RDE_O11(  #  - This message communicates the pharmacy or treatment application's encoding of the pharmacy/treatment order (ORM message with RXO segment, see above)

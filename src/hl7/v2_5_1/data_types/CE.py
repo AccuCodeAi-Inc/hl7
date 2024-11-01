@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import DataType
-from .ST import ST
 from .ID import ID
+from .ST import ST
 from ..tables.CodingSystem import CodingSystem
 
 
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CE,
-    ST, ID
+    ID, ST
 )
 
 ce = CE(  # Coded Element - This data type transmits codes and the text associated with the code
@@ -49,12 +49,18 @@ class CE(DataType):
 
     def __init__(
         self,
-        identifier: ST | None = None,  # CE.1
-        text: ST | None = None,  # CE.2
-        name_of_coding_system: CodingSystem | ID | None = None,  # CE.3
-        alternate_identifier: ST | None = None,  # CE.4
-        alternate_text: ST | None = None,  # CE.5
-        name_of_alternate_coding_system: CodingSystem | ID | None = None,  # CE.6
+        identifier: ST | tuple[ST] | None = None,  # CE.1
+        text: ST | tuple[ST] | None = None,  # CE.2
+        name_of_coding_system: CodingSystem
+        | ID
+        | tuple[CodingSystem | ID]
+        | None = None,  # CE.3
+        alternate_identifier: ST | tuple[ST] | None = None,  # CE.4
+        alternate_text: ST | tuple[ST] | None = None,  # CE.5
+        name_of_alternate_coding_system: CodingSystem
+        | ID
+        | tuple[CodingSystem | ID]
+        | None = None,  # CE.6
     ):
         """
                 Coded Element - `CE <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/CE>`_

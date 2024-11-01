@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
 from ..segments.NTE import NTE
-from ..segments.OBR import OBR
-from ..segments.ORC import ORC
 from ..segment_groups.MDM_T05_COMMON_ORDER_GROUP_TIMING_GROUP import (
     MDM_T05_COMMON_ORDER_GROUP_TIMING_GROUP,
 )
+from ..segments.OBR import OBR
+from ..segments.ORC import ORC
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import MDM_T05_COMMON_ORDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NTE, ORC, OBR
+    OBR, NTE, ORC
 )
 from utils.hl7.v2_5_1.segment_groups import (
     MDM_T05_COMMON_ORDER_GROUP_TIMING_GROUP

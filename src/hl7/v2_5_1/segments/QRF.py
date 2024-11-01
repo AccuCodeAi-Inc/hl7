@@ -1,13 +1,13 @@
 from __future__ import annotations
 from ...base import HL7Segment
 from ..data_types.TQ import TQ
+from ..data_types.TS import TS
 from ..data_types.ID import ID
 from ..data_types.NM import NM
 from ..data_types.ST import ST
-from ..data_types.TS import TS
-from ..tables.WhichDateOrTimeQualifier import WhichDateOrTimeQualifier
-from ..tables.WhichDateOrTimeStatusQualifier import WhichDateOrTimeStatusQualifier
 from ..tables.DateOrTimeSelectionQualifier import DateOrTimeSelectionQualifier
+from ..tables.WhichDateOrTimeStatusQualifier import WhichDateOrTimeStatusQualifier
+from ..tables.WhichDateOrTimeQualifier import WhichDateOrTimeQualifier
 
 
 """
@@ -18,7 +18,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     QRF,
-    TQ, ID, NM, ST, TS
+    TQ, TS, ID, NM, ST
 )
 
 qrf = QRF(  #  - This segment is not carried forward to the recommended queries for v 2
@@ -58,22 +58,25 @@ class QRF(HL7Segment):
 
     def __init__(
         self,
-        where_subject_filter: ST,  # QRF.1
-        when_data_start_date_or_time: TS | None = None,  # QRF.2
-        when_data_end_date_or_time: TS | None = None,  # QRF.3
-        what_user_qualifier: ST | None = None,  # QRF.4
-        other_qry_subject_filter: ST | None = None,  # QRF.5
+        where_subject_filter: ST | tuple[ST],  # QRF.1
+        when_data_start_date_or_time: TS | tuple[TS] | None = None,  # QRF.2
+        when_data_end_date_or_time: TS | tuple[TS] | None = None,  # QRF.3
+        what_user_qualifier: ST | tuple[ST] | None = None,  # QRF.4
+        other_qry_subject_filter: ST | tuple[ST] | None = None,  # QRF.5
         which_date_or_time_qualifier: WhichDateOrTimeQualifier
         | ID
+        | tuple[WhichDateOrTimeQualifier | ID]
         | None = None,  # QRF.6
         which_date_or_time_status_qualifier: WhichDateOrTimeStatusQualifier
         | ID
+        | tuple[WhichDateOrTimeStatusQualifier | ID]
         | None = None,  # QRF.7
         date_or_time_selection_qualifier: DateOrTimeSelectionQualifier
         | ID
+        | tuple[DateOrTimeSelectionQualifier | ID]
         | None = None,  # QRF.8
-        when_quantity_or_timing_qualifier: TQ | None = None,  # QRF.9
-        search_confidence_threshold: NM | None = None,  # QRF.10
+        when_quantity_or_timing_qualifier: TQ | tuple[TQ] | None = None,  # QRF.9
+        search_confidence_threshold: NM | tuple[NM] | None = None,  # QRF.10
     ):
         """
                 Original style query filter - `QRF <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/QRF>`_

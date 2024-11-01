@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
 from ..data_types.TX import TX
 from ..data_types.CQ import CQ
 from ..data_types.ID import ID
 from ..data_types.NM import NM
 from ..data_types.CWE import CWE
+from ..data_types.CE import CE
 from ..tables.DerivedSpecimen import DerivedSpecimen
-from ..tables.AdditiveOrPreservative import AdditiveOrPreservative
 from ..tables.Priority import Priority
+from ..tables.AdditiveOrPreservative import AdditiveOrPreservative
 
 
 """
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     OM4,
-    CE, TX, CQ, ID, NM, CWE
+    TX, CQ, ID, NM, CWE, CE
 )
 
 om4 = OM4(  #  - This segment applies to observations/batteries that require a specimen for their performance
@@ -63,20 +63,31 @@ class OM4(HL7Segment):
 
     def __init__(
         self,
-        sequence_number_test_or_observation_master_file: NM | None = None,  # OM4.1
-        derived_specimen: DerivedSpecimen | ID | None = None,  # OM4.2
-        container_description: TX | None = None,  # OM4.3
-        container_volume: NM | None = None,  # OM4.4
-        container_units: CE | None = None,  # OM4.5
-        specimen: CE | None = None,  # OM4.6
-        additive: AdditiveOrPreservative | CWE | None = None,  # OM4.7
-        preparation: TX | None = None,  # OM4.8
-        special_handling_requirements: TX | None = None,  # OM4.9
-        normal_collection_volume: CQ | None = None,  # OM4.10
-        minimum_collection_volume: CQ | None = None,  # OM4.11
-        specimen_requirements: TX | None = None,  # OM4.12
-        specimen_priorities: Priority | ID | None = None,  # OM4.13
-        specimen_retention_time: CQ | None = None,  # OM4.14
+        sequence_number_test_or_observation_master_file: NM
+        | tuple[NM]
+        | None = None,  # OM4.1
+        derived_specimen: DerivedSpecimen
+        | ID
+        | tuple[DerivedSpecimen | ID]
+        | None = None,  # OM4.2
+        container_description: TX | tuple[TX] | None = None,  # OM4.3
+        container_volume: NM | tuple[NM] | None = None,  # OM4.4
+        container_units: CE | tuple[CE] | None = None,  # OM4.5
+        specimen: CE | tuple[CE] | None = None,  # OM4.6
+        additive: AdditiveOrPreservative
+        | CWE
+        | tuple[AdditiveOrPreservative | CWE]
+        | None = None,  # OM4.7
+        preparation: TX | tuple[TX] | None = None,  # OM4.8
+        special_handling_requirements: TX | tuple[TX] | None = None,  # OM4.9
+        normal_collection_volume: CQ | tuple[CQ] | None = None,  # OM4.10
+        minimum_collection_volume: CQ | tuple[CQ] | None = None,  # OM4.11
+        specimen_requirements: TX | tuple[TX] | None = None,  # OM4.12
+        specimen_priorities: Priority
+        | ID
+        | tuple[Priority | ID]
+        | None = None,  # OM4.13
+        specimen_retention_time: CQ | tuple[CQ] | None = None,  # OM4.14
     ):
         """
         Observations that Require Specimens - `OM4 <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/OM4>`_

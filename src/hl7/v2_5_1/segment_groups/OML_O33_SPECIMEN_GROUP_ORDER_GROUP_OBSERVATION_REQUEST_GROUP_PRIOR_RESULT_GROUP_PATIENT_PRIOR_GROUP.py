@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OML_O33_SPECIMEN_GROUP_ORDER_GROUP_OBSERVATION_REQUEST_GROUP_PRIOR_RESULT_GROUP_PATIENT_PRIOR_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PD1, PID
+    PID, PD1
 )
 
 oml_o33_specimen_group_order_group_observation_request_group_prior_result_group_patient_prior_group = OML_O33_SPECIMEN_GROUP_ORDER_GROUP_OBSERVATION_REQUEST_GROUP_PRIOR_RESULT_GROUP_PATIENT_PRIOR_GROUP(  # PATIENT PRIOR - Segment group for OML_O33_SPECIMEN_GROUP_ORDER_GROUP_OBSERVATION_REQUEST_GROUP_PRIOR_RESULT_GROUP - PRIOR RESULT consisting of PID, PD1|None

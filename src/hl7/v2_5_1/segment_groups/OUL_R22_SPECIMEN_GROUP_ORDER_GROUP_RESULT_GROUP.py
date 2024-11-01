@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.OBX import OBX
 from ..segments.NTE import NTE
+from ..segments.OBX import OBX
 from ..segments.TCD import TCD
 from ..segments.SID import SID
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OUL_R22_SPECIMEN_GROUP_ORDER_GROUP_RESULT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    SID, NTE, TCD, OBX
+    NTE, OBX, TCD, SID
 )
 
 oul_r22_specimen_group_order_group_result_group = OUL_R22_SPECIMEN_GROUP_ORDER_GROUP_RESULT_GROUP(  # RESULT - Segment group for OUL_R22_SPECIMEN_GROUP_ORDER_GROUP - ORDER consisting of OBX, TCD|None, SID|None, NTE|None

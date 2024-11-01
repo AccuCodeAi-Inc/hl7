@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.EVN import EVN
-from ..segments.SFT import SFT
-from ..segments.MSH import MSH
+from ..segments.STF import STF
 from ..segments.PRA import PRA
 from ..segment_groups.PMU_B07_CERTIFICATE_GROUP import PMU_B07_CERTIFICATE_GROUP
-from ..segments.STF import STF
+from ..segments.SFT import SFT
+from ..segments.MSH import MSH
+from ..segments.EVN import EVN
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PMU_B07
 from utils.hl7.v2_5_1.segments import (
-    MSH, EVN, SFT, STF, PRA
+    MSH, PRA, SFT, STF, EVN
 )
 from utils.hl7.v2_5_1.segment_groups import (
     PMU_B07_CERTIFICATE_GROUP

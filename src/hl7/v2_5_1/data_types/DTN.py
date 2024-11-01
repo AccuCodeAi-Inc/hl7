@@ -45,8 +45,8 @@ class DTN(DataType):
 
     def __init__(
         self,
-        day_type: DayType | IS,  # DTN.1
-        number_of_days: NM,  # DTN.2
+        day_type: DayType | IS | tuple[DayType | IS],  # DTN.1
+        number_of_days: NM | tuple[NM],  # DTN.2
     ):
         """
         Day Type and Number - `DTN <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/DTN>`_

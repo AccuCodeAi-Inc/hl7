@@ -1,44 +1,44 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
-from ..data_types.XON import XON
+from ..data_types.JCC import JCC
+from ..data_types.FC import FC
+from ..data_types.XPN import XPN
+from ..data_types.TS import TS
+from ..data_types.ID import ID
+from ..data_types.NM import NM
+from ..data_types.CP import CP
 from ..data_types.IS import IS
 from ..data_types.CX import CX
 from ..data_types.DT import DT
-from ..data_types.TS import TS
-from ..data_types.ID import ID
-from ..data_types.XTN import XTN
-from ..data_types.NM import NM
-from ..data_types.XPN import XPN
-from ..data_types.ST import ST
-from ..data_types.JCC import JCC
-from ..data_types.CP import CP
-from ..data_types.FC import FC
 from ..data_types.SI import SI
+from ..data_types.XTN import XTN
 from ..data_types.XAD import XAD
+from ..data_types.CE import CE
+from ..data_types.ST import ST
+from ..data_types.XON import XON
+from ..tables.PatientChargeAdjustment import PatientChargeAdjustment
 from ..tables.JobStatus import JobStatus
-from ..tables.StudentStatus import StudentStatus
-from ..tables.AmbulatoryStatus import AmbulatoryStatus
-from ..tables.Citizenship import Citizenship
-from ..tables.ContactReason import ContactReason
-from ..tables.PublicityCode import PublicityCode
-from ..tables.Nationality import Nationality
-from ..tables.VipIndicator import VipIndicator
-from ..tables.Race import Race
-from ..tables.EmploymentStatus import EmploymentStatus
-from ..tables.MaritalStatus import MaritalStatus
-from ..tables.LivingDependency import LivingDependency
-from ..tables.EthnicGroup import EthnicGroup
-from ..tables.LivingArrangement import LivingArrangement
-from ..tables.GuarantorType import GuarantorType
 from ..tables.GuarantorCreditRatingCode import GuarantorCreditRatingCode
+from ..tables.StudentStatus import StudentStatus
+from ..tables.LivingArrangement import LivingArrangement
+from ..tables.Race import Race
+from ..tables.VipIndicator import VipIndicator
+from ..tables.LivingDependency import LivingDependency
+from ..tables.ContactReason import ContactReason
+from ..tables.Handicap import Handicap
 from ..tables.PrimaryLanguage import PrimaryLanguage
+from ..tables.AmbulatoryStatus import AmbulatoryStatus
+from ..tables.GuarantorType import GuarantorType
 from ..tables.Religion import Religion
 from ..tables.Relationship import Relationship
-from ..tables.AdministrativeSex import AdministrativeSex
-from ..tables.PatientChargeAdjustment import PatientChargeAdjustment
+from ..tables.EmploymentStatus import EmploymentStatus
+from ..tables.Citizenship import Citizenship
 from ..tables.YesOrNoIndicator import YesOrNoIndicator
-from ..tables.Handicap import Handicap
+from ..tables.AdministrativeSex import AdministrativeSex
+from ..tables.PublicityCode import PublicityCode
+from ..tables.Nationality import Nationality
+from ..tables.EthnicGroup import EthnicGroup
+from ..tables.MaritalStatus import MaritalStatus
 
 
 """
@@ -49,7 +49,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     GT1,
-    CE, XON, IS, CX, DT, TS, ID, XTN, NM, XPN, ST, JCC, CP, FC, SI, XAD
+    JCC, FC, XPN, TS, ID, NM, CP, IS, CX, DT, SI, XTN, XAD, CE, ST, XON
 )
 
 gt1 = GT1(  #  - The GT1 segment contains guarantor (e
@@ -136,67 +136,123 @@ class GT1(HL7Segment):
 
     def __init__(
         self,
-        set_id_gt1: SI,  # GT1.1
-        guarantor_name: XPN,  # GT1.3
-        guarantor_number: CX | None = None,  # GT1.2
-        guarantor_spouse_name: XPN | None = None,  # GT1.4
-        guarantor_address: XAD | None = None,  # GT1.5
-        guarantor_ph_num_home: XTN | None = None,  # GT1.6
-        guarantor_ph_num_business: XTN | None = None,  # GT1.7
-        guarantor_date_or_time_of_birth: TS | None = None,  # GT1.8
-        guarantor_administrative_sex: AdministrativeSex | IS | None = None,  # GT1.9
-        guarantor_type: GuarantorType | IS | None = None,  # GT1.10
-        guarantor_relationship: Relationship | CE | None = None,  # GT1.11
-        guarantor_ssn: ST | None = None,  # GT1.12
-        guarantor_date_begin: DT | None = None,  # GT1.13
-        guarantor_date_end: DT | None = None,  # GT1.14
-        guarantor_priority: NM | None = None,  # GT1.15
-        guarantor_employer_name: XPN | None = None,  # GT1.16
-        guarantor_employer_address: XAD | None = None,  # GT1.17
-        guarantor_employer_phone_number: XTN | None = None,  # GT1.18
-        guarantor_employee_id_number: CX | None = None,  # GT1.19
-        guarantor_employment_status: EmploymentStatus | IS | None = None,  # GT1.20
-        guarantor_organization_name: XON | None = None,  # GT1.21
-        guarantor_billing_hold_flag: YesOrNoIndicator | ID | None = None,  # GT1.22
+        set_id_gt1: SI | tuple[SI],  # GT1.1
+        guarantor_name: XPN | tuple[XPN],  # GT1.3
+        guarantor_number: CX | tuple[CX] | None = None,  # GT1.2
+        guarantor_spouse_name: XPN | tuple[XPN] | None = None,  # GT1.4
+        guarantor_address: XAD | tuple[XAD] | None = None,  # GT1.5
+        guarantor_ph_num_home: XTN | tuple[XTN] | None = None,  # GT1.6
+        guarantor_ph_num_business: XTN | tuple[XTN] | None = None,  # GT1.7
+        guarantor_date_or_time_of_birth: TS | tuple[TS] | None = None,  # GT1.8
+        guarantor_administrative_sex: AdministrativeSex
+        | IS
+        | tuple[AdministrativeSex | IS]
+        | None = None,  # GT1.9
+        guarantor_type: GuarantorType
+        | IS
+        | tuple[GuarantorType | IS]
+        | None = None,  # GT1.10
+        guarantor_relationship: Relationship
+        | CE
+        | tuple[Relationship | CE]
+        | None = None,  # GT1.11
+        guarantor_ssn: ST | tuple[ST] | None = None,  # GT1.12
+        guarantor_date_begin: DT | tuple[DT] | None = None,  # GT1.13
+        guarantor_date_end: DT | tuple[DT] | None = None,  # GT1.14
+        guarantor_priority: NM | tuple[NM] | None = None,  # GT1.15
+        guarantor_employer_name: XPN | tuple[XPN] | None = None,  # GT1.16
+        guarantor_employer_address: XAD | tuple[XAD] | None = None,  # GT1.17
+        guarantor_employer_phone_number: XTN | tuple[XTN] | None = None,  # GT1.18
+        guarantor_employee_id_number: CX | tuple[CX] | None = None,  # GT1.19
+        guarantor_employment_status: EmploymentStatus
+        | IS
+        | tuple[EmploymentStatus | IS]
+        | None = None,  # GT1.20
+        guarantor_organization_name: XON | tuple[XON] | None = None,  # GT1.21
+        guarantor_billing_hold_flag: YesOrNoIndicator
+        | ID
+        | tuple[YesOrNoIndicator | ID]
+        | None = None,  # GT1.22
         guarantor_credit_rating_code: GuarantorCreditRatingCode
         | CE
+        | tuple[GuarantorCreditRatingCode | CE]
         | None = None,  # GT1.23
-        guarantor_death_date_and_time: TS | None = None,  # GT1.24
-        guarantor_death_flag: YesOrNoIndicator | ID | None = None,  # GT1.25
+        guarantor_death_date_and_time: TS | tuple[TS] | None = None,  # GT1.24
+        guarantor_death_flag: YesOrNoIndicator
+        | ID
+        | tuple[YesOrNoIndicator | ID]
+        | None = None,  # GT1.25
         guarantor_charge_adjustment_code: PatientChargeAdjustment
         | CE
+        | tuple[PatientChargeAdjustment | CE]
         | None = None,  # GT1.26
-        guarantor_household_annual_income: CP | None = None,  # GT1.27
-        guarantor_household_size: NM | None = None,  # GT1.28
-        guarantor_employer_id_number: CX | None = None,  # GT1.29
-        guarantor_marital_status_code: MaritalStatus | CE | None = None,  # GT1.30
-        guarantor_hire_effective_date: DT | None = None,  # GT1.31
-        employment_stop_date: DT | None = None,  # GT1.32
-        living_dependency: LivingDependency | IS | None = None,  # GT1.33
-        ambulatory_status: AmbulatoryStatus | IS | None = None,  # GT1.34
-        citizenship: Citizenship | CE | None = None,  # GT1.35
-        primary_language: PrimaryLanguage | CE | None = None,  # GT1.36
-        living_arrangement: LivingArrangement | IS | None = None,  # GT1.37
-        publicity_code: PublicityCode | CE | None = None,  # GT1.38
-        protection_indicator: YesOrNoIndicator | ID | None = None,  # GT1.39
-        student_indicator: StudentStatus | IS | None = None,  # GT1.40
-        religion: Religion | CE | None = None,  # GT1.41
-        mothers_maiden_name: XPN | None = None,  # GT1.42
-        nationality: Nationality | CE | None = None,  # GT1.43
-        ethnic_group: EthnicGroup | CE | None = None,  # GT1.44
-        contact_persons_name: XPN | None = None,  # GT1.45
-        contact_persons_telephone_number: XTN | None = None,  # GT1.46
-        contact_reason: ContactReason | CE | None = None,  # GT1.47
-        contact_relationship: Relationship | IS | None = None,  # GT1.48
-        job_title: ST | None = None,  # GT1.49
-        job_code_or_class: JCC | None = None,  # GT1.50
-        guarantor_employers_organization_name: XON | None = None,  # GT1.51
-        handicap: Handicap | IS | None = None,  # GT1.52
-        job_status: JobStatus | IS | None = None,  # GT1.53
-        guarantor_financial_class: FC | None = None,  # GT1.54
-        guarantor_race: Race | CE | None = None,  # GT1.55
-        guarantor_birth_place: ST | None = None,  # GT1.56
-        vip_indicator: VipIndicator | IS | None = None,  # GT1.57
+        guarantor_household_annual_income: CP | tuple[CP] | None = None,  # GT1.27
+        guarantor_household_size: NM | tuple[NM] | None = None,  # GT1.28
+        guarantor_employer_id_number: CX | tuple[CX] | None = None,  # GT1.29
+        guarantor_marital_status_code: MaritalStatus
+        | CE
+        | tuple[MaritalStatus | CE]
+        | None = None,  # GT1.30
+        guarantor_hire_effective_date: DT | tuple[DT] | None = None,  # GT1.31
+        employment_stop_date: DT | tuple[DT] | None = None,  # GT1.32
+        living_dependency: LivingDependency
+        | IS
+        | tuple[LivingDependency | IS]
+        | None = None,  # GT1.33
+        ambulatory_status: AmbulatoryStatus
+        | IS
+        | tuple[AmbulatoryStatus | IS]
+        | None = None,  # GT1.34
+        citizenship: Citizenship | CE | tuple[Citizenship | CE] | None = None,  # GT1.35
+        primary_language: PrimaryLanguage
+        | CE
+        | tuple[PrimaryLanguage | CE]
+        | None = None,  # GT1.36
+        living_arrangement: LivingArrangement
+        | IS
+        | tuple[LivingArrangement | IS]
+        | None = None,  # GT1.37
+        publicity_code: PublicityCode
+        | CE
+        | tuple[PublicityCode | CE]
+        | None = None,  # GT1.38
+        protection_indicator: YesOrNoIndicator
+        | ID
+        | tuple[YesOrNoIndicator | ID]
+        | None = None,  # GT1.39
+        student_indicator: StudentStatus
+        | IS
+        | tuple[StudentStatus | IS]
+        | None = None,  # GT1.40
+        religion: Religion | CE | tuple[Religion | CE] | None = None,  # GT1.41
+        mothers_maiden_name: XPN | tuple[XPN] | None = None,  # GT1.42
+        nationality: Nationality | CE | tuple[Nationality | CE] | None = None,  # GT1.43
+        ethnic_group: EthnicGroup
+        | CE
+        | tuple[EthnicGroup | CE]
+        | None = None,  # GT1.44
+        contact_persons_name: XPN | tuple[XPN] | None = None,  # GT1.45
+        contact_persons_telephone_number: XTN | tuple[XTN] | None = None,  # GT1.46
+        contact_reason: ContactReason
+        | CE
+        | tuple[ContactReason | CE]
+        | None = None,  # GT1.47
+        contact_relationship: Relationship
+        | IS
+        | tuple[Relationship | IS]
+        | None = None,  # GT1.48
+        job_title: ST | tuple[ST] | None = None,  # GT1.49
+        job_code_or_class: JCC | tuple[JCC] | None = None,  # GT1.50
+        guarantor_employers_organization_name: XON | tuple[XON] | None = None,  # GT1.51
+        handicap: Handicap | IS | tuple[Handicap | IS] | None = None,  # GT1.52
+        job_status: JobStatus | IS | tuple[JobStatus | IS] | None = None,  # GT1.53
+        guarantor_financial_class: FC | tuple[FC] | None = None,  # GT1.54
+        guarantor_race: Race | CE | tuple[Race | CE] | None = None,  # GT1.55
+        guarantor_birth_place: ST | tuple[ST] | None = None,  # GT1.56
+        vip_indicator: VipIndicator
+        | IS
+        | tuple[VipIndicator | IS]
+        | None = None,  # GT1.57
     ):
         """
         Guarantor - `GT1 <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/GT1>`_

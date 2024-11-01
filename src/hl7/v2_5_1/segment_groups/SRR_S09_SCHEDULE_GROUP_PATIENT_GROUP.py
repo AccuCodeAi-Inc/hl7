@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.PV2 import PV2
+from ..segments.PID import PID
 from ..segments.PV1 import PV1
 from ..segments.DG1 import DG1
-from ..segments.PID import PID
+from ..segments.PV2 import PV2
 
 
 """
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import SRR_S09_SCHEDULE_GROUP_PATIENT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PV2, PID, PV1, DG1
+    PV2, PID, DG1, PV1
 )
 
 srr_s09_schedule_group_patient_group = SRR_S09_SCHEDULE_GROUP_PATIENT_GROUP(  # PATIENT - Segment group for SRR_S09_SCHEDULE_GROUP - SCHEDULE consisting of PID, PV1|None, PV2|None, DG1|None

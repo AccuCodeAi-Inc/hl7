@@ -3,10 +3,10 @@ from ...base import HL7TriggerEvent
 from ..segment_groups.TCR_U11_TEST_CONFIGURATION_GROUP import (
     TCR_U11_TEST_CONFIGURATION_GROUP,
 )
-from ..segments.SFT import SFT
-from ..segments.ROL import ROL
-from ..segments.MSH import MSH
 from ..segments.EQU import EQU
+from ..segments.SFT import SFT
+from ..segments.MSH import MSH
+from ..segments.ROL import ROL
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import TCR_U11
 from utils.hl7.v2_5_1.segments import (
-    EQU, ROL, SFT, MSH
+    EQU, SFT, MSH, ROL
 )
 from utils.hl7.v2_5_1.segment_groups import (
     TCR_U11_TEST_CONFIGURATION_GROUP

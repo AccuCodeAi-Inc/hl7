@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
 from ..segment_groups.OMI_O23_PATIENT_GROUP import OMI_O23_PATIENT_GROUP
-from ..segments.NTE import NTE
 from ..segment_groups.OMI_O23_ORDER_GROUP import OMI_O23_ORDER_GROUP
 from ..segments.SFT import SFT
 from ..segments.MSH import MSH
+from ..segments.NTE import NTE
 
 
 """
@@ -18,7 +18,7 @@ from utils.hl7.v2_5_1.segments import (
     NTE, SFT, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    OMI_O23_PATIENT_GROUP, OMI_O23_ORDER_GROUP
+    OMI_O23_ORDER_GROUP, OMI_O23_PATIENT_GROUP
 )
 
 omi_o23 = OMI_O23(  #  - This message is used in communication between the information systems involved in the fulfillment of the request directed to the imaging department, such as a Radiology Information System (RIS) and a Picture Archiving and Communication System (PACS)

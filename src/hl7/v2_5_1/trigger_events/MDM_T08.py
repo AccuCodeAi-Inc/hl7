@@ -1,13 +1,13 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segment_groups.MDM_T08_COMMON_ORDER_GROUP import MDM_T08_COMMON_ORDER_GROUP
-from ..segments.EVN import EVN
-from ..segment_groups.MDM_T08_OBXNTE_GROUP import MDM_T08_OBXNTE_GROUP
-from ..segments.SFT import SFT
-from ..segments.PID import PID
-from ..segments.MSH import MSH
-from ..segments.TXA import TXA
 from ..segments.PV1 import PV1
+from ..segments.SFT import SFT
+from ..segments.MSH import MSH
+from ..segment_groups.MDM_T08_COMMON_ORDER_GROUP import MDM_T08_COMMON_ORDER_GROUP
+from ..segment_groups.MDM_T08_OBXNTE_GROUP import MDM_T08_OBXNTE_GROUP
+from ..segments.TXA import TXA
+from ..segments.PID import PID
+from ..segments.EVN import EVN
 
 
 """
@@ -18,10 +18,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import MDM_T08
 from utils.hl7.v2_5_1.segments import (
-    PV1, EVN, SFT, TXA, PID, MSH
+    PID, MSH, PV1, SFT, TXA, EVN
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    MDM_T08_OBXNTE_GROUP, MDM_T08_COMMON_ORDER_GROUP
+    MDM_T08_COMMON_ORDER_GROUP, MDM_T08_OBXNTE_GROUP
 )
 
 mdm_t08 = MDM_T08(  #  - This is a notification of an edit to a document with the accompanying content

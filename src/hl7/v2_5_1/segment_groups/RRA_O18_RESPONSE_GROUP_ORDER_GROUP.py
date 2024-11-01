@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.ORC import ORC
 from ..segment_groups.RRA_O18_RESPONSE_GROUP_ORDER_GROUP_TIMING_GROUP import (
     RRA_O18_RESPONSE_GROUP_ORDER_GROUP_TIMING_GROUP,
 )
 from ..segment_groups.RRA_O18_RESPONSE_GROUP_ORDER_GROUP_ADMINISTRATION_GROUP import (
     RRA_O18_RESPONSE_GROUP_ORDER_GROUP_ADMINISTRATION_GROUP,
 )
+from ..segments.ORC import ORC
 
 
 """
@@ -20,7 +20,7 @@ from utils.hl7.v2_5_1.segments import (
     ORC
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    RRA_O18_RESPONSE_GROUP_ORDER_GROUP_TIMING_GROUP, RRA_O18_RESPONSE_GROUP_ORDER_GROUP_ADMINISTRATION_GROUP
+    RRA_O18_RESPONSE_GROUP_ORDER_GROUP_ADMINISTRATION_GROUP, RRA_O18_RESPONSE_GROUP_ORDER_GROUP_TIMING_GROUP
 )
 
 rra_o18_response_group_order_group = RRA_O18_RESPONSE_GROUP_ORDER_GROUP(  # ORDER - Segment group for RRA_O18_RESPONSE_GROUP - RESPONSE consisting of ORC, TIMING|None, ADMINISTRATION|None

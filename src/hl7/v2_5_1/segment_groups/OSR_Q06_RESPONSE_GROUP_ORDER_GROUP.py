@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.NTE import NTE
 from ..segment_groups.OSR_Q06_RESPONSE_GROUP_ORDER_GROUP_TIMING_GROUP import (
     OSR_Q06_RESPONSE_GROUP_ORDER_GROUP_TIMING_GROUP,
 )
 from ..segment_groups.OSR_Q06_RESPONSE_GROUP_ORDER_GROUP_ORDER_DETAIL_SEGMENT_GROUP import (
     OSR_Q06_RESPONSE_GROUP_ORDER_GROUP_ORDER_DETAIL_SEGMENT_GROUP,
 )
-from ..segments.CTI import CTI
 from ..segments.ORC import ORC
+from ..segments.CTI import CTI
+from ..segments.NTE import NTE
 
 
 """
@@ -19,10 +19,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OSR_Q06_RESPONSE_GROUP_ORDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NTE, ORC, CTI
+    NTE, CTI, ORC
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    OSR_Q06_RESPONSE_GROUP_ORDER_GROUP_ORDER_DETAIL_SEGMENT_GROUP, OSR_Q06_RESPONSE_GROUP_ORDER_GROUP_TIMING_GROUP
+    OSR_Q06_RESPONSE_GROUP_ORDER_GROUP_TIMING_GROUP, OSR_Q06_RESPONSE_GROUP_ORDER_GROUP_ORDER_DETAIL_SEGMENT_GROUP
 )
 
 osr_q06_response_group_order_group = OSR_Q06_RESPONSE_GROUP_ORDER_GROUP(  # ORDER - Segment group for OSR_Q06_RESPONSE_GROUP - RESPONSE consisting of ORC, TIMING|None, ORDER DETAIL SEGMENT|None, NTE|None, CTI|None

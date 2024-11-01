@@ -1,37 +1,37 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
-from ..data_types.XON import XON
-from ..data_types.IS import IS
-from ..data_types.CX import CX
-from ..data_types.DT import DT
-from ..data_types.AUI import AUI
-from ..data_types.TS import TS
+from ..data_types.XPN import XPN
 from ..data_types.XTN import XTN
+from ..data_types.TS import TS
 from ..data_types.ID import ID
 from ..data_types.NM import NM
-from ..data_types.XPN import XPN
-from ..data_types.ST import ST
-from ..data_types.XCN import XCN
 from ..data_types.CP import CP
+from ..data_types.DT import DT
+from ..data_types.CX import CX
+from ..data_types.IS import IS
 from ..data_types.SI import SI
+from ..data_types.CE import CE
 from ..data_types.XAD import XAD
-from ..tables.Relationship import Relationship
-from ..tables.EmploymentStatus import EmploymentStatus
-from ..tables.VipIndicator import VipIndicator
-from ..tables.CoordinationOfBenefits import CoordinationOfBenefits
-from ..tables.AdministrativeSex import AdministrativeSex
-from ..tables.ReleaseInformation import ReleaseInformation
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
-from ..tables.CoverageType import CoverageType
-from ..tables.TypeOfAgreement import TypeOfAgreement
-from ..tables.InsurancePlanId import InsurancePlanId
-from ..tables.PlanId import PlanId
-from ..tables.BillingStatus import BillingStatus
-from ..tables.CompanyPlanCode import CompanyPlanCode
-from ..tables.AssignmentOfBenefits import AssignmentOfBenefits
+from ..data_types.ST import ST
+from ..data_types.AUI import AUI
+from ..data_types.XCN import XCN
+from ..data_types.XON import XON
 from ..tables.Handicap import Handicap
 from ..tables.SignatureCode import SignatureCode
+from ..tables.BillingStatus import BillingStatus
+from ..tables.InsurancePlanId import InsurancePlanId
+from ..tables.TypeOfAgreement import TypeOfAgreement
+from ..tables.ReleaseInformation import ReleaseInformation
+from ..tables.PlanId import PlanId
+from ..tables.EmploymentStatus import EmploymentStatus
+from ..tables.VipIndicator import VipIndicator
+from ..tables.CompanyPlanCode import CompanyPlanCode
+from ..tables.CoverageType import CoverageType
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..tables.AdministrativeSex import AdministrativeSex
+from ..tables.CoordinationOfBenefits import CoordinationOfBenefits
+from ..tables.AssignmentOfBenefits import AssignmentOfBenefits
+from ..tables.Relationship import Relationship
 
 
 """
@@ -42,7 +42,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     IN1,
-    CE, XON, IS, CX, DT, AUI, TS, XTN, ID, NM, XPN, ST, XCN, CP, SI, XAD
+    XPN, XTN, TS, ID, NM, CP, DT, CX, IS, SI, CE, XAD, ST, AUI, XCN, XON
 )
 
 in1 = IN1(  #  - The IN1 segment contains insurance policy coverage information necessary to produce properly pro-rated and patient and insurance bills
@@ -125,59 +125,104 @@ class IN1(HL7Segment):
 
     def __init__(
         self,
-        set_id_in1: SI,  # IN1.1
-        insurance_plan_id: InsurancePlanId | CE,  # IN1.2
-        insurance_company_id: CX,  # IN1.3
-        insurance_company_name: XON | None = None,  # IN1.4
-        insurance_company_address: XAD | None = None,  # IN1.5
-        insurance_co_contact_person: XPN | None = None,  # IN1.6
-        insurance_co_phone_number: XTN | None = None,  # IN1.7
-        group_number: ST | None = None,  # IN1.8
-        group_name: XON | None = None,  # IN1.9
-        insureds_group_emp_id: CX | None = None,  # IN1.10
-        insureds_group_emp_name: XON | None = None,  # IN1.11
-        plan_effective_date: DT | None = None,  # IN1.12
-        plan_expiration_date: DT | None = None,  # IN1.13
-        authorization_information: AUI | None = None,  # IN1.14
-        plan_type: PlanId | IS | None = None,  # IN1.15
-        name_of_insured: XPN | None = None,  # IN1.16
-        insureds_relationship_to_patient: Relationship | CE | None = None,  # IN1.17
-        insureds_date_of_birth: TS | None = None,  # IN1.18
-        insureds_address: XAD | None = None,  # IN1.19
-        assignment_of_benefits: AssignmentOfBenefits | IS | None = None,  # IN1.20
-        coordination_of_benefits: CoordinationOfBenefits | IS | None = None,  # IN1.21
-        coord_of_ben_priority: ST | None = None,  # IN1.22
-        notice_of_admission_flag: YesOrNoIndicator | ID | None = None,  # IN1.23
-        notice_of_admission_date: DT | None = None,  # IN1.24
-        report_of_eligibility_flag: YesOrNoIndicator | ID | None = None,  # IN1.25
-        report_of_eligibility_date: DT | None = None,  # IN1.26
-        release_information_code: ReleaseInformation | IS | None = None,  # IN1.27
-        pre_admit_cert: ST | None = None,  # IN1.28
-        verification_date_or_time: TS | None = None,  # IN1.29
-        verification_by: XCN | None = None,  # IN1.30
-        type_of_agreement_code: TypeOfAgreement | IS | None = None,  # IN1.31
-        billing_status: BillingStatus | IS | None = None,  # IN1.32
-        lifetime_reserve_days: NM | None = None,  # IN1.33
-        delay_before_l_r_day: NM | None = None,  # IN1.34
-        company_plan_code: CompanyPlanCode | IS | None = None,  # IN1.35
-        policy_number: ST | None = None,  # IN1.36
-        policy_deductible: CP | None = None,  # IN1.37
-        policy_limit_amount: CP | None = None,  # IN1.38
-        policy_limit_days: NM | None = None,  # IN1.39
-        room_rate_semi_private: CP | None = None,  # IN1.40
-        room_rate_private: CP | None = None,  # IN1.41
-        insureds_employment_status: EmploymentStatus | CE | None = None,  # IN1.42
-        insureds_administrative_sex: AdministrativeSex | IS | None = None,  # IN1.43
-        insureds_employers_address: XAD | None = None,  # IN1.44
-        verification_status: ST | None = None,  # IN1.45
-        prior_insurance_plan_id: InsurancePlanId | IS | None = None,  # IN1.46
-        coverage_type: CoverageType | IS | None = None,  # IN1.47
-        handicap: Handicap | IS | None = None,  # IN1.48
-        insureds_id_number: CX | None = None,  # IN1.49
-        signature_code: SignatureCode | IS | None = None,  # IN1.50
-        signature_code_date: DT | None = None,  # IN1.51
-        insureds_birth_place: ST | None = None,  # IN1.52
-        vip_indicator: VipIndicator | IS | None = None,  # IN1.53
+        set_id_in1: SI | tuple[SI],  # IN1.1
+        insurance_plan_id: InsurancePlanId | CE | tuple[InsurancePlanId | CE],  # IN1.2
+        insurance_company_id: CX | tuple[CX],  # IN1.3
+        insurance_company_name: XON | tuple[XON] | None = None,  # IN1.4
+        insurance_company_address: XAD | tuple[XAD] | None = None,  # IN1.5
+        insurance_co_contact_person: XPN | tuple[XPN] | None = None,  # IN1.6
+        insurance_co_phone_number: XTN | tuple[XTN] | None = None,  # IN1.7
+        group_number: ST | tuple[ST] | None = None,  # IN1.8
+        group_name: XON | tuple[XON] | None = None,  # IN1.9
+        insureds_group_emp_id: CX | tuple[CX] | None = None,  # IN1.10
+        insureds_group_emp_name: XON | tuple[XON] | None = None,  # IN1.11
+        plan_effective_date: DT | tuple[DT] | None = None,  # IN1.12
+        plan_expiration_date: DT | tuple[DT] | None = None,  # IN1.13
+        authorization_information: AUI | tuple[AUI] | None = None,  # IN1.14
+        plan_type: PlanId | IS | tuple[PlanId | IS] | None = None,  # IN1.15
+        name_of_insured: XPN | tuple[XPN] | None = None,  # IN1.16
+        insureds_relationship_to_patient: Relationship
+        | CE
+        | tuple[Relationship | CE]
+        | None = None,  # IN1.17
+        insureds_date_of_birth: TS | tuple[TS] | None = None,  # IN1.18
+        insureds_address: XAD | tuple[XAD] | None = None,  # IN1.19
+        assignment_of_benefits: AssignmentOfBenefits
+        | IS
+        | tuple[AssignmentOfBenefits | IS]
+        | None = None,  # IN1.20
+        coordination_of_benefits: CoordinationOfBenefits
+        | IS
+        | tuple[CoordinationOfBenefits | IS]
+        | None = None,  # IN1.21
+        coord_of_ben_priority: ST | tuple[ST] | None = None,  # IN1.22
+        notice_of_admission_flag: YesOrNoIndicator
+        | ID
+        | tuple[YesOrNoIndicator | ID]
+        | None = None,  # IN1.23
+        notice_of_admission_date: DT | tuple[DT] | None = None,  # IN1.24
+        report_of_eligibility_flag: YesOrNoIndicator
+        | ID
+        | tuple[YesOrNoIndicator | ID]
+        | None = None,  # IN1.25
+        report_of_eligibility_date: DT | tuple[DT] | None = None,  # IN1.26
+        release_information_code: ReleaseInformation
+        | IS
+        | tuple[ReleaseInformation | IS]
+        | None = None,  # IN1.27
+        pre_admit_cert: ST | tuple[ST] | None = None,  # IN1.28
+        verification_date_or_time: TS | tuple[TS] | None = None,  # IN1.29
+        verification_by: XCN | tuple[XCN] | None = None,  # IN1.30
+        type_of_agreement_code: TypeOfAgreement
+        | IS
+        | tuple[TypeOfAgreement | IS]
+        | None = None,  # IN1.31
+        billing_status: BillingStatus
+        | IS
+        | tuple[BillingStatus | IS]
+        | None = None,  # IN1.32
+        lifetime_reserve_days: NM | tuple[NM] | None = None,  # IN1.33
+        delay_before_l_r_day: NM | tuple[NM] | None = None,  # IN1.34
+        company_plan_code: CompanyPlanCode
+        | IS
+        | tuple[CompanyPlanCode | IS]
+        | None = None,  # IN1.35
+        policy_number: ST | tuple[ST] | None = None,  # IN1.36
+        policy_deductible: CP | tuple[CP] | None = None,  # IN1.37
+        policy_limit_amount: CP | tuple[CP] | None = None,  # IN1.38
+        policy_limit_days: NM | tuple[NM] | None = None,  # IN1.39
+        room_rate_semi_private: CP | tuple[CP] | None = None,  # IN1.40
+        room_rate_private: CP | tuple[CP] | None = None,  # IN1.41
+        insureds_employment_status: EmploymentStatus
+        | CE
+        | tuple[EmploymentStatus | CE]
+        | None = None,  # IN1.42
+        insureds_administrative_sex: AdministrativeSex
+        | IS
+        | tuple[AdministrativeSex | IS]
+        | None = None,  # IN1.43
+        insureds_employers_address: XAD | tuple[XAD] | None = None,  # IN1.44
+        verification_status: ST | tuple[ST] | None = None,  # IN1.45
+        prior_insurance_plan_id: InsurancePlanId
+        | IS
+        | tuple[InsurancePlanId | IS]
+        | None = None,  # IN1.46
+        coverage_type: CoverageType
+        | IS
+        | tuple[CoverageType | IS]
+        | None = None,  # IN1.47
+        handicap: Handicap | IS | tuple[Handicap | IS] | None = None,  # IN1.48
+        insureds_id_number: CX | tuple[CX] | None = None,  # IN1.49
+        signature_code: SignatureCode
+        | IS
+        | tuple[SignatureCode | IS]
+        | None = None,  # IN1.50
+        signature_code_date: DT | tuple[DT] | None = None,  # IN1.51
+        insureds_birth_place: ST | tuple[ST] | None = None,  # IN1.52
+        vip_indicator: VipIndicator
+        | IS
+        | tuple[VipIndicator | IS]
+        | None = None,  # IN1.53
     ):
         """
         Insurance - `IN1 <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/IN1>`_

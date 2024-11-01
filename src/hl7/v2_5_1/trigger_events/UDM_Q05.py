@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.URD import URD
-from ..segments.SFT import SFT
 from ..segments.DSC import DSC
-from ..segments.DSP import DSP
-from ..segments.MSH import MSH
 from ..segments.URS import URS
+from ..segments.DSP import DSP
+from ..segments.SFT import SFT
+from ..segments.MSH import MSH
+from ..segments.URD import URD
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import UDM_Q05
 from utils.hl7.v2_5_1.segments import (
-    DSP, MSH, DSC, SFT, URD, URS
+    MSH, URD, SFT, DSP, DSC, URS
 )
 
 udm_q05 = UDM_Q05(  #  - This section is retained for backward compatibility and the framework for the existing functional queries

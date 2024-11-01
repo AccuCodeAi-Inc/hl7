@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.MSH import MSH
-from ..segments.MFI import MFI
-from ..segments.SFT import SFT
 from ..segment_groups.MFN_M07_MF_CLIN_STUDY_SCHED_GROUP import (
     MFN_M07_MF_CLIN_STUDY_SCHED_GROUP,
 )
+from ..segments.SFT import SFT
+from ..segments.MSH import MSH
+from ..segments.MFI import MFI
 
 
 """

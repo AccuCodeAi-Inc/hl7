@@ -1,13 +1,13 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
+from ..data_types.TS import TS
 from ..data_types.ID import ID
 from ..data_types.VARIES import VARIES
+from ..data_types.CE import CE
 from ..data_types.ST import ST
-from ..data_types.TS import TS
+from ..tables.PrimaryKeyValueType import PrimaryKeyValueType
 from ..tables.MfnRecordLevelErrorReturn import MfnRecordLevelErrorReturn
 from ..tables.RecordLevelEventCode import RecordLevelEventCode
-from ..tables.PrimaryKeyValueType import PrimaryKeyValueType
 
 
 """
@@ -18,7 +18,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     MFA,
-    CE, ID, VARIES, ST, TS
+    TS, ID, VARIES, CE, ST
 )
 
 mfa = MFA(  #  - The Technical Steward for the MFA segment is CQ
@@ -54,12 +54,18 @@ class MFA(HL7Segment):
 
     def __init__(
         self,
-        record_level_event_code: RecordLevelEventCode | ID,  # MFA.1
-        mfn_record_level_error_return: MfnRecordLevelErrorReturn | CE,  # MFA.4
-        primary_key_value_mfa: VARIES,  # MFA.5
-        primary_key_value_type_mfa: PrimaryKeyValueType | ID,  # MFA.6
-        mfn_control_id: ST | None = None,  # MFA.2
-        event_completion_date_or_time: TS | None = None,  # MFA.3
+        record_level_event_code: RecordLevelEventCode
+        | ID
+        | tuple[RecordLevelEventCode | ID],  # MFA.1
+        mfn_record_level_error_return: MfnRecordLevelErrorReturn
+        | CE
+        | tuple[MfnRecordLevelErrorReturn | CE],  # MFA.4
+        primary_key_value_mfa: VARIES | tuple[VARIES],  # MFA.5
+        primary_key_value_type_mfa: PrimaryKeyValueType
+        | ID
+        | tuple[PrimaryKeyValueType | ID],  # MFA.6
+        mfn_control_id: ST | tuple[ST] | None = None,  # MFA.2
+        event_completion_date_or_time: TS | tuple[TS] | None = None,  # MFA.3
     ):
         """
         Master File Acknowledgment - `MFA <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/MFA>`_

@@ -1,17 +1,17 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
+from ..data_types.SPD import SPD
+from ..data_types.PLN import PLN
+from ..data_types.ID import ID
 from ..data_types.PIP import PIP
 from ..data_types.IS import IS
 from ..data_types.DT import DT
-from ..data_types.ID import ID
-from ..data_types.SPD import SPD
-from ..data_types.PLN import PLN
+from ..data_types.CE import CE
 from ..data_types.SI import SI
 from ..tables.GovernmentReimbursementProgram import GovernmentReimbursementProgram
 from ..tables.PractitionerCategory import PractitionerCategory
-from ..tables.Institution import Institution
 from ..tables.PractitionerGroup import PractitionerGroup
+from ..tables.Institution import Institution
 from ..tables.ProviderBilling import ProviderBilling
 
 
@@ -23,7 +23,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PRA,
-    CE, PIP, IS, DT, ID, SPD, PLN, SI
+    SPD, PLN, ID, PIP, IS, DT, CE, SI
 )
 
 pra = PRA(  #  - The PRA segment adds detailed medical practitioner information to the personnel identified by the STF segment
@@ -65,20 +65,30 @@ class PRA(HL7Segment):
 
     def __init__(
         self,
-        primary_key_value_pra: CE | None = None,  # PRA.1
-        practitioner_group: PractitionerGroup | CE | None = None,  # PRA.2
-        practitioner_category: PractitionerCategory | IS | None = None,  # PRA.3
-        provider_billing: ProviderBilling | ID | None = None,  # PRA.4
-        specialty: SPD | None = None,  # PRA.5
-        practitioner_id_numbers: PLN | None = None,  # PRA.6
-        privileges: PIP | None = None,  # PRA.7
-        date_entered_practice: DT | None = None,  # PRA.8
-        institution: Institution | CE | None = None,  # PRA.9
-        date_left_practice: DT | None = None,  # PRA.10
+        primary_key_value_pra: CE | tuple[CE] | None = None,  # PRA.1
+        practitioner_group: PractitionerGroup
+        | CE
+        | tuple[PractitionerGroup | CE]
+        | None = None,  # PRA.2
+        practitioner_category: PractitionerCategory
+        | IS
+        | tuple[PractitionerCategory | IS]
+        | None = None,  # PRA.3
+        provider_billing: ProviderBilling
+        | ID
+        | tuple[ProviderBilling | ID]
+        | None = None,  # PRA.4
+        specialty: SPD | tuple[SPD] | None = None,  # PRA.5
+        practitioner_id_numbers: PLN | tuple[PLN] | None = None,  # PRA.6
+        privileges: PIP | tuple[PIP] | None = None,  # PRA.7
+        date_entered_practice: DT | tuple[DT] | None = None,  # PRA.8
+        institution: Institution | CE | tuple[Institution | CE] | None = None,  # PRA.9
+        date_left_practice: DT | tuple[DT] | None = None,  # PRA.10
         government_reimbursement_billing_eligibility: GovernmentReimbursementProgram
         | CE
+        | tuple[GovernmentReimbursementProgram | CE]
         | None = None,  # PRA.11
-        set_id_pra: SI | None = None,  # PRA.12
+        set_id_pra: SI | tuple[SI] | None = None,  # PRA.12
     ):
         """
         Practitioner Detail - `PRA <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/PRA>`_

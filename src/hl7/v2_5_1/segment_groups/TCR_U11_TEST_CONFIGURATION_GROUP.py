@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.TCC import TCC
 from ..segments.SPM import SPM
+from ..segments.TCC import TCC
 
 
 """

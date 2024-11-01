@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.QRD import QRD
-from ..segments.DSC import DSC
 from ..segments.ERR import ERR
+from ..segments.DSC import DSC
 from ..segments.MSH import MSH
-from ..segments.MSA import MSA
 from ..segments.QAK import QAK
+from ..segments.MSA import MSA
 from ..segment_groups.DOC_T12_RESULT_GROUP import DOC_T12_RESULT_GROUP
+from ..segments.QRD import QRD
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import DOC_T12
 from utils.hl7.v2_5_1.segments import (
-    ERR, DSC, MSA, MSH, QRD, QAK
+    MSH, QRD, ERR, DSC, QAK, MSA
 )
 from utils.hl7.v2_5_1.segment_groups import (
     DOC_T12_RESULT_GROUP

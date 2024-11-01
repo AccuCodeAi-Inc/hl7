@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import MFN_M05_MF_LOCATION_GROUP_MF_LOC_DEPT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    LCC, LCH, LDP
+    LDP, LCC, LCH
 )
 
 mfn_m05_mf_location_group_mf_loc_dept_group = MFN_M05_MF_LOCATION_GROUP_MF_LOC_DEPT_GROUP(  # MF LOC DEPT - Segment group for MFN_M05_MF_LOCATION_GROUP - MF LOCATION consisting of LDP, LCH|None, LCC|None

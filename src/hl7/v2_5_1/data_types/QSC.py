@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import DataType
-from .ST import ST
 from .ID import ID
+from .ST import ST
 from ..tables.RelationalOperator import RelationalOperator
 from ..tables.RelationalConjunction import RelationalConjunction
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     QSC,
-    ST, ID
+    ID, ST
 )
 
 qsc = QSC(  # Query Selection Criteria - This field indicates the conditions that qualify the rows to be returned in the query response
@@ -48,10 +48,16 @@ class QSC(DataType):
 
     def __init__(
         self,
-        segment_field_name: ST,  # QSC.1
-        relational_operator: RelationalOperator | ID | None = None,  # QSC.2
-        value: ST | None = None,  # QSC.3
-        relational_conjunction: RelationalConjunction | ID | None = None,  # QSC.4
+        segment_field_name: ST | tuple[ST],  # QSC.1
+        relational_operator: RelationalOperator
+        | ID
+        | tuple[RelationalOperator | ID]
+        | None = None,  # QSC.2
+        value: ST | tuple[ST] | None = None,  # QSC.3
+        relational_conjunction: RelationalConjunction
+        | ID
+        | tuple[RelationalConjunction | ID]
+        | None = None,  # QSC.4
     ):
         """
                 Query Selection Criteria - `QSC <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/QSC>`_

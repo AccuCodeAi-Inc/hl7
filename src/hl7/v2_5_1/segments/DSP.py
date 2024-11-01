@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.SI import SI
-from ..data_types.ST import ST
 from ..data_types.TX import TX
+from ..data_types.ST import ST
+from ..data_types.SI import SI
 
 
 """
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     DSP,
-    SI, ST, TX
+    TX, ST, SI
 )
 
 dsp = DSP(  #  - The DSP segment is used to contain data that has been preformatted by the sender for display
@@ -48,11 +48,11 @@ class DSP(HL7Segment):
 
     def __init__(
         self,
-        data_line: TX,  # DSP.3
-        set_id_dsp: SI | None = None,  # DSP.1
-        display_level: SI | None = None,  # DSP.2
-        logical_break_point: ST | None = None,  # DSP.4
-        result_id: TX | None = None,  # DSP.5
+        data_line: TX | tuple[TX],  # DSP.3
+        set_id_dsp: SI | tuple[SI] | None = None,  # DSP.1
+        display_level: SI | tuple[SI] | None = None,  # DSP.2
+        logical_break_point: ST | tuple[ST] | None = None,  # DSP.4
+        result_id: TX | tuple[TX] | None = None,  # DSP.5
     ):
         """
         Display Data - `DSP <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/DSP>`_

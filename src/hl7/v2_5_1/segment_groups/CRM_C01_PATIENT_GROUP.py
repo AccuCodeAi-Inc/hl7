@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.CSP import CSP
-from ..segments.PV1 import PV1
 from ..segments.PID import PID
+from ..segments.PV1 import PV1
 from ..segments.CSR import CSR
+from ..segments.CSP import CSP
 
 
 """
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import CRM_C01_PATIENT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    CSR, PID, CSP, PV1
+    CSP, PID, CSR, PV1
 )
 
 crm_c01_patient_group = CRM_C01_PATIENT_GROUP(  # PATIENT - Segment group for CRM_C01 - Register a patient on a clinical trial consisting of PID, PV1|None, CSR, CSP|None

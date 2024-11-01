@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
-from ..data_types.EI import EI
 from ..data_types.ID import ID
+from ..data_types.EI import EI
+from ..data_types.CE import CE
 from ..data_types.TS import TS
 from ..tables.ProblemOrGoalActionCode import ProblemOrGoalActionCode
 
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PTH,
-    CE, EI, ID, TS
+    ID, EI, CE, TS
 )
 
 pth = PTH(  #  - The pathway segment contains the data necessary to add, update, correct, and delete from the record pathways that are utilized to address an individuals health care
@@ -51,12 +51,16 @@ class PTH(HL7Segment):
 
     def __init__(
         self,
-        action_code: ProblemOrGoalActionCode | ID,  # PTH.1
-        pathway_id: CE,  # PTH.2
-        pathway_instance_id: EI,  # PTH.3
-        pathway_established_date_or_time: TS,  # PTH.4
-        pathway_life_cycle_status: CE | None = None,  # PTH.5
-        change_pathway_life_cycle_status_date_or_time: TS | None = None,  # PTH.6
+        action_code: ProblemOrGoalActionCode
+        | ID
+        | tuple[ProblemOrGoalActionCode | ID],  # PTH.1
+        pathway_id: CE | tuple[CE],  # PTH.2
+        pathway_instance_id: EI | tuple[EI],  # PTH.3
+        pathway_established_date_or_time: TS | tuple[TS],  # PTH.4
+        pathway_life_cycle_status: CE | tuple[CE] | None = None,  # PTH.5
+        change_pathway_life_cycle_status_date_or_time: TS
+        | tuple[TS]
+        | None = None,  # PTH.6
     ):
         """
         Pathway - `PTH <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/PTH>`_

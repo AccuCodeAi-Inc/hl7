@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.VAR import VAR
 from ..segments.ROL import ROL
+from ..segments.VAR import VAR
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PRR_PC5_PATIENT_GROUP_PROBLEM_GROUP_PROBLEM_ROLE_GROUP
 from utils.hl7.v2_5_1.segments import (
-    VAR, ROL
+    ROL, VAR
 )
 
 prr_pc5_patient_group_problem_group_problem_role_group = PRR_PC5_PATIENT_GROUP_PROBLEM_GROUP_PROBLEM_ROLE_GROUP(  # PROBLEM ROLE - Segment group for PRR_PC5_PATIENT_GROUP_PROBLEM_GROUP - PROBLEM consisting of ROL, VAR|None

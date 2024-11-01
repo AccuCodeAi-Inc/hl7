@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.RXR import RXR
 from ..segment_groups.PEX_P08_EXPERIENCE_GROUP_PEX_OBSERVATION_GROUP_PEX_CAUSE_GROUP_RX_ORDER_GROUP_TIMING_QTY_GROUP import (
     PEX_P08_EXPERIENCE_GROUP_PEX_OBSERVATION_GROUP_PEX_CAUSE_GROUP_RX_ORDER_GROUP_TIMING_QTY_GROUP,
 )
-from ..segments.RXR import RXR
 from ..segments.RXE import RXE
 
 
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PEX_P08_EXPERIENCE_GROUP_PEX_OBSERVATION_GROUP_PEX_CAUSE_GROUP_RX_ORDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    RXE, RXR
+    RXR, RXE
 )
 from utils.hl7.v2_5_1.segment_groups import (
     PEX_P08_EXPERIENCE_GROUP_PEX_OBSERVATION_GROUP_PEX_CAUSE_GROUP_RX_ORDER_GROUP_TIMING_QTY_GROUP

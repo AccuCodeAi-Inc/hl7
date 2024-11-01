@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.PD1 import PD1
-from ..segments.NTE import NTE
+from ..segments.AL1 import AL1
 from ..segment_groups.RAS_O17_PATIENT_GROUP_PATIENT_VISIT_GROUP import (
     RAS_O17_PATIENT_GROUP_PATIENT_VISIT_GROUP,
 )
+from ..segments.NTE import NTE
+from ..segments.PD1 import PD1
 from ..segments.PID import PID
-from ..segments.AL1 import AL1
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RAS_O17_PATIENT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NTE, PD1, PID, AL1
+    NTE, PID, PD1, AL1
 )
 from utils.hl7.v2_5_1.segment_groups import (
     RAS_O17_PATIENT_GROUP_PATIENT_VISIT_GROUP

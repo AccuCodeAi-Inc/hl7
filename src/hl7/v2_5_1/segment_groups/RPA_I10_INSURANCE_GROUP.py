@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.IN2 import IN2
-from ..segments.IN3 import IN3
 from ..segments.IN1 import IN1
+from ..segments.IN3 import IN3
+from ..segments.IN2 import IN2
 
 
 """
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RPA_I10_INSURANCE_GROUP
 from utils.hl7.v2_5_1.segments import (
-    IN2, IN3, IN1
+    IN1, IN2, IN3
 )
 
 rpa_i10_insurance_group = RPA_I10_INSURANCE_GROUP(  # INSURANCE - Segment group for RPA_I10 - Request for resubmission of an authorization acknowledgement consisting of IN1, IN2|None, IN3|None

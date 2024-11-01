@@ -1,15 +1,15 @@
 from __future__ import annotations
 from ...base import DataType
-from .IS import IS
 from .ID import ID
 from .NM import NM
+from .IS import IS
 from .ST import ST
 from .HD import HD
-from ..tables.CheckDigitScheme import CheckDigitScheme
-from ..tables.OrganizationalNameType import OrganizationalNameType
-from ..tables.NameOrAddressRepresentation import NameOrAddressRepresentation
-from ..tables.AssigningAuthority import AssigningAuthority
 from ..tables.IdentifierType import IdentifierType
+from ..tables.AssigningAuthority import AssigningAuthority
+from ..tables.CheckDigitScheme import CheckDigitScheme
+from ..tables.NameOrAddressRepresentation import NameOrAddressRepresentation
+from ..tables.OrganizationalNameType import OrganizationalNameType
 
 
 """
@@ -20,7 +20,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     XON,
-    IS, ID, NM, ST, HD
+    ID, NM, IS, ST, HD
 )
 
 xon = XON(  # Extended Composite Name and Identification Number for Organizations - This data type is used in fields (e
@@ -60,18 +60,31 @@ class XON(DataType):
 
     def __init__(
         self,
-        organization_name: ST | None = None,  # XON.1
-        organization_name_type_code: OrganizationalNameType | IS | None = None,  # XON.2
-        id_number: NM | None = None,  # XON.3
-        check_digit: NM | None = None,  # XON.4
-        check_digit_scheme: CheckDigitScheme | ID | None = None,  # XON.5
-        assigning_authority: AssigningAuthority | HD | None = None,  # XON.6
-        identifier_type_code: IdentifierType | ID | None = None,  # XON.7
-        assigning_facility: HD | None = None,  # XON.8
+        organization_name: ST | tuple[ST] | None = None,  # XON.1
+        organization_name_type_code: OrganizationalNameType
+        | IS
+        | tuple[OrganizationalNameType | IS]
+        | None = None,  # XON.2
+        id_number: NM | tuple[NM] | None = None,  # XON.3
+        check_digit: NM | tuple[NM] | None = None,  # XON.4
+        check_digit_scheme: CheckDigitScheme
+        | ID
+        | tuple[CheckDigitScheme | ID]
+        | None = None,  # XON.5
+        assigning_authority: AssigningAuthority
+        | HD
+        | tuple[AssigningAuthority | HD]
+        | None = None,  # XON.6
+        identifier_type_code: IdentifierType
+        | ID
+        | tuple[IdentifierType | ID]
+        | None = None,  # XON.7
+        assigning_facility: HD | tuple[HD] | None = None,  # XON.8
         name_representation_code: NameOrAddressRepresentation
         | ID
+        | tuple[NameOrAddressRepresentation | ID]
         | None = None,  # XON.9
-        organization_identifier: ST | None = None,  # XON.10
+        organization_identifier: ST | tuple[ST] | None = None,  # XON.10
     ):
         """
         Extended Composite Name and Identification Number for Organizations - `XON <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/XON>`_

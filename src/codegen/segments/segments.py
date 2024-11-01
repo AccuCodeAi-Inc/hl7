@@ -67,6 +67,9 @@ def render_segment(hl7_id: str, version: str, seg_template: Template, path: Path
             if f["tableName"]
             else f["dataType"]
         )
+        if f["rpt"]:
+            param_type = f"{param_type} | tuple[{param_type}]"
+
         defs["fields"][i]["param_type"] = param_type
         defs["fields"][i]["fn_name"] = fn_name
         suffix = "" if f["usage"] == "R" else " | None = None"

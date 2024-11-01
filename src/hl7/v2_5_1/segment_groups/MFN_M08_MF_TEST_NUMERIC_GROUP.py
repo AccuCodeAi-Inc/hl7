@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.OM3 import OM3
-from ..segments.OM2 import OM2
 from ..segments.OM1 import OM1
+from ..segments.OM2 import OM2
 from ..segments.MFE import MFE
 from ..segments.OM4 import OM4
+from ..segments.OM3 import OM3
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import MFN_M08_MF_TEST_NUMERIC_GROUP
 from utils.hl7.v2_5_1.segments import (
-    MFE, OM3, OM1, OM4, OM2
+    OM4, OM2, OM3, MFE, OM1
 )
 
 mfn_m08_mf_test_numeric_group = MFN_M08_MF_TEST_NUMERIC_GROUP(  # MF TEST NUMERIC - Segment group for MFN_M08 - Master File Notification - Test/Observation (Numeric) consisting of MFE, OM1, OM2|None, OM3|None, OM4|None

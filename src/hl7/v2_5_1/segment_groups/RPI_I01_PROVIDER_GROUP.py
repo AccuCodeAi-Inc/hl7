@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RPI_I01_PROVIDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PRD, CTD
+    CTD, PRD
 )
 
 rpi_i01_provider_group = RPI_I01_PROVIDER_GROUP(  # PROVIDER - Segment group for RPI_I01 - Request for insurance information acknowledgement consisting of PRD, CTD|None

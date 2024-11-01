@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.PID import PID
 from ..segment_groups.PPV_PCA_PATIENT_GROUP_PATIENT_VISIT_GROUP import (
     PPV_PCA_PATIENT_GROUP_PATIENT_VISIT_GROUP,
 )
 from ..segment_groups.PPV_PCA_PATIENT_GROUP_GOAL_GROUP import (
     PPV_PCA_PATIENT_GROUP_GOAL_GROUP,
 )
-from ..segments.PID import PID
 
 
 """
@@ -20,7 +20,7 @@ from utils.hl7.v2_5_1.segments import (
     PID
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    PPV_PCA_PATIENT_GROUP_GOAL_GROUP, PPV_PCA_PATIENT_GROUP_PATIENT_VISIT_GROUP
+    PPV_PCA_PATIENT_GROUP_PATIENT_VISIT_GROUP, PPV_PCA_PATIENT_GROUP_GOAL_GROUP
 )
 
 ppv_pca_patient_group = PPV_PCA_PATIENT_GROUP(  # PATIENT - Segment group for PPV_PCA - Patient goal response consisting of PID, PATIENT VISIT|None, GOAL

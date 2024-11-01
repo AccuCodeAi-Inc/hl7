@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import DataType
-from .CWE import CWE
 from .TX import TX
-from ..tables.BodySiteModifier import BodySiteModifier
+from .CWE import CWE
 from ..tables.BodySite import BodySite
-from ..tables.AdditiveOrPreservative import AdditiveOrPreservative
 from ..tables.SpecimenRole import SpecimenRole
+from ..tables.BodySiteModifier import BodySiteModifier
+from ..tables.AdditiveOrPreservative import AdditiveOrPreservative
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     SPS,
-    CWE, TX
+    TX, CWE
 )
 
 sps = SPS(  # Specimen Source - This data type identifies the site where the specimen should be obtained or where the service should be performed
@@ -53,13 +53,22 @@ class SPS(DataType):
 
     def __init__(
         self,
-        specimen_source_name_or_code: CWE | None = None,  # SPS.1
-        additives: AdditiveOrPreservative | CWE | None = None,  # SPS.2
-        specimen_collection_method: TX | None = None,  # SPS.3
-        body_site: BodySite | CWE | None = None,  # SPS.4
-        site_modifier: BodySiteModifier | CWE | None = None,  # SPS.5
-        collection_method_modifier_code: CWE | None = None,  # SPS.6
-        specimen_role: SpecimenRole | CWE | None = None,  # SPS.7
+        specimen_source_name_or_code: CWE | tuple[CWE] | None = None,  # SPS.1
+        additives: AdditiveOrPreservative
+        | CWE
+        | tuple[AdditiveOrPreservative | CWE]
+        | None = None,  # SPS.2
+        specimen_collection_method: TX | tuple[TX] | None = None,  # SPS.3
+        body_site: BodySite | CWE | tuple[BodySite | CWE] | None = None,  # SPS.4
+        site_modifier: BodySiteModifier
+        | CWE
+        | tuple[BodySiteModifier | CWE]
+        | None = None,  # SPS.5
+        collection_method_modifier_code: CWE | tuple[CWE] | None = None,  # SPS.6
+        specimen_role: SpecimenRole
+        | CWE
+        | tuple[SpecimenRole | CWE]
+        | None = None,  # SPS.7
     ):
         """
         Specimen Source - `SPS <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/SPS>`_

@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
-from ..data_types.ST import ST
 from ..data_types.ID import ID
 from ..data_types.NM import NM
-from ..tables.MessageErrorConditionCodes import MessageErrorConditionCodes
+from ..data_types.ST import ST
+from ..data_types.CE import CE
 from ..tables.AcknowledgmentCode import AcknowledgmentCode
+from ..tables.MessageErrorConditionCodes import MessageErrorConditionCodes
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     MSA,
-    CE, ST, ID, NM
+    ID, NM, ST, CE
 )
 
 msa = MSA(  #  - The MSA segment contains information sent while acknowledging another message
@@ -52,12 +52,17 @@ class MSA(HL7Segment):
 
     def __init__(
         self,
-        acknowledgment_code: AcknowledgmentCode | ID,  # MSA.1
-        message_control_id: ST,  # MSA.2
-        text_message: ST | None = None,  # MSA.3
-        expected_sequence_number: NM | None = None,  # MSA.4
-        delayed_acknowledgment_type: ST | None = None,  # MSA.5
-        error_condition: MessageErrorConditionCodes | CE | None = None,  # MSA.6
+        acknowledgment_code: AcknowledgmentCode
+        | ID
+        | tuple[AcknowledgmentCode | ID],  # MSA.1
+        message_control_id: ST | tuple[ST],  # MSA.2
+        text_message: ST | tuple[ST] | None = None,  # MSA.3
+        expected_sequence_number: NM | tuple[NM] | None = None,  # MSA.4
+        delayed_acknowledgment_type: ST | tuple[ST] | None = None,  # MSA.5
+        error_condition: MessageErrorConditionCodes
+        | CE
+        | tuple[MessageErrorConditionCodes | CE]
+        | None = None,  # MSA.6
     ):
         """
         Message Acknowledgment - `MSA <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/MSA>`_

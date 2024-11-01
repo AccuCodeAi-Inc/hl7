@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
-from ..data_types.TX import TX
 from ..data_types.TQ import TQ
+from ..data_types.TX import TX
 from ..data_types.ID import ID
 from ..data_types.NM import NM
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..data_types.CE import CE
 from ..tables.RemoteControlCommand import RemoteControlCommand
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     ECD,
-    CE, TX, TQ, ID, NM
+    TQ, TX, ID, NM, CE
 )
 
 ecd = ECD(  #  - The equipment command segment contains the information required to notify the receiving component what is to happen
@@ -52,11 +52,16 @@ class ECD(HL7Segment):
 
     def __init__(
         self,
-        reference_command_number: NM,  # ECD.1
-        remote_control_command: RemoteControlCommand | CE,  # ECD.2
-        response_required: YesOrNoIndicator | ID | None = None,  # ECD.3
-        requested_completion_time: TQ | None = None,  # ECD.4
-        parameters: TX | None = None,  # ECD.5
+        reference_command_number: NM | tuple[NM],  # ECD.1
+        remote_control_command: RemoteControlCommand
+        | CE
+        | tuple[RemoteControlCommand | CE],  # ECD.2
+        response_required: YesOrNoIndicator
+        | ID
+        | tuple[YesOrNoIndicator | ID]
+        | None = None,  # ECD.3
+        requested_completion_time: TQ | tuple[TQ] | None = None,  # ECD.4
+        parameters: TX | tuple[TX] | None = None,  # ECD.5
     ):
         """
         Equipment Command - `ECD <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/ECD>`_

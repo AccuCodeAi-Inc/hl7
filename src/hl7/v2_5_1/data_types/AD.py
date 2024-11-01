@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import DataType
-from .ST import ST
 from .ID import ID
+from .ST import ST
 from ..tables.CountryCode import CountryCode
 from ..tables.AddressType import AddressType
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     AD,
-    ST, ID
+    ID, ST
 )
 
 ad = AD(  # Address - This data type specifies the address of a person, place or organization
@@ -52,14 +52,14 @@ class AD(DataType):
 
     def __init__(
         self,
-        street_address: ST | None = None,  # AD.1
-        other_designation: ST | None = None,  # AD.2
-        city: ST | None = None,  # AD.3
-        state_or_province: ST | None = None,  # AD.4
-        zip_or_postal_code: ST | None = None,  # AD.5
-        country: CountryCode | ID | None = None,  # AD.6
-        address_type: AddressType | ID | None = None,  # AD.7
-        other_geographic_designation: ST | None = None,  # AD.8
+        street_address: ST | tuple[ST] | None = None,  # AD.1
+        other_designation: ST | tuple[ST] | None = None,  # AD.2
+        city: ST | tuple[ST] | None = None,  # AD.3
+        state_or_province: ST | tuple[ST] | None = None,  # AD.4
+        zip_or_postal_code: ST | tuple[ST] | None = None,  # AD.5
+        country: CountryCode | ID | tuple[CountryCode | ID] | None = None,  # AD.6
+        address_type: AddressType | ID | tuple[AddressType | ID] | None = None,  # AD.7
+        other_geographic_designation: ST | tuple[ST] | None = None,  # AD.8
     ):
         """
                 Address - `AD <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/AD>`_

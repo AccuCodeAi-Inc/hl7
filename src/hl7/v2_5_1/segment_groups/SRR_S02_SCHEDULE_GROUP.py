@@ -3,12 +3,12 @@ from ...base import HL7SegmentGroup
 from ..segment_groups.SRR_S02_SCHEDULE_GROUP_RESOURCES_GROUP import (
     SRR_S02_SCHEDULE_GROUP_RESOURCES_GROUP,
 )
-from ..segments.NTE import NTE
 from ..segments.TQ1 import TQ1
-from ..segments.SCH import SCH
 from ..segment_groups.SRR_S02_SCHEDULE_GROUP_PATIENT_GROUP import (
     SRR_S02_SCHEDULE_GROUP_PATIENT_GROUP,
 )
+from ..segments.NTE import NTE
+from ..segments.SCH import SCH
 
 
 """

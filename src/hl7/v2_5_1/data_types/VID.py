@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import DataType
-from .CE import CE
 from .ID import ID
-from ..tables.CountryCode import CountryCode
+from .CE import CE
 from ..tables.VersionId import VersionId
+from ..tables.CountryCode import CountryCode
 
 
 """
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     VID,
-    CE, ID
+    ID, CE
 )
 
 vid = VID(  # Version Identifier - 
@@ -47,9 +47,12 @@ class VID(DataType):
 
     def __init__(
         self,
-        version_id: VersionId | ID | None = None,  # VID.1
-        internationalization_code: CountryCode | CE | None = None,  # VID.2
-        international_version_id: CE | None = None,  # VID.3
+        version_id: VersionId | ID | tuple[VersionId | ID] | None = None,  # VID.1
+        internationalization_code: CountryCode
+        | CE
+        | tuple[CountryCode | CE]
+        | None = None,  # VID.2
+        international_version_id: CE | tuple[CE] | None = None,  # VID.3
     ):
         """
         Version Identifier - `VID <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/VID>`_
