@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.OBR import OBR
-from ..segment_groups.ORG_O20_RESPONSE_GROUP_ORDER_GROUP_TIMING_GROUP import (
-    ORG_O20_RESPONSE_GROUP_ORDER_GROUP_TIMING_GROUP,
-)
-from ..segments.ORC import ORC
 from ..segments.NTE import NTE
-from ..segments.CTI import CTI
+from ..segments.OBR import OBR
 from ..segment_groups.ORG_O20_RESPONSE_GROUP_ORDER_GROUP_SPECIMEN_GROUP import (
     ORG_O20_RESPONSE_GROUP_ORDER_GROUP_SPECIMEN_GROUP,
+)
+from ..segments.CTI import CTI
+from ..segments.ORC import ORC
+from ..segment_groups.ORG_O20_RESPONSE_GROUP_ORDER_GROUP_TIMING_GROUP import (
+    ORG_O20_RESPONSE_GROUP_ORDER_GROUP_TIMING_GROUP,
 )
 
 
@@ -20,10 +20,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ORG_O20_RESPONSE_GROUP_ORDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    OBR, NTE, ORC, CTI
+    NTE, ORC, CTI, OBR
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    ORG_O20_RESPONSE_GROUP_ORDER_GROUP_SPECIMEN_GROUP, ORG_O20_RESPONSE_GROUP_ORDER_GROUP_TIMING_GROUP
+    ORG_O20_RESPONSE_GROUP_ORDER_GROUP_TIMING_GROUP, ORG_O20_RESPONSE_GROUP_ORDER_GROUP_SPECIMEN_GROUP
 )
 
 org_o20_response_group_order_group = ORG_O20_RESPONSE_GROUP_ORDER_GROUP(  # ORDER - Segment group for ORG_O20_RESPONSE_GROUP - RESPONSE consisting of ORC, TIMING|None, OBR|None, NTE|None, CTI|None, SPECIMEN|None

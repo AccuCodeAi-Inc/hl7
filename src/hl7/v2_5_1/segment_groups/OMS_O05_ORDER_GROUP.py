@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.ORC import ORC
-from ..segments.NTE import NTE
 from ..segments.BLG import BLG
+from ..segments.RQD import RQD
+from ..segments.NTE import NTE
 from ..segment_groups.OMS_O05_ORDER_GROUP_OBSERVATION_GROUP import (
     OMS_O05_ORDER_GROUP_OBSERVATION_GROUP,
 )
-from ..segments.RQD import RQD
+from ..segments.ORC import ORC
 from ..segments.RQ1 import RQ1
 from ..segment_groups.OMS_O05_ORDER_GROUP_TIMING_GROUP import (
     OMS_O05_ORDER_GROUP_TIMING_GROUP,
@@ -21,10 +21,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OMS_O05_ORDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NTE, ORC, BLG, RQ1, RQD
+    RQD, NTE, BLG, ORC, RQ1
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    OMS_O05_ORDER_GROUP_TIMING_GROUP, OMS_O05_ORDER_GROUP_OBSERVATION_GROUP
+    OMS_O05_ORDER_GROUP_OBSERVATION_GROUP, OMS_O05_ORDER_GROUP_TIMING_GROUP
 )
 
 oms_o05_order_group = OMS_O05_ORDER_GROUP(  # ORDER - Segment group for OMS_O05 - Stock Requisition Order consisting of ORC, TIMING|None, RQD, RQ1|None, NTE|None, OBSERVATION|None, BLG|None

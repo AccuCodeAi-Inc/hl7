@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TQ import TQ
 from ..data_types.CE import CE
 from ..data_types.TX import TX
+from ..data_types.TQ import TQ
+from ..data_types.ID import ID
 from ..data_types.NM import NM
-from ..tables.RemoteControlCommand import RemoteControlCommand
 from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..tables.RemoteControlCommand import RemoteControlCommand
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     ECD,
-    ID, TQ, CE, TX, NM
+    CE, TX, TQ, ID, NM
 )
 
 ecd = ECD(  #  - The equipment command segment contains the information required to notify the receiving component what is to happen

@@ -1,27 +1,27 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segment_groups.ADR_A19_QUERY_RESPONSE_GROUP_PROCEDURE_GROUP import (
-    ADR_A19_QUERY_RESPONSE_GROUP_PROCEDURE_GROUP,
-)
-from ..segments.AL1 import AL1
+from ..segments.OBX import OBX
+from ..segments.DG1 import DG1
+from ..segments.ACC import ACC
+from ..segments.PD1 import PD1
+from ..segments.UB2 import UB2
+from ..segments.GT1 import GT1
+from ..segments.PV2 import PV2
+from ..segments.DRG import DRG
 from ..segments.EVN import EVN
-from ..segments.DB1 import DB1
+from ..segments.UB1 import UB1
+from ..segments.PID import PID
+from ..segments.ROL import ROL
 from ..segment_groups.ADR_A19_QUERY_RESPONSE_GROUP_INSURANCE_GROUP import (
     ADR_A19_QUERY_RESPONSE_GROUP_INSURANCE_GROUP,
 )
-from ..segments.ACC import ACC
-from ..segments.ROL import ROL
-from ..segments.DG1 import DG1
 from ..segments.PV1 import PV1
-from ..segments.OBX import OBX
-from ..segments.PV2 import PV2
-from ..segments.GT1 import GT1
-from ..segments.PID import PID
-from ..segments.UB1 import UB1
+from ..segments.DB1 import DB1
+from ..segment_groups.ADR_A19_QUERY_RESPONSE_GROUP_PROCEDURE_GROUP import (
+    ADR_A19_QUERY_RESPONSE_GROUP_PROCEDURE_GROUP,
+)
 from ..segments.NK1 import NK1
-from ..segments.PD1 import PD1
-from ..segments.DRG import DRG
-from ..segments.UB2 import UB2
+from ..segments.AL1 import AL1
 
 
 """
@@ -32,10 +32,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ADR_A19_QUERY_RESPONSE_GROUP
 from utils.hl7.v2_5_1.segments import (
-    DG1, PV1, ROL, DRG, UB2, GT1, PD1, DB1, NK1, UB1, AL1, PID, EVN, ACC, OBX, PV2
+    PV2, PV1, UB2, EVN, ACC, AL1, DG1, ROL, PID, UB1, GT1, DB1, NK1, PD1, OBX, DRG
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    ADR_A19_QUERY_RESPONSE_GROUP_PROCEDURE_GROUP, ADR_A19_QUERY_RESPONSE_GROUP_INSURANCE_GROUP
+    ADR_A19_QUERY_RESPONSE_GROUP_INSURANCE_GROUP, ADR_A19_QUERY_RESPONSE_GROUP_PROCEDURE_GROUP
 )
 
 adr_a19_query_response_group = ADR_A19_QUERY_RESPONSE_GROUP(  # QUERY RESPONSE - Segment group for ADR_A19 - Patient Query - Response consisting of EVN|None, PID, PD1|None, ROL|None, NK1|None, PV1, PV2|None, ROL|None, DB1|None, OBX|None, AL1|None, DG1|None, DRG|None, PROCEDURE|None, GT1|None, INSURANCE|None, ACC|None, UB1|None, UB2|None

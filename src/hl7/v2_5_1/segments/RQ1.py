@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
 from ..data_types.CE import CE
 from ..data_types.ST import ST
-from ..tables.ManufacturerIdentifier import ManufacturerIdentifier
+from ..data_types.ID import ID
 from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..tables.ManufacturerIdentifier import ManufacturerIdentifier
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RQ1,
-    ID, CE, ST
+    CE, ST, ID
 )
 
 rq1 = RQ1(  #  - RQ1 contains additional detail for each nonstock requisitioned item

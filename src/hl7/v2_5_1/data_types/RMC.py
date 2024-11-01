@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import DataType
+from .IS import IS
 from .NM import NM
 from .MOP import MOP
-from .IS import IS
 from ..tables.RoomType import RoomType
 from ..tables.AmountType import AmountType
 
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RMC,
-    NM, MOP, IS
+    IS, NM, MOP
 )
 
 rmc = RMC(  # Room Coverage - This data type specifies insurance coverage detail for a room

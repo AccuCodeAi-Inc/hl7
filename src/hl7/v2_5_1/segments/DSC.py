@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
 from ..data_types.ST import ST
+from ..data_types.ID import ID
 from ..tables.ContinuationStyleCode import ContinuationStyleCode
 
 
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     DSC,
-    ID, ST
+    ST, ID
 )
 
 dsc = DSC(  #  - The DSC segment is used in the continuation protocol

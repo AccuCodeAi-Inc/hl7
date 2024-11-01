@@ -3,10 +3,10 @@ from ...base import HL7SegmentGroup
 from ..segment_groups.PPV_PCA_PATIENT_GROUP_PATIENT_VISIT_GROUP import (
     PPV_PCA_PATIENT_GROUP_PATIENT_VISIT_GROUP,
 )
-from ..segments.PID import PID
 from ..segment_groups.PPV_PCA_PATIENT_GROUP_GOAL_GROUP import (
     PPV_PCA_PATIENT_GROUP_GOAL_GROUP,
 )
+from ..segments.PID import PID
 
 
 """

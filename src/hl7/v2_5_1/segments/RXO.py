@@ -1,16 +1,16 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.CWE import CWE
-from ..data_types.ST import ST
-from ..data_types.CQ import CQ
 from ..data_types.CE import CE
+from ..data_types.CQ import CQ
+from ..data_types.ID import ID
 from ..data_types.NM import NM
+from ..data_types.ST import ST
 from ..data_types.XCN import XCN
+from ..data_types.CWE import CWE
 from ..data_types.LA1 import LA1
-from ..tables.PharmacyOrderTypes import PharmacyOrderTypes
-from ..tables.AllowSubstitution import AllowSubstitution
 from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..tables.AllowSubstitution import AllowSubstitution
+from ..tables.PharmacyOrderTypes import PharmacyOrderTypes
 
 
 """
@@ -21,7 +21,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RXO,
-    ID, CWE, ST, CQ, CE, NM, XCN, LA1
+    CE, CQ, ID, NM, ST, XCN, CWE, LA1
 )
 
 rxo = RXO(  #  - This is the master pharmacy/treatment order segment

@@ -1,48 +1,48 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.JCC import JCC
-from ..data_types.PTA import PTA
-from ..data_types.XTN import XTN
-from ..data_types.ST import ST
-from ..data_types.CX import CX
 from ..data_types.CE import CE
-from ..data_types.XPN import XPN
-from ..data_types.RMC import RMC
-from ..data_types.DT import DT
-from ..data_types.IS import IS
-from ..data_types.XCN import XCN
-from ..data_types.DDI import DDI
 from ..data_types.XON import XON
-from ..tables.EthnicGroup import EthnicGroup
-from ..tables.MaritalStatus import MaritalStatus
-from ..tables.PatientSRelationshipToInsured import PatientSRelationshipToInsured
+from ..data_types.PTA import PTA
+from ..data_types.IS import IS
+from ..data_types.CX import CX
+from ..data_types.DT import DT
+from ..data_types.ID import ID
+from ..data_types.XTN import XTN
+from ..data_types.XPN import XPN
+from ..data_types.ST import ST
+from ..data_types.JCC import JCC
+from ..data_types.XCN import XCN
+from ..data_types.RMC import RMC
+from ..data_types.DDI import DDI
 from ..tables.JobStatus import JobStatus
-from ..tables.PolicySource import PolicySource
-from ..tables.LivingArrangement import LivingArrangement
-from ..tables.Religion import Religion
-from ..tables.InsuranceCompanyContactReason import InsuranceCompanyContactReason
-from ..tables.MilitaryStatus import MilitaryStatus
-from ..tables.ContactReason import ContactReason
-from ..tables.AmbulatoryStatus import AmbulatoryStatus
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
-from ..tables.MilitaryRankOrGrade import MilitaryRankOrGrade
-from ..tables.EmployerInformationData import EmployerInformationData
-from ..tables.MilitaryRecipient import MilitaryRecipient
 from ..tables.StudentStatus import StudentStatus
-from ..tables.NonCoveredInsuranceCode import NonCoveredInsuranceCode
+from ..tables.AmbulatoryStatus import AmbulatoryStatus
 from ..tables.Citizenship import Citizenship
+from ..tables.ContactReason import ContactReason
+from ..tables.MilitaryRankOrGrade import MilitaryRankOrGrade
 from ..tables.PublicityCode import PublicityCode
+from ..tables.EmployerInformationData import EmployerInformationData
 from ..tables.MilitaryHandicappedProgramCode import MilitaryHandicappedProgramCode
-from ..tables.MilitaryService import MilitaryService
-from ..tables.EligibilitySource import EligibilitySource
-from ..tables.PrimaryLanguage import PrimaryLanguage
-from ..tables.Race import Race
-from ..tables.MailClaimParty import MailClaimParty
-from ..tables.PolicyScope import PolicyScope
 from ..tables.Nationality import Nationality
-from ..tables.Relationship import Relationship
+from ..tables.MilitaryStatus import MilitaryStatus
+from ..tables.PolicySource import PolicySource
+from ..tables.Race import Race
+from ..tables.InsuranceCompanyContactReason import InsuranceCompanyContactReason
+from ..tables.EthnicGroup import EthnicGroup
 from ..tables.LivingDependency import LivingDependency
+from ..tables.MaritalStatus import MaritalStatus
+from ..tables.PolicyScope import PolicyScope
+from ..tables.LivingArrangement import LivingArrangement
+from ..tables.EligibilitySource import EligibilitySource
+from ..tables.MailClaimParty import MailClaimParty
+from ..tables.PrimaryLanguage import PrimaryLanguage
+from ..tables.Religion import Religion
+from ..tables.Relationship import Relationship
+from ..tables.MilitaryRecipient import MilitaryRecipient
+from ..tables.PatientSRelationshipToInsured import PatientSRelationshipToInsured
+from ..tables.NonCoveredInsuranceCode import NonCoveredInsuranceCode
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..tables.MilitaryService import MilitaryService
 
 
 """
@@ -53,7 +53,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     IN2,
-    ID, JCC, PTA, XTN, ST, CX, CE, XPN, RMC, DT, IS, XCN, DDI, XON
+    CE, XON, PTA, IS, CX, DT, ID, XTN, XPN, ST, JCC, XCN, RMC, DDI
 )
 
 in2 = IN2(  #  - The IN2 segment contains additional insurance policy coverage and benefit information necessary for proper billing and reimbursement

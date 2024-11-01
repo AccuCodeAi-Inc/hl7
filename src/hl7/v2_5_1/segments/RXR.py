@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CWE import CWE
 from ..data_types.CE import CE
-from ..tables.AdministrationDevice import AdministrationDevice
-from ..tables.BodySiteModifier import BodySiteModifier
-from ..tables.BodySite import BodySite
-from ..tables.RouteOfAdministration import RouteOfAdministration
+from ..data_types.CWE import CWE
 from ..tables.AdministrationMethod import AdministrationMethod
+from ..tables.RouteOfAdministration import RouteOfAdministration
+from ..tables.BodySiteModifier import BodySiteModifier
+from ..tables.AdministrationDevice import AdministrationDevice
+from ..tables.BodySite import BodySite
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RXR,
-    CWE, CE
+    CE, CWE
 )
 
 rxr = RXR(  #  - The Pharmacy/Treatment Route segment contains the alternative combination of route, site, administration device, and administration method that are prescribed as they apply to a particular order

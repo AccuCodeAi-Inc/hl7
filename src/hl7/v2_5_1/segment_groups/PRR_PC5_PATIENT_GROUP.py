@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segment_groups.PRR_PC5_PATIENT_GROUP_PATIENT_VISIT_GROUP import (
+    PRR_PC5_PATIENT_GROUP_PATIENT_VISIT_GROUP,
+)
 from ..segments.PID import PID
 from ..segment_groups.PRR_PC5_PATIENT_GROUP_PROBLEM_GROUP import (
     PRR_PC5_PATIENT_GROUP_PROBLEM_GROUP,
-)
-from ..segment_groups.PRR_PC5_PATIENT_GROUP_PATIENT_VISIT_GROUP import (
-    PRR_PC5_PATIENT_GROUP_PATIENT_VISIT_GROUP,
 )
 
 
@@ -20,7 +20,7 @@ from utils.hl7.v2_5_1.segments import (
     PID
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    PRR_PC5_PATIENT_GROUP_PROBLEM_GROUP, PRR_PC5_PATIENT_GROUP_PATIENT_VISIT_GROUP
+    PRR_PC5_PATIENT_GROUP_PATIENT_VISIT_GROUP, PRR_PC5_PATIENT_GROUP_PROBLEM_GROUP
 )
 
 prr_pc5_patient_group = PRR_PC5_PATIENT_GROUP(  # PATIENT - Segment group for PRR_PC5 - Patient problem response consisting of PID, PATIENT VISIT|None, PROBLEM

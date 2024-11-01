@@ -1,19 +1,19 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.CWE import CWE
-from ..data_types.XTN import XTN
 from ..data_types.ELD import ELD
-from ..data_types.ST import ST
 from ..data_types.TX import TX
 from ..data_types.IS import IS
 from ..data_types.ERL import ERL
-from ..tables.MessageErrorConditionCodes import MessageErrorConditionCodes
+from ..data_types.ID import ID
+from ..data_types.XTN import XTN
+from ..data_types.ST import ST
+from ..data_types.CWE import CWE
 from ..tables.ApplicationErrorCode import ApplicationErrorCode
+from ..tables.OverrideType import OverrideType
 from ..tables.ErrorSeverity import ErrorSeverity
 from ..tables.InformPersonCode import InformPersonCode
 from ..tables.OverrideReason import OverrideReason
-from ..tables.OverrideType import OverrideType
+from ..tables.MessageErrorConditionCodes import MessageErrorConditionCodes
 
 
 """
@@ -24,7 +24,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     ERR,
-    ID, CWE, XTN, ELD, ST, TX, IS, ERL
+    ELD, TX, IS, ERL, ID, XTN, ST, CWE
 )
 
 err = ERR(  #  - The ERR segment is used to add error comments to acknowledgment messages

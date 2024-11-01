@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import DataType
 from .CE import CE
-from .TX import TX
 from .ST import ST
+from .TX import TX
 
 
 """
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PRL,
-    CE, TX, ST
+    CE, ST, TX
 )
 
 prl = PRL(  # Parent Result Link - Uniquely identifies the parent results OBX segment related to the current order, together with the information in OBR-29-parent

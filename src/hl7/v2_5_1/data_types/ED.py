@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import DataType
 from .ID import ID
-from .TX import TX
 from .HD import HD
-from ..tables.Encoding import Encoding
+from .TX import TX
 from ..tables.TypeOfReferencedData import TypeOfReferencedData
 from ..tables.SubtypeOfReferencedData import SubtypeOfReferencedData
+from ..tables.Encoding import Encoding
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     ED,
-    ID, TX, HD
+    ID, HD, TX
 )
 
 ed = ED(  # Encapsulated Data - This data type transmits encapsulated data from a source system to a destination system

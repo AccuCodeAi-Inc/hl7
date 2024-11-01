@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7Segment
+from ..data_types.IS import IS
 from ..data_types.CE import CE
 from ..data_types.NM import NM
-from ..data_types.IS import IS
-from ..tables.MatchAlgorithms import MatchAlgorithms
 from ..tables.MatchReason import MatchReason
+from ..tables.MatchAlgorithms import MatchAlgorithms
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     QRI,
-    CE, NM, IS
+    IS, CE, NM
 )
 
 qri = QRI(  #  - The QRI segment is used to indicate the weight match for a returned record (where the responding system employs a numeric algorithm) and/or the match reason code (where the responding system uses rules or other match options)

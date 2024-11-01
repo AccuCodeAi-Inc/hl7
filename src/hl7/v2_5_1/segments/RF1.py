@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7Segment
 from ..data_types.CE import CE
-from ..data_types.TS import TS
 from ..data_types.EI import EI
+from ..data_types.TS import TS
 from ..tables.ReferralStatus import ReferralStatus
+from ..tables.ReferralDisposition import ReferralDisposition
+from ..tables.ReferralCategory import ReferralCategory
 from ..tables.ReferralReason import ReferralReason
 from ..tables.ReferralType import ReferralType
-from ..tables.ReferralCategory import ReferralCategory
 from ..tables.ReferralPriority import ReferralPriority
-from ..tables.ReferralDisposition import ReferralDisposition
 
 
 """
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RF1,
-    CE, TS, EI
+    CE, EI, TS
 )
 
 rf1 = RF1(  #  - This segment represents information that may be useful when sending referrals from the referring provider to the referred-to provider

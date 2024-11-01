@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
+from ..segments.NTE import NTE
+from ..segment_groups.ORL_O36_RESPONSE_GROUP import ORL_O36_RESPONSE_GROUP
 from ..segments.SFT import SFT
 from ..segments.ERR import ERR
-from ..segments.NTE import NTE
 from ..segments.MSH import MSH
 from ..segments.MSA import MSA
-from ..segment_groups.ORL_O36_RESPONSE_GROUP import ORL_O36_RESPONSE_GROUP
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ORL_O36
 from utils.hl7.v2_5_1.segments import (
-    ERR, MSA, NTE, MSH, SFT
+    ERR, NTE, SFT, MSA, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
     ORL_O36_RESPONSE_GROUP

@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import QCK_Q02
 from utils.hl7.v2_5_1.segments import (
-    QAK, ERR, MSA, MSH, SFT
+    ERR, MSA, SFT, MSH, QAK
 )
 
 qck_q02 = QCK_Q02(  #  - This section is retained for backward compatibility and the framework for the existing functional queries

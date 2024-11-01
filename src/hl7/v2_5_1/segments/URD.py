@@ -1,13 +1,13 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
-from ..data_types.ST import ST
 from ..data_types.CE import CE
+from ..data_types.ID import ID
+from ..data_types.ST import ST
 from ..data_types.XCN import XCN
+from ..data_types.TS import TS
+from ..tables.QueryResultsLevel import QueryResultsLevel
 from ..tables.ReportPriority import ReportPriority
 from ..tables.WhatSubjectFilter import WhatSubjectFilter
-from ..tables.QueryResultsLevel import QueryResultsLevel
 
 
 """
@@ -18,7 +18,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     URD,
-    ID, TS, ST, CE, XCN
+    CE, ID, ST, XCN, TS
 )
 
 urd = URD(  #  - This segment is not carried forward to the recommended queries for v 2

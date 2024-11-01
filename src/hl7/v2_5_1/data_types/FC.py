@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import DataType
-from .TS import TS
 from .IS import IS
+from .TS import TS
 from ..tables.FinancialClass import FinancialClass
 
 
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     FC,
-    TS, IS
+    IS, TS
 )
 
 fc = FC(  # Financial Class - 

@@ -1,13 +1,13 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
-from ..data_types.TQ import TQ
-from ..data_types.ST import ST
 from ..data_types.CE import CE
+from ..data_types.TQ import TQ
+from ..data_types.ID import ID
 from ..data_types.NM import NM
 from ..data_types.XPN import XPN
+from ..data_types.ST import ST
 from ..data_types.EI import EI
+from ..data_types.TS import TS
 from ..tables.ProblemOrGoalActionCode import ProblemOrGoalActionCode
 
 
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     GOL,
-    ID, TS, TQ, ST, CE, NM, XPN, EI
+    CE, TQ, ID, NM, XPN, ST, EI, TS
 )
 
 gol = GOL(  #  - The goal detail segment contains the data necessary to add, update, correct, and delete the goals for an individual

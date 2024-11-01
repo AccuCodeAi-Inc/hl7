@@ -1,19 +1,19 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
-from ..data_types.ST import ST
 from ..data_types.CE import CE
-from ..data_types.VH import VH
 from ..data_types.IS import IS
+from ..data_types.ID import ID
 from ..data_types.XTN import XTN
+from ..data_types.ST import ST
+from ..data_types.VH import VH
 from ..data_types.PL import PL
-from ..tables.PatientClass import PatientClass
+from ..data_types.TS import TS
 from ..tables.HospitalService import HospitalService
+from ..tables.PatientClass import PatientClass
 from ..tables.LocationDepartment import LocationDepartment
+from ..tables.ActiveOrInactive import ActiveOrInactive
 from ..tables.SpecialtyType import SpecialtyType
 from ..tables.LocationCostCenter import LocationCostCenter
-from ..tables.ActiveOrInactive import ActiveOrInactive
 
 
 """
@@ -24,7 +24,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     LDP,
-    ID, TS, ST, CE, VH, IS, XTN, PL
+    CE, IS, ID, XTN, ST, VH, PL, TS
 )
 
 ldp = LDP(  #  - The LDP segment identifies how a patient location room is being used by a certain department

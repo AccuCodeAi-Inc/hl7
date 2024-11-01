@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7Segment
 from ..data_types.SI import SI
-from ..data_types.TX import TX
 from ..data_types.ST import ST
+from ..data_types.TX import TX
 
 
 """
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     DSP,
-    SI, TX, ST
+    SI, ST, TX
 )
 
 dsp = DSP(  #  - The DSP segment is used to contain data that has been preformatted by the sender for display

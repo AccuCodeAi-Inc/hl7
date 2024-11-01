@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TS import TS
-from ..data_types.XAD import XAD
-from ..data_types.PLN import PLN
 from ..data_types.CE import CE
-from ..data_types.XPN import XPN
+from ..data_types.TS import TS
 from ..data_types.XTN import XTN
+from ..data_types.XPN import XPN
+from ..data_types.PLN import PLN
 from ..data_types.PL import PL
+from ..data_types.XAD import XAD
 from ..tables.PreferredMethodOfContact import PreferredMethodOfContact
 from ..tables.ProviderRole import ProviderRole
 
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PRD,
-    TS, XAD, PLN, CE, XPN, XTN, PL
+    CE, TS, XTN, XPN, PLN, PL, XAD
 )
 
 prd = PRD(  #  - This segment will be employed as part of a patient referral message and its related transactions

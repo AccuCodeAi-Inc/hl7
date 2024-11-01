@@ -1,23 +1,23 @@
 from __future__ import annotations
 from ...base import DataType
+from .CE import CE
+from .IS import IS
 from .ID import ID
-from .TS import TS
-from .CWE import CWE
-from .DR import DR
 from .FN import FN
 from .ST import ST
-from .CE import CE
+from .CWE import CWE
+from .DR import DR
 from .HD import HD
-from .IS import IS
-from ..tables.NameAssemblyOrder import NameAssemblyOrder
-from ..tables.AssigningAuthority import AssigningAuthority
+from .TS import TS
+from ..tables.DegreeOrLicenseOrCertificate import DegreeOrLicenseOrCertificate
 from ..tables.CheckDigitScheme import CheckDigitScheme
 from ..tables.CnIdSource import CnIdSource
-from ..tables.IdentifierType import IdentifierType
-from ..tables.NameContext import NameContext
 from ..tables.NameType import NameType
-from ..tables.DegreeOrLicenseOrCertificate import DegreeOrLicenseOrCertificate
+from ..tables.NameAssemblyOrder import NameAssemblyOrder
+from ..tables.NameContext import NameContext
 from ..tables.NameOrAddressRepresentation import NameOrAddressRepresentation
+from ..tables.AssigningAuthority import AssigningAuthority
+from ..tables.IdentifierType import IdentifierType
 
 
 """
@@ -28,7 +28,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PPN,
-    ID, TS, CWE, DR, FN, ST, CE, HD, IS
+    CE, IS, ID, FN, ST, CWE, DR, HD, TS
 )
 
 ppn = PPN(  # Performing Person Time Stamp - This data type is the equivalent of an XCN data type joined with a TS data type

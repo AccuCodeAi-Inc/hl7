@@ -1,13 +1,13 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CWE import CWE
-from ..data_types.TS import TS
-from ..data_types.ST import ST
-from ..data_types.MO import MO
 from ..data_types.CE import CE
 from ..data_types.NM import NM
-from ..tables.ProcedureCode import ProcedureCode
+from ..data_types.ST import ST
+from ..data_types.CWE import CWE
+from ..data_types.MO import MO
+from ..data_types.TS import TS
 from ..tables.ProcedureCodeModifier import ProcedureCodeModifier
+from ..tables.ProcedureCode import ProcedureCode
 
 
 """
@@ -18,7 +18,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     IIM,
-    CWE, TS, ST, MO, CE, NM
+    CE, NM, ST, CWE, MO, TS
 )
 
 iim = IIM(  #  - The Inventory Item Master segment (IIM) contains information about the stock of product that can be used to fulfill an ordered test/service

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import DataType
-from .TS import TS
 from .CE import CE
+from .TS import TS
 from ..tables.Institution import Institution
 
 
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     DIN,
-    TS, CE
+    CE, TS
 )
 
 din = DIN(  # Date and Institution Name - Specifies the date and institution information where a staff member became active or inactive

@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import REF_I13_INSURANCE_GROUP
 from utils.hl7.v2_5_1.segments import (
-    IN2, IN1, IN3
+    IN2, IN3, IN1
 )
 
 ref_i13_insurance_group = REF_I13_INSURANCE_GROUP(  # INSURANCE - Segment group for REF_I13 - Modify patient referral consisting of IN1, IN2|None, IN3|None

@@ -1,15 +1,15 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.CTD import CTD
+from ..segments.NTE import NTE
 from ..segments.OBR import OBR
-from ..segments.ORC import ORC
 from ..segment_groups.OMG_O19_ORDER_GROUP_PRIOR_RESULT_GROUP_ORDER_PRIOR_GROUP_TIMING_PRIOR_GROUP import (
     OMG_O19_ORDER_GROUP_PRIOR_RESULT_GROUP_ORDER_PRIOR_GROUP_TIMING_PRIOR_GROUP,
 )
-from ..segments.NTE import NTE
-from ..segments.CTD import CTD
 from ..segment_groups.OMG_O19_ORDER_GROUP_PRIOR_RESULT_GROUP_ORDER_PRIOR_GROUP_OBSERVATION_PRIOR_GROUP import (
     OMG_O19_ORDER_GROUP_PRIOR_RESULT_GROUP_ORDER_PRIOR_GROUP_OBSERVATION_PRIOR_GROUP,
 )
+from ..segments.ORC import ORC
 
 
 """
@@ -20,7 +20,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OMG_O19_ORDER_GROUP_PRIOR_RESULT_GROUP_ORDER_PRIOR_GROUP
 from utils.hl7.v2_5_1.segments import (
-    CTD, OBR, NTE, ORC
+    NTE, CTD, ORC, OBR
 )
 from utils.hl7.v2_5_1.segment_groups import (
     OMG_O19_ORDER_GROUP_PRIOR_RESULT_GROUP_ORDER_PRIOR_GROUP_OBSERVATION_PRIOR_GROUP, OMG_O19_ORDER_GROUP_PRIOR_RESULT_GROUP_ORDER_PRIOR_GROUP_TIMING_PRIOR_GROUP

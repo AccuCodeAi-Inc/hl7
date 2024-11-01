@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7Segment
 from ..data_types.ID import ID
-from ..data_types.XAD import XAD
-from ..data_types.XCN import XCN
-from ..data_types.ST import ST
-from ..data_types.EI import EI
 from ..data_types.XTN import XTN
+from ..data_types.ST import ST
+from ..data_types.XCN import XCN
+from ..data_types.EI import EI
+from ..data_types.XAD import XAD
 from ..tables.FacilityType import FacilityType
 
 
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     FAC,
-    ID, XAD, XCN, ST, EI, XTN
+    ID, XTN, ST, XCN, EI, XAD
 )
 
 fac = FAC(  #  - 

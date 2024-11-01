@@ -1,18 +1,18 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CWE import CWE
-from ..data_types.TS import TS
-from ..data_types.ID import ID
-from ..data_types.XAD import XAD
-from ..data_types.SI import SI
 from ..data_types.CE import CE
+from ..data_types.ID import ID
 from ..data_types.NM import NM
+from ..data_types.CWE import CWE
+from ..data_types.SI import SI
+from ..data_types.XAD import XAD
 from ..data_types.PL import PL
+from ..data_types.TS import TS
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
 from ..tables.BloodProductProcessingRequirements import (
     BloodProductProcessingRequirements,
 )
 from ..tables.IndicationForUse import IndicationForUse
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
 
 
 """
@@ -23,7 +23,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     BPO,
-    CWE, TS, ID, XAD, SI, CE, NM, PL
+    CE, ID, NM, CWE, SI, XAD, PL, TS
 )
 
 bpo = BPO(  #  - Blood product order messages require additional information that is not available in other standard HL7 order messages

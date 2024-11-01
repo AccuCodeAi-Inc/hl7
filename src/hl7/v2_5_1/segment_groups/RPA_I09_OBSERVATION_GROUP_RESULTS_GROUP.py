@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.NTE import NTE
 from ..segments.OBX import OBX
+from ..segments.NTE import NTE
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RPA_I09_OBSERVATION_GROUP_RESULTS_GROUP
 from utils.hl7.v2_5_1.segments import (
-    OBX, NTE
+    NTE, OBX
 )
 
 rpa_i09_observation_group_results_group = RPA_I09_OBSERVATION_GROUP_RESULTS_GROUP(  # RESULTS - Segment group for RPA_I09_OBSERVATION_GROUP - OBSERVATION consisting of OBX, NTE|None

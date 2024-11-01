@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TS import TS
-from ..data_types.NM import NM
 from ..data_types.CE import CE
+from ..data_types.NM import NM
+from ..data_types.TS import TS
 
 
 """
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CNS,
-    TS, NM, CE
+    CE, NM, TS
 )
 
 cns = CNS(  #  - The clear equipment notification segment contains the data necessary to allow the receiving equipment to clear any associated notifications

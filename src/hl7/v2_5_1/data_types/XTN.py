@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import DataType
+from .ST import ST
 from .ID import ID
 from .NM import NM
-from .ST import ST
 from ..tables.PhoneNumber import PhoneNumber
-from ..tables.TelecommunicationUseCode import TelecommunicationUseCode
 from ..tables.TelecommunicationEquipmentType import TelecommunicationEquipmentType
+from ..tables.TelecommunicationUseCode import TelecommunicationUseCode
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     XTN,
-    ID, NM, ST
+    ST, ID, NM
 )
 
 xtn = XTN(  # Extended Telecommunication Number - 

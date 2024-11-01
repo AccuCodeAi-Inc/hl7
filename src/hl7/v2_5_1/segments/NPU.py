@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.PL import PL
 from ..data_types.IS import IS
+from ..data_types.PL import PL
 from ..tables.BedStatus import BedStatus
 
 
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     NPU,
-    PL, IS
+    IS, PL
 )
 
 npu = NPU(  #  - The NPU segment allows the updating of census (bed status) data without sending patient-specific data

@@ -1,23 +1,23 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.PRB import PRB
+from ..segments.VAR import VAR
+from ..segments.NTE import NTE
 from ..segment_groups.PPR_PC1_PROBLEM_GROUP_PROBLEM_OBSERVATION_GROUP import (
     PPR_PC1_PROBLEM_GROUP_PROBLEM_OBSERVATION_GROUP,
 )
+from ..segments.PRB import PRB
 from ..segment_groups.PPR_PC1_PROBLEM_GROUP_GOAL_GROUP import (
     PPR_PC1_PROBLEM_GROUP_GOAL_GROUP,
-)
-from ..segment_groups.PPR_PC1_PROBLEM_GROUP_PATHWAY_GROUP import (
-    PPR_PC1_PROBLEM_GROUP_PATHWAY_GROUP,
-)
-from ..segments.NTE import NTE
-from ..segment_groups.PPR_PC1_PROBLEM_GROUP_ORDER_GROUP import (
-    PPR_PC1_PROBLEM_GROUP_ORDER_GROUP,
 )
 from ..segment_groups.PPR_PC1_PROBLEM_GROUP_PROBLEM_ROLE_GROUP import (
     PPR_PC1_PROBLEM_GROUP_PROBLEM_ROLE_GROUP,
 )
-from ..segments.VAR import VAR
+from ..segment_groups.PPR_PC1_PROBLEM_GROUP_PATHWAY_GROUP import (
+    PPR_PC1_PROBLEM_GROUP_PATHWAY_GROUP,
+)
+from ..segment_groups.PPR_PC1_PROBLEM_GROUP_ORDER_GROUP import (
+    PPR_PC1_PROBLEM_GROUP_ORDER_GROUP,
+)
 
 
 """
@@ -28,10 +28,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PPR_PC1_PROBLEM_GROUP
 from utils.hl7.v2_5_1.segments import (
-    VAR, PRB, NTE
+    NTE, VAR, PRB
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    PPR_PC1_PROBLEM_GROUP_PROBLEM_ROLE_GROUP, PPR_PC1_PROBLEM_GROUP_ORDER_GROUP, PPR_PC1_PROBLEM_GROUP_PATHWAY_GROUP, PPR_PC1_PROBLEM_GROUP_PROBLEM_OBSERVATION_GROUP, PPR_PC1_PROBLEM_GROUP_GOAL_GROUP
+    PPR_PC1_PROBLEM_GROUP_ORDER_GROUP, PPR_PC1_PROBLEM_GROUP_PROBLEM_ROLE_GROUP, PPR_PC1_PROBLEM_GROUP_GOAL_GROUP, PPR_PC1_PROBLEM_GROUP_PROBLEM_OBSERVATION_GROUP, PPR_PC1_PROBLEM_GROUP_PATHWAY_GROUP
 )
 
 ppr_pc1_problem_group = PPR_PC1_PROBLEM_GROUP(  # PROBLEM - Segment group for PPR_PC1 - Problem add consisting of PRB, NTE|None, VAR|None, PROBLEM ROLE|None, PATHWAY|None, PROBLEM OBSERVATION|None, GOAL|None, ORDER|None

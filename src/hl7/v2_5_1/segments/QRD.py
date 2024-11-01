@@ -1,17 +1,17 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
-from ..data_types.VR import VR
-from ..data_types.ST import ST
-from ..data_types.CQ import CQ
 from ..data_types.CE import CE
+from ..data_types.CQ import CQ
+from ..data_types.VR import VR
+from ..data_types.ID import ID
+from ..data_types.ST import ST
 from ..data_types.XCN import XCN
-from ..tables.QueryResultsLevel import QueryResultsLevel
-from ..tables.QueryPriority import QueryPriority
-from ..tables.WhatSubjectFilter import WhatSubjectFilter
+from ..data_types.TS import TS
 from ..tables.QueryOrResponseFormatCode import QueryOrResponseFormatCode
+from ..tables.QueryResultsLevel import QueryResultsLevel
 from ..tables.DeferredResponseType import DeferredResponseType
+from ..tables.WhatSubjectFilter import WhatSubjectFilter
+from ..tables.QueryPriority import QueryPriority
 
 
 """
@@ -22,7 +22,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     QRD,
-    ID, TS, VR, ST, CQ, CE, XCN
+    CE, CQ, VR, ID, ST, XCN, TS
 )
 
 qrd = QRD(  #  - This segment is not carried forward to the recommended queries for v 2

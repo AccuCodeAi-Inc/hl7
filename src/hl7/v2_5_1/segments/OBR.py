@@ -1,38 +1,38 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
-from ..data_types.CWE import CWE
 from ..data_types.PRL import PRL
-from ..data_types.TQ import TQ
-from ..data_types.NDL import NDL
-from ..data_types.XTN import XTN
-from ..data_types.MOC import MOC
-from ..data_types.IS import IS
-from ..data_types.ST import ST
-from ..data_types.CQ import CQ
-from ..data_types.SI import SI
 from ..data_types.CE import CE
-from ..data_types.NM import NM
-from ..data_types.EI import EI
 from ..data_types.SPS import SPS
 from ..data_types.EIP import EIP
+from ..data_types.TQ import TQ
+from ..data_types.NDL import NDL
+from ..data_types.IS import IS
+from ..data_types.CQ import CQ
+from ..data_types.EI import EI
+from ..data_types.ID import ID
+from ..data_types.XTN import XTN
+from ..data_types.NM import NM
+from ..data_types.MOC import MOC
+from ..data_types.ST import ST
 from ..data_types.XCN import XCN
-from ..tables.ResultStatus import ResultStatus
-from ..tables.ProcedureCode import ProcedureCode
+from ..data_types.CWE import CWE
+from ..data_types.SI import SI
+from ..data_types.TS import TS
 from ..tables.EscortRequired import EscortRequired
-from ..tables.ProcedureCodeModifier import ProcedureCodeModifier
-from ..tables.SupplementalServiceInformationValues import (
-    SupplementalServiceInformationValues,
-)
-from ..tables.ObservationResultHandling import ObservationResultHandling
-from ..tables.SpecimenActionCode import SpecimenActionCode
 from ..tables.DiagnosticServiceSectionId import DiagnosticServiceSectionId
-from ..tables.TransportationMode import TransportationMode
-from ..tables.TransportArranged import TransportArranged
+from ..tables.ResultStatus import ResultStatus
+from ..tables.ProcedureCodeModifier import ProcedureCodeModifier
+from ..tables.ProcedureCode import ProcedureCode
+from ..tables.SpecimenActionCode import SpecimenActionCode
 from ..tables.MedicallyNecessaryDuplicateProcedureReason import (
     MedicallyNecessaryDuplicateProcedureReason,
 )
+from ..tables.TransportArranged import TransportArranged
+from ..tables.ObservationResultHandling import ObservationResultHandling
+from ..tables.SupplementalServiceInformationValues import (
+    SupplementalServiceInformationValues,
+)
+from ..tables.TransportationMode import TransportationMode
 
 
 """
@@ -43,7 +43,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     OBR,
-    ID, TS, CWE, PRL, TQ, NDL, XTN, MOC, IS, ST, CQ, SI, CE, NM, EI, SPS, EIP, XCN
+    PRL, CE, SPS, EIP, TQ, NDL, IS, CQ, EI, ID, XTN, NM, MOC, ST, XCN, CWE, SI, TS
 )
 
 obr = OBR(  #  - The Observation Request (OBR) segment is used to transmit information specific to an order for a diagnostic study or observation, physical exam, or assessment

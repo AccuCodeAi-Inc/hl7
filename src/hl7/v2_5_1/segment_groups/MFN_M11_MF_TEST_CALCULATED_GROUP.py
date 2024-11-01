@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.OM1 import OM1
 from ..segment_groups.MFN_M11_MF_TEST_CALCULATED_GROUP_MF_TEST_CALC_DETAIL_GROUP import (
     MFN_M11_MF_TEST_CALCULATED_GROUP_MF_TEST_CALC_DETAIL_GROUP,
 )
 from ..segments.MFE import MFE
-from ..segments.OM1 import OM1
 
 
 """

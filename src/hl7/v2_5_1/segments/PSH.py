@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7Segment
+from ..data_types.CQ import CQ
 from ..data_types.ID import ID
-from ..data_types.TS import TS
+from ..data_types.NM import NM
 from ..data_types.ST import ST
 from ..data_types.FT import FT
-from ..data_types.CQ import CQ
-from ..data_types.NM import NM
+from ..data_types.TS import TS
 from ..tables.QuantityMethod import QuantityMethod
 
 
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PSH,
-    ID, TS, ST, FT, CQ, NM
+    CQ, ID, NM, ST, FT, TS
 )
 
 psh = PSH(  #  - 

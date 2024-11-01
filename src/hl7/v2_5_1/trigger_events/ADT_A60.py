@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
+from ..segments.IAM import IAM
+from ..segments.PV2 import PV2
 from ..segments.EVN import EVN
 from ..segments.SFT import SFT
-from ..segments.PV1 import PV1
-from ..segments.MSH import MSH
 from ..segments.PID import PID
-from ..segments.PV2 import PV2
-from ..segments.IAM import IAM
+from ..segments.MSH import MSH
+from ..segments.PV1 import PV1
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ADT_A60
 from utils.hl7.v2_5_1.segments import (
-    PV1, IAM, MSH, SFT, PID, EVN, PV2
+    PV2, PV1, IAM, EVN, SFT, PID, MSH
 )
 
 adt_a60 = ADT_A60(  #  - This trigger event is used when person/patient allergy information has changed

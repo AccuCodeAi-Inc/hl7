@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.XAD import XAD
-from ..data_types.PLN import PLN
 from ..data_types.CE import CE
-from ..data_types.XPN import XPN
 from ..data_types.XTN import XTN
+from ..data_types.XPN import XPN
+from ..data_types.PLN import PLN
 from ..data_types.PL import PL
+from ..data_types.XAD import XAD
 from ..tables.PreferredMethodOfContact import PreferredMethodOfContact
 from ..tables.ContactRole import ContactRole
 
@@ -18,7 +18,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CTD,
-    XAD, PLN, CE, XPN, XTN, PL
+    CE, XTN, XPN, PLN, PL, XAD
 )
 
 ctd = CTD(  #  - The CTD segment may identify any contact personnel associated with a patient referral message and its related transactions

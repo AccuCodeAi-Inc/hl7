@@ -1,25 +1,25 @@
 from __future__ import annotations
 from ...base import HL7Segment
+from ..data_types.CE import CE
+from ..data_types.XON import XON
+from ..data_types.IS import IS
+from ..data_types.CX import CX
+from ..data_types.DT import DT
 from ..data_types.ID import ID
 from ..data_types.XCN import XCN
-from ..data_types.CX import CX
-from ..data_types.CE import CE
-from ..data_types.DT import DT
-from ..data_types.IS import IS
-from ..data_types.XON import XON
-from ..tables.PublicityCode import PublicityCode
-from ..tables.ImmunizationRegistryStatus import ImmunizationRegistryStatus
-from ..tables.Handicap import Handicap
+from ..tables.StudentStatus import StudentStatus
 from ..tables.AdvanceDirectiveCode import AdvanceDirectiveCode
-from ..tables.MilitaryStatus import MilitaryStatus
-from ..tables.LivingArrangement import LivingArrangement
 from ..tables.LivingWillCode import LivingWillCode
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..tables.LivingDependency import LivingDependency
+from ..tables.ImmunizationRegistryStatus import ImmunizationRegistryStatus
+from ..tables.LivingArrangement import LivingArrangement
 from ..tables.MilitaryRankOrGrade import MilitaryRankOrGrade
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..tables.PublicityCode import PublicityCode
 from ..tables.OrganDonorCode import OrganDonorCode
 from ..tables.MilitaryService import MilitaryService
-from ..tables.LivingDependency import LivingDependency
-from ..tables.StudentStatus import StudentStatus
+from ..tables.Handicap import Handicap
+from ..tables.MilitaryStatus import MilitaryStatus
 
 
 """
@@ -30,7 +30,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PD1,
-    ID, XCN, CX, CE, DT, IS, XON
+    CE, XON, IS, CX, DT, ID, XCN
 )
 
 pd1 = PD1(  #  - The patient additional demographic segment contains demographic information that is likely to change about the patient

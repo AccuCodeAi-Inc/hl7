@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RPI_I01_GUARANTOR_INSURANCE_GROUP_INSURANCE_GROUP
 from utils.hl7.v2_5_1.segments import (
-    IN2, IN1, IN3
+    IN2, IN3, IN1
 )
 
 rpi_i01_guarantor_insurance_group_insurance_group = RPI_I01_GUARANTOR_INSURANCE_GROUP_INSURANCE_GROUP(  # INSURANCE - Segment group for RPI_I01_GUARANTOR_INSURANCE_GROUP - GUARANTOR INSURANCE consisting of IN1, IN2|None, IN3|None

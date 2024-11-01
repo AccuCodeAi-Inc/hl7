@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.UVC import UVC
 from ..data_types.OCD import OCD
-from ..data_types.ST import ST
-from ..data_types.SI import SI
-from ..data_types.OSP import OSP
-from ..data_types.NM import NM
 from ..data_types.IS import IS
+from ..data_types.NM import NM
+from ..data_types.ST import ST
+from ..data_types.OSP import OSP
+from ..data_types.SI import SI
+from ..data_types.UVC import UVC
 from ..tables.ConditionCode import ConditionCode
 
 
@@ -18,7 +18,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     UB2,
-    UVC, OCD, ST, SI, OSP, NM, IS
+    OCD, IS, NM, ST, OSP, SI, UVC
 )
 
 ub2 = UB2(  #  - The UB2 segment contains data necessary to complete UB92 bills specific to the United States; other realms may choose to implement using regional code sets

@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.ERR import ERR
 from ..segment_groups.SQR_S25_SCHEDULE_GROUP import SQR_S25_SCHEDULE_GROUP
+from ..segments.DSC import DSC
+from ..segments.ERR import ERR
 from ..segments.MSH import MSH
 from ..segments.MSA import MSA
-from ..segments.DSC import DSC
 from ..segments.QAK import QAK
 
 
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import SQR_S25
 from utils.hl7.v2_5_1.segments import (
-    QAK, ERR, MSA, DSC, MSH
+    ERR, DSC, MSA, MSH, QAK
 )
 from utils.hl7.v2_5_1.segment_groups import (
     SQR_S25_SCHEDULE_GROUP

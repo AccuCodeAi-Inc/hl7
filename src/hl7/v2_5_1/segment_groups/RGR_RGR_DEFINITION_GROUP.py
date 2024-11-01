@@ -3,11 +3,11 @@ from ...base import HL7SegmentGroup
 from ..segment_groups.RGR_RGR_DEFINITION_GROUP_ORDER_GROUP import (
     RGR_RGR_DEFINITION_GROUP_ORDER_GROUP,
 )
-from ..segments.QRF import QRF
 from ..segment_groups.RGR_RGR_DEFINITION_GROUP_PATIENT_GROUP import (
     RGR_RGR_DEFINITION_GROUP_PATIENT_GROUP,
 )
 from ..segments.QRD import QRD
+from ..segments.QRF import QRF
 
 
 """
@@ -18,10 +18,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RGR_RGR_DEFINITION_GROUP
 from utils.hl7.v2_5_1.segments import (
-    QRD, QRF
+    QRF, QRD
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    RGR_RGR_DEFINITION_GROUP_PATIENT_GROUP, RGR_RGR_DEFINITION_GROUP_ORDER_GROUP
+    RGR_RGR_DEFINITION_GROUP_ORDER_GROUP, RGR_RGR_DEFINITION_GROUP_PATIENT_GROUP
 )
 
 rgr_rgr_definition_group = RGR_RGR_DEFINITION_GROUP(  # DEFINITION - Segment group for RGR_RGR - Pharmacy/Treatment Dose Information consisting of QRD, QRF|None, PATIENT|None, ORDER

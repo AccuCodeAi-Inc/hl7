@@ -2,9 +2,9 @@ from __future__ import annotations
 from ...base import HL7Segment
 from ..data_types.CE import CE
 from ..data_types.PL import PL
-from ..tables.AccommodationCode import AccommodationCode
-from ..tables.LocationDepartment import LocationDepartment
 from ..tables.TransactionCode import TransactionCode
+from ..tables.LocationDepartment import LocationDepartment
+from ..tables.AccommodationCode import AccommodationCode
 
 
 """

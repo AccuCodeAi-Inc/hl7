@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.RDF import RDF
-from ..segments.SFT import SFT
-from ..segments.VTQ import VTQ
-from ..segments.MSH import MSH
 from ..segments.DSC import DSC
+from ..segments.SFT import SFT
+from ..segments.MSH import MSH
+from ..segments.RDF import RDF
+from ..segments.VTQ import VTQ
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import VQQ_Q07
 from utils.hl7.v2_5_1.segments import (
-    DSC, RDF, MSH, SFT, VTQ
+    DSC, RDF, SFT, MSH, VTQ
 )
 
 vqq_q07 = VQQ_Q07(  #  - The VTQ provides a way to query for data to be expressed as tables without having to specify SQL or a stored procedure

@@ -1,13 +1,13 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TS import TS
-from ..data_types.ST import ST
 from ..data_types.CE import CE
-from ..data_types.NM import NM
 from ..data_types.EI import EI
+from ..data_types.NM import NM
+from ..data_types.ST import ST
 from ..data_types.CP import CP
-from ..tables.InsurancePlanId import InsurancePlanId
+from ..data_types.TS import TS
 from ..tables.InsuranceCompanyIdCodes import InsuranceCompanyIdCodes
+from ..tables.InsurancePlanId import InsurancePlanId
 
 
 """
@@ -18,7 +18,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     AUT,
-    TS, ST, CE, NM, EI, CP
+    CE, EI, NM, ST, CP, TS
 )
 
 aut = AUT(  #  - This segment represents an authorization or a pre-authorization for a referred procedure or requested service by the payor covering the patients health care

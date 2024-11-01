@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CP import CP
 from ..data_types.IS import IS
-from ..tables.TypeOfBillCode import TypeOfBillCode
-from ..tables.OverallClaimDispositionCode import OverallClaimDispositionCode
+from ..data_types.CP import CP
 from ..tables.RevenueCode import RevenueCode
 from ..tables.OceEditCode import OceEditCode
+from ..tables.OverallClaimDispositionCode import OverallClaimDispositionCode
+from ..tables.TypeOfBillCode import TypeOfBillCode
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     GP1,
-    CP, IS
+    IS, CP
 )
 
 gp1 = GP1(  #  - These fields are used in grouping and reimbursement for CMS APCs

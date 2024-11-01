@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segment_groups.ORM_O01_PATIENT_GROUP import ORM_O01_PATIENT_GROUP
 from ..segments.MSH import MSH
-from ..segments.NTE import NTE
 from ..segment_groups.ORM_O01_ORDER_GROUP import ORM_O01_ORDER_GROUP
+from ..segments.NTE import NTE
+from ..segment_groups.ORM_O01_PATIENT_GROUP import ORM_O01_PATIENT_GROUP
 
 
 """

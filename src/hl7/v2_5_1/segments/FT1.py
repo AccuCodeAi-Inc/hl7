@@ -1,34 +1,34 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CWE import CWE
-from ..data_types.TS import TS
-from ..data_types.DR import DR
-from ..data_types.ST import ST
-from ..data_types.CX import CX
-from ..data_types.SI import SI
 from ..data_types.CE import CE
-from ..data_types.NM import NM
 from ..data_types.CNE import CNE
-from ..data_types.EI import EI
 from ..data_types.IS import IS
+from ..data_types.CX import CX
+from ..data_types.EI import EI
+from ..data_types.NM import NM
+from ..data_types.SI import SI
+from ..data_types.ST import ST
 from ..data_types.XCN import XCN
 from ..data_types.CP import CP
+from ..data_types.CWE import CWE
+from ..data_types.DR import DR
 from ..data_types.PL import PL
-from ..tables.DiagnosisCode import DiagnosisCode
+from ..data_types.TS import TS
 from ..tables.TransactionType import TransactionType
-from ..tables.ProcedureCode import ProcedureCode
+from ..tables.FeeSchedule import FeeSchedule
 from ..tables.TransactionCode import TransactionCode
-from ..tables.ProcedureCodeModifier import ProcedureCodeModifier
-from ..tables.NdcCodes import NdcCodes
-from ..tables.AdvancedBeneficiaryNoticeCode import AdvancedBeneficiaryNoticeCode
-from ..tables.PatientType import PatientType
-from ..tables.DepartmentCode import DepartmentCode
-from ..tables.InsurancePlanId import InsurancePlanId
 from ..tables.PerformedBy import PerformedBy
+from ..tables.ProcedureCodeModifier import ProcedureCodeModifier
+from ..tables.DiagnosisCode import DiagnosisCode
+from ..tables.ProcedureCode import ProcedureCode
+from ..tables.AdvancedBeneficiaryNoticeCode import AdvancedBeneficiaryNoticeCode
 from ..tables.MedicallyNecessaryDuplicateProcedureReason import (
     MedicallyNecessaryDuplicateProcedureReason,
 )
-from ..tables.FeeSchedule import FeeSchedule
+from ..tables.PatientType import PatientType
+from ..tables.NdcCodes import NdcCodes
+from ..tables.DepartmentCode import DepartmentCode
+from ..tables.InsurancePlanId import InsurancePlanId
 
 
 """
@@ -39,7 +39,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     FT1,
-    CWE, TS, DR, ST, CX, SI, CE, NM, CNE, EI, IS, XCN, CP, PL
+    CE, CNE, IS, CX, EI, NM, SI, ST, XCN, CP, CWE, DR, PL, TS
 )
 
 ft1 = FT1(  #  - The FT1 segment contains the detail data necessary to post charges, payments, adjustments, etc

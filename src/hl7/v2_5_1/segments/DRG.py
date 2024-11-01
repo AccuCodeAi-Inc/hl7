@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
 from ..data_types.CE import CE
-from ..data_types.NM import NM
 from ..data_types.IS import IS
+from ..data_types.ID import ID
+from ..data_types.NM import NM
 from ..data_types.CP import CP
+from ..data_types.TS import TS
+from ..tables.DrgPayor import DrgPayor
 from ..tables.DrgGrouperReviewCode import DrgGrouperReviewCode
 from ..tables.DiagnosisRelatedGroup import DiagnosisRelatedGroup
-from ..tables.DrgPayor import DrgPayor
 from ..tables.DrgTransferType import DrgTransferType
 from ..tables.YesOrNoIndicator import YesOrNoIndicator
 from ..tables.OutlierType import OutlierType
@@ -22,7 +22,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     DRG,
-    ID, TS, CE, NM, IS, CP
+    CE, IS, ID, NM, CP, TS
 )
 
 drg = DRG(  #  - The DRG segment contains diagnoses-related grouping information of various types

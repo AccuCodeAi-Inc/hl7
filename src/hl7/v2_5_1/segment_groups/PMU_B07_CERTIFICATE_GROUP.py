@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.CER import CER
 from ..segments.ROL import ROL
+from ..segments.CER import CER
 
 
 """

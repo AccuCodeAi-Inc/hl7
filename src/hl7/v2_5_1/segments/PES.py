@@ -1,17 +1,17 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
+from ..data_types.XON import XON
 from ..data_types.TS import TS
-from ..data_types.XAD import XAD
+from ..data_types.ID import ID
 from ..data_types.XTN import XTN
+from ..data_types.NM import NM
 from ..data_types.XCN import XCN
 from ..data_types.FT import FT
-from ..data_types.NM import NM
 from ..data_types.EI import EI
-from ..data_types.XON import XON
+from ..data_types.XAD import XAD
 from ..tables.EventReportedTo import EventReportedTo
-from ..tables.ReportTiming import ReportTiming
 from ..tables.ReportSource import ReportSource
+from ..tables.ReportTiming import ReportTiming
 
 
 """
@@ -22,7 +22,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PES,
-    ID, TS, XAD, XTN, XCN, FT, NM, EI, XON
+    XON, TS, ID, XTN, NM, XCN, FT, EI, XAD
 )
 
 pes = PES(  #  - 

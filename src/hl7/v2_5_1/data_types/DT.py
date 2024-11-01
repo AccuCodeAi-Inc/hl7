@@ -37,11 +37,57 @@ class DT(str, HL7Primitive):
     _hl7_ref_url = "https://hl7-definition.caristix.com/v2/HL7v2.5.1/DataTypes/DT"
 
     def __new__(cls, yymmdd: str):
-        if len(yymmdd) > 8:
+        dt = super().__new__(cls, yymmdd)
+        dt._validate_or_raise()
+        return dt
+
+    def _validate_or_raise(self):
+        if len(self) == 0:
+            raise HL7PrimitiveParseException("DT - Date content is empty")
+
+        if len(self) > 8:
             raise HL7PrimitiveParseException(
                 "DT - Date content exceeds maximum length of 8 characters"
             )
-        return super().__new__(cls, yymmdd)
+        # Year validation (1000-3000)
+        if not (1000 <= self.year <= 3000):
+            raise HL7PrimitiveParseException(
+                f"DTM - Invalid year: {self.year}. Must be between 1000 and 3000"
+            )
+
+        # Month validation (1-12)
+        if self.month is not None and not (1 <= self.month <= 12):
+            raise HL7PrimitiveParseException(
+                f"DTM - Invalid month: {self.month}. Must be between 1 and 12"
+            )
+
+        # Day validation (1-31, considering month)
+        if self.day is not None:
+            days_in_month = {
+                1: 31,
+                2: 29 if self._is_leap_year() else 28,
+                3: 31,
+                4: 30,
+                5: 31,
+                6: 30,
+                7: 31,
+                8: 31,
+                9: 30,
+                10: 31,
+                11: 30,
+                12: 31,
+            }
+            max_days = days_in_month.get(self.month, 31)
+            if not (1 <= self.day <= max_days):
+                raise HL7PrimitiveParseException(
+                    f"DTM - Invalid day: {self.day} for month {self.month}. Must be between 1 and {max_days}"
+                )
+
+    def _is_leap_year(self):
+        """Helper method to determine if the current year is a leap year"""
+        if self.year is None:
+            return False
+        return (self.year % 4 == 0 and self.year % 100 != 0) or (self.year % 400 == 0)
 
     @classmethod
     def from_datetime(cls, dt: datetime) -> DT:
@@ -91,11 +137,12 @@ class DT(str, HL7Primitive):
     def from_iso(cls, iso_date: str) -> DT:
         """Create a DT instance from an ISO format date string (YYYY-MM-DD)."""
         try:
+            iso_date = iso_date.replace("/", "").replace("-", "")
             return cls.from_date(date.fromisoformat(iso_date))
-        except HL7PrimitiveParseException:
+        except Exception as e:
             raise HL7PrimitiveParseException(
                 "Invalid ISO date format. Expected YYYY-MM-DD"
-            )
+            ) from e
 
     def to_datetime(self) -> datetime:
         """Convert to datetime object. Time components will be set to midnight."""

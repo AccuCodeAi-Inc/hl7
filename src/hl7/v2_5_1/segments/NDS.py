@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TS import TS
-from ..data_types.NM import NM
 from ..data_types.CE import CE
+from ..data_types.NM import NM
+from ..data_types.TS import TS
 from ..tables.AlertLevel import AlertLevel
 
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     NDS,
-    TS, NM, CE
+    CE, NM, TS
 )
 
 nds = NDS(  #  - The equipment notification detail segment is the data necessary to maintain an adequate audit trail as well as notifications of events, (e

@@ -1,24 +1,24 @@
 from __future__ import annotations
 from ...base import DataType
+from .CE import CE
+from .IS import IS
 from .ID import ID
-from .TS import TS
-from .CWE import CWE
-from .DR import DR
 from .FN import FN
 from .ST import ST
-from .CE import CE
+from .CWE import CWE
+from .DR import DR
 from .HD import HD
-from .IS import IS
-from ..tables.NameAssemblyOrder import NameAssemblyOrder
-from ..tables.AssigningAuthority import AssigningAuthority
+from .TS import TS
+from ..tables.DegreeOrLicenseOrCertificate import DegreeOrLicenseOrCertificate
 from ..tables.CheckDigitScheme import CheckDigitScheme
 from ..tables.CnIdSource import CnIdSource
-from ..tables.IdentifierType import IdentifierType
-from ..tables.NameContext import NameContext
 from ..tables.NameType import NameType
+from ..tables.NameAssemblyOrder import NameAssemblyOrder
+from ..tables.NameContext import NameContext
 from ..tables.FirstName import FirstName
-from ..tables.DegreeOrLicenseOrCertificate import DegreeOrLicenseOrCertificate
 from ..tables.NameOrAddressRepresentation import NameOrAddressRepresentation
+from ..tables.AssigningAuthority import AssigningAuthority
+from ..tables.IdentifierType import IdentifierType
 
 
 """
@@ -29,7 +29,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     XCN,
-    ID, TS, CWE, DR, FN, ST, CE, HD, IS
+    CE, IS, ID, FN, ST, CWE, DR, HD, TS
 )
 
 xcn = XCN(  # Extended Composite ID Number and Name for Persons - Example without assigning authority and assigning facility: |1234567^Everyman^Adam^A^III^DR^PHD^ADT01^^L^4^M11^MR| 

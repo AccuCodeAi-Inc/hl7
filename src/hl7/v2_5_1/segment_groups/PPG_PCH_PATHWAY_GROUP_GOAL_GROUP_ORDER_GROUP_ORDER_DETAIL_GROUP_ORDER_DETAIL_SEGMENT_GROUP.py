@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
 from ..segments.ODS import ODS
-from ..segments.OBR import OBR
-from ..segments.ODT import ODT
-from ..segments.RXO import RXO
 from ..segments.RQD import RQD
+from ..segments.OBR import OBR
+from ..segments.RXO import RXO
+from ..segments.ODT import ODT
 from ..segments.RQ1 import RQ1
 
 
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PPG_PCH_PATHWAY_GROUP_GOAL_GROUP_ORDER_GROUP_ORDER_DETAIL_GROUP_ORDER_DETAIL_SEGMENT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    OBR, RXO, ODT, RQ1, RQD, ODS
+    ODT, RQD, ODS, OBR, RQ1, RXO
 )
 
 ppg_pch_pathway_group_goal_group_order_group_order_detail_group_order_detail_segment_group = PPG_PCH_PATHWAY_GROUP_GOAL_GROUP_ORDER_GROUP_ORDER_DETAIL_GROUP_ORDER_DETAIL_SEGMENT_GROUP(  # ORDER DETAIL SEGMENT - Segment group for PPG_PCH_PATHWAY_GROUP_GOAL_GROUP_ORDER_GROUP_ORDER_DETAIL_GROUP - ORDER DETAIL consisting of OBR|None, RQD|None, RQ1|None, RXO|None, ODS|None, ODT|None

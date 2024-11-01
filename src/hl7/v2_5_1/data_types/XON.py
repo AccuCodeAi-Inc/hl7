@@ -1,15 +1,15 @@
 from __future__ import annotations
 from ...base import DataType
-from .ID import ID
-from .ST import ST
-from .NM import NM
-from .HD import HD
 from .IS import IS
-from ..tables.AssigningAuthority import AssigningAuthority
+from .ID import ID
+from .NM import NM
+from .ST import ST
+from .HD import HD
 from ..tables.CheckDigitScheme import CheckDigitScheme
 from ..tables.OrganizationalNameType import OrganizationalNameType
-from ..tables.IdentifierType import IdentifierType
 from ..tables.NameOrAddressRepresentation import NameOrAddressRepresentation
+from ..tables.AssigningAuthority import AssigningAuthority
+from ..tables.IdentifierType import IdentifierType
 
 
 """
@@ -20,7 +20,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     XON,
-    ID, ST, NM, HD, IS
+    IS, ID, NM, ST, HD
 )
 
 xon = XON(  # Extended Composite Name and Identification Number for Organizations - This data type is used in fields (e

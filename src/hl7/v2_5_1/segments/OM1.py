@@ -1,27 +1,27 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
-from ..data_types.CWE import CWE
-from ..data_types.XAD import XAD
-from ..data_types.ST import ST
 from ..data_types.CE import CE
 from ..data_types.TX import TX
-from ..data_types.NM import NM
 from ..data_types.IS import IS
+from ..data_types.ID import ID
+from ..data_types.NM import NM
 from ..data_types.XTN import XTN
+from ..data_types.ST import ST
+from ..data_types.CWE import CWE
+from ..data_types.XAD import XAD
+from ..data_types.TS import TS
+from ..tables.ReportingPriority import ReportingPriority
 from ..tables.RelationshipModifier import RelationshipModifier
 from ..tables.NatureOfServiceOrTestOrObservation import (
     NatureOfServiceOrTestOrObservation,
 )
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
-from ..tables.ProcessingPriority import ProcessingPriority
-from ..tables.DurationCategories import DurationCategories
 from ..tables.ValueType import ValueType
+from ..tables.ProcessingPriority import ProcessingPriority
 from ..tables.ConfidentialityCode import ConfidentialityCode
-from ..tables.ReportingPriority import ReportingPriority
-from ..tables.Modality import Modality
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
 from ..tables.KindOfQuantity import KindOfQuantity
+from ..tables.Modality import Modality
+from ..tables.DurationCategories import DurationCategories
 
 
 """
@@ -32,7 +32,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     OM1,
-    ID, TS, CWE, XAD, ST, CE, TX, NM, IS, XTN
+    CE, TX, IS, ID, NM, XTN, ST, CWE, XAD, TS
 )
 
 om1 = OM1(  #  - The OM1 segment contains the attributes that apply to the definition of most observations

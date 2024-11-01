@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segment_groups.ORI_O24_RESPONSE_GROUP_ORDER_GROUP import (
-    ORI_O24_RESPONSE_GROUP_ORDER_GROUP,
-)
 from ..segment_groups.ORI_O24_RESPONSE_GROUP_PATIENT_GROUP import (
     ORI_O24_RESPONSE_GROUP_PATIENT_GROUP,
+)
+from ..segment_groups.ORI_O24_RESPONSE_GROUP_ORDER_GROUP import (
+    ORI_O24_RESPONSE_GROUP_ORDER_GROUP,
 )
 
 
@@ -19,7 +19,7 @@ from utils.hl7.v2_5_1.segments import (
     
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    ORI_O24_RESPONSE_GROUP_ORDER_GROUP, ORI_O24_RESPONSE_GROUP_PATIENT_GROUP
+    ORI_O24_RESPONSE_GROUP_PATIENT_GROUP, ORI_O24_RESPONSE_GROUP_ORDER_GROUP
 )
 
 ori_o24_response_group = ORI_O24_RESPONSE_GROUP(  # RESPONSE - Segment group for ORI_O24 - Imaging Order Response consisting of PATIENT|None, ORDER

@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
 from ..segments.ECR import ECR
+from ..segments.ECD import ECD
 from ..segment_groups.EAR_U08_COMMAND_RESPONSE_GROUP_SPECIMEN_CONTAINER_GROUP import (
     EAR_U08_COMMAND_RESPONSE_GROUP_SPECIMEN_CONTAINER_GROUP,
 )
-from ..segments.ECD import ECD
 
 
 """

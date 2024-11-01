@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import QCN_J01
 from utils.hl7.v2_5_1.segments import (
-    SFT, QID, MSH
+    QID, SFT, MSH
 )
 
 qcn_j01 = QCN_J01(  #  - 

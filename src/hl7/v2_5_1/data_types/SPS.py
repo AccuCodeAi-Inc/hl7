@@ -4,8 +4,8 @@ from .CWE import CWE
 from .TX import TX
 from ..tables.BodySiteModifier import BodySiteModifier
 from ..tables.BodySite import BodySite
-from ..tables.SpecimenRole import SpecimenRole
 from ..tables.AdditiveOrPreservative import AdditiveOrPreservative
+from ..tables.SpecimenRole import SpecimenRole
 
 
 """

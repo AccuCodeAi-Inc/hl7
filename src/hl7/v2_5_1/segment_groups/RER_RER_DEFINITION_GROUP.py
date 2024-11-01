@@ -1,6 +1,5 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.QRF import QRF
 from ..segment_groups.RER_RER_DEFINITION_GROUP_ORDER_GROUP import (
     RER_RER_DEFINITION_GROUP_ORDER_GROUP,
 )
@@ -8,6 +7,7 @@ from ..segment_groups.RER_RER_DEFINITION_GROUP_PATIENT_GROUP import (
     RER_RER_DEFINITION_GROUP_PATIENT_GROUP,
 )
 from ..segments.QRD import QRD
+from ..segments.QRF import QRF
 
 
 """
@@ -18,10 +18,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RER_RER_DEFINITION_GROUP
 from utils.hl7.v2_5_1.segments import (
-    QRD, QRF
+    QRF, QRD
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    RER_RER_DEFINITION_GROUP_PATIENT_GROUP, RER_RER_DEFINITION_GROUP_ORDER_GROUP
+    RER_RER_DEFINITION_GROUP_ORDER_GROUP, RER_RER_DEFINITION_GROUP_PATIENT_GROUP
 )
 
 rer_rer_definition_group = RER_RER_DEFINITION_GROUP(  # DEFINITION - Segment group for RER_RER - Pharmacy/Treatment Encoded Order Information Response consisting of QRD, QRF|None, PATIENT|None, ORDER

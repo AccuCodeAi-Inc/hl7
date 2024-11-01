@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segment_groups.RSP_Z86_QUERY_RESPONSE_GROUP_PATIENT_GROUP import (
-    RSP_Z86_QUERY_RESPONSE_GROUP_PATIENT_GROUP,
-)
 from ..segment_groups.RSP_Z86_QUERY_RESPONSE_GROUP_COMMON_ORDER_GROUP import (
     RSP_Z86_QUERY_RESPONSE_GROUP_COMMON_ORDER_GROUP,
+)
+from ..segment_groups.RSP_Z86_QUERY_RESPONSE_GROUP_PATIENT_GROUP import (
+    RSP_Z86_QUERY_RESPONSE_GROUP_PATIENT_GROUP,
 )
 
 

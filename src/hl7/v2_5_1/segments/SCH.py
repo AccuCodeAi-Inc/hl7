@@ -1,15 +1,15 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TQ import TQ
-from ..data_types.XAD import XAD
-from ..data_types.XTN import XTN
 from ..data_types.CE import CE
+from ..data_types.TQ import TQ
 from ..data_types.NM import NM
-from ..data_types.EI import EI
+from ..data_types.XTN import XTN
 from ..data_types.XCN import XCN
+from ..data_types.EI import EI
 from ..data_types.PL import PL
-from ..tables.AppointmentTypeCodes import AppointmentTypeCodes
+from ..data_types.XAD import XAD
 from ..tables.AppointmentReasonCodes import AppointmentReasonCodes
+from ..tables.AppointmentTypeCodes import AppointmentTypeCodes
 from ..tables.FillerStatusCodes import FillerStatusCodes
 
 
@@ -21,7 +21,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     SCH,
-    TQ, XAD, XTN, CE, NM, EI, XCN, PL
+    CE, TQ, NM, XTN, XCN, EI, PL, XAD
 )
 
 sch = SCH(  #  - The SCH segment contains general information about the scheduled appointment

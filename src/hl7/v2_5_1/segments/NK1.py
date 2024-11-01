@@ -1,38 +1,38 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
-from ..data_types.JCC import JCC
-from ..data_types.XAD import XAD
-from ..data_types.ST import ST
-from ..data_types.CX import CX
-from ..data_types.SI import SI
 from ..data_types.CE import CE
-from ..data_types.XPN import XPN
-from ..data_types.DT import DT
-from ..data_types.IS import IS
-from ..data_types.XTN import XTN
 from ..data_types.XON import XON
-from ..tables.EthnicGroup import EthnicGroup
-from ..tables.MaritalStatus import MaritalStatus
+from ..data_types.IS import IS
+from ..data_types.DT import DT
+from ..data_types.CX import CX
+from ..data_types.TS import TS
+from ..data_types.ID import ID
+from ..data_types.XTN import XTN
+from ..data_types.XPN import XPN
+from ..data_types.ST import ST
+from ..data_types.JCC import JCC
+from ..data_types.SI import SI
+from ..data_types.XAD import XAD
 from ..tables.JobStatus import JobStatus
-from ..tables.LivingArrangement import LivingArrangement
-from ..tables.Religion import Religion
-from ..tables.Handicap import Handicap
-from ..tables.LivingDependency import LivingDependency
+from ..tables.StudentStatus import StudentStatus
+from ..tables.AmbulatoryStatus import AmbulatoryStatus
+from ..tables.Citizenship import Citizenship
 from ..tables.ContactReason import ContactReason
+from ..tables.PublicityCode import PublicityCode
+from ..tables.Nationality import Nationality
+from ..tables.VipIndicator import VipIndicator
+from ..tables.Race import Race
+from ..tables.MaritalStatus import MaritalStatus
+from ..tables.LivingDependency import LivingDependency
+from ..tables.EthnicGroup import EthnicGroup
+from ..tables.LivingArrangement import LivingArrangement
+from ..tables.PrimaryLanguage import PrimaryLanguage
+from ..tables.Religion import Religion
+from ..tables.Relationship import Relationship
+from ..tables.AdministrativeSex import AdministrativeSex
 from ..tables.YesOrNoIndicator import YesOrNoIndicator
 from ..tables.ContactRole import ContactRole
-from ..tables.StudentStatus import StudentStatus
-from ..tables.Citizenship import Citizenship
-from ..tables.PublicityCode import PublicityCode
-from ..tables.PrimaryLanguage import PrimaryLanguage
-from ..tables.AdministrativeSex import AdministrativeSex
-from ..tables.Race import Race
-from ..tables.Nationality import Nationality
-from ..tables.Relationship import Relationship
-from ..tables.VipIndicator import VipIndicator
-from ..tables.AmbulatoryStatus import AmbulatoryStatus
+from ..tables.Handicap import Handicap
 
 
 """
@@ -43,7 +43,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     NK1,
-    ID, TS, JCC, XAD, ST, CX, SI, CE, XPN, DT, IS, XTN, XON
+    CE, XON, IS, DT, CX, TS, ID, XTN, XPN, ST, JCC, SI, XAD
 )
 
 nk1 = NK1(  #  - The NK1 segment contains information about the patients other related parties

@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
 from ..segments.MSH import MSH
-from ..segments.QRF import QRF
 from ..segments.QRD import QRD
+from ..segments.QRF import QRF
 
 
 """

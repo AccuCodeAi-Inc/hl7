@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.PV1 import PV1
 from ..segments.PV2 import PV2
+from ..segments.PV1 import PV1
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PEX_P07_VISIT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PV1, PV2
+    PV2, PV1
 )
 
 pex_p07_visit_group = PEX_P07_VISIT_GROUP(  # VISIT - Segment group for PEX_P07 - Unsolicited initial individual product experience report consisting of PV1, PV2|None

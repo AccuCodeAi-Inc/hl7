@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segment_groups.EAN_U09_NOTIFICATION_GROUP import EAN_U09_NOTIFICATION_GROUP
 from ..segments.SFT import SFT
 from ..segments.ROL import ROL
 from ..segments.MSH import MSH
 from ..segments.EQU import EQU
+from ..segment_groups.EAN_U09_NOTIFICATION_GROUP import EAN_U09_NOTIFICATION_GROUP
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import EAN_U09
 from utils.hl7.v2_5_1.segments import (
-    SFT, ROL, EQU, MSH
+    EQU, ROL, SFT, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
     EAN_U09_NOTIFICATION_GROUP

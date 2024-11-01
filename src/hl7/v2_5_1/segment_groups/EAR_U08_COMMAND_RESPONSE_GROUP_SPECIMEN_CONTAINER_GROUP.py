@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import EAR_U08_COMMAND_RESPONSE_GROUP_SPECIMEN_CONTAINER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    SPM, SAC
+    SAC, SPM
 )
 
 ear_u08_command_response_group_specimen_container_group = EAR_U08_COMMAND_RESPONSE_GROUP_SPECIMEN_CONTAINER_GROUP(  # SPECIMEN CONTAINER - Segment group for EAR_U08_COMMAND_RESPONSE_GROUP - COMMAND RESPONSE consisting of SAC, SPM|None

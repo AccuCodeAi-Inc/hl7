@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.DG1 import DG1
-from ..segments.PV1 import PV1
 from ..segments.OBX import OBX
-from ..segments.PID import PID
+from ..segments.DG1 import DG1
 from ..segments.PV2 import PV2
+from ..segments.PID import PID
+from ..segments.PV1 import PV1
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import SRM_S01_PATIENT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    DG1, PV1, PID, OBX, PV2
+    PV2, PV1, DG1, PID, OBX
 )
 
 srm_s01_patient_group = SRM_S01_PATIENT_GROUP(  # PATIENT - Segment group for SRM_S01 - Schedule request - New appointment booking consisting of PID, PV1|None, PV2|None, OBX|None, DG1|None

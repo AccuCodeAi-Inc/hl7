@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TS import TS
-from ..data_types.ST import ST
 from ..data_types.CE import CE
-from ..data_types.EI import EI
+from ..data_types.ST import ST
 from ..data_types.XCN import XCN
+from ..data_types.EI import EI
+from ..data_types.TS import TS
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     VAR,
-    TS, ST, CE, EI, XCN
+    CE, ST, XCN, EI, TS
 )
 
 var = VAR(  #  - The variance segment contains the data necessary to describe differences that may have occurred at the time when a healthcare event was documented

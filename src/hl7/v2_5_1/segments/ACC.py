@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
-from ..data_types.XAD import XAD
-from ..data_types.ST import ST
 from ..data_types.CE import CE
+from ..data_types.ID import ID
+from ..data_types.ST import ST
 from ..data_types.XCN import XCN
-from ..tables.AccidentCode import AccidentCode
+from ..data_types.XAD import XAD
+from ..data_types.TS import TS
 from ..tables.YesOrNoIndicator import YesOrNoIndicator
 from ..tables.StateOrProvince import StateOrProvince
+from ..tables.AccidentCode import AccidentCode
 
 
 """
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     ACC,
-    ID, TS, XAD, ST, CE, XCN
+    CE, ID, ST, XCN, XAD, TS
 )
 
 acc = ACC(  #  - The ACC segment contains patient information relative to an accident in which the patient has been involved

@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.OBR import OBR
 from ..segment_groups.ORL_O34_RESPONSE_GROUP_PATIENT_GROUP_SPECIMEN_GROUP_ORDER_GROUP_OBSERVATION_REQUEST_GROUP_SPECIMEN_GROUP import (
     ORL_O34_RESPONSE_GROUP_PATIENT_GROUP_SPECIMEN_GROUP_ORDER_GROUP_OBSERVATION_REQUEST_GROUP_SPECIMEN_GROUP,
 )
+from ..segments.OBR import OBR
 
 
 """

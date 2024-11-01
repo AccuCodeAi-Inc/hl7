@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import DataType
-from .ID import ID
-from .CWE import CWE
-from .ST import ST
 from .DT import DT
+from .ID import ID
+from .ST import ST
+from .CWE import CWE
 from .HD import HD
-from ..tables.AssigningAuthority import AssigningAuthority
 from ..tables.CheckDigitScheme import CheckDigitScheme
+from ..tables.AssigningAuthority import AssigningAuthority
 from ..tables.IdentifierType import IdentifierType
 
 
@@ -18,7 +18,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CX,
-    ID, CWE, ST, DT, HD
+    DT, ID, ST, CWE, HD
 )
 
 cx = CX(  # Extended Composite ID with Check Digit - This data type is used for specifying an identifier with its associated administrative detail

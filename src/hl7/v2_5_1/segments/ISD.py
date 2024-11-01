@@ -2,8 +2,8 @@ from __future__ import annotations
 from ...base import HL7Segment
 from ..data_types.CE import CE
 from ..data_types.NM import NM
-from ..tables.RemoteControlCommand import RemoteControlCommand
 from ..tables.CommandResponse import CommandResponse
+from ..tables.RemoteControlCommand import RemoteControlCommand
 
 
 """

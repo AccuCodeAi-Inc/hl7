@@ -1,20 +1,20 @@
 from __future__ import annotations
 from ...base import DataType
-from .ID import ID
-from .TS import TS
 from .SAD import SAD
-from .DR import DR
-from .ST import ST
 from .IS import IS
-from ..tables.Street import Street
-from ..tables.CensusTract import CensusTract
-from ..tables.AddressType import AddressType
-from ..tables.City import City
-from ..tables.ZipCode import ZipCode
-from ..tables.State import State
+from .ID import ID
+from .ST import ST
+from .DR import DR
+from .TS import TS
 from ..tables.CountryCode import CountryCode
-from ..tables.NameOrAddressRepresentation import NameOrAddressRepresentation
+from ..tables.ZipCode import ZipCode
+from ..tables.Street import Street
 from ..tables.CountyOrParish import CountyOrParish
+from ..tables.CensusTract import CensusTract
+from ..tables.City import City
+from ..tables.State import State
+from ..tables.NameOrAddressRepresentation import NameOrAddressRepresentation
+from ..tables.AddressType import AddressType
 
 
 """
@@ -25,7 +25,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     XAD,
-    ID, TS, SAD, DR, ST, IS
+    SAD, IS, ID, ST, DR, TS
 )
 
 xad = XAD(  # Extended Address - This data type specifies the address of a person, place or organization plus associated information

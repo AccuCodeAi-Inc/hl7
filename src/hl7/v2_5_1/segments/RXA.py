@@ -1,18 +1,18 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
-from ..data_types.CWE import CWE
-from ..data_types.ST import ST
 from ..data_types.CE import CE
+from ..data_types.ID import ID
 from ..data_types.NM import NM
-from ..data_types.XCN import XCN
 from ..data_types.LA2 import LA2
-from ..tables.ActionCode import ActionCode
+from ..data_types.ST import ST
+from ..data_types.XCN import XCN
+from ..data_types.CWE import CWE
+from ..data_types.TS import TS
 from ..tables.VaccinesAdministered import VaccinesAdministered
-from ..tables.CompletionStatus import CompletionStatus
+from ..tables.ActionCode import ActionCode
 from ..tables.ManufacturersOfVaccines import ManufacturersOfVaccines
 from ..tables.PharmacyOrderTypes import PharmacyOrderTypes
+from ..tables.CompletionStatus import CompletionStatus
 
 
 """
@@ -23,7 +23,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RXA,
-    ID, TS, CWE, ST, CE, NM, XCN, LA2
+    CE, ID, NM, LA2, ST, XCN, CWE, TS
 )
 
 rxa = RXA(  #  - The ORC must have the filler order number and the order control code RE

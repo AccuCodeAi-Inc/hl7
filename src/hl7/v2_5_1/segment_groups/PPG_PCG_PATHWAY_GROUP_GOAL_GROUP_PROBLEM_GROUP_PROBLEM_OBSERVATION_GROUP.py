@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.NTE import NTE
 from ..segments.OBX import OBX
+from ..segments.NTE import NTE
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PPG_PCG_PATHWAY_GROUP_GOAL_GROUP_PROBLEM_GROUP_PROBLEM_OBSERVATION_GROUP
 from utils.hl7.v2_5_1.segments import (
-    OBX, NTE
+    NTE, OBX
 )
 
 ppg_pcg_pathway_group_goal_group_problem_group_problem_observation_group = PPG_PCG_PATHWAY_GROUP_GOAL_GROUP_PROBLEM_GROUP_PROBLEM_OBSERVATION_GROUP(  # PROBLEM OBSERVATION - Segment group for PPG_PCG_PATHWAY_GROUP_GOAL_GROUP_PROBLEM_GROUP - PROBLEM consisting of OBX, NTE|None

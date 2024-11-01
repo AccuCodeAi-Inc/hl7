@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
 from ..segments.MSH import MSH
-from ..segments.SFT import SFT
 from ..segments.MFI import MFI
 from ..segment_groups.MFN_M08_MF_TEST_NUMERIC_GROUP import MFN_M08_MF_TEST_NUMERIC_GROUP
+from ..segments.SFT import SFT
 
 
 """
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import MFN_M08
 from utils.hl7.v2_5_1.segments import (
-    SFT, MFI, MSH
+    MFI, SFT, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
     MFN_M08_MF_TEST_NUMERIC_GROUP

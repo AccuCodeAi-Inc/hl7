@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.SFT import SFT
-from ..segment_groups.PPP_PCC_PATHWAY_GROUP import PPP_PCC_PATHWAY_GROUP
-from ..segments.MSH import MSH
-from ..segments.PID import PID
 from ..segment_groups.PPP_PCC_PATIENT_VISIT_GROUP import PPP_PCC_PATIENT_VISIT_GROUP
+from ..segments.SFT import SFT
+from ..segments.PID import PID
+from ..segments.MSH import MSH
+from ..segment_groups.PPP_PCC_PATHWAY_GROUP import PPP_PCC_PATHWAY_GROUP
 
 
 """
@@ -15,10 +15,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PPP_PCC
 from utils.hl7.v2_5_1.segments import (
-    SFT, PID, MSH
+    PID, SFT, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    PPP_PCC_PATIENT_VISIT_GROUP, PPP_PCC_PATHWAY_GROUP
+    PPP_PCC_PATHWAY_GROUP, PPP_PCC_PATIENT_VISIT_GROUP
 )
 
 ppp_pcc = PPP_PCC(  #  - 

@@ -19,7 +19,7 @@ from utils.hl7.v2_5_1.segments import (
     
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    RSP_Z88_QUERY_RESPONSE_GROUP_COMMON_ORDER_GROUP, RSP_Z88_QUERY_RESPONSE_GROUP_PATIENT_GROUP
+    RSP_Z88_QUERY_RESPONSE_GROUP_PATIENT_GROUP, RSP_Z88_QUERY_RESPONSE_GROUP_COMMON_ORDER_GROUP
 )
 
 rsp_z88_query_response_group = RSP_Z88_QUERY_RESPONSE_GROUP(  # QUERY RESPONSE - Segment group for RSP_Z88 - Dispense Information Response consisting of PATIENT|None, COMMON ORDER

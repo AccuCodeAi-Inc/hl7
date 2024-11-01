@@ -3,8 +3,8 @@ from ...base import HL7SegmentGroup
 from ..segment_groups.ORB_O28_RESPONSE_GROUP_PATIENT_GROUP_ORDER_GROUP_TIMING_GROUP import (
     ORB_O28_RESPONSE_GROUP_PATIENT_GROUP_ORDER_GROUP_TIMING_GROUP,
 )
-from ..segments.ORC import ORC
 from ..segments.BPO import BPO
+from ..segments.ORC import ORC
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ORB_O28_RESPONSE_GROUP_PATIENT_GROUP_ORDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    BPO, ORC
+    ORC, BPO
 )
 from utils.hl7.v2_5_1.segment_groups import (
     ORB_O28_RESPONSE_GROUP_PATIENT_GROUP_ORDER_GROUP_TIMING_GROUP

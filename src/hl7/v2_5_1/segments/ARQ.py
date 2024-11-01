@@ -1,17 +1,17 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.XAD import XAD
-from ..data_types.DR import DR
-from ..data_types.XTN import XTN
-from ..data_types.ST import ST
 from ..data_types.CE import CE
-from ..data_types.NM import NM
-from ..data_types.EI import EI
-from ..data_types.XCN import XCN
 from ..data_types.RI import RI
+from ..data_types.NM import NM
+from ..data_types.XTN import XTN
+from ..data_types.DR import DR
+from ..data_types.ST import ST
+from ..data_types.XCN import XCN
+from ..data_types.EI import EI
 from ..data_types.PL import PL
-from ..tables.AppointmentTypeCodes import AppointmentTypeCodes
+from ..data_types.XAD import XAD
 from ..tables.AppointmentReasonCodes import AppointmentReasonCodes
+from ..tables.AppointmentTypeCodes import AppointmentTypeCodes
 
 
 """
@@ -22,7 +22,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     ARQ,
-    XAD, DR, XTN, ST, CE, NM, EI, XCN, RI, PL
+    CE, RI, NM, XTN, DR, ST, XCN, EI, PL, XAD
 )
 
 arq = ARQ(  #  - The ARQ segment defines a request for the booking of an appointment

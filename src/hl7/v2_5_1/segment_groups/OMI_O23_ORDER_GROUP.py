@@ -1,17 +1,17 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.CTD import CTD
+from ..segments.DG1 import DG1
+from ..segments.IPC import IPC
+from ..segments.NTE import NTE
 from ..segments.OBR import OBR
 from ..segment_groups.OMI_O23_ORDER_GROUP_OBSERVATION_GROUP import (
     OMI_O23_ORDER_GROUP_OBSERVATION_GROUP,
 )
-from ..segments.ORC import ORC
-from ..segments.DG1 import DG1
-from ..segments.NTE import NTE
-from ..segments.CTD import CTD
 from ..segment_groups.OMI_O23_ORDER_GROUP_TIMING_GROUP import (
     OMI_O23_ORDER_GROUP_TIMING_GROUP,
 )
-from ..segments.IPC import IPC
+from ..segments.ORC import ORC
 
 
 """
@@ -22,7 +22,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OMI_O23_ORDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    IPC, CTD, OBR, NTE, DG1, ORC
+    IPC, NTE, OBR, DG1, CTD, ORC
 )
 from utils.hl7.v2_5_1.segment_groups import (
     OMI_O23_ORDER_GROUP_OBSERVATION_GROUP, OMI_O23_ORDER_GROUP_TIMING_GROUP

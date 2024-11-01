@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.NTE import NTE
 from ..segments.OBX import OBX
+from ..segments.NTE import NTE
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import DFT_P03_FINANCIAL_GROUP_FINANCIAL_COMMON_ORDER_GROUP_FINANCIAL_OBSERVATION_GROUP
 from utils.hl7.v2_5_1.segments import (
-    OBX, NTE
+    NTE, OBX
 )
 
 dft_p03_financial_group_financial_common_order_group_financial_observation_group = DFT_P03_FINANCIAL_GROUP_FINANCIAL_COMMON_ORDER_GROUP_FINANCIAL_OBSERVATION_GROUP(  # FINANCIAL OBSERVATION - Segment group for DFT_P03_FINANCIAL_GROUP_FINANCIAL_COMMON_ORDER_GROUP - FINANCIAL COMMON ORDER consisting of OBX, NTE|None

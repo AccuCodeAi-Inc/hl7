@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.PR1 import PR1
 from ..segment_groups.RPA_I08_PROCEDURE_GROUP_AUTHORIZATION_GROUP import (
     RPA_I08_PROCEDURE_GROUP_AUTHORIZATION_GROUP,
 )
-from ..segments.PR1 import PR1
 
 
 """

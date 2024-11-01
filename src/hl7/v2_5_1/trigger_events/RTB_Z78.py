@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
+from ..segment_groups.RTB_Z78_ROW_DEFINITION_GROUP import RTB_Z78_ROW_DEFINITION_GROUP
 from ..segments.SFT import SFT
+from ..segments.DSC import DSC
 from ..segments.ERR import ERR
-from ..segments.QPD import QPD
 from ..segments.MSH import MSH
 from ..segments.MSA import MSA
-from ..segment_groups.RTB_Z78_ROW_DEFINITION_GROUP import RTB_Z78_ROW_DEFINITION_GROUP
-from ..segments.DSC import DSC
+from ..segments.QPD import QPD
 from ..segments.QAK import QAK
 
 
@@ -18,7 +18,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RTB_Z78
 from utils.hl7.v2_5_1.segments import (
-    QAK, ERR, MSA, QPD, DSC, MSH, SFT
+    ERR, DSC, QPD, MSA, SFT, MSH, QAK
 )
 from utils.hl7.v2_5_1.segment_groups import (
     RTB_Z78_ROW_DEFINITION_GROUP

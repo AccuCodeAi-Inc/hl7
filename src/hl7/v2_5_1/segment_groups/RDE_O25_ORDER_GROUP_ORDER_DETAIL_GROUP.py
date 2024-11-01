@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.RXO import RXO
 from ..segments.NTE import NTE
+from ..segments.RXR import RXR
 from ..segment_groups.RDE_O25_ORDER_GROUP_ORDER_DETAIL_GROUP_COMPONENT_GROUP import (
     RDE_O25_ORDER_GROUP_ORDER_DETAIL_GROUP_COMPONENT_GROUP,
 )
-from ..segments.RXR import RXR
+from ..segments.RXO import RXO
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RDE_O25_ORDER_GROUP_ORDER_DETAIL_GROUP
 from utils.hl7.v2_5_1.segments import (
-    RXO, NTE, RXR
+    NTE, RXR, RXO
 )
 from utils.hl7.v2_5_1.segment_groups import (
     RDE_O25_ORDER_GROUP_ORDER_DETAIL_GROUP_COMPONENT_GROUP

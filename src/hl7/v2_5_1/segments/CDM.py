@@ -1,18 +1,18 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.ST import ST
-from ..data_types.CX import CX
 from ..data_types.CE import CE
-from ..data_types.NM import NM
-from ..data_types.IS import IS
 from ..data_types.XON import XON
-from ..tables.ProcedureCode import ProcedureCode
-from ..tables.InventoryNumber import InventoryNumber
-from ..tables.TransactionCode import TransactionCode
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
-from ..tables.Override import Override
+from ..data_types.IS import IS
+from ..data_types.CX import CX
+from ..data_types.ID import ID
+from ..data_types.NM import NM
+from ..data_types.ST import ST
 from ..tables.ActiveOrInactive import ActiveOrInactive
+from ..tables.TransactionCode import TransactionCode
+from ..tables.ProcedureCode import ProcedureCode
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..tables.InventoryNumber import InventoryNumber
+from ..tables.Override import Override
 
 
 """
@@ -23,7 +23,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CDM,
-    ID, ST, CX, CE, NM, IS, XON
+    CE, XON, IS, CX, ID, NM, ST
 )
 
 cdm = CDM(  #  - The CDM segment contains the fields for identifying anything which is charged to patient accounts, including procedures, services, supplies

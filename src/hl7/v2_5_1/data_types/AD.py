@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import DataType
-from .ID import ID
 from .ST import ST
-from ..tables.AddressType import AddressType
+from .ID import ID
 from ..tables.CountryCode import CountryCode
+from ..tables.AddressType import AddressType
 
 
 """
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     AD,
-    ID, ST
+    ST, ID
 )
 
 ad = AD(  # Address - This data type specifies the address of a person, place or organization

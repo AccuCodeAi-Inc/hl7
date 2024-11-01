@@ -1,15 +1,15 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.OBR import OBR
-from ..segments.ORC import ORC
 from ..segments.NTE import NTE
+from ..segments.OBR import OBR
+from ..segments.CTI import CTI
 from ..segment_groups.OUL_R23_SPECIMEN_GROUP_CONTAINER_GROUP_ORDER_GROUP_TIMING_QTY_GROUP import (
     OUL_R23_SPECIMEN_GROUP_CONTAINER_GROUP_ORDER_GROUP_TIMING_QTY_GROUP,
 )
-from ..segments.CTI import CTI
 from ..segment_groups.OUL_R23_SPECIMEN_GROUP_CONTAINER_GROUP_ORDER_GROUP_RESULT_GROUP import (
     OUL_R23_SPECIMEN_GROUP_CONTAINER_GROUP_ORDER_GROUP_RESULT_GROUP,
 )
+from ..segments.ORC import ORC
 
 
 """
@@ -20,7 +20,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OUL_R23_SPECIMEN_GROUP_CONTAINER_GROUP_ORDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    OBR, NTE, ORC, CTI
+    NTE, ORC, CTI, OBR
 )
 from utils.hl7.v2_5_1.segment_groups import (
     OUL_R23_SPECIMEN_GROUP_CONTAINER_GROUP_ORDER_GROUP_RESULT_GROUP, OUL_R23_SPECIMEN_GROUP_CONTAINER_GROUP_ORDER_GROUP_TIMING_QTY_GROUP

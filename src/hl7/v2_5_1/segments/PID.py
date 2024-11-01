@@ -1,34 +1,34 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
-from ..data_types.CWE import CWE
-from ..data_types.XAD import XAD
-from ..data_types.CX import CX
-from ..data_types.ST import ST
-from ..data_types.SI import SI
 from ..data_types.CE import CE
+from ..data_types.IS import IS
+from ..data_types.CX import CX
+from ..data_types.ID import ID
+from ..data_types.XTN import XTN
 from ..data_types.NM import NM
 from ..data_types.XPN import XPN
+from ..data_types.ST import ST
 from ..data_types.DLN import DLN
-from ..data_types.IS import IS
-from ..data_types.XTN import XTN
 from ..data_types.HD import HD
-from ..tables.EthnicGroup import EthnicGroup
-from ..tables.Citizenship import Citizenship
-from ..tables.MaritalStatus import MaritalStatus
-from ..tables.Nationality import Nationality
-from ..tables.SpeciesCode import SpeciesCode
-from ..tables.BreedCode import BreedCode
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
-from ..tables.VeteransMilitaryStatus import VeteransMilitaryStatus
-from ..tables.IdentityReliabilityCode import IdentityReliabilityCode
-from ..tables.PrimaryLanguage import PrimaryLanguage
+from ..data_types.CWE import CWE
+from ..data_types.SI import SI
+from ..data_types.XAD import XAD
+from ..data_types.TS import TS
 from ..tables.ProductionClassCode import ProductionClassCode
-from ..tables.AdministrativeSex import AdministrativeSex
-from ..tables.Religion import Religion
 from ..tables.Race import Race
+from ..tables.VeteransMilitaryStatus import VeteransMilitaryStatus
+from ..tables.MaritalStatus import MaritalStatus
 from ..tables.CountyOrParish import CountyOrParish
+from ..tables.EthnicGroup import EthnicGroup
+from ..tables.AdministrativeSex import AdministrativeSex
+from ..tables.Citizenship import Citizenship
+from ..tables.BreedCode import BreedCode
+from ..tables.Nationality import Nationality
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..tables.SpeciesCode import SpeciesCode
+from ..tables.PrimaryLanguage import PrimaryLanguage
+from ..tables.IdentityReliabilityCode import IdentityReliabilityCode
+from ..tables.Religion import Religion
 
 
 """
@@ -39,7 +39,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PID,
-    ID, TS, CWE, XAD, CX, ST, SI, CE, NM, XPN, DLN, IS, XTN, HD
+    CE, IS, CX, ID, XTN, NM, XPN, ST, DLN, HD, CWE, SI, XAD, TS
 )
 
 pid = PID(  #  - The PID segment is used by all applications as the primary means of communicating patient identification information

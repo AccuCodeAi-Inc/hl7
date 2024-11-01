@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.PID import PID
 from ..segments.NK1 import NK1
+from ..segments.PID import PID
 
 
 """

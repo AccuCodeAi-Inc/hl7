@@ -1,35 +1,35 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
-from ..data_types.CWE import CWE
-from ..data_types.JCC import JCC
-from ..data_types.XAD import XAD
-from ..data_types.DIN import DIN
-from ..data_types.DR import DR
-from ..data_types.CX import CX
-from ..data_types.ST import ST
 from ..data_types.CE import CE
-from ..data_types.XPN import XPN
-from ..data_types.DLN import DLN
 from ..data_types.IS import IS
-from ..data_types.XTN import XTN
+from ..data_types.CX import CX
 from ..data_types.DT import DT
-from ..tables.EthnicGroup import EthnicGroup
-from ..tables.PreferredMethodOfContact import PreferredMethodOfContact
-from ..tables.Citizenship import Citizenship
-from ..tables.InactiveReasonCode import InactiveReasonCode
-from ..tables.CostCenterCode import CostCenterCode
-from ..tables.HospitalService import HospitalService
-from ..tables.MaritalStatus import MaritalStatus
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
-from ..tables.Department import Department
-from ..tables.StaffType import StaffType
-from ..tables.EmploymentStatus import EmploymentStatus
-from ..tables.InstitutionRelationshipType import InstitutionRelationshipType
-from ..tables.AdministrativeSex import AdministrativeSex
+from ..data_types.ID import ID
+from ..data_types.XTN import XTN
+from ..data_types.XPN import XPN
+from ..data_types.ST import ST
+from ..data_types.DIN import DIN
+from ..data_types.JCC import JCC
+from ..data_types.DLN import DLN
+from ..data_types.CWE import CWE
+from ..data_types.DR import DR
+from ..data_types.XAD import XAD
+from ..data_types.TS import TS
 from ..tables.Race import Race
+from ..tables.HospitalService import HospitalService
+from ..tables.EmploymentStatus import EmploymentStatus
 from ..tables.ActiveOrInactive import ActiveOrInactive
+from ..tables.Department import Department
+from ..tables.MaritalStatus import MaritalStatus
+from ..tables.EthnicGroup import EthnicGroup
+from ..tables.AdministrativeSex import AdministrativeSex
+from ..tables.Citizenship import Citizenship
+from ..tables.StaffType import StaffType
+from ..tables.PreferredMethodOfContact import PreferredMethodOfContact
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..tables.InstitutionRelationshipType import InstitutionRelationshipType
+from ..tables.CostCenterCode import CostCenterCode
+from ..tables.InactiveReasonCode import InactiveReasonCode
 
 
 """
@@ -40,7 +40,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     STF,
-    ID, TS, CWE, JCC, XAD, DIN, DR, CX, ST, CE, XPN, DLN, IS, XTN, DT
+    CE, IS, CX, DT, ID, XTN, XPN, ST, DIN, JCC, DLN, CWE, DR, XAD, TS
 )
 
 stf = STF(  #  - The STF segment can identify any personnel referenced by information systems

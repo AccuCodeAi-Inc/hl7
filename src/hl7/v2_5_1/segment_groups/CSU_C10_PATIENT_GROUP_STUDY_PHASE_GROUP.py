@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.CSP import CSP
 from ..segment_groups.CSU_C10_PATIENT_GROUP_STUDY_PHASE_GROUP_STUDY_SCHEDULE_GROUP import (
     CSU_C10_PATIENT_GROUP_STUDY_PHASE_GROUP_STUDY_SCHEDULE_GROUP,
 )
-from ..segments.CSP import CSP
 
 
 """

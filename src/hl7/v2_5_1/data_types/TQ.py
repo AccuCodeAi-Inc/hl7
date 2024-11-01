@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import DataType
-from .ID import ID
-from .TS import TS
-from .OSD import OSD
-from .ST import ST
-from .CQ import CQ
-from .TX import TX
 from .CE import CE
-from .NM import NM
+from .TX import TX
+from .CQ import CQ
+from .OSD import OSD
 from .RI import RI
+from .ID import ID
+from .NM import NM
+from .ST import ST
+from .TS import TS
 from ..tables.TqConjunctionId import TqConjunctionId
 
 
@@ -20,7 +20,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     TQ,
-    ID, TS, OSD, ST, CQ, TX, CE, NM, RI
+    CE, TX, CQ, OSD, RI, ID, NM, ST, TS
 )
 
 tq = TQ(  # Timing Quantity - Describes when a service should be performed and how frequently

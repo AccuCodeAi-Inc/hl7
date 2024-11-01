@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.XON import XON
-from ..data_types.TX import TX
-from ..data_types.TS import TS
 from ..data_types.ST import ST
+from ..data_types.XON import XON
+from ..data_types.TS import TS
+from ..data_types.TX import TX
 
 
 """
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     SFT,
-    XON, TX, TS, ST
+    ST, XON, TS, TX
 )
 
 sft = SFT(  #  - This segment provides additional information about the software product(s) used as a Sending Application

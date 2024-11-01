@@ -1,18 +1,18 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
-from ..data_types.CWE import CWE
-from ..data_types.TQ import TQ
-from ..data_types.ST import ST
 from ..data_types.CE import CE
+from ..data_types.TQ import TQ
+from ..data_types.ID import ID
 from ..data_types.NM import NM
 from ..data_types.LA2 import LA2
-from ..tables.VaccinesAdministered import VaccinesAdministered
+from ..data_types.ST import ST
+from ..data_types.CWE import CWE
+from ..data_types.TS import TS
 from ..tables.SubstitutionStatus import SubstitutionStatus
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
 from ..tables.ManufacturersOfVaccines import ManufacturersOfVaccines
 from ..tables.PharmacyOrderTypes import PharmacyOrderTypes
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..tables.VaccinesAdministered import VaccinesAdministered
 
 
 """
@@ -23,7 +23,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RXG,
-    ID, TS, CWE, TQ, ST, CE, NM, LA2
+    CE, TQ, ID, NM, LA2, ST, CWE, TS
 )
 
 rxg = RXG(  #  - 

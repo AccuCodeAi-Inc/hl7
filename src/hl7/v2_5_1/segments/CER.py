@@ -1,20 +1,20 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.CWE import CWE
-from ..data_types.TS import TS
-from ..data_types.XCN import XCN
-from ..data_types.ST import ST
-from ..data_types.SI import SI
 from ..data_types.CE import CE
 from ..data_types.XON import XON
 from ..data_types.ED import ED
-from ..tables.StateOrProvince import StateOrProvince
-from ..tables.JurisdictionalBreadth import JurisdictionalBreadth
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..data_types.ID import ID
+from ..data_types.ST import ST
+from ..data_types.XCN import XCN
+from ..data_types.CWE import CWE
+from ..data_types.SI import SI
+from ..data_types.TS import TS
 from ..tables.CountryCode import CountryCode
-from ..tables.CertificateStatus import CertificateStatus
+from ..tables.JurisdictionalBreadth import JurisdictionalBreadth
+from ..tables.StateOrProvince import StateOrProvince
 from ..tables.CountyOrParish import CountyOrParish
+from ..tables.CertificateStatus import CertificateStatus
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
 
 
 """
@@ -25,7 +25,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CER,
-    ID, CWE, TS, XCN, ST, SI, CE, XON, ED
+    CE, XON, ED, ID, ST, XCN, CWE, SI, TS
 )
 
 cer = CER(  #  - The CER segment adds detailed information regarding the formal authorizations to provide a service (e

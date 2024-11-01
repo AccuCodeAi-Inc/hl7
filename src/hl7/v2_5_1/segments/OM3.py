@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
 from ..data_types.CE import CE
+from ..data_types.ID import ID
 from ..data_types.NM import NM
 from ..tables.ValueType import ValueType
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     OM3,
-    ID, CE, NM
+    CE, ID, NM
 )
 
 om3 = OM3(  #  - This segment applies to free text and other non-numeric data types

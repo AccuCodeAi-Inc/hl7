@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import DFT_P11_FINANCIAL_GROUP_FINANCIAL_INSURANCE_GROUP
 from utils.hl7.v2_5_1.segments import (
-    IN2, IN1, ROL, IN3
+    IN2, IN3, IN1, ROL
 )
 
 dft_p11_financial_group_financial_insurance_group = DFT_P11_FINANCIAL_GROUP_FINANCIAL_INSURANCE_GROUP(  # FINANCIAL INSURANCE - Segment group for DFT_P11_FINANCIAL_GROUP - FINANCIAL consisting of IN1, IN2|None, IN3|None, ROL|None

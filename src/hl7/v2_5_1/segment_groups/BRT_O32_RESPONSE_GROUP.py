@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.PID import PID
 from ..segment_groups.BRT_O32_RESPONSE_GROUP_ORDER_GROUP import (
     BRT_O32_RESPONSE_GROUP_ORDER_GROUP,
 )
-from ..segments.PID import PID
 
 
 """

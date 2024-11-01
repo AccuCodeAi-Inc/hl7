@@ -2,8 +2,8 @@ from __future__ import annotations
 from ...base import HL7TriggerEvent
 from ..segments.MSH import MSH
 from ..segments.SFT import SFT
-from ..segments.QRF import QRF
 from ..segments.QRD import QRD
+from ..segments.QRF import QRF
 
 
 """
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import VXQ_V01
 from utils.hl7.v2_5_1.segments import (
-    SFT, QRF, QRD, MSH
+    QRF, QRD, SFT, MSH
 )
 
 vxq_v01 = VXQ_V01(  #  - When an immunization registry does not already have the complete patient vaccination record, it will send a query (with a V01 event) for the definitive (last updated) record

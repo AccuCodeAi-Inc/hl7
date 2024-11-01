@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.SFT import SFT
-from ..segment_groups.OMP_O09_PATIENT_GROUP import OMP_O09_PATIENT_GROUP
-from ..segments.NTE import NTE
-from ..segments.MSH import MSH
 from ..segment_groups.OMP_O09_ORDER_GROUP import OMP_O09_ORDER_GROUP
+from ..segments.NTE import NTE
+from ..segments.SFT import SFT
+from ..segments.MSH import MSH
+from ..segment_groups.OMP_O09_PATIENT_GROUP import OMP_O09_PATIENT_GROUP
 
 
 """
@@ -15,10 +15,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OMP_O09
 from utils.hl7.v2_5_1.segments import (
-    SFT, NTE, MSH
+    NTE, SFT, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    OMP_O09_PATIENT_GROUP, OMP_O09_ORDER_GROUP
+    OMP_O09_ORDER_GROUP, OMP_O09_PATIENT_GROUP
 )
 
 omp_o09 = OMP_O09(  #  - Pharmacy/Treatment Orders can use the ORM message with the RXO, RXC, and RXR segments for the detail segment, or use the OMP and ORP messages

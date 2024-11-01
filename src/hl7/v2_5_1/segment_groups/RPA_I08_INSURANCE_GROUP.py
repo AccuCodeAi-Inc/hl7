@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RPA_I08_INSURANCE_GROUP
 from utils.hl7.v2_5_1.segments import (
-    IN2, IN1, IN3
+    IN2, IN3, IN1
 )
 
 rpa_i08_insurance_group = RPA_I08_INSURANCE_GROUP(  # INSURANCE - Segment group for RPA_I08 - Request for treatment authorization information acknowledgement consisting of IN1, IN2|None, IN3|None

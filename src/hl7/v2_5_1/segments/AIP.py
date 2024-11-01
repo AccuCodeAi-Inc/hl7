@@ -1,16 +1,16 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
-from ..data_types.SI import SI
 from ..data_types.CE import CE
-from ..data_types.NM import NM
 from ..data_types.IS import IS
+from ..data_types.ID import ID
+from ..data_types.NM import NM
 from ..data_types.XCN import XCN
-from ..tables.FillerStatusCodes import FillerStatusCodes
-from ..tables.StaffType import StaffType
+from ..data_types.SI import SI
+from ..data_types.TS import TS
 from ..tables.SegmentActionCode import SegmentActionCode
+from ..tables.FillerStatusCodes import FillerStatusCodes
 from ..tables.AllowSubstitutionCodes import AllowSubstitutionCodes
+from ..tables.StaffType import StaffType
 
 
 """
@@ -21,7 +21,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     AIP,
-    ID, TS, SI, CE, NM, IS, XCN
+    CE, IS, ID, NM, XCN, SI, TS
 )
 
 aip = AIP(  #  - The AIP segment contains information about the personnel types that can be scheduled

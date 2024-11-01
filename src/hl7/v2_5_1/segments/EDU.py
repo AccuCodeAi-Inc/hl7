@@ -1,15 +1,15 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CWE import CWE
-from ..data_types.XAD import XAD
-from ..data_types.DR import DR
-from ..data_types.SI import SI
 from ..data_types.CE import CE
-from ..data_types.DT import DT
-from ..data_types.IS import IS
 from ..data_types.XON import XON
-from ..tables.DegreeOrLicenseOrCertificate import DegreeOrLicenseOrCertificate
+from ..data_types.IS import IS
+from ..data_types.DT import DT
+from ..data_types.DR import DR
+from ..data_types.CWE import CWE
+from ..data_types.SI import SI
+from ..data_types.XAD import XAD
 from ..tables.SchoolType import SchoolType
+from ..tables.DegreeOrLicenseOrCertificate import DegreeOrLicenseOrCertificate
 
 
 """
@@ -20,7 +20,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     EDU,
-    CWE, XAD, DR, SI, CE, DT, IS, XON
+    CE, XON, IS, DT, DR, CWE, SI, XAD
 )
 
 edu = EDU(  #  - The EDU segment adds detailed educational information to the staff member identified by the STF segment

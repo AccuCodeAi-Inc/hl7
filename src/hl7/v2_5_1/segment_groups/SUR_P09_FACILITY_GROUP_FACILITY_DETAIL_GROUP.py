@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.PDC import PDC
 from ..segments.FAC import FAC
+from ..segments.PDC import PDC
 from ..segments.NTE import NTE
 
 
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import SUR_P09_FACILITY_GROUP_FACILITY_DETAIL_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NTE, PDC, FAC
+    PDC, NTE, FAC
 )
 
 sur_p09_facility_group_facility_detail_group = SUR_P09_FACILITY_GROUP_FACILITY_DETAIL_GROUP(  # FACILITY DETAIL - Segment group for SUR_P09_FACILITY_GROUP - FACILITY consisting of FAC, PDC, NTE

@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
 from ..data_types.CE import CE
-from ..data_types.TS import TS
+from ..data_types.ID import ID
 from ..data_types.HD import HD
-from ..tables.MasterFileIdentifierCode import MasterFileIdentifierCode
+from ..data_types.TS import TS
 from ..tables.Application import Application
 from ..tables.FileLevelEventCode import FileLevelEventCode
+from ..tables.MasterFileIdentifierCode import MasterFileIdentifierCode
 from ..tables.ResponseLevel import ResponseLevel
 
 
@@ -18,7 +18,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     MFI,
-    ID, CE, TS, HD
+    CE, ID, HD, TS
 )
 
 mfi = MFI(  #  - The Technical Steward for the MFI segment is CQ

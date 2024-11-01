@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segment_groups.NMQ_N01_QRY_WITH_DETAIL_GROUP import NMQ_N01_QRY_WITH_DETAIL_GROUP
 from ..segments.MSH import MSH
+from ..segment_groups.NMQ_N01_QRY_WITH_DETAIL_GROUP import NMQ_N01_QRY_WITH_DETAIL_GROUP
 from ..segments.SFT import SFT
 from ..segment_groups.NMQ_N01_CLOCK_AND_STATISTICS_GROUP import (
     NMQ_N01_CLOCK_AND_STATISTICS_GROUP,
@@ -19,7 +19,7 @@ from utils.hl7.v2_5_1.segments import (
     SFT, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    NMQ_N01_CLOCK_AND_STATISTICS_GROUP, NMQ_N01_QRY_WITH_DETAIL_GROUP
+    NMQ_N01_QRY_WITH_DETAIL_GROUP, NMQ_N01_CLOCK_AND_STATISTICS_GROUP
 )
 
 nmq_n01 = NMQ_N01(  #  - The N01 event signifies when the NMQ (Application Management Query) message is used by one application to make application control-level requests for information or action to another application

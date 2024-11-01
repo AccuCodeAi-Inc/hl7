@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.AIP import AIP
 from ..segments.NTE import NTE
+from ..segments.AIP import AIP
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import SIU_S14_RESOURCES_GROUP_PERSONNEL_RESOURCE_GROUP
 from utils.hl7.v2_5_1.segments import (
-    AIP, NTE
+    NTE, AIP
 )
 
 siu_s14_resources_group_personnel_resource_group = SIU_S14_RESOURCES_GROUP_PERSONNEL_RESOURCE_GROUP(  # PERSONNEL RESOURCE - Segment group for SIU_S14_RESOURCES_GROUP - RESOURCES consisting of AIP, NTE|None

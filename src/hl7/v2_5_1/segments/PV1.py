@@ -1,40 +1,40 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TS import TS
-from ..data_types.DLD import DLD
-from ..data_types.CX import CX
-from ..data_types.SI import SI
 from ..data_types.CE import CE
-from ..data_types.NM import NM
-from ..data_types.DT import DT
 from ..data_types.IS import IS
+from ..data_types.CX import CX
+from ..data_types.DT import DT
+from ..data_types.NM import NM
 from ..data_types.XCN import XCN
 from ..data_types.FC import FC
+from ..data_types.DLD import DLD
+from ..data_types.SI import SI
 from ..data_types.PL import PL
-from ..tables.PatientClass import PatientClass
-from ..tables.CourtesyCode import CourtesyCode
-from ..tables.InterestRateCode import InterestRateCode
-from ..tables.AdmissionType import AdmissionType
-from ..tables.AccountStatus import AccountStatus
-from ..tables.ReAdmissionIndicator import ReAdmissionIndicator
-from ..tables.CreditRating import CreditRating
-from ..tables.ChargeOrPriceIndicator import ChargeOrPriceIndicator
-from ..tables.DischargeDisposition import DischargeDisposition
+from ..data_types.TS import TS
 from ..tables.AdmitSource import AdmitSource
-from ..tables.VisitIndicator import VisitIndicator
-from ..tables.BedStatus import BedStatus
+from ..tables.AdmissionType import AdmissionType
+from ..tables.AmbulatoryStatus import AmbulatoryStatus
+from ..tables.ChargeOrPriceIndicator import ChargeOrPriceIndicator
 from ..tables.BadDebtAgencyCode import BadDebtAgencyCode
-from ..tables.ServicingFacility import ServicingFacility
-from ..tables.PreAdmitTestIndicator import PreAdmitTestIndicator
+from ..tables.PatientClass import PatientClass
+from ..tables.AccountStatus import AccountStatus
 from ..tables.ContractCode import ContractCode
-from ..tables.PatientType import PatientType
-from ..tables.PhysicianId import PhysicianId
-from ..tables.DietType import DietType
+from ..tables.BedStatus import BedStatus
 from ..tables.TransferToBadDebtCode import TransferToBadDebtCode
+from ..tables.VipIndicator import VipIndicator
+from ..tables.VisitIndicator import VisitIndicator
+from ..tables.DischargeDisposition import DischargeDisposition
+from ..tables.InterestRateCode import InterestRateCode
+from ..tables.PhysicianId import PhysicianId
+from ..tables.CourtesyCode import CourtesyCode
+from ..tables.DietType import DietType
+from ..tables.PreAdmitTestIndicator import PreAdmitTestIndicator
+from ..tables.ReAdmissionIndicator import ReAdmissionIndicator
 from ..tables.HospitalService import HospitalService
 from ..tables.DeleteAccountCode import DeleteAccountCode
-from ..tables.VipIndicator import VipIndicator
-from ..tables.AmbulatoryStatus import AmbulatoryStatus
+from ..tables.CreditRating import CreditRating
+from ..tables.PatientType import PatientType
+from ..tables.ServicingFacility import ServicingFacility
 
 
 """
@@ -45,7 +45,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PV1,
-    TS, DLD, CX, SI, CE, NM, DT, IS, XCN, FC, PL
+    CE, IS, CX, DT, NM, XCN, FC, DLD, SI, PL, TS
 )
 
 pv1 = PV1(  #  - The PV1 segment is used by Registration/Patient Administration applications to communicate information on an account or visit-specific basis

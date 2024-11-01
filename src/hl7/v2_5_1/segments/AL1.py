@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7Segment
+from ..data_types.CE import CE
 from ..data_types.SI import SI
 from ..data_types.DT import DT
 from ..data_types.ST import ST
-from ..data_types.CE import CE
-from ..tables.AllergySeverity import AllergySeverity
 from ..tables.AllergenType import AllergenType
+from ..tables.AllergySeverity import AllergySeverity
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     AL1,
-    SI, DT, ST, CE
+    CE, SI, DT, ST
 )
 
 al1 = AL1(  #  - The AL1 segment contains patient allergy information of various types

@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import DataType
+from .ST import ST
 from .ID import ID
 from .NM import NM
-from .ST import ST
 from ..tables.DataTypes import DataTypes
 
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RCD,
-    ID, NM, ST
+    ST, ID, NM
 )
 
 rcd = RCD(  # Row Column Definition - This specifies the format of a column in terms of a segment field name, a data type, and a maximum length

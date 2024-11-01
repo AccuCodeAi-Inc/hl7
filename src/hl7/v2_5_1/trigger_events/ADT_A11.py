@@ -1,15 +1,15 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.EVN import EVN
-from ..segments.DB1 import DB1
-from ..segments.SFT import SFT
-from ..segments.DG1 import DG1
-from ..segments.PV1 import PV1
 from ..segments.OBX import OBX
-from ..segments.PV2 import PV2
-from ..segments.MSH import MSH
-from ..segments.PID import PID
+from ..segments.DG1 import DG1
 from ..segments.PD1 import PD1
+from ..segments.PV2 import PV2
+from ..segments.EVN import EVN
+from ..segments.SFT import SFT
+from ..segments.PID import PID
+from ..segments.MSH import MSH
+from ..segments.DB1 import DB1
+from ..segments.PV1 import PV1
 
 
 """
@@ -20,7 +20,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ADT_A11
 from utils.hl7.v2_5_1.segments import (
-    DG1, PV1, PD1, DB1, MSH, SFT, PID, EVN, OBX, PV2
+    PV2, PV1, EVN, SFT, DG1, PID, DB1, MSH, PD1, OBX
 )
 
 adt_a11 = ADT_A11(  #  - For “admitted” patients, the A11 event is sent when an A01 (admit/visit notification) event is cancelled, either because of an erroneous entry of the A01 event, or because of a decision not to admit the patient after all

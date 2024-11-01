@@ -1,17 +1,17 @@
 from __future__ import annotations
 from ...base import DataType
-from .ID import ID
-from .TS import TS
-from .DR import DR
-from .FN import FN
-from .ST import ST
 from .CE import CE
 from .IS import IS
+from .ID import ID
+from .FN import FN
+from .ST import ST
+from .DR import DR
+from .TS import TS
+from ..tables.DegreeOrLicenseOrCertificate import DegreeOrLicenseOrCertificate
+from ..tables.NameType import NameType
 from ..tables.NameAssemblyOrder import NameAssemblyOrder
 from ..tables.NameContext import NameContext
-from ..tables.NameType import NameType
 from ..tables.FirstName import FirstName
-from ..tables.DegreeOrLicenseOrCertificate import DegreeOrLicenseOrCertificate
 from ..tables.NameOrAddressRepresentation import NameOrAddressRepresentation
 
 
@@ -23,7 +23,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     XPN,
-    ID, TS, DR, FN, ST, CE, IS
+    CE, IS, ID, FN, ST, DR, TS
 )
 
 xpn = XPN(  # Extended Person Name - 

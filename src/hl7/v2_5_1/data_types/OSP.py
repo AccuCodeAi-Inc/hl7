@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import DataType
-from .CNE import CNE
 from .DT import DT
+from .CNE import CNE
 from ..tables.OccurrenceSpan import OccurrenceSpan
 
 
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     OSP,
-    CNE, DT
+    DT, CNE
 )
 
 osp = OSP(  # Occurrence Span Code and Date - A code and the related dates that identify an event that relates to the payment of the claim

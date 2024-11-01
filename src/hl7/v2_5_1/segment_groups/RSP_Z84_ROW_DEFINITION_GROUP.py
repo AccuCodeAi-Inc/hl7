@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RSP_Z84_ROW_DEFINITION_GROUP
 from utils.hl7.v2_5_1.segments import (
-    RDF, RDT
+    RDT, RDF
 )
 
 rsp_z84_row_definition_group = RSP_Z84_ROW_DEFINITION_GROUP(  # ROW DEFINITION - Segment group for RSP_Z84 - Tabular Response - Who Am I consisting of RDF, RDT|None

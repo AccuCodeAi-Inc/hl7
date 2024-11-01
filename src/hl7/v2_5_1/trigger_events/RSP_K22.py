@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
 from ..segments.SFT import SFT
+from ..segment_groups.RSP_K22_QUERY_RESPONSE_GROUP import RSP_K22_QUERY_RESPONSE_GROUP
 from ..segments.ERR import ERR
-from ..segments.QPD import QPD
+from ..segments.DSC import DSC
 from ..segments.MSH import MSH
 from ..segments.MSA import MSA
-from ..segments.DSC import DSC
-from ..segment_groups.RSP_K22_QUERY_RESPONSE_GROUP import RSP_K22_QUERY_RESPONSE_GROUP
+from ..segments.QPD import QPD
 from ..segments.QAK import QAK
 
 
@@ -18,7 +18,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RSP_K22
 from utils.hl7.v2_5_1.segments import (
-    QAK, ERR, MSA, QPD, DSC, MSH, SFT
+    ERR, DSC, QPD, MSA, SFT, MSH, QAK
 )
 from utils.hl7.v2_5_1.segment_groups import (
     RSP_K22_QUERY_RESPONSE_GROUP

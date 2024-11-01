@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.NTE import NTE
 from ..segments.OBX import OBX
+from ..segments.NTE import NTE
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ORU_R32_OBSERVATION_GROUP
 from utils.hl7.v2_5_1.segments import (
-    OBX, NTE
+    NTE, OBX
 )
 
 oru_r32_observation_group = ORU_R32_OBSERVATION_GROUP(  # OBSERVATION - Segment group for ORU_R32 - Unsolicited Pre-Ordered Point-Of-Care Observation consisting of OBX, NTE|None

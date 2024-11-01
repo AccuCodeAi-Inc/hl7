@@ -1,19 +1,19 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.OBR import OBR
-from ..segments.TCD import TCD
-from ..segment_groups.OML_O21_ORDER_GROUP_OBSERVATION_REQUEST_GROUP_PRIOR_RESULT_GROUP import (
-    OML_O21_ORDER_GROUP_OBSERVATION_REQUEST_GROUP_PRIOR_RESULT_GROUP,
-)
 from ..segments.DG1 import DG1
 from ..segments.NTE import NTE
-from ..segments.CTD import CTD
 from ..segment_groups.OML_O21_ORDER_GROUP_OBSERVATION_REQUEST_GROUP_OBSERVATION_GROUP import (
     OML_O21_ORDER_GROUP_OBSERVATION_REQUEST_GROUP_OBSERVATION_GROUP,
 )
+from ..segments.OBR import OBR
+from ..segment_groups.OML_O21_ORDER_GROUP_OBSERVATION_REQUEST_GROUP_PRIOR_RESULT_GROUP import (
+    OML_O21_ORDER_GROUP_OBSERVATION_REQUEST_GROUP_PRIOR_RESULT_GROUP,
+)
+from ..segments.TCD import TCD
 from ..segment_groups.OML_O21_ORDER_GROUP_OBSERVATION_REQUEST_GROUP_SPECIMEN_GROUP import (
     OML_O21_ORDER_GROUP_OBSERVATION_REQUEST_GROUP_SPECIMEN_GROUP,
 )
+from ..segments.CTD import CTD
 
 
 """
@@ -24,7 +24,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OML_O21_ORDER_GROUP_OBSERVATION_REQUEST_GROUP
 from utils.hl7.v2_5_1.segments import (
-    CTD, OBR, NTE, DG1, TCD
+    NTE, OBR, DG1, CTD, TCD
 )
 from utils.hl7.v2_5_1.segment_groups import (
     OML_O21_ORDER_GROUP_OBSERVATION_REQUEST_GROUP_SPECIMEN_GROUP, OML_O21_ORDER_GROUP_OBSERVATION_REQUEST_GROUP_OBSERVATION_GROUP, OML_O21_ORDER_GROUP_OBSERVATION_REQUEST_GROUP_PRIOR_RESULT_GROUP

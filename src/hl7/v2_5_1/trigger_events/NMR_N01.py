@@ -1,13 +1,13 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
+from ..segments.QRD import QRD
 from ..segments.SFT import SFT
 from ..segments.ERR import ERR
+from ..segments.MSH import MSH
+from ..segments.MSA import MSA
 from ..segment_groups.NMR_N01_CLOCK_AND_STATS_WITH_NOTES_ALT_GROUP import (
     NMR_N01_CLOCK_AND_STATS_WITH_NOTES_ALT_GROUP,
 )
-from ..segments.QRD import QRD
-from ..segments.MSH import MSH
-from ..segments.MSA import MSA
 
 
 """
@@ -18,7 +18,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import NMR_N01
 from utils.hl7.v2_5_1.segments import (
-    ERR, MSA, QRD, MSH, SFT
+    ERR, MSA, SFT, MSH, QRD
 )
 from utils.hl7.v2_5_1.segment_groups import (
     NMR_N01_CLOCK_AND_STATS_WITH_NOTES_ALT_GROUP

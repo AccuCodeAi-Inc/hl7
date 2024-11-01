@@ -1,30 +1,30 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CWE import CWE
-from ..data_types.TS import TS
+from ..data_types.EIP import EIP
+from ..data_types.CQ import CQ
 from ..data_types.ID import ID
+from ..data_types.NM import NM
 from ..data_types.DR import DR
 from ..data_types.ST import ST
-from ..data_types.CQ import CQ
+from ..data_types.CWE import CWE
 from ..data_types.SI import SI
-from ..data_types.NM import NM
-from ..data_types.EIP import EIP
-from ..tables.SpecimenCollectionMethod import SpecimenCollectionMethod
+from ..data_types.TS import TS
+from ..tables.SpecimenCollectionSite import SpecimenCollectionSite
+from ..tables.ContainerCondition import ContainerCondition
+from ..tables.SpecimenRole import SpecimenRole
 from ..tables.SpecimenQuality import SpecimenQuality
+from ..tables.SpecimenCollectionMethod import SpecimenCollectionMethod
+from ..tables.SpecialHandlingCode import SpecialHandlingCode
+from ..tables.RiskCodes import RiskCodes
 from ..tables.SpecimenTypeModifier import SpecimenTypeModifier
+from ..tables.SpecimenSourceTypeModifier import SpecimenSourceTypeModifier
+from ..tables.AdditiveOrPreservative import AdditiveOrPreservative
+from ..tables.SpecimenType import SpecimenType
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
 from ..tables.SpecimenCondition import SpecimenCondition
 from ..tables.SpecimenAppropriateness import SpecimenAppropriateness
-from ..tables.SpecimenCollectionSite import SpecimenCollectionSite
-from ..tables.RiskCodes import RiskCodes
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
-from ..tables.SpecialHandlingCode import SpecialHandlingCode
-from ..tables.ContainerCondition import ContainerCondition
 from ..tables.SpecimenChildRole import SpecimenChildRole
-from ..tables.SpecimenSourceTypeModifier import SpecimenSourceTypeModifier
 from ..tables.SpecimenRejectReason import SpecimenRejectReason
-from ..tables.SpecimenType import SpecimenType
-from ..tables.SpecimenRole import SpecimenRole
-from ..tables.AdditiveOrPreservative import AdditiveOrPreservative
 
 
 """
@@ -35,7 +35,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     SPM,
-    CWE, TS, ID, DR, ST, CQ, SI, NM, EIP
+    EIP, CQ, ID, NM, DR, ST, CWE, SI, TS
 )
 
 spm = SPM(  #  - The intent of this segment is to describe the characteristics of a specimen

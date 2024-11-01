@@ -3,10 +3,10 @@ from ...base import HL7TriggerEvent
 from ..segments.SFT import SFT
 from ..segments.ROL import ROL
 from ..segments.MSH import MSH
+from ..segments.EQU import EQU
 from ..segment_groups.SSU_U03_SPECIMEN_CONTAINER_GROUP import (
     SSU_U03_SPECIMEN_CONTAINER_GROUP,
 )
-from ..segments.EQU import EQU
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import SSU_U03
 from utils.hl7.v2_5_1.segments import (
-    SFT, ROL, EQU, MSH
+    EQU, ROL, SFT, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
     SSU_U03_SPECIMEN_CONTAINER_GROUP

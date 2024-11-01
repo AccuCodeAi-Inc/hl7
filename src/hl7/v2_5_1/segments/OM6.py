@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TX import TX
 from ..data_types.NM import NM
+from ..data_types.TX import TX
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     OM6,
-    TX, NM
+    NM, TX
 )
 
 om6 = OM6(  #  - This segment contains the information about quantities that are derived from one or more other quantities or direct observations by mathematical or logical means

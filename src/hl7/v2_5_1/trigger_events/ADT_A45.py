@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segment_groups.ADT_A45_MERGE_INFO_GROUP import ADT_A45_MERGE_INFO_GROUP
+from ..segments.PD1 import PD1
 from ..segments.EVN import EVN
 from ..segments.SFT import SFT
-from ..segments.MSH import MSH
 from ..segments.PID import PID
-from ..segments.PD1 import PD1
+from ..segments.MSH import MSH
+from ..segment_groups.ADT_A45_MERGE_INFO_GROUP import ADT_A45_MERGE_INFO_GROUP
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ADT_A45
 from utils.hl7.v2_5_1.segments import (
-    PD1, MSH, SFT, PID, EVN
+    EVN, SFT, PID, MSH, PD1
 )
 from utils.hl7.v2_5_1.segment_groups import (
     ADT_A45_MERGE_INFO_GROUP

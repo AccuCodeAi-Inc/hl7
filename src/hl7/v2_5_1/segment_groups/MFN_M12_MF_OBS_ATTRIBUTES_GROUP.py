@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.OM1 import OM1
 from ..segments.OM7 import OM7
 from ..segments.MFE import MFE
-from ..segments.OM1 import OM1
 
 
 """
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import MFN_M12_MF_OBS_ATTRIBUTES_GROUP
 from utils.hl7.v2_5_1.segments import (
-    MFE, OM1, OM7
+    OM7, MFE, OM1
 )
 
 mfn_m12_mf_obs_attributes_group = MFN_M12_MF_OBS_ATTRIBUTES_GROUP(  # MF OBS ATTRIBUTES - Segment group for MFN_M12 - Master File Notification - Additional Basic Observation/Service Attributes consisting of MFE, OM1, OM7|None

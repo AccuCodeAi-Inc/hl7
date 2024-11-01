@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
-from ..data_types.NM import NM
 from ..data_types.ST import ST
-from ..tables.SourceType import SourceType
+from ..data_types.ID import ID
+from ..data_types.NM import NM
+from ..data_types.TS import TS
 from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..tables.SourceType import SourceType
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     NST,
-    ID, TS, NM, ST
+    ST, ID, NM, TS
 )
 
 nst = NST(  #  - The NST segment allows application control-level statistical information to be passed between the various systems on the network

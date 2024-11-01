@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segment_groups.SUR_P09_FACILITY_GROUP_PRODUCT_GROUP import (
-    SUR_P09_FACILITY_GROUP_PRODUCT_GROUP,
-)
+from ..segments.FAC import FAC
 from ..segment_groups.SUR_P09_FACILITY_GROUP_FACILITY_DETAIL_GROUP import (
     SUR_P09_FACILITY_GROUP_FACILITY_DETAIL_GROUP,
 )
-from ..segments.FAC import FAC
+from ..segment_groups.SUR_P09_FACILITY_GROUP_PRODUCT_GROUP import (
+    SUR_P09_FACILITY_GROUP_PRODUCT_GROUP,
+)
 from ..segments.PSH import PSH
 
 

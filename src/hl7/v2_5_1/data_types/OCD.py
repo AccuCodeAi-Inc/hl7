@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import DataType
-from .CNE import CNE
 from .DT import DT
+from .CNE import CNE
 from ..tables.OccurrenceCode import OccurrenceCode
 
 
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     OCD,
-    CNE, DT
+    DT, CNE
 )
 
 ocd = OCD(  # Occurrence Code and Date - The code and associated date defining a significant event relating to a bill that may affect payer processing

@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7Segment
 from ..data_types.CE import CE
-from ..data_types.TS import TS
 from ..data_types.ST import ST
 from ..data_types.FT import FT
+from ..data_types.TS import TS
 from ..tables.EventType import EventType
 
 
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     EQP,
-    CE, TS, ST, FT
+    CE, ST, FT, TS
 )
 
 eqp = EQP(  #  - The equipment log/service segment is the data necessary to maintain an adequate audit trail of events that have occurred on a particular piece of equipment

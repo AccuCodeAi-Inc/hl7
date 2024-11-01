@@ -1,21 +1,21 @@
 from __future__ import annotations
 from ...base import HL7Segment
+from ..data_types.CE import CE
 from ..data_types.ID import ID
-from ..data_types.TS import TS
-from ..data_types.VID import VID
-from ..data_types.MSG import MSG
+from ..data_types.NM import NM
 from ..data_types.PT import PT
 from ..data_types.ST import ST
-from ..data_types.CE import CE
-from ..data_types.NM import NM
+from ..data_types.VID import VID
+from ..data_types.MSG import MSG
 from ..data_types.EI import EI
 from ..data_types.HD import HD
-from ..tables.AlternateCharacterSets import AlternateCharacterSets
-from ..tables.Facility import Facility
+from ..data_types.TS import TS
+from ..tables.CountryCode import CountryCode
 from ..tables.AlternateCharacterSetHandlingScheme import (
     AlternateCharacterSetHandlingScheme,
 )
-from ..tables.CountryCode import CountryCode
+from ..tables.AlternateCharacterSets import AlternateCharacterSets
+from ..tables.Facility import Facility
 from ..tables.Application import Application
 from ..tables.AcceptOrApplicationAcknowledgmentConditions import (
     AcceptOrApplicationAcknowledgmentConditions,
@@ -30,7 +30,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     MSH,
-    ID, TS, VID, MSG, PT, ST, CE, NM, EI, HD
+    CE, ID, NM, PT, ST, VID, MSG, EI, HD, TS
 )
 
 msh = MSH(  #  - The MSH segment defines the intent, source, destination, and some specifics of the syntax of a message

@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import NMD_N02_CLOCK_AND_STATS_WITH_NOTES_GROUP_CLOCK_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NTE, NCK
+    NCK, NTE
 )
 
 nmd_n02_clock_and_stats_with_notes_group_clock_group = NMD_N02_CLOCK_AND_STATS_WITH_NOTES_GROUP_CLOCK_GROUP(  # CLOCK - Segment group for NMD_N02_CLOCK_AND_STATS_WITH_NOTES_GROUP - CLOCK AND STATS WITH NOTES consisting of NCK, NTE|None

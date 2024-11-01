@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
-from ..data_types.CQ import CQ
 from ..data_types.CE import CE
+from ..data_types.CQ import CQ
+from ..data_types.ID import ID
 from ..data_types.SRT import SRT
-from ..tables.ResponseModality import ResponseModality
-from ..tables.QueryPriority import QueryPriority
-from ..tables.SegmentGroup import SegmentGroup
+from ..data_types.TS import TS
 from ..tables.ModifyIndicator import ModifyIndicator
+from ..tables.ResponseModality import ResponseModality
+from ..tables.SegmentGroup import SegmentGroup
+from ..tables.QueryPriority import QueryPriority
 
 
 """
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RCP,
-    ID, TS, CQ, CE, SRT
+    CE, CQ, ID, SRT, TS
 )
 
 rcp = RCP(  #  - The RCP segment is used to restrict the amount of data that should be returned in response to query

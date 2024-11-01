@@ -1,24 +1,24 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
-from ..data_types.DTN import DTN
-from ..data_types.XTN import XTN
-from ..data_types.ICD import ICD
-from ..data_types.CX import CX
-from ..data_types.ST import ST
-from ..data_types.SI import SI
 from ..data_types.CE import CE
 from ..data_types.MOP import MOP
-from ..data_types.DT import DT
 from ..data_types.IS import IS
+from ..data_types.CX import CX
+from ..data_types.DT import DT
+from ..data_types.DTN import DTN
+from ..data_types.ID import ID
+from ..data_types.XTN import XTN
+from ..data_types.ICD import ICD
+from ..data_types.ST import ST
 from ..data_types.XCN import XCN
-from ..tables.CertificationAgency import CertificationAgency
+from ..data_types.SI import SI
+from ..data_types.TS import TS
 from ..tables.SecondOpinionStatus import SecondOpinionStatus
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
-from ..tables.NonConcurCodeOrDescription import NonConcurCodeOrDescription
-from ..tables.AppealReason import AppealReason
 from ..tables.PhysicianId import PhysicianId
+from ..tables.NonConcurCodeOrDescription import NonConcurCodeOrDescription
+from ..tables.CertificationAgency import CertificationAgency
+from ..tables.AppealReason import AppealReason
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
 from ..tables.SecondOpinionDocumentationReceived import (
     SecondOpinionDocumentationReceived,
 )
@@ -32,7 +32,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     IN3,
-    ID, TS, DTN, XTN, ICD, CX, ST, SI, CE, MOP, DT, IS, XCN
+    CE, MOP, IS, CX, DT, DTN, ID, XTN, ICD, ST, XCN, SI, TS
 )
 
 in3 = IN3(  #  - The IN3 segment contains additional insurance information for certifying the need for patient care

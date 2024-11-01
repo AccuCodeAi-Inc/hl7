@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import DataType
-from .ID import ID
 from .ST import ST
+from .ID import ID
 from ..tables.RelationalOperator import RelationalOperator
 from ..tables.RelationalConjunction import RelationalConjunction
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     QSC,
-    ID, ST
+    ST, ID
 )
 
 qsc = QSC(  # Query Selection Criteria - This field indicates the conditions that qualify the rows to be returned in the query response

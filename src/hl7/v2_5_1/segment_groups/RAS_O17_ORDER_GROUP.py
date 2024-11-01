@@ -1,19 +1,19 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segment_groups.RAS_O17_ORDER_GROUP_ADMINISTRATION_GROUP import (
-    RAS_O17_ORDER_GROUP_ADMINISTRATION_GROUP,
-)
 from ..segment_groups.RAS_O17_ORDER_GROUP_ORDER_DETAIL_GROUP import (
     RAS_O17_ORDER_GROUP_ORDER_DETAIL_GROUP,
 )
-from ..segments.ORC import ORC
-from ..segment_groups.RAS_O17_ORDER_GROUP_ENCODING_GROUP import (
-    RAS_O17_ORDER_GROUP_ENCODING_GROUP,
-)
-from ..segments.CTI import CTI
 from ..segment_groups.RAS_O17_ORDER_GROUP_TIMING_GROUP import (
     RAS_O17_ORDER_GROUP_TIMING_GROUP,
 )
+from ..segment_groups.RAS_O17_ORDER_GROUP_ENCODING_GROUP import (
+    RAS_O17_ORDER_GROUP_ENCODING_GROUP,
+)
+from ..segment_groups.RAS_O17_ORDER_GROUP_ADMINISTRATION_GROUP import (
+    RAS_O17_ORDER_GROUP_ADMINISTRATION_GROUP,
+)
+from ..segments.CTI import CTI
+from ..segments.ORC import ORC
 
 
 """

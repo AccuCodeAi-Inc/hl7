@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import DataType
-from .NM import NM
 from .IS import IS
+from .NM import NM
 from ..tables.DayType import DayType
 
 
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     DTN,
-    NM, IS
+    IS, NM
 )
 
 dtn = DTN(  # Day Type and Number - This data type specifies the type and number of days for which a certification is valid

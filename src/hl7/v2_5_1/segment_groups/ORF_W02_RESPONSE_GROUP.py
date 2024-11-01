@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segment_groups.ORF_W02_RESPONSE_GROUP_ORDER_GROUP import (
-    ORF_W02_RESPONSE_GROUP_ORDER_GROUP,
-)
 from ..segment_groups.ORF_W02_RESPONSE_GROUP_PATIENT_GROUP import (
     ORF_W02_RESPONSE_GROUP_PATIENT_GROUP,
+)
+from ..segment_groups.ORF_W02_RESPONSE_GROUP_ORDER_GROUP import (
+    ORF_W02_RESPONSE_GROUP_ORDER_GROUP,
 )
 
 
@@ -19,7 +19,7 @@ from utils.hl7.v2_5_1.segments import (
     
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    ORF_W02_RESPONSE_GROUP_PATIENT_GROUP, ORF_W02_RESPONSE_GROUP_ORDER_GROUP
+    ORF_W02_RESPONSE_GROUP_ORDER_GROUP, ORF_W02_RESPONSE_GROUP_PATIENT_GROUP
 )
 
 orf_w02_response_group = ORF_W02_RESPONSE_GROUP(  # RESPONSE - Segment group for ORF_W02 - Waveform result, response to query consisting of PATIENT|None, ORDER

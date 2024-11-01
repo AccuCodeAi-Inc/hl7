@@ -1,27 +1,27 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.AL1 import AL1
-from ..segments.ACC import ACC
-from ..segments.DB1 import DB1
-from ..segments.ABS import ABS
-from ..segments.RMI import RMI
-from ..segments.ROL import ROL
-from ..segments.BLC import BLC
-from ..segments.DG1 import DG1
-from ..segments.PV1 import PV1
 from ..segments.OBX import OBX
+from ..segments.ABS import ABS
+from ..segments.DG1 import DG1
+from ..segments.ACC import ACC
+from ..segments.UB2 import UB2
+from ..segments.RMI import RMI
 from ..segments.GT1 import GT1
-from ..segment_groups.BAR_P05_VISIT_GROUP_INSURANCE_GROUP import (
-    BAR_P05_VISIT_GROUP_INSURANCE_GROUP,
-)
+from ..segments.PV2 import PV2
+from ..segments.DRG import DRG
 from ..segment_groups.BAR_P05_VISIT_GROUP_PROCEDURE_GROUP import (
     BAR_P05_VISIT_GROUP_PROCEDURE_GROUP,
 )
 from ..segments.UB1 import UB1
+from ..segments.ROL import ROL
+from ..segments.BLC import BLC
 from ..segments.NK1 import NK1
-from ..segments.PV2 import PV2
-from ..segments.DRG import DRG
-from ..segments.UB2 import UB2
+from ..segments.DB1 import DB1
+from ..segment_groups.BAR_P05_VISIT_GROUP_INSURANCE_GROUP import (
+    BAR_P05_VISIT_GROUP_INSURANCE_GROUP,
+)
+from ..segments.PV1 import PV1
+from ..segments.AL1 import AL1
 
 
 """
@@ -32,10 +32,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import BAR_P05_VISIT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    DG1, PV1, DRG, RMI, UB2, GT1, DB1, BLC, NK1, UB1, AL1, ABS, ROL, OBX, ACC, PV2
+    PV2, PV1, UB2, ACC, AL1, DG1, ROL, ABS, UB1, GT1, DB1, NK1, RMI, BLC, OBX, DRG
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    BAR_P05_VISIT_GROUP_PROCEDURE_GROUP, BAR_P05_VISIT_GROUP_INSURANCE_GROUP
+    BAR_P05_VISIT_GROUP_INSURANCE_GROUP, BAR_P05_VISIT_GROUP_PROCEDURE_GROUP
 )
 
 bar_p05_visit_group = BAR_P05_VISIT_GROUP(  # VISIT - Segment group for BAR_P05 - Update Account consisting of PV1|None, PV2|None, ROL|None, DB1|None, OBX|None, AL1|None, DG1|None, DRG|None, PROCEDURE|None, GT1|None, NK1|None, INSURANCE|None, ACC|None, UB1|None, UB2|None, ABS|None, BLC|None, RMI|None

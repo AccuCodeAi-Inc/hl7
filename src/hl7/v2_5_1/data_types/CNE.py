@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import DataType
-from .ID import ID
 from .ST import ST
+from .ID import ID
 from ..tables.CodingSystem import CodingSystem
 
 
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CNE,
-    ID, ST
+    ST, ID
 )
 
 cne = CNE(  # Coded with No Exceptions - Specifies a coded element and its associated detail

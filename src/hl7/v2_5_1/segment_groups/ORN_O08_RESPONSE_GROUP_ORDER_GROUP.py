@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.ORC import ORC
+from ..segments.RQD import RQD
 from ..segments.NTE import NTE
 from ..segment_groups.ORN_O08_RESPONSE_GROUP_ORDER_GROUP_TIMING_GROUP import (
     ORN_O08_RESPONSE_GROUP_ORDER_GROUP_TIMING_GROUP,
 )
-from ..segments.RQD import RQD
+from ..segments.ORC import ORC
 from ..segments.RQ1 import RQ1
 
 
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ORN_O08_RESPONSE_GROUP_ORDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    RQ1, RQD, NTE, ORC
+    NTE, ORC, RQ1, RQD
 )
 from utils.hl7.v2_5_1.segment_groups import (
     ORN_O08_RESPONSE_GROUP_ORDER_GROUP_TIMING_GROUP

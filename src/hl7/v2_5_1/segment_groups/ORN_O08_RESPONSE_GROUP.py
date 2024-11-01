@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segment_groups.ORN_O08_RESPONSE_GROUP_ORDER_GROUP import (
-    ORN_O08_RESPONSE_GROUP_ORDER_GROUP,
-)
 from ..segment_groups.ORN_O08_RESPONSE_GROUP_PATIENT_GROUP import (
     ORN_O08_RESPONSE_GROUP_PATIENT_GROUP,
+)
+from ..segment_groups.ORN_O08_RESPONSE_GROUP_ORDER_GROUP import (
+    ORN_O08_RESPONSE_GROUP_ORDER_GROUP,
 )
 
 
@@ -19,7 +19,7 @@ from utils.hl7.v2_5_1.segments import (
     
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    ORN_O08_RESPONSE_GROUP_PATIENT_GROUP, ORN_O08_RESPONSE_GROUP_ORDER_GROUP
+    ORN_O08_RESPONSE_GROUP_ORDER_GROUP, ORN_O08_RESPONSE_GROUP_PATIENT_GROUP
 )
 
 orn_o08_response_group = ORN_O08_RESPONSE_GROUP(  # RESPONSE - Segment group for ORN_O08 - Non-Stock Requisition Order Acknowledgement consisting of PATIENT|None, ORDER

@@ -1,13 +1,13 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segment_groups.OUL_R22_SPECIMEN_GROUP_ORDER_GROUP import (
-    OUL_R22_SPECIMEN_GROUP_ORDER_GROUP,
-)
+from ..segments.OBX import OBX
 from ..segment_groups.OUL_R22_SPECIMEN_GROUP_CONTAINER_GROUP import (
     OUL_R22_SPECIMEN_GROUP_CONTAINER_GROUP,
 )
-from ..segments.OBX import OBX
 from ..segments.SPM import SPM
+from ..segment_groups.OUL_R22_SPECIMEN_GROUP_ORDER_GROUP import (
+    OUL_R22_SPECIMEN_GROUP_ORDER_GROUP,
+)
 
 
 """
@@ -18,7 +18,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OUL_R22_SPECIMEN_GROUP
 from utils.hl7.v2_5_1.segments import (
-    SPM, OBX
+    OBX, SPM
 )
 from utils.hl7.v2_5_1.segment_groups import (
     OUL_R22_SPECIMEN_GROUP_CONTAINER_GROUP, OUL_R22_SPECIMEN_GROUP_ORDER_GROUP

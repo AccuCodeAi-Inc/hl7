@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segment_groups.SRM_S02_RESOURCES_GROUP import SRM_S02_RESOURCES_GROUP
-from ..segments.ARQ import ARQ
 from ..segments.NTE import NTE
-from ..segments.APR import APR
 from ..segments.MSH import MSH
+from ..segments.APR import APR
+from ..segment_groups.SRM_S02_RESOURCES_GROUP import SRM_S02_RESOURCES_GROUP
 from ..segment_groups.SRM_S02_PATIENT_GROUP import SRM_S02_PATIENT_GROUP
+from ..segments.ARQ import ARQ
 
 
 """
@@ -16,10 +16,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import SRM_S02
 from utils.hl7.v2_5_1.segments import (
-    ARQ, APR, NTE, MSH
+    NTE, ARQ, APR, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    SRM_S02_PATIENT_GROUP, SRM_S02_RESOURCES_GROUP
+    SRM_S02_RESOURCES_GROUP, SRM_S02_PATIENT_GROUP
 )
 
 srm_s02 = SRM_S02(  #  - A placer application uses this trigger event to request that an existing appointment be rescheduled

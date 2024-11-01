@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.SI import SI
 from ..data_types.CE import CE
-from ..tables.PrimaryLanguage import PrimaryLanguage
+from ..data_types.SI import SI
 from ..tables.LanguageProficiency import LanguageProficiency
 from ..tables.LanguageAbility import LanguageAbility
+from ..tables.PrimaryLanguage import PrimaryLanguage
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     LAN,
-    SI, CE
+    CE, SI
 )
 
 lan = LAN(  #  - The LAN segment adds detailed language information to the staff member identified by the STF segment

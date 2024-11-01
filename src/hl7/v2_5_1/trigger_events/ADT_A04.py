@@ -1,26 +1,26 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.ACC import ACC
-from ..segments.SFT import SFT
-from ..segments.ROL import ROL
-from ..segments.DG1 import DG1
-from ..segments.PV2 import PV2
-from ..segments.PV1 import PV1
-from ..segments.OBX import OBX
-from ..segments.GT1 import GT1
-from ..segments.UB1 import UB1
-from ..segments.NK1 import NK1
-from ..segments.DB1 import DB1
-from ..segment_groups.ADT_A04_INSURANCE_GROUP import ADT_A04_INSURANCE_GROUP
-from ..segments.MSH import MSH
-from ..segments.PID import PID
-from ..segment_groups.ADT_A04_PROCEDURE_GROUP import ADT_A04_PROCEDURE_GROUP
-from ..segments.PDA import PDA
-from ..segments.DRG import DRG
-from ..segments.AL1 import AL1
-from ..segments.EVN import EVN
 from ..segments.UB2 import UB2
+from ..segments.PV2 import PV2
+from ..segments.EVN import EVN
+from ..segments.UB1 import UB1
+from ..segments.PID import PID
+from ..segment_groups.ADT_A04_INSURANCE_GROUP import ADT_A04_INSURANCE_GROUP
+from ..segments.NK1 import NK1
+from ..segments.DG1 import DG1
+from ..segments.ACC import ACC
 from ..segments.PD1 import PD1
+from ..segments.SFT import SFT
+from ..segments.MSH import MSH
+from ..segments.OBX import OBX
+from ..segments.ROL import ROL
+from ..segments.DB1 import DB1
+from ..segments.PDA import PDA
+from ..segments.PV1 import PV1
+from ..segments.GT1 import GT1
+from ..segments.DRG import DRG
+from ..segment_groups.ADT_A04_PROCEDURE_GROUP import ADT_A04_PROCEDURE_GROUP
+from ..segments.AL1 import AL1
 
 
 """
@@ -31,7 +31,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ADT_A04
 from utils.hl7.v2_5_1.segments import (
-    GT1, PD1, AL1, SFT, DRG, PDA, UB2, PID, OBX, ACC, DG1, PV1, DB1, NK1, UB1, MSH, ROL, EVN, PV2
+    PV1, EVN, DG1, ROL, PID, NK1, MSH, PV2, AL1, UB1, DB1, PD1, OBX, DRG, UB2, SFT, ACC, GT1, PDA
 )
 from utils.hl7.v2_5_1.segment_groups import (
     ADT_A04_PROCEDURE_GROUP, ADT_A04_INSURANCE_GROUP

@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7Segment
 from ..data_types.CE import CE
-from ..data_types.NM import NM
 from ..data_types.ST import ST
+from ..data_types.NM import NM
 
 
 """
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     OM5,
-    CE, NM, ST
+    CE, ST, NM
 )
 
 om5 = OM5(  #  - This segment contains the information about batteries and supersets (a nature code of F, P or S, as described in OM1-18 - Nature of Service/Test/Observation)

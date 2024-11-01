@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.OM4 import OM4
 from ..segments.OM5 import OM5
+from ..segments.OM4 import OM4
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import MFN_M10_MF_TEST_BATTERIES_GROUP_MF_TEST_BATT_DETAIL_GROUP
 from utils.hl7.v2_5_1.segments import (
-    OM4, OM5
+    OM5, OM4
 )
 
 mfn_m10_mf_test_batteries_group_mf_test_batt_detail_group = MFN_M10_MF_TEST_BATTERIES_GROUP_MF_TEST_BATT_DETAIL_GROUP(  # MF TEST BATT DETAIL - Segment group for MFN_M10_MF_TEST_BATTERIES_GROUP - MF TEST BATTERIES consisting of OM5, OM4|None

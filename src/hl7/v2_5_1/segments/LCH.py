@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
 from ..data_types.CE import CE
 from ..data_types.EI import EI
+from ..data_types.ID import ID
 from ..data_types.PL import PL
-from ..tables.LocationCharacteristicId import LocationCharacteristicId
 from ..tables.SegmentActionCode import SegmentActionCode
+from ..tables.LocationCharacteristicId import LocationCharacteristicId
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     LCH,
-    ID, CE, EI, PL
+    CE, EI, ID, PL
 )
 
 lch = LCH(  #  - The LCH segment is used to identify location characteristics which determine which patients will be assigned to the room or bed

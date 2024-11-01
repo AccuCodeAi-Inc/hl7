@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import DataType
 from .CE import CE
-from .NM import NM
 from .ST import ST
+from .NM import NM
 from ..tables.MessageErrorConditionCodes import MessageErrorConditionCodes
 
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     ELD,
-    CE, NM, ST
+    CE, ST, NM
 )
 
 eld = ELD(  # Error Location and Description - Specifies the segment that contains an error and describes the nature of the error

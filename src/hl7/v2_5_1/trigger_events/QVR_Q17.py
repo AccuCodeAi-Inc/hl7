@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
 from ..segments.SFT import SFT
-from ..segments.RCP import RCP
-from ..segments.QPD import QPD
-from ..segments.MSH import MSH
 from ..segments.DSC import DSC
+from ..segments.MSH import MSH
+from ..segments.QPD import QPD
+from ..segments.RCP import RCP
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import QVR_Q17
 from utils.hl7.v2_5_1.segments import (
-    QPD, DSC, RCP, MSH, SFT
+    DSC, RCP, QPD, SFT, MSH
 )
 
 qvr_q17 = QVR_Q17(  #  - The Query for Previous Events is like a Query by Parameter with a Segment Pattern Response except that the response consists of zero to many messages of the type defined in the Query Profile rather than a single response message containing multiple iterations of the segment pattern

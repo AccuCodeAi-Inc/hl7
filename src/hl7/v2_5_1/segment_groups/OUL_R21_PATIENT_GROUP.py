@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.NTE import NTE
 from ..segments.PID import PID
 from ..segments.PD1 import PD1
-from ..segments.NTE import NTE
 
 
 """
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OUL_R21_PATIENT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PID, NTE, PD1
+    NTE, PD1, PID
 )
 
 oul_r21_patient_group = OUL_R21_PATIENT_GROUP(  # PATIENT - Segment group for OUL_R21 - Unsolicited laboratory observation consisting of PID, PD1|None, NTE|None

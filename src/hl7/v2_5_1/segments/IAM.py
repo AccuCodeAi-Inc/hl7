@@ -1,22 +1,22 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TS import TS
-from ..data_types.ST import ST
-from ..data_types.SI import SI
 from ..data_types.CE import CE
-from ..data_types.CNE import CNE
-from ..data_types.XPN import XPN
-from ..data_types.EI import EI
-from ..data_types.DT import DT
-from ..data_types.XCN import XCN
 from ..data_types.XON import XON
+from ..data_types.CNE import CNE
+from ..data_types.DT import DT
+from ..data_types.EI import EI
+from ..data_types.XPN import XPN
+from ..data_types.ST import ST
+from ..data_types.XCN import XCN
+from ..data_types.SI import SI
+from ..data_types.TS import TS
+from ..tables.Relationship import Relationship
 from ..tables.ActionCode import ActionCode
 from ..tables.AllergenType import AllergenType
-from ..tables.AlertDeviceCode import AlertDeviceCode
-from ..tables.AllergyClinicalStatus import AllergyClinicalStatus
 from ..tables.AllergySeverity import AllergySeverity
+from ..tables.AlertDeviceCode import AlertDeviceCode
 from ..tables.SensitivityToCausativeAgentCode import SensitivityToCausativeAgentCode
-from ..tables.Relationship import Relationship
+from ..tables.AllergyClinicalStatus import AllergyClinicalStatus
 
 
 """
@@ -27,7 +27,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     IAM,
-    TS, ST, SI, CE, CNE, XPN, EI, DT, XCN, XON
+    CE, XON, CNE, DT, EI, XPN, ST, XCN, SI, TS
 )
 
 iam = IAM(  #  - The IAM segment contains person/patient adverse reaction information of various types

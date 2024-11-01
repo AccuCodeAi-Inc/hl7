@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.ARQ import ARQ
-from ..segment_groups.SRM_S05_PATIENT_GROUP import SRM_S05_PATIENT_GROUP
 from ..segments.NTE import NTE
+from ..segment_groups.SRM_S05_PATIENT_GROUP import SRM_S05_PATIENT_GROUP
 from ..segment_groups.SRM_S05_RESOURCES_GROUP import SRM_S05_RESOURCES_GROUP
-from ..segments.APR import APR
 from ..segments.MSH import MSH
+from ..segments.APR import APR
+from ..segments.ARQ import ARQ
 
 
 """
@@ -16,10 +16,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import SRM_S05
 from utils.hl7.v2_5_1.segments import (
-    ARQ, APR, NTE, MSH
+    NTE, ARQ, APR, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    SRM_S05_RESOURCES_GROUP, SRM_S05_PATIENT_GROUP
+    SRM_S05_PATIENT_GROUP, SRM_S05_RESOURCES_GROUP
 )
 
 srm_s05 = SRM_S05(  #  - The request appointment discontinuation is sent by the placer application to the filler application to request that an appointment in progress be stopped, or that the remaining occurrences of a parent appointment not occur as scheduled

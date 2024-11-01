@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import DataType
-from .TX import TX
 from .NR import NR
 from .ST import ST
 from .IS import IS
+from .TX import TX
 from ..tables.AdministrativeSex import AdministrativeSex
 
 
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RFR,
-    TX, NR, ST, IS
+    NR, ST, IS, TX
 )
 
 rfr = RFR(  # Reference Range - Describes a reference range and its supporting detail

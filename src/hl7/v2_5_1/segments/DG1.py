@@ -1,25 +1,25 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
-from ..data_types.ST import ST
-from ..data_types.SI import SI
 from ..data_types.CE import CE
-from ..data_types.NM import NM
-from ..data_types.EI import EI
 from ..data_types.IS import IS
+from ..data_types.EI import EI
+from ..data_types.ID import ID
+from ..data_types.NM import NM
+from ..data_types.ST import ST
 from ..data_types.XCN import XCN
 from ..data_types.CP import CP
-from ..tables.DiagnosisCode import DiagnosisCode
-from ..tables.DiagnosisClassification import DiagnosisClassification
+from ..data_types.SI import SI
+from ..data_types.TS import TS
 from ..tables.SegmentActionCode import SegmentActionCode
+from ..tables.DiagnosisCodingMethod import DiagnosisCodingMethod
 from ..tables.DrgGrouperReviewCode import DrgGrouperReviewCode
 from ..tables.DiagnosisRelatedGroup import DiagnosisRelatedGroup
+from ..tables.DiagnosisCode import DiagnosisCode
 from ..tables.DiagnosisType import DiagnosisType
-from ..tables.DiagnosisCodingMethod import DiagnosisCodingMethod
 from ..tables.YesOrNoIndicator import YesOrNoIndicator
-from ..tables.DiagnosisPriority import DiagnosisPriority
 from ..tables.MajorDiagnosticCategory import MajorDiagnosticCategory
+from ..tables.DiagnosisPriority import DiagnosisPriority
+from ..tables.DiagnosisClassification import DiagnosisClassification
 from ..tables.OutlierType import OutlierType
 
 
@@ -31,7 +31,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     DG1,
-    ID, TS, ST, SI, CE, NM, EI, IS, XCN, CP
+    CE, IS, EI, ID, NM, ST, XCN, CP, SI, TS
 )
 
 dg1 = DG1(  #  - The DG1 segment contains patient diagnosis information of various types, for example, admitting, primary, etc

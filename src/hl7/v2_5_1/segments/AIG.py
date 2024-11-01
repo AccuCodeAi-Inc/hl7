@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
-from ..data_types.SI import SI
 from ..data_types.CE import CE
-from ..data_types.NM import NM
 from ..data_types.IS import IS
-from ..tables.FillerStatusCodes import FillerStatusCodes
+from ..data_types.ID import ID
+from ..data_types.NM import NM
+from ..data_types.SI import SI
+from ..data_types.TS import TS
 from ..tables.SegmentActionCode import SegmentActionCode
 from ..tables.AllowSubstitutionCodes import AllowSubstitutionCodes
+from ..tables.FillerStatusCodes import FillerStatusCodes
 
 
 """
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     AIG,
-    ID, TS, SI, CE, NM, IS
+    CE, IS, ID, NM, SI, TS
 )
 
 aig = AIG(  #  - The AIG segment contains information about various kinds of resources (other than those with specifically defined segments in this chapter) that can be scheduled

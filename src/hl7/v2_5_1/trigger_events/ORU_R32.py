@@ -1,15 +1,15 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
+from ..segment_groups.ORU_R32_TIMING_QTY_GROUP import ORU_R32_TIMING_QTY_GROUP
+from ..segments.PD1 import PD1
+from ..segments.NTE import NTE
 from ..segments.OBR import OBR
 from ..segments.SFT import SFT
-from ..segments.ORC import ORC
-from ..segments.NTE import NTE
-from ..segments.MSH import MSH
 from ..segments.PID import PID
-from ..segment_groups.ORU_R32_TIMING_QTY_GROUP import ORU_R32_TIMING_QTY_GROUP
-from ..segment_groups.ORU_R32_OBSERVATION_GROUP import ORU_R32_OBSERVATION_GROUP
+from ..segments.MSH import MSH
 from ..segment_groups.ORU_R32_VISIT_GROUP import ORU_R32_VISIT_GROUP
-from ..segments.PD1 import PD1
+from ..segment_groups.ORU_R32_OBSERVATION_GROUP import ORU_R32_OBSERVATION_GROUP
+from ..segments.ORC import ORC
 
 
 """
@@ -20,10 +20,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ORU_R32
 from utils.hl7.v2_5_1.segments import (
-    OBR, NTE, ORC, PD1, MSH, SFT, PID
+    NTE, SFT, OBR, PID, ORC, MSH, PD1
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    ORU_R32_VISIT_GROUP, ORU_R32_TIMING_QTY_GROUP, ORU_R32_OBSERVATION_GROUP
+    ORU_R32_VISIT_GROUP, ORU_R32_OBSERVATION_GROUP, ORU_R32_TIMING_QTY_GROUP
 )
 
 oru_r32 = ORU_R32(  #  - This event trigger instructs the receiver to place the result with the order information included in the message

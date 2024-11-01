@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segment_groups.RSP_Z82_QUERY_RESPONSE_GROUP_COMMON_ORDER_GROUP import (
-    RSP_Z82_QUERY_RESPONSE_GROUP_COMMON_ORDER_GROUP,
-)
 from ..segment_groups.RSP_Z82_QUERY_RESPONSE_GROUP_PATIENT_GROUP import (
     RSP_Z82_QUERY_RESPONSE_GROUP_PATIENT_GROUP,
+)
+from ..segment_groups.RSP_Z82_QUERY_RESPONSE_GROUP_COMMON_ORDER_GROUP import (
+    RSP_Z82_QUERY_RESPONSE_GROUP_COMMON_ORDER_GROUP,
 )
 
 
@@ -19,7 +19,7 @@ from utils.hl7.v2_5_1.segments import (
     
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    RSP_Z82_QUERY_RESPONSE_GROUP_PATIENT_GROUP, RSP_Z82_QUERY_RESPONSE_GROUP_COMMON_ORDER_GROUP
+    RSP_Z82_QUERY_RESPONSE_GROUP_COMMON_ORDER_GROUP, RSP_Z82_QUERY_RESPONSE_GROUP_PATIENT_GROUP
 )
 
 rsp_z82_query_response_group = RSP_Z82_QUERY_RESPONSE_GROUP(  # QUERY RESPONSE - Segment group for RSP_Z82 - Dispense History Response consisting of PATIENT|None, COMMON ORDER

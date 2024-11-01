@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.ORC import ORC
 from ..segment_groups.PGL_PC6_GOAL_GROUP_ORDER_GROUP_ORDER_DETAIL_GROUP import (
     PGL_PC6_GOAL_GROUP_ORDER_GROUP_ORDER_DETAIL_GROUP,
 )
+from ..segments.ORC import ORC
 
 
 """

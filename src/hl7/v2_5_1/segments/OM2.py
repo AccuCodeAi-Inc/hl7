@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.DLT import DLT
 from ..data_types.CE import CE
+from ..data_types.DLT import DLT
 from ..data_types.TX import TX
-from ..data_types.NM import NM
 from ..data_types.RFR import RFR
+from ..data_types.NM import NM
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     OM2,
-    DLT, CE, TX, NM, RFR
+    CE, DLT, TX, RFR, NM
 )
 
 om2 = OM2(  #  - This segment contains the attributes of observations with continuous values (including those with data types of numeric, date, or time stamp)

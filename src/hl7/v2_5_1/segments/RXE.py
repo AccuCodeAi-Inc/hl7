@@ -1,23 +1,23 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
-from ..data_types.CWE import CWE
-from ..data_types.TQ import TQ
-from ..data_types.XAD import XAD
-from ..data_types.ST import ST
-from ..data_types.CQ import CQ
 from ..data_types.CE import CE
+from ..data_types.TQ import TQ
+from ..data_types.CQ import CQ
+from ..data_types.ID import ID
 from ..data_types.NM import NM
+from ..data_types.ST import ST
 from ..data_types.XCN import XCN
+from ..data_types.CWE import CWE
 from ..data_types.LA1 import LA1
+from ..data_types.XAD import XAD
 from ..data_types.PL import PL
-from ..tables.FormularyStatus import FormularyStatus
+from ..data_types.TS import TS
 from ..tables.SubstitutionStatus import SubstitutionStatus
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
-from ..tables.ControlledSubstanceSchedule_ import ControlledSubstanceSchedule_
-from ..tables.PharmacyOrderTypes import PharmacyOrderTypes
 from ..tables.DispenseMethod import DispenseMethod
+from ..tables.PharmacyOrderTypes import PharmacyOrderTypes
+from ..tables.ControlledSubstanceSchedule_ import ControlledSubstanceSchedule_
+from ..tables.FormularyStatus import FormularyStatus
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
 
 
 """
@@ -28,7 +28,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RXE,
-    ID, TS, CWE, TQ, XAD, ST, CQ, CE, NM, XCN, LA1, PL
+    CE, TQ, CQ, ID, NM, ST, XCN, CWE, LA1, XAD, PL, TS
 )
 
 rxe = RXE(  #  - The RXE segment details the pharmacy or treatment application's encoding of the order

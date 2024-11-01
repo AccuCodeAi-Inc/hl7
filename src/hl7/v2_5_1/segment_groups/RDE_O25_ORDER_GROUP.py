@@ -1,25 +1,25 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.ORC import ORC
-from ..segment_groups.RDE_O25_ORDER_GROUP_OBSERVATION_GROUP import (
-    RDE_O25_ORDER_GROUP_OBSERVATION_GROUP,
-)
+from ..segments.BLG import BLG
 from ..segments.RXE import RXE
 from ..segments.NTE import NTE
+from ..segments.RXR import RXR
 from ..segment_groups.RDE_O25_ORDER_GROUP_TIMING_GROUP import (
     RDE_O25_ORDER_GROUP_TIMING_GROUP,
+)
+from ..segments.FT1 import FT1
+from ..segments.CTI import CTI
+from ..segment_groups.RDE_O25_ORDER_GROUP_ORDER_DETAIL_GROUP import (
+    RDE_O25_ORDER_GROUP_ORDER_DETAIL_GROUP,
 )
 from ..segment_groups.RDE_O25_ORDER_GROUP_TIMING_ENCODED_GROUP import (
     RDE_O25_ORDER_GROUP_TIMING_ENCODED_GROUP,
 )
-from ..segments.CTI import CTI
-from ..segments.RXC import RXC
-from ..segments.RXR import RXR
-from ..segments.BLG import BLG
-from ..segment_groups.RDE_O25_ORDER_GROUP_ORDER_DETAIL_GROUP import (
-    RDE_O25_ORDER_GROUP_ORDER_DETAIL_GROUP,
+from ..segment_groups.RDE_O25_ORDER_GROUP_OBSERVATION_GROUP import (
+    RDE_O25_ORDER_GROUP_OBSERVATION_GROUP,
 )
-from ..segments.FT1 import FT1
+from ..segments.RXC import RXC
+from ..segments.ORC import ORC
 
 
 """
@@ -30,10 +30,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RDE_O25_ORDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NTE, RXC, RXE, ORC, BLG, FT1, CTI, RXR
+    RXR, RXC, RXE, NTE, BLG, ORC, CTI, FT1
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    RDE_O25_ORDER_GROUP_ORDER_DETAIL_GROUP, RDE_O25_ORDER_GROUP_OBSERVATION_GROUP, RDE_O25_ORDER_GROUP_TIMING_ENCODED_GROUP, RDE_O25_ORDER_GROUP_TIMING_GROUP
+    RDE_O25_ORDER_GROUP_OBSERVATION_GROUP, RDE_O25_ORDER_GROUP_ORDER_DETAIL_GROUP, RDE_O25_ORDER_GROUP_TIMING_ENCODED_GROUP, RDE_O25_ORDER_GROUP_TIMING_GROUP
 )
 
 rde_o25_order_group = RDE_O25_ORDER_GROUP(  # ORDER - Segment group for RDE_O25 - Pharmacy/Treatment Refill Authorization Request consisting of ORC, TIMING|None, ORDER DETAIL|None, RXE, NTE|None, TIMING ENCODED, RXR, RXC|None, OBSERVATION|None, FT1|None, BLG|None, CTI|None

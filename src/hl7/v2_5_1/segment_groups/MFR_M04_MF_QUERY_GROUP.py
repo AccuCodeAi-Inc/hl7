@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.CDM import CDM
 from ..segments.PRC import PRC
+from ..segments.CDM import CDM
 from ..segments.MFE import MFE
 
 

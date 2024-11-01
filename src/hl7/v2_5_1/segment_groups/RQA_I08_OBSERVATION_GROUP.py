@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.OBR import OBR
 from ..segments.NTE import NTE
 from ..segment_groups.RQA_I08_OBSERVATION_GROUP_RESULTS_GROUP import (
     RQA_I08_OBSERVATION_GROUP_RESULTS_GROUP,
 )
+from ..segments.OBR import OBR
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RQA_I08_OBSERVATION_GROUP
 from utils.hl7.v2_5_1.segments import (
-    OBR, NTE
+    NTE, OBR
 )
 from utils.hl7.v2_5_1.segment_groups import (
     RQA_I08_OBSERVATION_GROUP_RESULTS_GROUP

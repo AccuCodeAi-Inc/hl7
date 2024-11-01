@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.NM import NM
 from ..data_types.RCD import RCD
+from ..data_types.NM import NM
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RDF,
-    NM, RCD
+    RCD, NM
 )
 
 rdf = RDF(  #  - The RDF segment defines the content of the row data segments (RDT) in the tabular response (RTB)

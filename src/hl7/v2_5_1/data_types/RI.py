@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import DataType
-from .ST import ST
 from .IS import IS
+from .ST import ST
 from ..tables.RepeatPattern import RepeatPattern
 
 
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RI,
-    ST, IS
+    IS, ST
 )
 
 ri = RI(  # Repeat Interval - contains the interval between repeated services

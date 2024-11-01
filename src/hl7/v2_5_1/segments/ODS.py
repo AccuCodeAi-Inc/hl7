@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
 from ..data_types.CE import CE
 from ..data_types.ST import ST
+from ..data_types.ID import ID
 from ..tables.DietCodeSpecificationType import DietCodeSpecificationType
 
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     ODS,
-    ID, CE, ST
+    CE, ST, ID
 )
 
 ods = ODS(  #  - The ORC sequence items of interest to ODS are ORC-1-order control, ORC-2-placer order number, ORC-3-filler order number, ORC-7-quantity/timing, ORC-9-date/time of transaction, ORC-10-entered by, and ORC-11-verified by

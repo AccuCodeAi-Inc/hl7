@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import DataType
-from .ID import ID
 from .TM import TM
+from .ID import ID
 from ..tables.DaysOfTheWeek import DaysOfTheWeek
 
 
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     VH,
-    ID, TM
+    TM, ID
 )
 
 vh = VH(  # Visiting Hours - This data type contains the hours when a patient location is open for visiting

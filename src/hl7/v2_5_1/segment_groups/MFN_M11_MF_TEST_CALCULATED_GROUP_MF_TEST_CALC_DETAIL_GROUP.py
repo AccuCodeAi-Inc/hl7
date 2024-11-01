@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import MFN_M11_MF_TEST_CALCULATED_GROUP_MF_TEST_CALC_DETAIL_GROUP
 from utils.hl7.v2_5_1.segments import (
-    OM2, OM6
+    OM6, OM2
 )
 
 mfn_m11_mf_test_calculated_group_mf_test_calc_detail_group = MFN_M11_MF_TEST_CALCULATED_GROUP_MF_TEST_CALC_DETAIL_GROUP(  # MF TEST CALC DETAIL - Segment group for MFN_M11_MF_TEST_CALCULATED_GROUP - MF TEST CALCULATED consisting of OM6, OM2

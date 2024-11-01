@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.CM0 import CM0
 from ..segments.CM2 import CM2
+from ..segments.CM0 import CM0
 from ..segments.MFE import MFE
 
 
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import MFR_M07_MF_QUERY_GROUP
 from utils.hl7.v2_5_1.segments import (
-    MFE, CM0, CM2
+    CM2, MFE, CM0
 )
 
 mfr_m07_mf_query_group = MFR_M07_MF_QUERY_GROUP(  # MF QUERY - Segment group for MFR_M07 - Master Files Response - Clinical study without phases but with schedules master file consisting of MFE, CM0, CM2|None

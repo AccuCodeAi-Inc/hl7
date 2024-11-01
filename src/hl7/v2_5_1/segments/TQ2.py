@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
 from ..data_types.CQ import CQ
-from ..data_types.SI import SI
-from ..data_types.NM import NM
 from ..data_types.EI import EI
+from ..data_types.ID import ID
+from ..data_types.NM import NM
+from ..data_types.SI import SI
 from ..tables.CyclicEntryOrExitIndicator import CyclicEntryOrExitIndicator
 from ..tables.SequenceOrResultsFlag import SequenceOrResultsFlag
 from ..tables.SequenceConditionCode import SequenceConditionCode
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     TQ2,
-    ID, CQ, SI, NM, EI
+    CQ, EI, ID, NM, SI
 )
 
 tq2 = TQ2(  #  - The TQ2 segment is used to form a relationship between the service request the TQ1/TQ2 segments are associated with, and other service requests

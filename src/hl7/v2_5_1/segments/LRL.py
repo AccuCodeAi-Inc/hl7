@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
 from ..data_types.CE import CE
-from ..data_types.EI import EI
 from ..data_types.XON import XON
+from ..data_types.ID import ID
+from ..data_types.EI import EI
 from ..data_types.PL import PL
 from ..tables.LocationRelationshipId import LocationRelationshipId
 from ..tables.SegmentActionCode import SegmentActionCode
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     LRL,
-    ID, CE, EI, XON, PL
+    CE, XON, ID, EI, PL
 )
 
 lrl = LRL(  #  - The LRL segment is used to identify one location’s relationship to another location, the nearest lab, pharmacy, etc

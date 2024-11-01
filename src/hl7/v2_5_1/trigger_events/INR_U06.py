@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
 from ..segments.SFT import SFT
-from ..segments.ROL import ROL
 from ..segments.INV import INV
+from ..segments.ROL import ROL
 from ..segments.MSH import MSH
 from ..segments.EQU import EQU
 
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import INR_U06
 from utils.hl7.v2_5_1.segments import (
-    EQU, MSH, SFT, ROL, INV
+    EQU, SFT, ROL, MSH, INV
 )
 
 inr_u06 = INR_U06(  #  - This message is used to request information about inventory items from one application to another (e

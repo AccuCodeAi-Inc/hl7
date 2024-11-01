@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
-from ..data_types.XAD import XAD
-from ..data_types.XTN import XTN
 from ..data_types.CE import CE
-from ..data_types.EI import EI
+from ..data_types.ID import ID
+from ..data_types.XTN import XTN
 from ..data_types.XCN import XCN
+from ..data_types.EI import EI
+from ..data_types.XAD import XAD
+from ..data_types.TS import TS
 from ..tables.OrganizationUnitType import OrganizationUnitType
 from ..tables.ProblemOrGoalActionCode import ProblemOrGoalActionCode
 from ..tables.ProviderRole import ProviderRole
@@ -20,7 +20,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     ROL,
-    ID, TS, XAD, XTN, CE, EI, XCN
+    CE, ID, XTN, XCN, EI, XAD, TS
 )
 
 rol = ROL(  #  - The role segment contains the data necessary to add, update, correct, and delete from the record persons involved, as well as their functional involvement with the activity being transmitted

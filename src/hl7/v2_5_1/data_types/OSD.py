@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import DataType
+from .IS import IS
+from .ST import ST
 from .ID import ID
 from .NM import NM
-from .ST import ST
-from .IS import IS
+from ..tables.UniversalIdType import UniversalIdType
 from ..tables.SequenceCondition import SequenceCondition
 from ..tables.AssigningAuthority import AssigningAuthority
-from ..tables.UniversalIdType import UniversalIdType
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     OSD,
-    ID, NM, ST, IS
+    IS, ST, ID, NM
 )
 
 osd = OSD(  # Order Sequence Definition - This data type specifies a fully coded version for forming a relationship between an order and one or more other orders

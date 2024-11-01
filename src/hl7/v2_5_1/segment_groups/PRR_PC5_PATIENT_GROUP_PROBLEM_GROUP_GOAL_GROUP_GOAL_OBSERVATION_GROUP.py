@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.NTE import NTE
 from ..segments.OBX import OBX
+from ..segments.NTE import NTE
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PRR_PC5_PATIENT_GROUP_PROBLEM_GROUP_GOAL_GROUP_GOAL_OBSERVATION_GROUP
 from utils.hl7.v2_5_1.segments import (
-    OBX, NTE
+    NTE, OBX
 )
 
 prr_pc5_patient_group_problem_group_goal_group_goal_observation_group = PRR_PC5_PATIENT_GROUP_PROBLEM_GROUP_GOAL_GROUP_GOAL_OBSERVATION_GROUP(  # GOAL OBSERVATION - Segment group for PRR_PC5_PATIENT_GROUP_PROBLEM_GROUP_GOAL_GROUP - GOAL consisting of OBX, NTE|None

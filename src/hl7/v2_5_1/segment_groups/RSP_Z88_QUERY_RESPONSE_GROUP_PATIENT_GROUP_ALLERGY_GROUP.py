@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.AL1 import AL1
 from ..segment_groups.RSP_Z88_QUERY_RESPONSE_GROUP_PATIENT_GROUP_ALLERGY_GROUP_VISIT_GROUP import (
     RSP_Z88_QUERY_RESPONSE_GROUP_PATIENT_GROUP_ALLERGY_GROUP_VISIT_GROUP,
 )
+from ..segments.AL1 import AL1
 
 
 """

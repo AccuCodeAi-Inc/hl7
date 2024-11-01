@@ -1,16 +1,16 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TS import TS
-from ..data_types.TQ import TQ
-from ..data_types.ST import ST
-from ..data_types.CQ import CQ
 from ..data_types.CE import CE
+from ..data_types.TQ import TQ
+from ..data_types.CQ import CQ
 from ..data_types.NM import NM
-from ..tables.SubstanceIdentifier import SubstanceIdentifier
-from ..tables.SubstanceType import SubstanceType
-from ..tables.SupplierIdentifier import SupplierIdentifier
-from ..tables.ManufacturerIdentifier import ManufacturerIdentifier
+from ..data_types.ST import ST
+from ..data_types.TS import TS
 from ..tables.SubstanceStatus import SubstanceStatus
+from ..tables.SubstanceType import SubstanceType
+from ..tables.ManufacturerIdentifier import ManufacturerIdentifier
+from ..tables.SupplierIdentifier import SupplierIdentifier
+from ..tables.SubstanceIdentifier import SubstanceIdentifier
 
 
 """
@@ -21,7 +21,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     INV,
-    TS, TQ, ST, CQ, CE, NM
+    CE, TQ, CQ, NM, ST, TS
 )
 
 inv = INV(  #  - The inventory detail segment is the data necessary to track the inventory of substances (e

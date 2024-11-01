@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.RXE import RXE
-from ..segments.RXR import RXR
 from ..segment_groups.PEX_P07_EXPERIENCE_GROUP_PEX_OBSERVATION_GROUP_PEX_CAUSE_GROUP_ASSOCIATED_PERSON_GROUP_ASSOCIATED_RX_ORDER_GROUP_NK1_TIMING_QTY_GROUP import (
     PEX_P07_EXPERIENCE_GROUP_PEX_OBSERVATION_GROUP_PEX_CAUSE_GROUP_ASSOCIATED_PERSON_GROUP_ASSOCIATED_RX_ORDER_GROUP_NK1_TIMING_QTY_GROUP,
 )
+from ..segments.RXR import RXR
+from ..segments.RXE import RXE
 
 
 """

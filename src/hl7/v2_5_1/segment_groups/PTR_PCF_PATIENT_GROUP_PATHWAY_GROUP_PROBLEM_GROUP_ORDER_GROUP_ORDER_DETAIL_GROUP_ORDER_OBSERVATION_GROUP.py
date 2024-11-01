@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.VAR import VAR
-from ..segments.NTE import NTE
 from ..segments.OBX import OBX
+from ..segments.NTE import NTE
+from ..segments.VAR import VAR
 
 
 """
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PTR_PCF_PATIENT_GROUP_PATHWAY_GROUP_PROBLEM_GROUP_ORDER_GROUP_ORDER_DETAIL_GROUP_ORDER_OBSERVATION_GROUP
 from utils.hl7.v2_5_1.segments import (
-    VAR, OBX, NTE
+    NTE, VAR, OBX
 )
 
 ptr_pcf_patient_group_pathway_group_problem_group_order_group_order_detail_group_order_observation_group = PTR_PCF_PATIENT_GROUP_PATHWAY_GROUP_PROBLEM_GROUP_ORDER_GROUP_ORDER_DETAIL_GROUP_ORDER_OBSERVATION_GROUP(  # ORDER OBSERVATION - Segment group for PTR_PCF_PATIENT_GROUP_PATHWAY_GROUP_PROBLEM_GROUP_ORDER_GROUP_ORDER_DETAIL_GROUP - ORDER DETAIL consisting of OBX, NTE|None, VAR|None

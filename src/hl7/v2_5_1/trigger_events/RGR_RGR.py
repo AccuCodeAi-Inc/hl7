@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segment_groups.RGR_RGR_DEFINITION_GROUP import RGR_RGR_DEFINITION_GROUP
 from ..segments.SFT import SFT
+from ..segments.DSC import DSC
 from ..segments.ERR import ERR
+from ..segment_groups.RGR_RGR_DEFINITION_GROUP import RGR_RGR_DEFINITION_GROUP
 from ..segments.MSH import MSH
 from ..segments.MSA import MSA
-from ..segments.DSC import DSC
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RGR_RGR
 from utils.hl7.v2_5_1.segments import (
-    ERR, MSA, DSC, MSH, SFT
+    ERR, DSC, SFT, MSA, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
     RGR_RGR_DEFINITION_GROUP

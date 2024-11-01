@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.OBX import OBX
+from ..segments.SPM import SPM
 from ..segment_groups.OMG_O19_ORDER_GROUP_SPECIMEN_GROUP_CONTAINER_GROUP import (
     OMG_O19_ORDER_GROUP_SPECIMEN_GROUP_CONTAINER_GROUP,
 )
-from ..segments.OBX import OBX
-from ..segments.SPM import SPM
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OMG_O19_ORDER_GROUP_SPECIMEN_GROUP
 from utils.hl7.v2_5_1.segments import (
-    SPM, OBX
+    OBX, SPM
 )
 from utils.hl7.v2_5_1.segment_groups import (
     OMG_O19_ORDER_GROUP_SPECIMEN_GROUP_CONTAINER_GROUP

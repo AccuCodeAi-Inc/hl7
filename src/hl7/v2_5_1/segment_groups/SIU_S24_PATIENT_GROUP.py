@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.DG1 import DG1
-from ..segments.PV1 import PV1
 from ..segments.OBX import OBX
+from ..segments.DG1 import DG1
+from ..segments.PD1 import PD1
 from ..segments.PV2 import PV2
 from ..segments.PID import PID
-from ..segments.PD1 import PD1
+from ..segments.PV1 import PV1
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import SIU_S24_PATIENT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    DG1, PV1, PD1, PID, OBX, PV2
+    PV2, PV1, DG1, PID, PD1, OBX
 )
 
 siu_s24_patient_group = SIU_S24_PATIENT_GROUP(  # PATIENT - Segment group for SIU_S24 - Notification of Opened (un-blocked) Schedule Time Slot(s) consisting of PID, PD1|None, PV1|None, PV2|None, OBX|None, DG1|None

@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segment_groups.BPS_O29_ORDER_GROUP_PRODUCT_GROUP import (
-    BPS_O29_ORDER_GROUP_PRODUCT_GROUP,
-)
-from ..segments.ORC import ORC
-from ..segments.NTE import NTE
 from ..segment_groups.BPS_O29_ORDER_GROUP_TIMING_GROUP import (
     BPS_O29_ORDER_GROUP_TIMING_GROUP,
 )
+from ..segments.NTE import NTE
+from ..segment_groups.BPS_O29_ORDER_GROUP_PRODUCT_GROUP import (
+    BPS_O29_ORDER_GROUP_PRODUCT_GROUP,
+)
 from ..segments.BPO import BPO
+from ..segments.ORC import ORC
 
 
 """
@@ -19,10 +19,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import BPS_O29_ORDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    BPO, NTE, ORC
+    NTE, ORC, BPO
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    BPS_O29_ORDER_GROUP_PRODUCT_GROUP, BPS_O29_ORDER_GROUP_TIMING_GROUP
+    BPS_O29_ORDER_GROUP_TIMING_GROUP, BPS_O29_ORDER_GROUP_PRODUCT_GROUP
 )
 
 bps_o29_order_group = BPS_O29_ORDER_GROUP(  # ORDER - Segment group for BPS_O29 - Blood Product Dispense Status Message consisting of ORC, TIMING|None, BPO, NTE|None, PRODUCT|None

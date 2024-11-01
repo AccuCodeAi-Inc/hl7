@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.NTE import NTE
 from ..segments.OBX import OBX
+from ..segments.NTE import NTE
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RGV_O15_ORDER_GROUP_GIVE_GROUP_OBSERVATION_GROUP
 from utils.hl7.v2_5_1.segments import (
-    OBX, NTE
+    NTE, OBX
 )
 
 rgv_o15_order_group_give_group_observation_group = RGV_O15_ORDER_GROUP_GIVE_GROUP_OBSERVATION_GROUP(  # OBSERVATION - Segment group for RGV_O15_ORDER_GROUP_GIVE_GROUP - GIVE consisting of OBX|None, NTE|None

@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.RDF import RDF
 from ..segments.SFT import SFT
-from ..segments.RCP import RCP
-from ..segments.QPD import QPD
-from ..segments.MSH import MSH
 from ..segments.DSC import DSC
+from ..segments.MSH import MSH
+from ..segments.RDF import RDF
+from ..segments.QPD import QPD
+from ..segments.RCP import RCP
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import QBP_Q13
 from utils.hl7.v2_5_1.segments import (
-    QPD, DSC, RDF, RCP, MSH, SFT
+    DSC, RDF, RCP, QPD, SFT, MSH
 )
 
 qbp_q13 = QBP_Q13(  #  - The QBP_Q13 structure supports a Tabular Response and contains the MSH, RDF, RCP, and DSC segments

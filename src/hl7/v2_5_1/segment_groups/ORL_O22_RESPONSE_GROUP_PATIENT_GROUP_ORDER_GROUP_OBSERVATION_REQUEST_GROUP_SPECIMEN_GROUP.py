@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ORL_O22_RESPONSE_GROUP_PATIENT_GROUP_ORDER_GROUP_OBSERVATION_REQUEST_GROUP_SPECIMEN_GROUP
 from utils.hl7.v2_5_1.segments import (
-    SPM, SAC
+    SAC, SPM
 )
 
 orl_o22_response_group_patient_group_order_group_observation_request_group_specimen_group = ORL_O22_RESPONSE_GROUP_PATIENT_GROUP_ORDER_GROUP_OBSERVATION_REQUEST_GROUP_SPECIMEN_GROUP(  # SPECIMEN - Segment group for ORL_O22_RESPONSE_GROUP_PATIENT_GROUP_ORDER_GROUP_OBSERVATION_REQUEST_GROUP - OBSERVATION REQUEST consisting of SPM, SAC|None

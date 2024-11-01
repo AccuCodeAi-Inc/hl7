@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import DataType
-from .TX import TX
 from .IS import IS
-from ..tables.JobCode import JobCode
+from .TX import TX
 from ..tables.EmployeeClassification import EmployeeClassification
+from ..tables.JobCode import JobCode
 
 
 """
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     JCC,
-    TX, IS
+    IS, TX
 )
 
 jcc = JCC(  # Job Code/Class - Example 1: Codified job (where 1 represents the code for Administrator and F represents full time) |1^F^Administrator| 

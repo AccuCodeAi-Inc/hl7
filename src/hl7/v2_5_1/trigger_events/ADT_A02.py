@@ -1,16 +1,16 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.EVN import EVN
-from ..segments.DB1 import DB1
-from ..segments.SFT import SFT
-from ..segments.ROL import ROL
-from ..segments.PV1 import PV1
 from ..segments.OBX import OBX
-from ..segments.PV2 import PV2
-from ..segments.MSH import MSH
-from ..segments.PID import PID
-from ..segments.PDA import PDA
 from ..segments.PD1 import PD1
+from ..segments.PV2 import PV2
+from ..segments.EVN import EVN
+from ..segments.SFT import SFT
+from ..segments.PID import PID
+from ..segments.ROL import ROL
+from ..segments.MSH import MSH
+from ..segments.DB1 import DB1
+from ..segments.PDA import PDA
+from ..segments.PV1 import PV1
 
 
 """
@@ -21,7 +21,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ADT_A02
 from utils.hl7.v2_5_1.segments import (
-    PV1, ROL, PDA, PD1, DB1, MSH, SFT, PID, EVN, OBX, PV2
+    PV2, PV1, EVN, SFT, ROL, PID, DB1, MSH, PD1, OBX, PDA
 )
 
 adt_a02 = ADT_A02(  #  - An A02 event is issued as a result of the patient changing his or her assigned physical location

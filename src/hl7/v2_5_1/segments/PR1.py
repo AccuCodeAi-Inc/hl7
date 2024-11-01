@@ -1,25 +1,25 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
-from ..data_types.ST import ST
-from ..data_types.SI import SI
 from ..data_types.CE import CE
-from ..data_types.NM import NM
-from ..data_types.EI import EI
 from ..data_types.IS import IS
+from ..data_types.EI import EI
+from ..data_types.ID import ID
+from ..data_types.NM import NM
+from ..data_types.ST import ST
 from ..data_types.XCN import XCN
-from ..tables.ConsentCode import ConsentCode
-from ..tables.DiagnosisCode import DiagnosisCode
-from ..tables.ProcedureCode import ProcedureCode
+from ..data_types.SI import SI
+from ..data_types.TS import TS
 from ..tables.ProcedureFunctionalType import ProcedureFunctionalType
-from ..tables.ProcedureDrgType import ProcedureDrgType
 from ..tables.SegmentActionCode import SegmentActionCode
-from ..tables.ProcedureCodeModifier import ProcedureCodeModifier
-from ..tables.AnesthesiaCode import AnesthesiaCode
-from ..tables.PhysicianId import PhysicianId
-from ..tables.ProcedureCodingMethod import ProcedureCodingMethod
 from ..tables.ProcedurePriority import ProcedurePriority
+from ..tables.ConsentCode import ConsentCode
+from ..tables.PhysicianId import PhysicianId
+from ..tables.ProcedureCodeModifier import ProcedureCodeModifier
+from ..tables.ProcedureCode import ProcedureCode
+from ..tables.AnesthesiaCode import AnesthesiaCode
+from ..tables.DiagnosisCode import DiagnosisCode
+from ..tables.ProcedureDrgType import ProcedureDrgType
+from ..tables.ProcedureCodingMethod import ProcedureCodingMethod
 from ..tables.TissueTypeCode import TissueTypeCode
 
 
@@ -31,7 +31,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PR1,
-    ID, TS, ST, SI, CE, NM, EI, IS, XCN
+    CE, IS, EI, ID, NM, ST, XCN, SI, TS
 )
 
 pr1 = PR1(  #  - The PR1 segment contains information relative to various types of procedures that can be performed on a patient

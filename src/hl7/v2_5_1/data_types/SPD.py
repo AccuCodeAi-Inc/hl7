@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import DataType
-from .ID import ID
 from .DT import DT
 from .ST import ST
+from .ID import ID
 from ..tables.CertificationStatus import CertificationStatus
 
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     SPD,
-    ID, DT, ST
+    DT, ST, ID
 )
 
 spd = SPD(  # Specialty Description - This data type specifies the practitioners specialty and related information

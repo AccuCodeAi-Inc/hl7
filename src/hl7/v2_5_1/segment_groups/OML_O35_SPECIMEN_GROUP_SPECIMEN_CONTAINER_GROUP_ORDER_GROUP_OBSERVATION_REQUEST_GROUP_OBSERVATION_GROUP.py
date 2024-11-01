@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.NTE import NTE
 from ..segments.OBX import OBX
+from ..segments.NTE import NTE
 from ..segments.TCD import TCD
 
 
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OML_O35_SPECIMEN_GROUP_SPECIMEN_CONTAINER_GROUP_ORDER_GROUP_OBSERVATION_REQUEST_GROUP_OBSERVATION_GROUP
 from utils.hl7.v2_5_1.segments import (
-    OBX, NTE, TCD
+    NTE, TCD, OBX
 )
 
 oml_o35_specimen_group_specimen_container_group_order_group_observation_request_group_observation_group = OML_O35_SPECIMEN_GROUP_SPECIMEN_CONTAINER_GROUP_ORDER_GROUP_OBSERVATION_REQUEST_GROUP_OBSERVATION_GROUP(  # OBSERVATION - Segment group for OML_O35_SPECIMEN_GROUP_SPECIMEN_CONTAINER_GROUP_ORDER_GROUP_OBSERVATION_REQUEST_GROUP - OBSERVATION REQUEST consisting of OBX, TCD|None, NTE|None

@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import DataType
-from .CWE import CWE
+from .GTS import GTS
+from .IS import IS
 from .ID import ID
 from .NM import NM
-from .IS import IS
-from .GTS import GTS
+from .CWE import CWE
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..tables.RepeatPattern import RepeatPattern
 from ..tables.EventRelatedPeriod import EventRelatedPeriod
 from ..tables.CalendarAlignment import CalendarAlignment
-from ..tables.RepeatPattern import RepeatPattern
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
 
 
 """
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RPT,
-    CWE, ID, NM, IS, GTS
+    GTS, IS, ID, NM, CWE
 )
 
 rpt = RPT(  # Repeat Pattern - The repeat pattern data type should be used where it is necessary to define the frequency at which an event is to take place

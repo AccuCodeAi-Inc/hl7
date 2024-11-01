@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
+from ..segments.NTE import NTE
+from ..segments.TQ1 import TQ1
+from ..segments.MSH import MSH
+from ..segment_groups.SIU_S23_RESOURCES_GROUP import SIU_S23_RESOURCES_GROUP
 from ..segments.SCH import SCH
 from ..segment_groups.SIU_S23_PATIENT_GROUP import SIU_S23_PATIENT_GROUP
-from ..segments.NTE import NTE
-from ..segments.MSH import MSH
-from ..segments.TQ1 import TQ1
-from ..segment_groups.SIU_S23_RESOURCES_GROUP import SIU_S23_RESOURCES_GROUP
 
 
 """
@@ -16,10 +16,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import SIU_S23
 from utils.hl7.v2_5_1.segments import (
-    SCH, TQ1, NTE, MSH
+    TQ1, NTE, SCH, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    SIU_S23_RESOURCES_GROUP, SIU_S23_PATIENT_GROUP
+    SIU_S23_PATIENT_GROUP, SIU_S23_RESOURCES_GROUP
 )
 
 siu_s23 = SIU_S23(  #  - A notification of blocked schedule time slots is sent by the filler application to other applications when a schedule has had one or more time slots blocked and made unavailable for reasons other than the scheduling of an appointment

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.QRF import QRF
 from ..segments.QRD import QRD
+from ..segments.QRF import QRF
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import NMQ_N01_QRY_WITH_DETAIL_GROUP
 from utils.hl7.v2_5_1.segments import (
-    QRD, QRF
+    QRF, QRD
 )
 
 nmq_n01_qry_with_detail_group = NMQ_N01_QRY_WITH_DETAIL_GROUP(  # QRY WITH DETAIL - Segment group for NMQ_N01 - Application management query message consisting of QRD, QRF|None

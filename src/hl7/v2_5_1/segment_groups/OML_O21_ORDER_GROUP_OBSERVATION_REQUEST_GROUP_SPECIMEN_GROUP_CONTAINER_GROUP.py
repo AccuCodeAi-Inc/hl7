@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.SAC import SAC
 from ..segments.OBX import OBX
+from ..segments.SAC import SAC
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OML_O21_ORDER_GROUP_OBSERVATION_REQUEST_GROUP_SPECIMEN_GROUP_CONTAINER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    OBX, SAC
+    SAC, OBX
 )
 
 oml_o21_order_group_observation_request_group_specimen_group_container_group = OML_O21_ORDER_GROUP_OBSERVATION_REQUEST_GROUP_SPECIMEN_GROUP_CONTAINER_GROUP(  # CONTAINER - Segment group for OML_O21_ORDER_GROUP_OBSERVATION_REQUEST_GROUP_SPECIMEN_GROUP - SPECIMEN consisting of SAC, OBX|None

@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7Segment
+from ..data_types.TX import TX
 from ..data_types.CE import CE
 from ..data_types.TS import TS
-from ..data_types.TX import TX
 from ..tables.CommandResponse import CommandResponse
 
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     ECR,
-    CE, TS, TX
+    TX, CE, TS
 )
 
 ecr = ECR(  #  - The equipment command response segment contains the receiving component's response to the previously received command

@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.CTI import CTI
 from ..segments.NTE import NTE
 from ..segments.ORC import ORC
 from ..segment_groups.ORR_O02_RESPONSE_GROUP_ORDER_GROUP_ORDER_DETAIL_SEGMENT_GROUP import (
     ORR_O02_RESPONSE_GROUP_ORDER_GROUP_ORDER_DETAIL_SEGMENT_GROUP,
 )
+from ..segments.CTI import CTI
 
 
 """

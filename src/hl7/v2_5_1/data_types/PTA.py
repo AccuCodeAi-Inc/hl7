@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import DataType
+from .IS import IS
 from .NM import NM
 from .MOP import MOP
-from .IS import IS
 from ..tables.PolicyType import PolicyType
 from ..tables.AmountClass import AmountClass
 
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PTA,
-    NM, MOP, IS
+    IS, NM, MOP
 )
 
 pta = PTA(  # Policy Type and Amount - This data type specifies the policy type and amount covered by the insurance

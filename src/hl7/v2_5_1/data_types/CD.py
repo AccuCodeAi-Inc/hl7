@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import DataType
 from .CSU import CSU
-from .NR import NR
-from .WVS import WVS
+from .WVI import WVI
 from .NM import NM
 from .CCP import CCP
-from .WVI import WVI
+from .NR import NR
+from .WVS import WVS
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CD,
-    CSU, NR, WVS, NM, CCP, WVI
+    CSU, WVI, NM, CCP, NR, WVS
 )
 
 cd = CD(  # Channel Definition - This data type is used for labeling of digital waveform data

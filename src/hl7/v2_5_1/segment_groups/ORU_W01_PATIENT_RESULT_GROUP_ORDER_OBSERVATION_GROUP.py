@@ -1,17 +1,17 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.CTD import CTD
+from ..segments.NTE import NTE
 from ..segments.OBR import OBR
+from ..segments.FT1 import FT1
+from ..segments.CTI import CTI
 from ..segment_groups.ORU_W01_PATIENT_RESULT_GROUP_ORDER_OBSERVATION_GROUP_OBSERVATION_GROUP import (
     ORU_W01_PATIENT_RESULT_GROUP_ORDER_OBSERVATION_GROUP_OBSERVATION_GROUP,
 )
-from ..segments.ORC import ORC
 from ..segment_groups.ORU_W01_PATIENT_RESULT_GROUP_ORDER_OBSERVATION_GROUP_SPECIMEN_GROUP import (
     ORU_W01_PATIENT_RESULT_GROUP_ORDER_OBSERVATION_GROUP_SPECIMEN_GROUP,
 )
-from ..segments.NTE import NTE
-from ..segments.CTD import CTD
-from ..segments.CTI import CTI
-from ..segments.FT1 import FT1
+from ..segments.ORC import ORC
 
 
 """
@@ -22,10 +22,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ORU_W01_PATIENT_RESULT_GROUP_ORDER_OBSERVATION_GROUP
 from utils.hl7.v2_5_1.segments import (
-    CTD, OBR, NTE, ORC, FT1, CTI
+    NTE, OBR, CTD, ORC, CTI, FT1
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    ORU_W01_PATIENT_RESULT_GROUP_ORDER_OBSERVATION_GROUP_SPECIMEN_GROUP, ORU_W01_PATIENT_RESULT_GROUP_ORDER_OBSERVATION_GROUP_OBSERVATION_GROUP
+    ORU_W01_PATIENT_RESULT_GROUP_ORDER_OBSERVATION_GROUP_OBSERVATION_GROUP, ORU_W01_PATIENT_RESULT_GROUP_ORDER_OBSERVATION_GROUP_SPECIMEN_GROUP
 )
 
 oru_w01_patient_result_group_order_observation_group = ORU_W01_PATIENT_RESULT_GROUP_ORDER_OBSERVATION_GROUP(  # ORDER OBSERVATION - Segment group for ORU_W01_PATIENT_RESULT_GROUP - PATIENT RESULT consisting of ORC|None, OBR, NTE|None, CTD|None, OBSERVATION, FT1|None, CTI|None, SPECIMEN|None

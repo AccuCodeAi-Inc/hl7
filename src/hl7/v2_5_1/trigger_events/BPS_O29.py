@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segment_groups.BPS_O29_ORDER_GROUP import BPS_O29_ORDER_GROUP
-from ..segment_groups.BPS_O29_PATIENT_GROUP import BPS_O29_PATIENT_GROUP
-from ..segments.SFT import SFT
 from ..segments.NTE import NTE
+from ..segment_groups.BPS_O29_ORDER_GROUP import BPS_O29_ORDER_GROUP
+from ..segments.SFT import SFT
 from ..segments.MSH import MSH
+from ..segment_groups.BPS_O29_PATIENT_GROUP import BPS_O29_PATIENT_GROUP
 
 
 """
@@ -15,10 +15,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import BPS_O29
 from utils.hl7.v2_5_1.segments import (
-    SFT, NTE, MSH
+    NTE, SFT, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    BPS_O29_PATIENT_GROUP, BPS_O29_ORDER_GROUP
+    BPS_O29_ORDER_GROUP, BPS_O29_PATIENT_GROUP
 )
 
 bps_o29 = BPS_O29(  #  - Blood product dispense status messages use the BPS and BRP messages

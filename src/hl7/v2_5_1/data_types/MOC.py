@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import DataType
-from .MO import MO
 from .CE import CE
+from .MO import MO
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     MOC,
-    MO, CE
+    CE, MO
 )
 
 moc = MOC(  # Money and Code - Transmits monetary information and the associated charge code for services performed

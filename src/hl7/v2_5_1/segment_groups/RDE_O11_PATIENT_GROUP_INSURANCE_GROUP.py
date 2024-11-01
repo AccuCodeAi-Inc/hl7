@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RDE_O11_PATIENT_GROUP_INSURANCE_GROUP
 from utils.hl7.v2_5_1.segments import (
-    IN2, IN1, IN3
+    IN2, IN3, IN1
 )
 
 rde_o11_patient_group_insurance_group = RDE_O11_PATIENT_GROUP_INSURANCE_GROUP(  # INSURANCE - Segment group for RDE_O11_PATIENT_GROUP - PATIENT consisting of IN1, IN2|None, IN3|None

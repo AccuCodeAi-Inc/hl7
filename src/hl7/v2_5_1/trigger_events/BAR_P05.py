@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
+from ..segments.PD1 import PD1
 from ..segments.EVN import EVN
 from ..segments.SFT import SFT
-from ..segments.ROL import ROL
-from ..segment_groups.BAR_P05_VISIT_GROUP import BAR_P05_VISIT_GROUP
-from ..segments.MSH import MSH
 from ..segments.PID import PID
-from ..segments.PD1 import PD1
+from ..segments.ROL import ROL
+from ..segments.MSH import MSH
+from ..segment_groups.BAR_P05_VISIT_GROUP import BAR_P05_VISIT_GROUP
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import BAR_P05
 from utils.hl7.v2_5_1.segments import (
-    ROL, PD1, MSH, SFT, PID, EVN
+    EVN, SFT, ROL, PID, MSH, PD1
 )
 from utils.hl7.v2_5_1.segment_groups import (
     BAR_P05_VISIT_GROUP

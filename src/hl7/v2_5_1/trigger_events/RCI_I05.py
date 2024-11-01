@@ -1,17 +1,17 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segment_groups.RCI_I05_OBSERVATION_GROUP import RCI_I05_OBSERVATION_GROUP
-from ..segments.AL1 import AL1
-from ..segments.SFT import SFT
-from ..segments.DG1 import DG1
-from ..segments.QRF import QRF
-from ..segments.NTE import NTE
 from ..segment_groups.RCI_I05_PROVIDER_GROUP import RCI_I05_PROVIDER_GROUP
+from ..segments.DG1 import DG1
 from ..segments.QRD import QRD
-from ..segments.MSH import MSH
-from ..segments.PID import PID
-from ..segments.MSA import MSA
+from ..segments.NTE import NTE
 from ..segments.DRG import DRG
+from ..segments.SFT import SFT
+from ..segments.PID import PID
+from ..segment_groups.RCI_I05_OBSERVATION_GROUP import RCI_I05_OBSERVATION_GROUP
+from ..segments.MSH import MSH
+from ..segments.MSA import MSA
+from ..segments.QRF import QRF
+from ..segments.AL1 import AL1
 
 
 """
@@ -22,10 +22,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RCI_I05
 from utils.hl7.v2_5_1.segments import (
-    DG1, NTE, MSA, DRG, QRD, AL1, MSH, SFT, PID, QRF
+    NTE, QRF, MSA, SFT, DG1, AL1, PID, MSH, QRD, DRG
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    RCI_I05_OBSERVATION_GROUP, RCI_I05_PROVIDER_GROUP
+    RCI_I05_PROVIDER_GROUP, RCI_I05_OBSERVATION_GROUP
 )
 
 rci_i05 = RCI_I05(  #  - This event is used to request clinical information for a specific patient

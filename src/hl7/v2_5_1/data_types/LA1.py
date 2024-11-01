@@ -1,15 +1,15 @@
 from __future__ import annotations
 from ...base import DataType
-from .AD import AD
-from .HD import HD
 from .IS import IS
-from ..tables.Bed import Bed
+from .HD import HD
+from .AD import AD
+from ..tables.PointOfCare import PointOfCare
 from ..tables.Room import Room
+from ..tables.LocationStatus import LocationStatus
 from ..tables.Floor import Floor
 from ..tables.Building import Building
+from ..tables.Bed import Bed
 from ..tables.PersonLocationType import PersonLocationType
-from ..tables.PointOfCare import PointOfCare
-from ..tables.LocationStatus import LocationStatus
 
 
 """
@@ -20,7 +20,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     LA1,
-    AD, HD, IS
+    IS, HD, AD
 )
 
 la1 = LA1(  # Location with Address Variation 1 - Specifies a location and its address

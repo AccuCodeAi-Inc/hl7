@@ -1,20 +1,20 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CP import CP
-from ..data_types.NM import NM
-from ..data_types.CE import CE
 from ..data_types.IS import IS
-from ..tables.ReimbursementActionCode import ReimbursementActionCode
-from ..tables.PackagingStatusCode import PackagingStatusCode
-from ..tables.OceEditCode import OceEditCode
-from ..tables.ModifierEditCode import ModifierEditCode
-from ..tables.RevenueCode import RevenueCode
-from ..tables.ReimbursementTypeCode import ReimbursementTypeCode
+from ..data_types.CP import CP
+from ..data_types.CE import CE
+from ..data_types.NM import NM
 from ..tables.DenialOrRejectionCode import DenialOrRejectionCode
+from ..tables.PaymentAdjustmentCode import PaymentAdjustmentCode
+from ..tables.OceEditCode import OceEditCode
+from ..tables.ReimbursementTypeCode import ReimbursementTypeCode
+from ..tables.PackagingStatusCode import PackagingStatusCode
+from ..tables.ModifierEditCode import ModifierEditCode
 from ..tables.AmbulatoryPaymentClassificationCode import (
     AmbulatoryPaymentClassificationCode,
 )
-from ..tables.PaymentAdjustmentCode import PaymentAdjustmentCode
+from ..tables.RevenueCode import RevenueCode
+from ..tables.ReimbursementActionCode import ReimbursementActionCode
 
 
 """
@@ -25,7 +25,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     GP2,
-    CP, NM, CE, IS
+    IS, CP, CE, NM
 )
 
 gp2 = GP2(  #  - This segment is used for items that pertain to each HCPC/CPT line item

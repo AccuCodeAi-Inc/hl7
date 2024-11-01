@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.SFT import SFT
-from ..segments.NTE import NTE
-from ..segments.MSH import MSH
-from ..segments.PID import PID
-from ..segments.MSA import MSA
 from ..segment_groups.RPR_I03_PROVIDER_GROUP import RPR_I03_PROVIDER_GROUP
+from ..segments.NTE import NTE
+from ..segments.SFT import SFT
+from ..segments.PID import PID
+from ..segments.MSH import MSH
+from ..segments.MSA import MSA
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RPR_I03
 from utils.hl7.v2_5_1.segments import (
-    NTE, MSA, MSH, SFT, PID
+    NTE, MSA, SFT, PID, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
     RPR_I03_PROVIDER_GROUP

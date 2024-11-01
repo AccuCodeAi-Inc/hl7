@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.DSC import DSC
-from ..segments.EQL import EQL
 from ..segments.MSH import MSH
+from ..segments.EQL import EQL
 from ..segments.SFT import SFT
+from ..segments.DSC import DSC
 
 
 """
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import EQQ_Q04
 from utils.hl7.v2_5_1.segments import (
-    SFT, DSC, EQL, MSH
+    EQL, DSC, SFT, MSH
 )
 
 eqq_q04 = EQQ_Q04(  #  - This query provides an envelope with which a query expressed in a language (e

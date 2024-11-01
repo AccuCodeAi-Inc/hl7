@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.CWE import CWE
-from ..data_types.CQ import CQ
-from ..data_types.TX import TX
 from ..data_types.CE import CE
+from ..data_types.TX import TX
+from ..data_types.CQ import CQ
+from ..data_types.ID import ID
 from ..data_types.NM import NM
-from ..tables.Priority import Priority
+from ..data_types.CWE import CWE
 from ..tables.DerivedSpecimen import DerivedSpecimen
 from ..tables.AdditiveOrPreservative import AdditiveOrPreservative
+from ..tables.Priority import Priority
 
 
 """
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     OM4,
-    ID, CWE, CQ, TX, CE, NM
+    CE, TX, CQ, ID, NM, CWE
 )
 
 om4 = OM4(  #  - This segment applies to observations/batteries that require a specimen for their performance

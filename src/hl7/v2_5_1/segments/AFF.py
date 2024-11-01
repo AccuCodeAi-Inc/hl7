@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.XAD import XAD
-from ..data_types.DR import DR
-from ..data_types.ST import ST
-from ..data_types.SI import SI
 from ..data_types.XON import XON
+from ..data_types.SI import SI
+from ..data_types.ST import ST
+from ..data_types.DR import DR
+from ..data_types.XAD import XAD
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     AFF,
-    XAD, DR, ST, SI, XON
+    XON, SI, ST, DR, XAD
 )
 
 aff = AFF(  #  - The AFF segment adds detailed information regarding professional affiliations with which the staff member identified by the STF segment is/was associated

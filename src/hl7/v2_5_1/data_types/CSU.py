@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import DataType
+from .ST import ST
 from .ID import ID
 from .NM import NM
-from .ST import ST
 from ..tables.CodingSystem import CodingSystem
 
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CSU,
-    ID, NM, ST
+    ST, ID, NM
 )
 
 csu = CSU(  # Channel Sensitivity - This data type defines the channel sensitivity (gain) and the units in which it is measured in a waveform result

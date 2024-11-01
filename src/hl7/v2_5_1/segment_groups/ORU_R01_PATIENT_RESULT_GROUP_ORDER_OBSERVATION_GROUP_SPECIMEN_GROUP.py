@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ORU_R01_PATIENT_RESULT_GROUP_ORDER_OBSERVATION_GROUP_SPECIMEN_GROUP
 from utils.hl7.v2_5_1.segments import (
-    SPM, OBX
+    OBX, SPM
 )
 
 oru_r01_patient_result_group_order_observation_group_specimen_group = ORU_R01_PATIENT_RESULT_GROUP_ORDER_OBSERVATION_GROUP_SPECIMEN_GROUP(  # SPECIMEN - Segment group for ORU_R01_PATIENT_RESULT_GROUP_ORDER_OBSERVATION_GROUP - ORDER OBSERVATION consisting of SPM, OBX|None

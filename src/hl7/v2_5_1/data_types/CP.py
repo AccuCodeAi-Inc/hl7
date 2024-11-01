@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import DataType
-from .ID import ID
-from .MO import MO
-from .NM import NM
 from .CE import CE
-from ..tables.CpRangeType import CpRangeType
+from .MO import MO
+from .ID import ID
+from .NM import NM
 from ..tables.PriceType import PriceType
+from ..tables.CpRangeType import CpRangeType
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CP,
-    ID, MO, NM, CE
+    CE, MO, ID, NM
 )
 
 cp = CP(  # Composite Price - Example: |100

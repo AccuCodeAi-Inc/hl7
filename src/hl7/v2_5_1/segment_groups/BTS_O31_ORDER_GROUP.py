@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segment_groups.BTS_O31_ORDER_GROUP_PRODUCT_STATUS_GROUP import (
-    BTS_O31_ORDER_GROUP_PRODUCT_STATUS_GROUP,
-)
-from ..segments.ORC import ORC
 from ..segments.NTE import NTE
+from ..segments.BPO import BPO
 from ..segment_groups.BTS_O31_ORDER_GROUP_TIMING_GROUP import (
     BTS_O31_ORDER_GROUP_TIMING_GROUP,
 )
-from ..segments.BPO import BPO
+from ..segments.ORC import ORC
+from ..segment_groups.BTS_O31_ORDER_GROUP_PRODUCT_STATUS_GROUP import (
+    BTS_O31_ORDER_GROUP_PRODUCT_STATUS_GROUP,
+)
 
 
 """
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import BTS_O31_ORDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    BPO, NTE, ORC
+    NTE, ORC, BPO
 )
 from utils.hl7.v2_5_1.segment_groups import (
     BTS_O31_ORDER_GROUP_TIMING_GROUP, BTS_O31_ORDER_GROUP_PRODUCT_STATUS_GROUP

@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.SI import SI
 from ..data_types.CE import CE
-from ..data_types.NM import NM
-from ..data_types.DT import DT
 from ..data_types.IS import IS
+from ..data_types.DT import DT
+from ..data_types.NM import NM
+from ..data_types.SI import SI
 from ..tables.ItemNaturalAccountCode import ItemNaturalAccountCode
 from ..tables.DepartmentCostCenter import DepartmentCostCenter
 
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RQD,
-    SI, CE, NM, DT, IS
+    CE, IS, DT, NM, SI
 )
 
 rqd = RQD(  #  - RQD contains the detail for each requisitioned item

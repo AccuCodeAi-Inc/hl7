@@ -1,18 +1,18 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.AL1 import AL1
-from ..segments.SFT import SFT
 from ..segments.DG1 import DG1
-from ..segments.QRF import QRF
-from ..segments.NTE import NTE
-from ..segments.DSP import DSP
-from ..segment_groups.RCL_I06_PROVIDER_GROUP import RCL_I06_PROVIDER_GROUP
 from ..segments.QRD import QRD
-from ..segments.MSH import MSH
-from ..segments.PID import PID
-from ..segments.MSA import MSA
-from ..segments.DSC import DSC
+from ..segment_groups.RCL_I06_PROVIDER_GROUP import RCL_I06_PROVIDER_GROUP
+from ..segments.NTE import NTE
 from ..segments.DRG import DRG
+from ..segments.SFT import SFT
+from ..segments.PID import PID
+from ..segments.DSC import DSC
+from ..segments.DSP import DSP
+from ..segments.MSH import MSH
+from ..segments.MSA import MSA
+from ..segments.QRF import QRF
+from ..segments.AL1 import AL1
 
 
 """
@@ -23,7 +23,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RCL_I06
 from utils.hl7.v2_5_1.segments import (
-    DG1, NTE, MSA, DRG, DSC, DSP, QRD, AL1, MSH, SFT, PID, QRF
+    DSP, DSC, NTE, QRF, MSA, SFT, DG1, AL1, PID, MSH, QRD, DRG
 )
 from utils.hl7.v2_5_1.segment_groups import (
     RCL_I06_PROVIDER_GROUP

@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.RXC import RXC
-from ..segments.RXE import RXE
 from ..segment_groups.RSP_Z86_QUERY_RESPONSE_GROUP_COMMON_ORDER_GROUP_ENCODED_ORDER_GROUP_TIMING_ENCODED_GROUP import (
     RSP_Z86_QUERY_RESPONSE_GROUP_COMMON_ORDER_GROUP_ENCODED_ORDER_GROUP_TIMING_ENCODED_GROUP,
 )
 from ..segments.RXR import RXR
+from ..segments.RXC import RXC
+from ..segments.RXE import RXE
 
 
 """

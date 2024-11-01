@@ -1,23 +1,23 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
 from ..segments.RF1 import RF1
-from ..segments.ACC import ACC
-from ..segments.AL1 import AL1
-from ..segments.SFT import SFT
-from ..segment_groups.RQA_I08_AUTHORIZATION_GROUP import RQA_I08_AUTHORIZATION_GROUP
-from ..segments.DG1 import DG1
-from ..segments.NTE import NTE
-from ..segment_groups.RQA_I08_VISIT_GROUP import RQA_I08_VISIT_GROUP
-from ..segments.MSH import MSH
-from ..segments.PID import PID
 from ..segment_groups.RQA_I08_GUARANTOR_INSURANCE_GROUP import (
     RQA_I08_GUARANTOR_INSURANCE_GROUP,
 )
-from ..segments.NK1 import NK1
-from ..segment_groups.RQA_I08_PROCEDURE_GROUP import RQA_I08_PROCEDURE_GROUP
+from ..segments.ACC import ACC
+from ..segment_groups.RQA_I08_AUTHORIZATION_GROUP import RQA_I08_AUTHORIZATION_GROUP
+from ..segments.DG1 import DG1
+from ..segments.NTE import NTE
 from ..segment_groups.RQA_I08_PROVIDER_GROUP import RQA_I08_PROVIDER_GROUP
-from ..segment_groups.RQA_I08_OBSERVATION_GROUP import RQA_I08_OBSERVATION_GROUP
 from ..segments.DRG import DRG
+from ..segment_groups.RQA_I08_OBSERVATION_GROUP import RQA_I08_OBSERVATION_GROUP
+from ..segments.SFT import SFT
+from ..segments.PID import PID
+from ..segments.MSH import MSH
+from ..segment_groups.RQA_I08_VISIT_GROUP import RQA_I08_VISIT_GROUP
+from ..segment_groups.RQA_I08_PROCEDURE_GROUP import RQA_I08_PROCEDURE_GROUP
+from ..segments.NK1 import NK1
+from ..segments.AL1 import AL1
 
 
 """
@@ -28,10 +28,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RQA_I08
 from utils.hl7.v2_5_1.segments import (
-    DG1, NTE, RF1, DRG, NK1, AL1, MSH, SFT, PID, ACC
+    RF1, NTE, SFT, ACC, DG1, AL1, PID, NK1, MSH, DRG
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    RQA_I08_AUTHORIZATION_GROUP, RQA_I08_GUARANTOR_INSURANCE_GROUP, RQA_I08_PROCEDURE_GROUP, RQA_I08_PROVIDER_GROUP, RQA_I08_OBSERVATION_GROUP, RQA_I08_VISIT_GROUP
+    RQA_I08_PROVIDER_GROUP, RQA_I08_GUARANTOR_INSURANCE_GROUP, RQA_I08_AUTHORIZATION_GROUP, RQA_I08_PROCEDURE_GROUP, RQA_I08_VISIT_GROUP, RQA_I08_OBSERVATION_GROUP
 )
 
 rqa_i08 = RQA_I08(  #  - This event triggers a message to be sent from a healthcare provider to a payor requesting authorization to perform specific medical procedures or tests on a given patient

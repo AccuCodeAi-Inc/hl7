@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.CX import CX
-from ..data_types.SI import SI
-from ..data_types.DT import DT
 from ..data_types.IS import IS
-from ..tables.DisabledPersonCode import DisabledPersonCode
+from ..data_types.DT import DT
+from ..data_types.CX import CX
+from ..data_types.ID import ID
+from ..data_types.SI import SI
 from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..tables.DisabledPersonCode import DisabledPersonCode
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     DB1,
-    ID, CX, SI, DT, IS
+    IS, DT, CX, ID, SI
 )
 
 db1 = DB1(  #  - The disability segment contains information related to the disability of a person

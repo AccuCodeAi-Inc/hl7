@@ -2,8 +2,8 @@ from __future__ import annotations
 from ...base import DataType
 from .ID import ID
 from .NM import NM
-from ..tables.CurrencyCodes import CurrencyCodes
 from ..tables.MoneyOrPercentageIndicator import MoneyOrPercentageIndicator
+from ..tables.CurrencyCodes import CurrencyCodes
 
 
 """

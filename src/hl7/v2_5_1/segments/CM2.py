@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7Segment
+from ..data_types.CE import CE
 from ..data_types.SI import SI
 from ..data_types.ST import ST
-from ..data_types.CE import CE
 
 
 """
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CM2,
-    SI, ST, CE
+    CE, SI, ST
 )
 
 cm2 = CM2(  #  - The Clinical Study Schedule Master (CM2) contains the information about the scheduled time points for study or phase-related treatment or evaluation events

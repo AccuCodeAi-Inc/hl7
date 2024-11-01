@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
 from ..data_types.CE import CE
-from ..data_types.NM import NM
 from ..data_types.ST import ST
+from ..data_types.ID import ID
+from ..data_types.NM import NM
 from ..tables.QueryName import QueryName
 from ..tables.QueryResponseStatus import QueryResponseStatus
 
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     QAK,
-    ID, CE, NM, ST
+    CE, ST, ID, NM
 )
 
 qak = QAK(  #  - The QAK segment contains information sent with responses to a query

@@ -3,10 +3,10 @@ from ...base import HL7SegmentGroup
 from ..segment_groups.OMD_O03_ORDER_DIET_GROUP_TIMING_DIET_GROUP import (
     OMD_O03_ORDER_DIET_GROUP_TIMING_DIET_GROUP,
 )
+from ..segments.ORC import ORC
 from ..segment_groups.OMD_O03_ORDER_DIET_GROUP_DIET_GROUP import (
     OMD_O03_ORDER_DIET_GROUP_DIET_GROUP,
 )
-from ..segments.ORC import ORC
 
 
 """

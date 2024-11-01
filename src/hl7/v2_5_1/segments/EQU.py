@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TS import TS
-from ..data_types.EI import EI
 from ..data_types.CE import CE
-from ..tables.EquipmentState import EquipmentState
+from ..data_types.EI import EI
+from ..data_types.TS import TS
 from ..tables.AlertLevel import AlertLevel
+from ..tables.EquipmentState import EquipmentState
 from ..tables.LocalOrRemoteControlState import LocalOrRemoteControlState
 
 
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     EQU,
-    TS, EI, CE
+    CE, EI, TS
 )
 
 equ = EQU(  #  - The equipment detail segment contains the data necessary to identify and maintain the equipment that is being used throughout the Laboratory Automation System

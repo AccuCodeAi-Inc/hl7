@@ -1,17 +1,17 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.PIP import PIP
-from ..data_types.PLN import PLN
 from ..data_types.CE import CE
-from ..data_types.SPD import SPD
-from ..data_types.SI import SI
-from ..data_types.DT import DT
+from ..data_types.PIP import PIP
 from ..data_types.IS import IS
+from ..data_types.DT import DT
+from ..data_types.ID import ID
+from ..data_types.SPD import SPD
+from ..data_types.PLN import PLN
+from ..data_types.SI import SI
+from ..tables.GovernmentReimbursementProgram import GovernmentReimbursementProgram
+from ..tables.PractitionerCategory import PractitionerCategory
 from ..tables.Institution import Institution
 from ..tables.PractitionerGroup import PractitionerGroup
-from ..tables.PractitionerCategory import PractitionerCategory
-from ..tables.GovernmentReimbursementProgram import GovernmentReimbursementProgram
 from ..tables.ProviderBilling import ProviderBilling
 
 
@@ -23,7 +23,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PRA,
-    ID, PIP, PLN, CE, SPD, SI, DT, IS
+    CE, PIP, IS, DT, ID, SPD, PLN, SI
 )
 
 pra = PRA(  #  - The PRA segment adds detailed medical practitioner information to the personnel identified by the STF segment

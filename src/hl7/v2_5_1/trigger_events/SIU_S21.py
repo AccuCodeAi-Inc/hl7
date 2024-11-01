@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.SCH import SCH
 from ..segments.NTE import NTE
 from ..segment_groups.SIU_S21_RESOURCES_GROUP import SIU_S21_RESOURCES_GROUP
-from ..segments.MSH import MSH
-from ..segments.TQ1 import TQ1
 from ..segment_groups.SIU_S21_PATIENT_GROUP import SIU_S21_PATIENT_GROUP
+from ..segments.TQ1 import TQ1
+from ..segments.MSH import MSH
+from ..segments.SCH import SCH
 
 
 """
@@ -16,10 +16,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import SIU_S21
 from utils.hl7.v2_5_1.segments import (
-    SCH, TQ1, NTE, MSH
+    TQ1, NTE, SCH, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    SIU_S21_PATIENT_GROUP, SIU_S21_RESOURCES_GROUP
+    SIU_S21_RESOURCES_GROUP, SIU_S21_PATIENT_GROUP
 )
 
 siu_s21 = SIU_S21(  #  - A notification of discontinuation of service/resource is sent by the filler application to other applications when the remaining children of a parent appointment no longer require a particular service or resource

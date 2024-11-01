@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
-from ..data_types.DR import DR
 from ..data_types.CE import CE
+from ..data_types.ID import ID
 from ..data_types.XCN import XCN
+from ..data_types.DR import DR
 from ..data_types.PL import PL
+from ..data_types.TS import TS
 from ..tables.YesOrNoIndicator import YesOrNoIndicator
 
 
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PDA,
-    ID, TS, DR, CE, XCN, PL
+    CE, ID, XCN, DR, PL, TS
 )
 
 pda = PDA(  #  - This segment carries information on a patients death and possible autopsy

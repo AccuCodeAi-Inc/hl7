@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import DataType
 from .ID import ID
-from ..tables.MessageType import MessageType
 from ..tables.EventType import EventType
 from ..tables.MessageStructure import MessageStructure
+from ..tables.MessageType import MessageType
 
 
 """

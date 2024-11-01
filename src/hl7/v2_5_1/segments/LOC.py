@@ -1,16 +1,16 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.XAD import XAD
+from ..data_types.CE import CE
+from ..data_types.XON import XON
+from ..data_types.IS import IS
 from ..data_types.XTN import XTN
 from ..data_types.ST import ST
-from ..data_types.CE import CE
-from ..data_types.IS import IS
-from ..data_types.XON import XON
 from ..data_types.PL import PL
-from ..tables.LocationEquipment import LocationEquipment
+from ..data_types.XAD import XAD
 from ..tables.LicenseNumber import LicenseNumber
-from ..tables.PatientLocationType import PatientLocationType
 from ..tables.LocationServiceCode import LocationServiceCode
+from ..tables.LocationEquipment import LocationEquipment
+from ..tables.PatientLocationType import PatientLocationType
 
 
 """
@@ -21,7 +21,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     LOC,
-    XAD, XTN, ST, CE, IS, XON, PL
+    CE, XON, IS, XTN, ST, PL, XAD
 )
 
 loc = LOC(  #  - The LOC segment can identify any patient location referenced by information systems

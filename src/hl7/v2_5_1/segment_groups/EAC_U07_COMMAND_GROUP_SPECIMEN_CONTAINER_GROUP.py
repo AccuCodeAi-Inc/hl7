@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import EAC_U07_COMMAND_GROUP_SPECIMEN_CONTAINER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    SPM, SAC
+    SAC, SPM
 )
 
 eac_u07_command_group_specimen_container_group = EAC_U07_COMMAND_GROUP_SPECIMEN_CONTAINER_GROUP(  # SPECIMEN CONTAINER - Segment group for EAC_U07_COMMAND_GROUP - COMMAND consisting of SAC, SPM|None

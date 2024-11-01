@@ -1,6 +1,5 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.ORC import ORC
 from ..segment_groups.RGV_O15_ORDER_GROUP_ENCODING_GROUP import (
     RGV_O15_ORDER_GROUP_ENCODING_GROUP,
 )
@@ -10,6 +9,7 @@ from ..segment_groups.RGV_O15_ORDER_GROUP_GIVE_GROUP import (
 from ..segment_groups.RGV_O15_ORDER_GROUP_TIMING_GROUP import (
     RGV_O15_ORDER_GROUP_TIMING_GROUP,
 )
+from ..segments.ORC import ORC
 from ..segment_groups.RGV_O15_ORDER_GROUP_ORDER_DETAIL_GROUP import (
     RGV_O15_ORDER_GROUP_ORDER_DETAIL_GROUP,
 )
@@ -26,7 +26,7 @@ from utils.hl7.v2_5_1.segments import (
     ORC
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    RGV_O15_ORDER_GROUP_ORDER_DETAIL_GROUP, RGV_O15_ORDER_GROUP_TIMING_GROUP, RGV_O15_ORDER_GROUP_ENCODING_GROUP, RGV_O15_ORDER_GROUP_GIVE_GROUP
+    RGV_O15_ORDER_GROUP_ENCODING_GROUP, RGV_O15_ORDER_GROUP_TIMING_GROUP, RGV_O15_ORDER_GROUP_GIVE_GROUP, RGV_O15_ORDER_GROUP_ORDER_DETAIL_GROUP
 )
 
 rgv_o15_order_group = RGV_O15_ORDER_GROUP(  # ORDER - Segment group for RGV_O15 - Pharmacy/Treatment Give consisting of ORC, TIMING|None, ORDER DETAIL|None, ENCODING|None, GIVE

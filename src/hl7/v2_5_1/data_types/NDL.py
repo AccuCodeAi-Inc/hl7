@@ -1,16 +1,16 @@
 from __future__ import annotations
 from ...base import DataType
+from .IS import IS
+from .HD import HD
 from .CNN import CNN
 from .TS import TS
-from .HD import HD
-from .IS import IS
-from ..tables.Bed import Bed
+from ..tables.PointOfCare import PointOfCare
 from ..tables.Room import Room
+from ..tables.LocationStatus import LocationStatus
 from ..tables.Floor import Floor
 from ..tables.Building import Building
+from ..tables.Bed import Bed
 from ..tables.PersonLocationType import PersonLocationType
-from ..tables.PointOfCare import PointOfCare
-from ..tables.LocationStatus import LocationStatus
 
 
 """
@@ -21,7 +21,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     NDL,
-    CNN, TS, HD, IS
+    IS, HD, CNN, TS
 )
 
 ndl = NDL(  # Name with Date and Location - Specifies the name of the person performing a service, when the person performed the service and where the person performed the service

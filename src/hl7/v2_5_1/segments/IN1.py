@@ -1,37 +1,37 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
-from ..data_types.XAD import XAD
-from ..data_types.XTN import XTN
-from ..data_types.XCN import XCN
-from ..data_types.CX import CX
-from ..data_types.ST import ST
-from ..data_types.SI import SI
 from ..data_types.CE import CE
+from ..data_types.XON import XON
+from ..data_types.IS import IS
+from ..data_types.CX import CX
+from ..data_types.DT import DT
+from ..data_types.AUI import AUI
+from ..data_types.TS import TS
+from ..data_types.XTN import XTN
+from ..data_types.ID import ID
 from ..data_types.NM import NM
 from ..data_types.XPN import XPN
-from ..data_types.DT import DT
-from ..data_types.IS import IS
-from ..data_types.XON import XON
+from ..data_types.ST import ST
+from ..data_types.XCN import XCN
 from ..data_types.CP import CP
-from ..data_types.AUI import AUI
-from ..tables.ReleaseInformation import ReleaseInformation
-from ..tables.Handicap import Handicap
-from ..tables.SignatureCode import SignatureCode
-from ..tables.PlanId import PlanId
-from ..tables.CoverageType import CoverageType
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
-from ..tables.CoordinationOfBenefits import CoordinationOfBenefits
+from ..data_types.SI import SI
+from ..data_types.XAD import XAD
 from ..tables.Relationship import Relationship
+from ..tables.EmploymentStatus import EmploymentStatus
+from ..tables.VipIndicator import VipIndicator
+from ..tables.CoordinationOfBenefits import CoordinationOfBenefits
+from ..tables.AdministrativeSex import AdministrativeSex
+from ..tables.ReleaseInformation import ReleaseInformation
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..tables.CoverageType import CoverageType
+from ..tables.TypeOfAgreement import TypeOfAgreement
+from ..tables.InsurancePlanId import InsurancePlanId
+from ..tables.PlanId import PlanId
 from ..tables.BillingStatus import BillingStatus
 from ..tables.CompanyPlanCode import CompanyPlanCode
-from ..tables.InsurancePlanId import InsurancePlanId
-from ..tables.EmploymentStatus import EmploymentStatus
-from ..tables.AdministrativeSex import AdministrativeSex
-from ..tables.VipIndicator import VipIndicator
 from ..tables.AssignmentOfBenefits import AssignmentOfBenefits
-from ..tables.TypeOfAgreement import TypeOfAgreement
+from ..tables.Handicap import Handicap
+from ..tables.SignatureCode import SignatureCode
 
 
 """
@@ -42,7 +42,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     IN1,
-    ID, TS, XAD, XTN, XCN, CX, ST, SI, CE, NM, XPN, DT, IS, XON, CP, AUI
+    CE, XON, IS, CX, DT, AUI, TS, XTN, ID, NM, XPN, ST, XCN, CP, SI, XAD
 )
 
 in1 = IN1(  #  - The IN1 segment contains insurance policy coverage information necessary to produce properly pro-rated and patient and insurance bills

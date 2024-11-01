@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.EVN import EVN
-from ..segments.SFT import SFT
-from ..segments.PV1 import PV1
-from ..segments.MSH import MSH
-from ..segments.PID import PID
 from ..segments.MRG import MRG
 from ..segments.PD1 import PD1
+from ..segments.EVN import EVN
+from ..segments.SFT import SFT
+from ..segments.PID import PID
+from ..segments.MSH import MSH
+from ..segments.PV1 import PV1
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ADT_A18
 from utils.hl7.v2_5_1.segments import (
-    PV1, MRG, PD1, MSH, SFT, PID, EVN
+    PV1, MRG, EVN, SFT, PID, MSH, PD1
 )
 
 adt_a18 = ADT_A18(  #  - Event A18 has been retained for backward compatibility

@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import EAN_U09_NOTIFICATION_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NDS, NTE
+    NTE, NDS
 )
 
 ean_u09_notification_group = EAN_U09_NOTIFICATION_GROUP(  # NOTIFICATION - Segment group for EAN_U09 - Automated equipment notification consisting of NDS, NTE|None

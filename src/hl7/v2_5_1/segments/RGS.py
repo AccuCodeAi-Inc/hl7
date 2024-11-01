@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.SI import SI
 from ..data_types.CE import CE
+from ..data_types.SI import SI
+from ..data_types.ID import ID
 from ..tables.SegmentActionCode import SegmentActionCode
 
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RGS,
-    ID, SI, CE
+    CE, SI, ID
 )
 
 rgs = RGS(  #  - The RGS segment is used to identify relationships between resources identified for a scheduled event

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.OBR import OBR
 from ..segments.OBX import OBX
+from ..segments.OBR import OBR
 from ..segments.ORC import ORC
 from ..segment_groups.CSU_C10_PATIENT_GROUP_STUDY_PHASE_GROUP_STUDY_SCHEDULE_GROUP_STUDY_OBSERVATION_GROUP_TIMING_QTY_GROUP import (
     CSU_C10_PATIENT_GROUP_STUDY_PHASE_GROUP_STUDY_SCHEDULE_GROUP_STUDY_OBSERVATION_GROUP_TIMING_QTY_GROUP,
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import CSU_C10_PATIENT_GROUP_STUDY_PHASE_GROUP_STUDY_SCHEDULE_GROUP_STUDY_OBSERVATION_GROUP
 from utils.hl7.v2_5_1.segments import (
-    OBR, OBX, ORC
+    ORC, OBX, OBR
 )
 from utils.hl7.v2_5_1.segment_groups import (
     CSU_C10_PATIENT_GROUP_STUDY_PHASE_GROUP_STUDY_SCHEDULE_GROUP_STUDY_OBSERVATION_GROUP_TIMING_QTY_GROUP

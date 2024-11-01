@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.NTE import NTE
 from ..segment_groups.RGV_O15_ORDER_GROUP_ORDER_DETAIL_GROUP_ORDER_DETAIL_SUPPLEMENT_GROUP_COMPONENTS_GROUP import (
     RGV_O15_ORDER_GROUP_ORDER_DETAIL_GROUP_ORDER_DETAIL_SUPPLEMENT_GROUP_COMPONENTS_GROUP,
 )
-from ..segments.NTE import NTE
 from ..segments.RXR import RXR
 
 

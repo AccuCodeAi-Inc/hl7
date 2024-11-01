@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import DataType
 from .ID import ID
-from ..tables.ProcessingId import ProcessingId
 from ..tables.ProcessingMode import ProcessingMode
+from ..tables.ProcessingId import ProcessingId
 
 
 """

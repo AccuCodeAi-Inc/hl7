@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import SRR_S01_SCHEDULE_GROUP_RESOURCES_GROUP_GENERAL_RESOURCE_GROUP
 from utils.hl7.v2_5_1.segments import (
-    AIG, NTE
+    NTE, AIG
 )
 
 srr_s01_schedule_group_resources_group_general_resource_group = SRR_S01_SCHEDULE_GROUP_RESOURCES_GROUP_GENERAL_RESOURCE_GROUP(  # GENERAL RESOURCE - Segment group for SRR_S01_SCHEDULE_GROUP_RESOURCES_GROUP - RESOURCES consisting of AIG, NTE|None

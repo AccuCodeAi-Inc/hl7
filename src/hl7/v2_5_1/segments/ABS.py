@@ -1,18 +1,18 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
 from ..data_types.CE import CE
+from ..data_types.ID import ID
 from ..data_types.NM import NM
 from ..data_types.XCN import XCN
-from ..tables.TriageCode import TriageCode
-from ..tables.GestationCategoryCode import GestationCategoryCode
+from ..data_types.TS import TS
 from ..tables.HospitalService import HospitalService
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
 from ..tables.CaseCategoryCode import CaseCategoryCode
+from ..tables.GestationCategoryCode import GestationCategoryCode
 from ..tables.PhysicianId import PhysicianId
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
 from ..tables.NewbornCode import NewbornCode
 from ..tables.SeverityOfIllnessCode import SeverityOfIllnessCode
+from ..tables.TriageCode import TriageCode
 
 
 """
@@ -23,7 +23,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     ABS,
-    ID, TS, CE, NM, XCN
+    CE, ID, NM, XCN, TS
 )
 
 abs = ABS(  #  - This segment was created to communicate patient abstract information used for billing and reimbursement purposes

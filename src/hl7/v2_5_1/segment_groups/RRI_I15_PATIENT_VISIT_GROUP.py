@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.PV1 import PV1
 from ..segments.PV2 import PV2
+from ..segments.PV1 import PV1
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RRI_I15_PATIENT_VISIT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PV1, PV2
+    PV2, PV1
 )
 
 rri_i15_patient_visit_group = RRI_I15_PATIENT_VISIT_GROUP(  # PATIENT VISIT - Segment group for RRI_I15 - Request patient referral status acknowledgement consisting of PV1, PV2|None

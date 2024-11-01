@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
 from ..segments.NTE import NTE
+from ..segments.RXR import RXR
 from ..segment_groups.RAS_O17_ORDER_GROUP_ORDER_DETAIL_GROUP_ORDER_DETAIL_SUPPLEMENT_GROUP_COMPONENTS_GROUP import (
     RAS_O17_ORDER_GROUP_ORDER_DETAIL_GROUP_ORDER_DETAIL_SUPPLEMENT_GROUP_COMPONENTS_GROUP,
 )
-from ..segments.RXR import RXR
 
 
 """

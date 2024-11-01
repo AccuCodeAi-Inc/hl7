@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import MFN_M15_MF_INV_ITEM_GROUP
 from utils.hl7.v2_5_1.segments import (
-    IIM, MFE
+    MFE, IIM
 )
 
 mfn_m15_mf_inv_item_group = MFN_M15_MF_INV_ITEM_GROUP(  # MF INV ITEM - Segment group for MFN_M15 - Master File Notification - Inventory Item Master File Message consisting of MFE, IIM

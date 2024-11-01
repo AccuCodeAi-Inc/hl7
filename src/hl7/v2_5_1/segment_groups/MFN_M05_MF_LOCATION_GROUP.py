@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.LCH import LCH
-from ..segments.LRL import LRL
 from ..segments.LOC import LOC
 from ..segment_groups.MFN_M05_MF_LOCATION_GROUP_MF_LOC_DEPT_GROUP import (
     MFN_M05_MF_LOCATION_GROUP_MF_LOC_DEPT_GROUP,
 )
 from ..segments.MFE import MFE
+from ..segments.LCH import LCH
+from ..segments.LRL import LRL
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import MFN_M05_MF_LOCATION_GROUP
 from utils.hl7.v2_5_1.segments import (
-    LRL, MFE, LCH, LOC
+    MFE, LCH, LOC, LRL
 )
 from utils.hl7.v2_5_1.segment_groups import (
     MFN_M05_MF_LOCATION_GROUP_MF_LOC_DEPT_GROUP

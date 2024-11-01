@@ -1,24 +1,24 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
+from ..segment_groups.RRI_I13_PROCEDURE_GROUP import RRI_I13_PROCEDURE_GROUP
 from ..segments.RF1 import RF1
-from ..segments.ACC import ACC
-from ..segments.AL1 import AL1
-from ..segment_groups.RRI_I13_PATIENT_VISIT_GROUP import RRI_I13_PATIENT_VISIT_GROUP
-from ..segments.SFT import SFT
-from ..segment_groups.RRI_I13_AUTHORIZATION_CONTACT_GROUP import (
-    RRI_I13_AUTHORIZATION_CONTACT_GROUP,
-)
 from ..segments.DG1 import DG1
-from ..segments.NTE import NTE
+from ..segments.ACC import ACC
+from ..segment_groups.RRI_I13_PATIENT_VISIT_GROUP import RRI_I13_PATIENT_VISIT_GROUP
 from ..segment_groups.RRI_I13_PROVIDER_CONTACT_GROUP import (
     RRI_I13_PROVIDER_CONTACT_GROUP,
 )
-from ..segment_groups.RRI_I13_OBSERVATION_GROUP import RRI_I13_OBSERVATION_GROUP
-from ..segments.MSH import MSH
-from ..segments.PID import PID
-from ..segment_groups.RRI_I13_PROCEDURE_GROUP import RRI_I13_PROCEDURE_GROUP
-from ..segments.MSA import MSA
+from ..segments.NTE import NTE
 from ..segments.DRG import DRG
+from ..segments.SFT import SFT
+from ..segments.PID import PID
+from ..segment_groups.RRI_I13_AUTHORIZATION_CONTACT_GROUP import (
+    RRI_I13_AUTHORIZATION_CONTACT_GROUP,
+)
+from ..segments.MSH import MSH
+from ..segments.MSA import MSA
+from ..segment_groups.RRI_I13_OBSERVATION_GROUP import RRI_I13_OBSERVATION_GROUP
+from ..segments.AL1 import AL1
 
 
 """
@@ -29,10 +29,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RRI_I13
 from utils.hl7.v2_5_1.segments import (
-    DG1, NTE, MSA, RF1, DRG, AL1, MSH, SFT, PID, ACC
+    RF1, NTE, MSA, SFT, ACC, DG1, PID, AL1, MSH, DRG
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    RRI_I13_OBSERVATION_GROUP, RRI_I13_PATIENT_VISIT_GROUP, RRI_I13_PROCEDURE_GROUP, RRI_I13_PROVIDER_CONTACT_GROUP, RRI_I13_AUTHORIZATION_CONTACT_GROUP
+    RRI_I13_PATIENT_VISIT_GROUP, RRI_I13_PROCEDURE_GROUP, RRI_I13_AUTHORIZATION_CONTACT_GROUP, RRI_I13_PROVIDER_CONTACT_GROUP, RRI_I13_OBSERVATION_GROUP
 )
 
 rri_i13 = RRI_I13(  #  - This event triggers a message to be sent from one healthcare provider to another regarding changes to an existing referral

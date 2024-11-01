@@ -1,13 +1,13 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segment_groups.RDR_RDR_DEFINITION_GROUP_ORDER_GROUP import (
-    RDR_RDR_DEFINITION_GROUP_ORDER_GROUP,
-)
-from ..segments.QRF import QRF
 from ..segment_groups.RDR_RDR_DEFINITION_GROUP_PATIENT_GROUP import (
     RDR_RDR_DEFINITION_GROUP_PATIENT_GROUP,
 )
+from ..segment_groups.RDR_RDR_DEFINITION_GROUP_ORDER_GROUP import (
+    RDR_RDR_DEFINITION_GROUP_ORDER_GROUP,
+)
 from ..segments.QRD import QRD
+from ..segments.QRF import QRF
 
 
 """
@@ -18,10 +18,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RDR_RDR_DEFINITION_GROUP
 from utils.hl7.v2_5_1.segments import (
-    QRD, QRF
+    QRF, QRD
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    RDR_RDR_DEFINITION_GROUP_ORDER_GROUP, RDR_RDR_DEFINITION_GROUP_PATIENT_GROUP
+    RDR_RDR_DEFINITION_GROUP_PATIENT_GROUP, RDR_RDR_DEFINITION_GROUP_ORDER_GROUP
 )
 
 rdr_rdr_definition_group = RDR_RDR_DEFINITION_GROUP(  # DEFINITION - Segment group for RDR_RDR - Pharmacy/Treatment Dispense Information Response consisting of QRD, QRF|None, PATIENT|None, ORDER

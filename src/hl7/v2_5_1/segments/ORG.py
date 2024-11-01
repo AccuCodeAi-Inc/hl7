@@ -1,19 +1,19 @@
 from __future__ import annotations
 from ...base import HL7Segment
+from ..data_types.CE import CE
+from ..data_types.CX import CX
 from ..data_types.ID import ID
 from ..data_types.DR import DR
-from ..data_types.CX import CX
 from ..data_types.SI import SI
-from ..data_types.CE import CE
+from ..tables.EmploymentStatus import EmploymentStatus
+from ..tables.HealthCareProviderTypeCode import HealthCareProviderTypeCode
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..tables.HealthCareProviderClassification import HealthCareProviderClassification
+from ..tables.OrganizationUnit import OrganizationUnit
 from ..tables.HealthCareProviderAreaOfSpecialization import (
     HealthCareProviderAreaOfSpecialization,
 )
-from ..tables.HealthCareProviderClassification import HealthCareProviderClassification
-from ..tables.OrganizationUnit import OrganizationUnit
-from ..tables.HealthCareProviderTypeCode import HealthCareProviderTypeCode
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
 from ..tables.OrganizationUnitType import OrganizationUnitType
-from ..tables.EmploymentStatus import EmploymentStatus
 
 
 """
@@ -24,7 +24,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     ORG,
-    ID, DR, CX, SI, CE
+    CE, CX, ID, DR, SI
 )
 
 org = ORG(  #  - The ORG segment relates a practitioner to an organization unit and adds detailed information regarding the practitioner's practicing specialty in that organization unit

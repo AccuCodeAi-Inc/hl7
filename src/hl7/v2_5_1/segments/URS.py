@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
-from ..data_types.TQ import TQ
 from ..data_types.ST import ST
-from ..tables.DateOrTimeSelectionQualifier import DateOrTimeSelectionQualifier
+from ..data_types.ID import ID
+from ..data_types.TQ import TQ
+from ..data_types.TS import TS
 from ..tables.WhichDateOrTimeQualifier import WhichDateOrTimeQualifier
 from ..tables.WhichDateOrTimeStatusQualifier import WhichDateOrTimeStatusQualifier
+from ..tables.DateOrTimeSelectionQualifier import DateOrTimeSelectionQualifier
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     URS,
-    ID, TS, TQ, ST
+    ST, ID, TQ, TS
 )
 
 urs = URS(  #  - This segment is not carried forward to the recommended queries for v 2

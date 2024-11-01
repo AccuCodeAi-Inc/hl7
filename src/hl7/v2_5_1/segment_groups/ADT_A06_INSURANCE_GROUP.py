@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ADT_A06_INSURANCE_GROUP
 from utils.hl7.v2_5_1.segments import (
-    IN2, IN1, ROL, IN3
+    IN2, IN3, IN1, ROL
 )
 
 adt_a06_insurance_group = ADT_A06_INSURANCE_GROUP(  # INSURANCE - Segment group for ADT_A06 - Change an Outpatient To an Inpatient consisting of IN1, IN2|None, IN3|None, ROL|None

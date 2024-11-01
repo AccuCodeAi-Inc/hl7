@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
 from ..data_types.CE import CE
-from ..data_types.NM import NM
 from ..data_types.CWE import CWE
+from ..data_types.ID import ID
+from ..data_types.NM import NM
 from ..tables.RxComponentType import RxComponentType
 
 
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RXC,
-    ID, CE, NM, CWE
+    CE, CWE, ID, NM
 )
 
 rxc = RXC(  #  - If the drug or treatment ordered with the RXO segment is a compound drug OR an IV solution, AND there is not a coded value for OBR-4-universal service ID , which specifies the components (base and all additives), then the components (the base and additives) are specified by two or more RXC segments

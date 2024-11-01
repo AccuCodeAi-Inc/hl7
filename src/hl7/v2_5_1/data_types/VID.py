@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import DataType
-from .ID import ID
 from .CE import CE
-from ..tables.VersionId import VersionId
+from .ID import ID
 from ..tables.CountryCode import CountryCode
+from ..tables.VersionId import VersionId
 
 
 """
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     VID,
-    ID, CE
+    CE, ID
 )
 
 vid = VID(  # Version Identifier - 

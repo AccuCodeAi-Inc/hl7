@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import DataType
-from .ID import ID
-from .ST import ST
 from .IS import IS
-from ..tables.AssigningAuthority import AssigningAuthority
-from ..tables.UniversalIdType import UniversalIdType
+from .ST import ST
+from .ID import ID
 from ..tables.DegreeOrLicenseOrCertificate import DegreeOrLicenseOrCertificate
+from ..tables.UniversalIdType import UniversalIdType
 from ..tables.CnIdSource import CnIdSource
+from ..tables.AssigningAuthority import AssigningAuthority
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CNN,
-    ID, ST, IS
+    IS, ST, ID
 )
 
 cnn = CNN(  # Composite ID Number and Name Simplified - Specifies a person using both an identifier and the persons name

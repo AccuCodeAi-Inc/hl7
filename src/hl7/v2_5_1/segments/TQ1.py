@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CWE import CWE
-from ..data_types.TS import TS
-from ..data_types.ID import ID
-from ..data_types.RPT import RPT
 from ..data_types.TM import TM
-from ..data_types.CQ import CQ
-from ..data_types.SI import SI
 from ..data_types.TX import TX
+from ..data_types.CQ import CQ
+from ..data_types.ID import ID
 from ..data_types.NM import NM
+from ..data_types.RPT import RPT
+from ..data_types.CWE import CWE
+from ..data_types.SI import SI
+from ..data_types.TS import TS
 from ..tables.ExtendedPriorityCodes import ExtendedPriorityCodes
 from ..tables.RiskManagementIncidentCode import RiskManagementIncidentCode
 
@@ -21,7 +21,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     TQ1,
-    CWE, TS, ID, RPT, TM, CQ, SI, TX, NM
+    TM, TX, CQ, ID, NM, RPT, CWE, SI, TS
 )
 
 tq1 = TQ1(  #  - The TQ1 segment is used to specify the complex timing of events and actions such as those that occur in order management and scheduling systems

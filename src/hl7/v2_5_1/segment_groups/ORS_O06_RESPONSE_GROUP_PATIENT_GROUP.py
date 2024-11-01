@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.PID import PID
 from ..segments.NTE import NTE
+from ..segments.PID import PID
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ORS_O06_RESPONSE_GROUP_PATIENT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PID, NTE
+    NTE, PID
 )
 
 ors_o06_response_group_patient_group = ORS_O06_RESPONSE_GROUP_PATIENT_GROUP(  # PATIENT - Segment group for ORS_O06_RESPONSE_GROUP - RESPONSE consisting of PID, NTE|None

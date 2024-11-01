@@ -1,21 +1,21 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
-from ..data_types.ST import ST
 from ..data_types.CE import CE
 from ..data_types.TX import TX
-from ..data_types.NM import NM
 from ..data_types.IS import IS
+from ..data_types.ID import ID
+from ..data_types.NM import NM
+from ..data_types.ST import ST
 from ..data_types.XCN import XCN
 from ..data_types.PL import PL
+from ..data_types.TS import TS
 from ..tables.ConsentIdentifier import ConsentIdentifier
-from ..tables.FormularyStatus import FormularyStatus
+from ..tables.UnitsOfTime import UnitsOfTime
 from ..tables.TransactionCode import TransactionCode
+from ..tables.FormularyStatus import FormularyStatus
 from ..tables.CategoryIdentifier import CategoryIdentifier
 from ..tables.YesOrNoIndicator import YesOrNoIndicator
 from ..tables.RepeatPattern import RepeatPattern
-from ..tables.UnitsOfTime import UnitsOfTime
 
 
 """
@@ -26,7 +26,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     OM7,
-    ID, TS, ST, CE, TX, NM, IS, XCN, PL
+    CE, TX, IS, ID, NM, ST, XCN, PL, TS
 )
 
 om7 = OM7(  #  - The OM7 segment contains additional basic attributes that apply to the definition of most observations/services

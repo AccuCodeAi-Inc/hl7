@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
+from ..segments.MFA import MFA
 from ..segments.SFT import SFT
 from ..segments.ERR import ERR
 from ..segments.MSH import MSH
 from ..segments.MSA import MSA
-from ..segments.MFA import MFA
 from ..segments.MFI import MFI
 
 
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import MFK_M01
 from utils.hl7.v2_5_1.segments import (
-    ERR, MSA, MFI, MSH, SFT, MFA
+    ERR, MSA, SFT, MFI, MSH, MFA
 )
 
 mfk_m01 = MFK_M01(  #  - 

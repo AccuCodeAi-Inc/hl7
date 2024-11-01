@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import DataType
+from .IS import IS
 from .DT import DT
 from .ST import ST
-from .IS import IS
 from ..tables.DriverSLicenseIssuingAuthority import DriverSLicenseIssuingAuthority
 
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     DLN,
-    DT, ST, IS
+    IS, DT, ST
 )
 
 dln = DLN(  # Driver License Number - This field contains the drivers license information

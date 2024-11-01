@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.NTE import NTE
 from ..segments.OBX import OBX
+from ..segments.NTE import NTE
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OMD_O03_ORDER_DIET_GROUP_DIET_GROUP_OBSERVATION_GROUP
 from utils.hl7.v2_5_1.segments import (
-    OBX, NTE
+    NTE, OBX
 )
 
 omd_o03_order_diet_group_diet_group_observation_group = OMD_O03_ORDER_DIET_GROUP_DIET_GROUP_OBSERVATION_GROUP(  # OBSERVATION - Segment group for OMD_O03_ORDER_DIET_GROUP_DIET_GROUP - DIET consisting of OBX, NTE|None

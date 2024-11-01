@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import DataType
-from .ID import ID
-from .ST import ST
 from .IS import IS
-from ..tables.AssigningAuthority import AssigningAuthority
+from .ST import ST
+from .ID import ID
 from ..tables.UniversalIdType import UniversalIdType
+from ..tables.AssigningAuthority import AssigningAuthority
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     EI,
-    ID, ST, IS
+    IS, ST, ID
 )
 
 ei = EI(  # Entity Identifier - The entity identifier defines a given entity within a specified series of identifiers

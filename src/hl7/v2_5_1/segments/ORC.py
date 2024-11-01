@@ -1,28 +1,28 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
-from ..data_types.CWE import CWE
-from ..data_types.TQ import TQ
-from ..data_types.XAD import XAD
-from ..data_types.XTN import XTN
-from ..data_types.CE import CE
-from ..data_types.CNE import CNE
-from ..data_types.EI import EI
 from ..data_types.EIP import EIP
-from ..data_types.XCN import XCN
-from ..data_types.PL import PL
+from ..data_types.CE import CE
 from ..data_types.XON import XON
-from ..tables.OrderType import OrderType
+from ..data_types.CNE import CNE
+from ..data_types.TQ import TQ
+from ..data_types.ID import ID
+from ..data_types.XTN import XTN
+from ..data_types.XCN import XCN
+from ..data_types.CWE import CWE
+from ..data_types.EI import EI
+from ..data_types.XAD import XAD
+from ..data_types.PL import PL
+from ..data_types.TS import TS
+from ..tables.OrderStatus import OrderStatus
+from ..tables.ConfidentialityCode import ConfidentialityCode
 from ..tables.AdvancedBeneficiaryNoticeOverrideReason import (
     AdvancedBeneficiaryNoticeOverrideReason,
 )
 from ..tables.AdvancedBeneficiaryNoticeCode import AdvancedBeneficiaryNoticeCode
-from ..tables.ResponseFlag import ResponseFlag
-from ..tables.ConfidentialityCode import ConfidentialityCode
-from ..tables.OrderControlCodes import OrderControlCodes
-from ..tables.OrderStatus import OrderStatus
 from ..tables.AuthorizationMode import AuthorizationMode
+from ..tables.OrderControlCodes import OrderControlCodes
+from ..tables.ResponseFlag import ResponseFlag
+from ..tables.OrderType import OrderType
 
 
 """
@@ -33,7 +33,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     ORC,
-    ID, TS, CWE, TQ, XAD, XTN, CE, CNE, EI, EIP, XCN, PL, XON
+    EIP, CE, XON, CNE, TQ, ID, XTN, XCN, CWE, EI, XAD, PL, TS
 )
 
 orc = ORC(  #  - The Common Order segment (ORC) is used to transmit fields that are common to all orders (all types of services that are requested)

@@ -1,16 +1,16 @@
 from __future__ import annotations
 from ...base import DataType
-from .ST import ST
-from .EI import EI
-from .HD import HD
 from .IS import IS
-from ..tables.Bed import Bed
+from .EI import EI
+from .ST import ST
+from .HD import HD
+from ..tables.PointOfCare import PointOfCare
 from ..tables.Room import Room
+from ..tables.LocationStatus import LocationStatus
 from ..tables.Floor import Floor
 from ..tables.Building import Building
+from ..tables.Bed import Bed
 from ..tables.PersonLocationType import PersonLocationType
-from ..tables.PointOfCare import PointOfCare
-from ..tables.LocationStatus import LocationStatus
 
 
 """
@@ -21,7 +21,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PL,
-    ST, EI, HD, IS
+    IS, EI, ST, HD
 )
 
 pl = PL(  # Person Location - This data type is used to specify a patient location within a healthcare institution

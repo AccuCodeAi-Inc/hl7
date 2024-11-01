@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.PID import PID
 from ..segment_groups.BRP_O30_RESPONSE_GROUP_PATIENT_GROUP_ORDER_GROUP import (
     BRP_O30_RESPONSE_GROUP_PATIENT_GROUP_ORDER_GROUP,
 )
-from ..segments.PID import PID
 
 
 """

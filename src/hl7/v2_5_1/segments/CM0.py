@@ -1,13 +1,13 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.XAD import XAD
+from ..data_types.DT import DT
+from ..data_types.EI import EI
+from ..data_types.NM import NM
 from ..data_types.XTN import XTN
 from ..data_types.ST import ST
-from ..data_types.SI import SI
-from ..data_types.NM import NM
-from ..data_types.EI import EI
-from ..data_types.DT import DT
 from ..data_types.XCN import XCN
+from ..data_types.SI import SI
+from ..data_types.XAD import XAD
 
 
 """
@@ -18,7 +18,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CM0,
-    XAD, XTN, ST, SI, NM, EI, DT, XCN
+    DT, EI, NM, XTN, ST, XCN, SI, XAD
 )
 
 cm0 = CM0(  #  - The Clinical Study Master (CM0) segment contains the information about the study itself

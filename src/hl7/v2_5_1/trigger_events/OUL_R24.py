@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segment_groups.OUL_R24_VISIT_GROUP import OUL_R24_VISIT_GROUP
-from ..segments.SFT import SFT
 from ..segments.NTE import NTE
-from ..segments.MSH import MSH
-from ..segment_groups.OUL_R24_PATIENT_GROUP import OUL_R24_PATIENT_GROUP
+from ..segments.SFT import SFT
 from ..segments.DSC import DSC
+from ..segments.MSH import MSH
 from ..segment_groups.OUL_R24_ORDER_GROUP import OUL_R24_ORDER_GROUP
+from ..segment_groups.OUL_R24_VISIT_GROUP import OUL_R24_VISIT_GROUP
+from ..segment_groups.OUL_R24_PATIENT_GROUP import OUL_R24_PATIENT_GROUP
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OUL_R24
 from utils.hl7.v2_5_1.segments import (
-    SFT, DSC, NTE, MSH
+    NTE, DSC, SFT, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
     OUL_R24_VISIT_GROUP, OUL_R24_PATIENT_GROUP, OUL_R24_ORDER_GROUP

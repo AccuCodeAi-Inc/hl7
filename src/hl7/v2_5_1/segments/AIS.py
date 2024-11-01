@@ -1,17 +1,17 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
-from ..data_types.SI import SI
 from ..data_types.CE import CE
-from ..data_types.NM import NM
 from ..data_types.IS import IS
-from ..tables.FillerStatusCodes import FillerStatusCodes
+from ..data_types.ID import ID
+from ..data_types.NM import NM
+from ..data_types.SI import SI
+from ..data_types.TS import TS
 from ..tables.SupplementalServiceInformationValues import (
     SupplementalServiceInformationValues,
 )
 from ..tables.SegmentActionCode import SegmentActionCode
 from ..tables.AllowSubstitutionCodes import AllowSubstitutionCodes
+from ..tables.FillerStatusCodes import FillerStatusCodes
 
 
 """
@@ -22,7 +22,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     AIS,
-    ID, TS, SI, CE, NM, IS
+    CE, IS, ID, NM, SI, TS
 )
 
 ais = AIS(  #  - The AIS segment contains information about various kinds of services that can be scheduled

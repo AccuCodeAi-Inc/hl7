@@ -1,17 +1,17 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.UVC import UVC
+from ..data_types.CE import CE
 from ..data_types.OCD import OCD
+from ..data_types.IS import IS
+from ..data_types.DT import DT
+from ..data_types.NM import NM
 from ..data_types.ST import ST
 from ..data_types.SI import SI
-from ..data_types.CE import CE
-from ..data_types.NM import NM
-from ..data_types.DT import DT
-from ..data_types.IS import IS
-from ..tables.SpecialProgramIndicator import SpecialProgramIndicator
-from ..tables.ConditionCode import ConditionCode
+from ..data_types.UVC import UVC
 from ..tables.PsroOrUrApprovalIndicator import PsroOrUrApprovalIndicator
 from ..tables.OccurrenceSpan import OccurrenceSpan
+from ..tables.ConditionCode import ConditionCode
+from ..tables.SpecialProgramIndicator import SpecialProgramIndicator
 
 
 """
@@ -22,7 +22,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     UB1,
-    UVC, OCD, ST, SI, CE, NM, DT, IS
+    CE, OCD, IS, DT, NM, ST, SI, UVC
 )
 
 ub1 = UB1(  #  - The UB1 segment contains the data necessary to complete UB82 bills specific to the United States; other realms may choose to implement using regional code sets

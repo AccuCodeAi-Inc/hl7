@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7Segment
 from ..data_types.CE import CE
-from ..data_types.QIP import QIP
 from ..data_types.ST import ST
+from ..data_types.QIP import QIP
 
 
 """
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     ERQ,
-    CE, QIP, ST
+    CE, ST, QIP
 )
 
 erq = ERQ(  #  - This segment is not carried forward to the recommended queries for v 2

@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import NMQ_N01_CLOCK_AND_STATISTICS_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NST, NSC, NCK
+    NCK, NST, NSC
 )
 
 nmq_n01_clock_and_statistics_group = NMQ_N01_CLOCK_AND_STATISTICS_GROUP(  # CLOCK AND STATISTICS - Segment group for NMQ_N01 - Application management query message consisting of NCK|None, NST|None, NSC|None

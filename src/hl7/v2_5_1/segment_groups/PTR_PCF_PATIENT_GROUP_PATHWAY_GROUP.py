@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segment_groups.PTR_PCF_PATIENT_GROUP_PATHWAY_GROUP_PROBLEM_GROUP import (
-    PTR_PCF_PATIENT_GROUP_PATHWAY_GROUP_PROBLEM_GROUP,
-)
-from ..segments.NTE import NTE
-from ..segments.PTH import PTH
 from ..segment_groups.PTR_PCF_PATIENT_GROUP_PATHWAY_GROUP_PATHWAY_ROLE_GROUP import (
     PTR_PCF_PATIENT_GROUP_PATHWAY_GROUP_PATHWAY_ROLE_GROUP,
 )
 from ..segments.VAR import VAR
+from ..segments.NTE import NTE
+from ..segment_groups.PTR_PCF_PATIENT_GROUP_PATHWAY_GROUP_PROBLEM_GROUP import (
+    PTR_PCF_PATIENT_GROUP_PATHWAY_GROUP_PROBLEM_GROUP,
+)
+from ..segments.PTH import PTH
 
 
 """
@@ -19,10 +19,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PTR_PCF_PATIENT_GROUP_PATHWAY_GROUP
 from utils.hl7.v2_5_1.segments import (
-    VAR, NTE, PTH
+    NTE, PTH, VAR
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    PTR_PCF_PATIENT_GROUP_PATHWAY_GROUP_PROBLEM_GROUP, PTR_PCF_PATIENT_GROUP_PATHWAY_GROUP_PATHWAY_ROLE_GROUP
+    PTR_PCF_PATIENT_GROUP_PATHWAY_GROUP_PATHWAY_ROLE_GROUP, PTR_PCF_PATIENT_GROUP_PATHWAY_GROUP_PROBLEM_GROUP
 )
 
 ptr_pcf_patient_group_pathway_group = PTR_PCF_PATIENT_GROUP_PATHWAY_GROUP(  # PATHWAY - Segment group for PTR_PCF_PATIENT_GROUP - PATIENT consisting of PTH, NTE|None, VAR|None, PATHWAY ROLE|None, PROBLEM|None

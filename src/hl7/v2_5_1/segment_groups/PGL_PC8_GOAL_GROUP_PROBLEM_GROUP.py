@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.PRB import PRB
 from ..segment_groups.PGL_PC8_GOAL_GROUP_PROBLEM_GROUP_PROBLEM_ROLE_GROUP import (
     PGL_PC8_GOAL_GROUP_PROBLEM_GROUP_PROBLEM_ROLE_GROUP,
 )
+from ..segments.VAR import VAR
 from ..segments.NTE import NTE
 from ..segment_groups.PGL_PC8_GOAL_GROUP_PROBLEM_GROUP_PROBLEM_OBSERVATION_GROUP import (
     PGL_PC8_GOAL_GROUP_PROBLEM_GROUP_PROBLEM_OBSERVATION_GROUP,
 )
-from ..segments.VAR import VAR
+from ..segments.PRB import PRB
 
 
 """
@@ -19,10 +19,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PGL_PC8_GOAL_GROUP_PROBLEM_GROUP
 from utils.hl7.v2_5_1.segments import (
-    VAR, PRB, NTE
+    NTE, VAR, PRB
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    PGL_PC8_GOAL_GROUP_PROBLEM_GROUP_PROBLEM_OBSERVATION_GROUP, PGL_PC8_GOAL_GROUP_PROBLEM_GROUP_PROBLEM_ROLE_GROUP
+    PGL_PC8_GOAL_GROUP_PROBLEM_GROUP_PROBLEM_ROLE_GROUP, PGL_PC8_GOAL_GROUP_PROBLEM_GROUP_PROBLEM_OBSERVATION_GROUP
 )
 
 pgl_pc8_goal_group_problem_group = PGL_PC8_GOAL_GROUP_PROBLEM_GROUP(  # PROBLEM - Segment group for PGL_PC8_GOAL_GROUP - GOAL consisting of PRB, NTE|None, VAR|None, PROBLEM ROLE|None, PROBLEM OBSERVATION|None

@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import DataType
+from .IS import IS
 from .ID import ID
 from .TS import TS
-from .IS import IS
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
 from ..tables.CertificationPatientType import CertificationPatientType
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     ICD,
-    ID, TS, IS
+    IS, ID, TS
 )
 
 icd = ICD(  # Insurance Certification Definition - This data type specifies whether insurance certification is required for particular patient types, and the time window for obtaining the certification

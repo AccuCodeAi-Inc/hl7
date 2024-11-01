@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.PV1 import PV1
 from ..segments.PV2 import PV2
+from ..segments.PV1 import PV1
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OML_O21_ORDER_GROUP_OBSERVATION_REQUEST_GROUP_PRIOR_RESULT_GROUP_PATIENT_VISIT_PRIOR_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PV1, PV2
+    PV2, PV1
 )
 
 oml_o21_order_group_observation_request_group_prior_result_group_patient_visit_prior_group = OML_O21_ORDER_GROUP_OBSERVATION_REQUEST_GROUP_PRIOR_RESULT_GROUP_PATIENT_VISIT_PRIOR_GROUP(  # PATIENT VISIT PRIOR - Segment group for OML_O21_ORDER_GROUP_OBSERVATION_REQUEST_GROUP_PRIOR_RESULT_GROUP - PRIOR RESULT consisting of PV1, PV2|None

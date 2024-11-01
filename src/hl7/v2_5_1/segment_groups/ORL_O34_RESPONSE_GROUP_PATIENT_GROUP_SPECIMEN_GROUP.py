@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.SAC import SAC
 from ..segments.OBX import OBX
+from ..segments.SAC import SAC
+from ..segments.SPM import SPM
 from ..segment_groups.ORL_O34_RESPONSE_GROUP_PATIENT_GROUP_SPECIMEN_GROUP_ORDER_GROUP import (
     ORL_O34_RESPONSE_GROUP_PATIENT_GROUP_SPECIMEN_GROUP_ORDER_GROUP,
 )
-from ..segments.SPM import SPM
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ORL_O34_RESPONSE_GROUP_PATIENT_GROUP_SPECIMEN_GROUP
 from utils.hl7.v2_5_1.segments import (
-    SPM, OBX, SAC
+    SAC, OBX, SPM
 )
 from utils.hl7.v2_5_1.segment_groups import (
     ORL_O34_RESPONSE_GROUP_PATIENT_GROUP_SPECIMEN_GROUP_ORDER_GROUP

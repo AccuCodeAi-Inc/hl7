@@ -1,22 +1,22 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
-from ..data_types.ST import ST
-from ..data_types.CQ import CQ
 from ..data_types.CE import CE
 from ..data_types.IS import IS
+from ..data_types.CQ import CQ
+from ..data_types.ID import ID
+from ..data_types.ST import ST
+from ..data_types.TS import TS
+from ..tables.CausalityObservations import CausalityObservations
 from ..tables.ActionTakenInResponseToTheEvent import ActionTakenInResponseToTheEvent
 from ..tables.GenericProduct import GenericProduct
-from ..tables.ProductAvailableForInspection import ProductAvailableForInspection
-from ..tables.RelatednessAssessment import RelatednessAssessment
-from ..tables.CausalityObservations import CausalityObservations
-from ..tables.IndirectExposureMechanism import IndirectExposureMechanism
-from ..tables.StatusOfEvaluation import StatusOfEvaluation
-from ..tables.SingleUseDevice import SingleUseDevice
-from ..tables.ProductSource import ProductSource
 from ..tables.PrimaryObserverSQualification import PrimaryObserverSQualification
 from ..tables.ProductProblem import ProductProblem
+from ..tables.SingleUseDevice import SingleUseDevice
+from ..tables.StatusOfEvaluation import StatusOfEvaluation
+from ..tables.ProductSource import ProductSource
+from ..tables.IndirectExposureMechanism import IndirectExposureMechanism
+from ..tables.RelatednessAssessment import RelatednessAssessment
+from ..tables.ProductAvailableForInspection import ProductAvailableForInspection
 
 
 """
@@ -27,7 +27,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PCR,
-    ID, TS, ST, CQ, CE, IS
+    CE, IS, CQ, ID, ST, TS
 )
 
 pcr = PCR(  #  - The PCR segment is used to communicate a potential or suspected relationship between a product (drug or device) or test and an event with detrimental effect on a patient

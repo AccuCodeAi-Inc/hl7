@@ -1,25 +1,25 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CWE import CWE
-from ..data_types.TS import TS
-from ..data_types.SN import SN
-from ..data_types.NA import NA
 from ..data_types.CE import CE
-from ..data_types.NM import NM
-from ..data_types.EI import EI
 from ..data_types.SPS import SPS
-from ..tables.SeparatorType import SeparatorType
-from ..tables.Treatment import Treatment
+from ..data_types.NM import NM
+from ..data_types.NA import NA
+from ..data_types.CWE import CWE
+from ..data_types.SN import SN
+from ..data_types.EI import EI
+from ..data_types.TS import TS
 from ..tables.TrayType import TrayType
-from ..tables.SystemInducedContaminants import SystemInducedContaminants
-from ..tables.SpecialHandlingCode import SpecialHandlingCode
-from ..tables.ArtificialBlood import ArtificialBlood
-from ..tables.OtherEnvironmentalFactors import OtherEnvironmentalFactors
-from ..tables.CarrierType import CarrierType
-from ..tables.DrugInterference import DrugInterference
 from ..tables.ContainerStatus import ContainerStatus
+from ..tables.SpecialHandlingCode import SpecialHandlingCode
+from ..tables.DrugInterference import DrugInterference
 from ..tables.CapType import CapType
+from ..tables.ArtificialBlood import ArtificialBlood
 from ..tables.AdditiveOrPreservative import AdditiveOrPreservative
+from ..tables.SystemInducedContaminants import SystemInducedContaminants
+from ..tables.CarrierType import CarrierType
+from ..tables.OtherEnvironmentalFactors import OtherEnvironmentalFactors
+from ..tables.Treatment import Treatment
+from ..tables.SeparatorType import SeparatorType
 
 
 """
@@ -30,7 +30,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     SAC,
-    CWE, TS, SN, NA, CE, NM, EI, SPS
+    CE, SPS, NM, NA, CWE, SN, EI, TS
 )
 
 sac = SAC(  #  - The container detail segment is the data necessary to maintain the containers that are being used throughout the Laboratory Automation System

@@ -19,7 +19,7 @@ from utils.hl7.v2_5_1.segments import (
     
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    ORU_R01_PATIENT_RESULT_GROUP_PATIENT_GROUP, ORU_R01_PATIENT_RESULT_GROUP_ORDER_OBSERVATION_GROUP
+    ORU_R01_PATIENT_RESULT_GROUP_ORDER_OBSERVATION_GROUP, ORU_R01_PATIENT_RESULT_GROUP_PATIENT_GROUP
 )
 
 oru_r01_patient_result_group = ORU_R01_PATIENT_RESULT_GROUP(  # PATIENT RESULT - Segment group for ORU_R01 - Unsolicited transmission of an observation message consisting of PATIENT|None, ORDER OBSERVATION

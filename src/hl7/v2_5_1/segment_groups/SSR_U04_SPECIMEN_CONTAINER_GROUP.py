@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import SSR_U04_SPECIMEN_CONTAINER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    SPM, SAC
+    SAC, SPM
 )
 
 ssr_u04_specimen_container_group = SSR_U04_SPECIMEN_CONTAINER_GROUP(  # SPECIMEN CONTAINER - Segment group for SSR_U04 - Specimen status request consisting of SAC, SPM|None

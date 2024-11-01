@@ -1,25 +1,25 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CWE import CWE
-from ..data_types.TS import TS
+from ..data_types.CNE import CNE
+from ..data_types.IS import IS
+from ..data_types.EI import EI
 from ..data_types.ID import ID
+from ..data_types.XPN import XPN
 from ..data_types.ST import ST
+from ..data_types.CWE import CWE
 from ..data_types.FT import FT
 from ..data_types.SI import SI
-from ..data_types.CNE import CNE
-from ..data_types.XPN import XPN
-from ..data_types.EI import EI
-from ..data_types.IS import IS
-from ..tables.NonSubjectConsenterReason import NonSubjectConsenterReason
-from ..tables.ConsentDisclosureLevel import ConsentDisclosureLevel
-from ..tables.ConsentStatus import ConsentStatus
-from ..tables.ConsentMode import ConsentMode
+from ..data_types.TS import TS
 from ..tables.ConsentBypassReason import ConsentBypassReason
+from ..tables.NonSubjectConsenterReason import NonSubjectConsenterReason
+from ..tables.ConsentStatus import ConsentStatus
+from ..tables.ConsentType import ConsentType
 from ..tables.YesOrNoIndicator import YesOrNoIndicator
 from ..tables.ConsentNonDisclosureReason import ConsentNonDisclosureReason
-from ..tables.SignatorySRelationshipToSubject import SignatorySRelationshipToSubject
-from ..tables.ConsentType import ConsentType
 from ..tables.PrimaryLanguage import PrimaryLanguage
+from ..tables.ConsentDisclosureLevel import ConsentDisclosureLevel
+from ..tables.SignatorySRelationshipToSubject import SignatorySRelationshipToSubject
+from ..tables.ConsentMode import ConsentMode
 
 
 """
@@ -30,7 +30,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CON,
-    CWE, TS, ID, ST, FT, SI, CNE, XPN, EI, IS
+    CNE, IS, EI, ID, XPN, ST, CWE, FT, SI, TS
 )
 
 con = CON(  #  - The consent segment provides details about a specific consent by a patient or staff member

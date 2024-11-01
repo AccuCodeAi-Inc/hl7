@@ -1,23 +1,23 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.ORC import ORC
-from ..segments.RXD import RXD
-from ..segment_groups.RDS_O13_ORDER_GROUP_ENCODING_GROUP import (
-    RDS_O13_ORDER_GROUP_ENCODING_GROUP,
-)
-from ..segments.NTE import NTE
 from ..segment_groups.RDS_O13_ORDER_GROUP_ORDER_DETAIL_GROUP import (
     RDS_O13_ORDER_GROUP_ORDER_DETAIL_GROUP,
 )
-from ..segments.RXC import RXC
-from ..segments.RXR import RXR
-from ..segment_groups.RDS_O13_ORDER_GROUP_OBSERVATION_GROUP import (
-    RDS_O13_ORDER_GROUP_OBSERVATION_GROUP,
-)
+from ..segments.NTE import NTE
 from ..segment_groups.RDS_O13_ORDER_GROUP_TIMING_GROUP import (
     RDS_O13_ORDER_GROUP_TIMING_GROUP,
 )
+from ..segments.RXR import RXR
 from ..segments.FT1 import FT1
+from ..segment_groups.RDS_O13_ORDER_GROUP_OBSERVATION_GROUP import (
+    RDS_O13_ORDER_GROUP_OBSERVATION_GROUP,
+)
+from ..segment_groups.RDS_O13_ORDER_GROUP_ENCODING_GROUP import (
+    RDS_O13_ORDER_GROUP_ENCODING_GROUP,
+)
+from ..segments.RXD import RXD
+from ..segments.RXC import RXC
+from ..segments.ORC import ORC
 
 
 """
@@ -28,10 +28,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RDS_O13_ORDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NTE, RXC, ORC, RXD, FT1, RXR
+    RXR, RXC, RXD, NTE, ORC, FT1
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    RDS_O13_ORDER_GROUP_ENCODING_GROUP, RDS_O13_ORDER_GROUP_ORDER_DETAIL_GROUP, RDS_O13_ORDER_GROUP_TIMING_GROUP, RDS_O13_ORDER_GROUP_OBSERVATION_GROUP
+    RDS_O13_ORDER_GROUP_ORDER_DETAIL_GROUP, RDS_O13_ORDER_GROUP_TIMING_GROUP, RDS_O13_ORDER_GROUP_ENCODING_GROUP, RDS_O13_ORDER_GROUP_OBSERVATION_GROUP
 )
 
 rds_o13_order_group = RDS_O13_ORDER_GROUP(  # ORDER - Segment group for RDS_O13 - Pharmacy/Treatment Dispense consisting of ORC, TIMING|None, ORDER DETAIL|None, ENCODING|None, RXD, NTE|None, RXR, RXC|None, OBSERVATION|None, FT1|None

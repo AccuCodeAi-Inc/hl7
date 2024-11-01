@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segment_groups.OMD_O03_PATIENT_GROUP import OMD_O03_PATIENT_GROUP
 from ..segment_groups.OMD_O03_ORDER_DIET_GROUP import OMD_O03_ORDER_DIET_GROUP
-from ..segments.SFT import SFT
 from ..segments.NTE import NTE
-from ..segments.MSH import MSH
+from ..segments.SFT import SFT
 from ..segment_groups.OMD_O03_ORDER_TRAY_GROUP import OMD_O03_ORDER_TRAY_GROUP
+from ..segments.MSH import MSH
+from ..segment_groups.OMD_O03_PATIENT_GROUP import OMD_O03_PATIENT_GROUP
 
 
 """
@@ -16,10 +16,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OMD_O03
 from utils.hl7.v2_5_1.segments import (
-    SFT, NTE, MSH
+    NTE, SFT, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    OMD_O03_ORDER_DIET_GROUP, OMD_O03_ORDER_TRAY_GROUP, OMD_O03_PATIENT_GROUP
+    OMD_O03_PATIENT_GROUP, OMD_O03_ORDER_TRAY_GROUP, OMD_O03_ORDER_DIET_GROUP
 )
 
 omd_o03 = OMD_O03(  #  - A diet office needs to receive specific information, the most important being the diet order itself

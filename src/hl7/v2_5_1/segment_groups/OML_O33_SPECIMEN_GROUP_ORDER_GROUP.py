@@ -1,15 +1,15 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.ORC import ORC
 from ..segment_groups.OML_O33_SPECIMEN_GROUP_ORDER_GROUP_OBSERVATION_REQUEST_GROUP import (
     OML_O33_SPECIMEN_GROUP_ORDER_GROUP_OBSERVATION_REQUEST_GROUP,
 )
-from ..segments.CTI import CTI
+from ..segments.BLG import BLG
 from ..segment_groups.OML_O33_SPECIMEN_GROUP_ORDER_GROUP_TIIMING_GROUP import (
     OML_O33_SPECIMEN_GROUP_ORDER_GROUP_TIIMING_GROUP,
 )
-from ..segments.BLG import BLG
 from ..segments.FT1 import FT1
+from ..segments.CTI import CTI
+from ..segments.ORC import ORC
 
 
 """
@@ -20,10 +20,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OML_O33_SPECIMEN_GROUP_ORDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    BLG, FT1, ORC, CTI
+    BLG, ORC, CTI, FT1
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    OML_O33_SPECIMEN_GROUP_ORDER_GROUP_TIIMING_GROUP, OML_O33_SPECIMEN_GROUP_ORDER_GROUP_OBSERVATION_REQUEST_GROUP
+    OML_O33_SPECIMEN_GROUP_ORDER_GROUP_OBSERVATION_REQUEST_GROUP, OML_O33_SPECIMEN_GROUP_ORDER_GROUP_TIIMING_GROUP
 )
 
 oml_o33_specimen_group_order_group = OML_O33_SPECIMEN_GROUP_ORDER_GROUP(  # ORDER - Segment group for OML_O33_SPECIMEN_GROUP - SPECIMEN consisting of ORC, TIIMING|None, OBSERVATION REQUEST|None, FT1|None, CTI|None, BLG|None

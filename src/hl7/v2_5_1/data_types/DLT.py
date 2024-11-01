@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import DataType
+from .NR import NR
 from .ID import ID
 from .NM import NM
-from .NR import NR
 from ..tables.ComputationType import ComputationType
 
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     DLT,
-    ID, NM, NR
+    NR, ID, NM
 )
 
 dlt = DLT(  # Delta - Describes the information that controls delta check warnings

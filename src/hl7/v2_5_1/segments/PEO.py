@@ -1,19 +1,19 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
-from ..data_types.XAD import XAD
-from ..data_types.FT import FT
 from ..data_types.CE import CE
-from ..data_types.XPN import XPN
+from ..data_types.TS import TS
+from ..data_types.ID import ID
 from ..data_types.XTN import XTN
-from ..tables.EventExpected import EventExpected
-from ..tables.EventSeriousness import EventSeriousness
+from ..data_types.XPN import XPN
+from ..data_types.FT import FT
+from ..data_types.XAD import XAD
 from ..tables.EventQualification import EventQualification
-from ..tables.PatientOutcome import PatientOutcome
-from ..tables.IdentityMayBeDivulged import IdentityMayBeDivulged
 from ..tables.EventConsequence import EventConsequence
+from ..tables.EventSeriousness import EventSeriousness
 from ..tables.PrimaryObserverSQualification import PrimaryObserverSQualification
+from ..tables.EventExpected import EventExpected
+from ..tables.IdentityMayBeDivulged import IdentityMayBeDivulged
+from ..tables.PatientOutcome import PatientOutcome
 
 
 """
@@ -24,7 +24,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PEO,
-    ID, TS, XAD, FT, CE, XPN, XTN
+    CE, TS, ID, XTN, XPN, FT, XAD
 )
 
 peo = PEO(  #  - Details related to a particular clinical experience or event are embodied in the PEO segment

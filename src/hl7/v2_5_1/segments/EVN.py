@@ -1,13 +1,13 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
-from ..data_types.HD import HD
 from ..data_types.IS import IS
+from ..data_types.ID import ID
 from ..data_types.XCN import XCN
-from ..tables.OperatorId import OperatorId
-from ..tables.EventReason import EventReason
+from ..data_types.HD import HD
+from ..data_types.TS import TS
 from ..tables.EventType import EventType
+from ..tables.EventReason import EventReason
+from ..tables.OperatorId import OperatorId
 
 
 """
@@ -18,7 +18,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     EVN,
-    ID, TS, HD, IS, XCN
+    IS, ID, XCN, HD, TS
 )
 
 evn = EVN(  #  - The EVN segment is used to communicate necessary trigger event information to receiving applications

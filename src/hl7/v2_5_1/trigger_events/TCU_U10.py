@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import TCU_U10
 from utils.hl7.v2_5_1.segments import (
-    SFT, ROL, EQU, MSH
+    EQU, ROL, SFT, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
     TCU_U10_TEST_CONFIGURATION_GROUP

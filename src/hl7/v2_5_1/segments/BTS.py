@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.NM import NM
 from ..data_types.ST import ST
+from ..data_types.NM import NM
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     BTS,
-    NM, ST
+    ST, NM
 )
 
 bts = BTS(  #  - The BTS segment defines the end of a batch

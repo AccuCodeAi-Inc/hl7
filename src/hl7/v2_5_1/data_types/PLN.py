@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import DataType
+from .IS import IS
 from .DT import DT
 from .ST import ST
-from .IS import IS
 from ..tables.PractitionerIdNumberType import PractitionerIdNumberType
 
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PLN,
-    DT, ST, IS
+    IS, DT, ST
 )
 
 pln = PLN(  # Practitioner License or Other ID Number - This data type specifies a practitioners license number, or other ID number such as UPIN, Medicare and Medicaid number, and associated detail

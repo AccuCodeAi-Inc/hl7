@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7Segment
+from ..data_types.CE import CE
 from ..data_types.ID import ID
-from ..data_types.TS import TS
 from ..data_types.VARIES import VARIES
 from ..data_types.ST import ST
-from ..data_types.CE import CE
-from ..tables.RecordLevelEventCode import RecordLevelEventCode
+from ..data_types.TS import TS
 from ..tables.MfnRecordLevelErrorReturn import MfnRecordLevelErrorReturn
+from ..tables.RecordLevelEventCode import RecordLevelEventCode
 from ..tables.PrimaryKeyValueType import PrimaryKeyValueType
 
 
@@ -18,7 +18,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     MFA,
-    ID, TS, VARIES, ST, CE
+    CE, ID, VARIES, ST, TS
 )
 
 mfa = MFA(  #  - The Technical Steward for the MFA segment is CQ

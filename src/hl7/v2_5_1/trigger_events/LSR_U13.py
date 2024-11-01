@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
+from ..segments.EQP import EQP
 from ..segments.SFT import SFT
 from ..segments.ROL import ROL
 from ..segments.MSH import MSH
-from ..segments.EQP import EQP
 from ..segments.EQU import EQU
 
 
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import LSR_U13
 from utils.hl7.v2_5_1.segments import (
-    EQU, EQP, MSH, SFT, ROL
+    EQU, SFT, ROL, MSH, EQP
 )
 
 lsr_u13 = LSR_U13(  #  - This message is used to request log and/or service events from one application to another (e

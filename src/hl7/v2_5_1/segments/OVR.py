@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7Segment
+from ..data_types.XCN import XCN
 from ..data_types.CWE import CWE
 from ..data_types.TX import TX
-from ..data_types.XCN import XCN
 from ..tables.OverrideCode import OverrideCode
 from ..tables.OverrideType import OverrideType
 
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     OVR,
-    CWE, TX, XCN
+    XCN, CWE, TX
 )
 
 ovr = OVR(  #  - Definition: This segment allows a sender to override specific receiving applications business rules to allow for processing of a message that would normally be rejected or ignored

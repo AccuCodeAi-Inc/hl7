@@ -1,18 +1,18 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segment_groups.OMB_O27_ORDER_GROUP_OBSERVATION_GROUP import (
-    OMB_O27_ORDER_GROUP_OBSERVATION_GROUP,
-)
-from ..segments.ORC import ORC
+from ..segments.BLG import BLG
+from ..segments.SPM import SPM
 from ..segment_groups.OMB_O27_ORDER_GROUP_TIMING_GROUP import (
     OMB_O27_ORDER_GROUP_TIMING_GROUP,
 )
 from ..segments.DG1 import DG1
 from ..segments.NTE import NTE
-from ..segments.BLG import BLG
-from ..segments.BPO import BPO
-from ..segments.SPM import SPM
 from ..segments.FT1 import FT1
+from ..segment_groups.OMB_O27_ORDER_GROUP_OBSERVATION_GROUP import (
+    OMB_O27_ORDER_GROUP_OBSERVATION_GROUP,
+)
+from ..segments.BPO import BPO
+from ..segments.ORC import ORC
 
 
 """
@@ -23,10 +23,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OMB_O27_ORDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    DG1, NTE, ORC, BLG, SPM, FT1, BPO
+    SPM, NTE, DG1, BLG, ORC, BPO, FT1
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    OMB_O27_ORDER_GROUP_TIMING_GROUP, OMB_O27_ORDER_GROUP_OBSERVATION_GROUP
+    OMB_O27_ORDER_GROUP_OBSERVATION_GROUP, OMB_O27_ORDER_GROUP_TIMING_GROUP
 )
 
 omb_o27_order_group = OMB_O27_ORDER_GROUP(  # ORDER - Segment group for OMB_O27 - Blood Product Order consisting of ORC, TIMING|None, BPO, SPM|None, NTE|None, DG1|None, OBSERVATION|None, FT1|None, BLG|None

@@ -1,16 +1,16 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.TS import TS
-from ..data_types.SI import SI
 from ..data_types.CE import CE
-from ..data_types.NM import NM
 from ..data_types.IS import IS
+from ..data_types.ID import ID
+from ..data_types.NM import NM
+from ..data_types.SI import SI
 from ..data_types.PL import PL
+from ..data_types.TS import TS
+from ..tables.AllowSubstitutionCodes import AllowSubstitutionCodes
+from ..tables.SegmentActionCode import SegmentActionCode
 from ..tables.PersonLocationType import PersonLocationType
 from ..tables.FillerStatusCodes import FillerStatusCodes
-from ..tables.SegmentActionCode import SegmentActionCode
-from ..tables.AllowSubstitutionCodes import AllowSubstitutionCodes
 
 
 """
@@ -21,7 +21,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     AIL,
-    ID, TS, SI, CE, NM, IS, PL
+    CE, IS, ID, NM, SI, PL, TS
 )
 
 ail = AIL(  #  - The AIL segment contains information about location resources (meeting rooms, operating rooms, examination rooms, or other locations) that can be scheduled
