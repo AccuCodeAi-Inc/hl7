@@ -1,27 +1,27 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TX import TX
-from ..data_types.XTN import XTN
+from ..data_types.CE import CE
 from ..data_types.TS import TS
-from ..data_types.ID import ID
-from ..data_types.NM import NM
 from ..data_types.IS import IS
+from ..data_types.NM import NM
+from ..data_types.XTN import XTN
+from ..data_types.XAD import XAD
 from ..data_types.CWE import CWE
 from ..data_types.ST import ST
-from ..data_types.CE import CE
-from ..data_types.XAD import XAD
-from ..tables.ReportingPriority import ReportingPriority
-from ..tables.KindOfQuantity import KindOfQuantity
-from ..tables.Modality import Modality
+from ..data_types.ID import ID
+from ..data_types.TX import TX
 from ..tables.RelationshipModifier import RelationshipModifier
-from ..tables.ProcessingPriority import ProcessingPriority
-from ..tables.DurationCategories import DurationCategories
-from ..tables.ValueType import ValueType
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
-from ..tables.ConfidentialityCode import ConfidentialityCode
+from ..tables.Modality import Modality
 from ..tables.NatureOfServiceOrTestOrObservation import (
     NatureOfServiceOrTestOrObservation,
 )
+from ..tables.ReportingPriority import ReportingPriority
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..tables.KindOfQuantity import KindOfQuantity
+from ..tables.ConfidentialityCode import ConfidentialityCode
+from ..tables.ProcessingPriority import ProcessingPriority
+from ..tables.ValueType import ValueType
+from ..tables.DurationCategories import DurationCategories
 
 
 """
@@ -32,7 +32,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     OM1,
-    TX, XTN, TS, ID, NM, IS, CWE, ST, CE, XAD
+    CE, TS, IS, NM, XTN, XAD, CWE, ST, ID, TX
 )
 
 om1 = OM1(  #  - The OM1 segment contains the attributes that apply to the definition of most observations
@@ -109,102 +109,106 @@ class OM1(HL7Segment):
 
     def __init__(
         self,
-        sequence_number_test_or_observation_master_file: NM | tuple[NM],  # OM1.1
-        producers_service_or_test_or_observation_id: CE | tuple[CE],  # OM1.2
+        sequence_number_test_or_observation_master_file: NM | tuple[NM, ...],  # OM1.1
+        producers_service_or_test_or_observation_id: CE | tuple[CE, ...],  # OM1.2
         specimen_required: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID],  # OM1.4
-        producer_id: CE | tuple[CE],  # OM1.5
-        other_names: ST | tuple[ST],  # OM1.8
+        | tuple[YesOrNoIndicator | ID, ...],  # OM1.4
+        producer_id: CE | tuple[CE, ...],  # OM1.5
+        other_names: ST | tuple[ST, ...],  # OM1.8
         nature_of_service_or_test_or_observation: NatureOfServiceOrTestOrObservation
         | IS
-        | tuple[NatureOfServiceOrTestOrObservation | IS],  # OM1.18
+        | tuple[NatureOfServiceOrTestOrObservation | IS, ...],  # OM1.18
         permitted_data_types: ValueType
         | ID
-        | tuple[ValueType | ID]
+        | tuple[ValueType | ID, ...]
         | None = None,  # OM1.3
-        observation_description: TX | tuple[TX] | None = None,  # OM1.6
+        observation_description: TX | tuple[TX, ...] | None = None,  # OM1.6
         other_service_or_test_or_observation_ids_for_the_observation: CE
-        | tuple[CE]
+        | tuple[CE, ...]
         | None = None,  # OM1.7
         preferred_report_name_for_the_observation: ST
-        | tuple[ST]
+        | tuple[ST, ...]
         | None = None,  # OM1.9
         preferred_short_name_or_mnemonic_for_observation: ST
-        | tuple[ST]
+        | tuple[ST, ...]
         | None = None,  # OM1.10
-        preferred_long_name_for_the_observation: ST | tuple[ST] | None = None,  # OM1.11
+        preferred_long_name_for_the_observation: ST
+        | tuple[ST, ...]
+        | None = None,  # OM1.11
         orderability: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # OM1.12
         identity_of_instrument_used_to_perform_this_study: CE
-        | tuple[CE]
+        | tuple[CE, ...]
         | None = None,  # OM1.13
-        coded_representation_of_method: CE | tuple[CE] | None = None,  # OM1.14
+        coded_representation_of_method: CE | tuple[CE, ...] | None = None,  # OM1.14
         portable_device_indicator: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # OM1.15
         observation_producing_department_or_section: CE
-        | tuple[CE]
+        | tuple[CE, ...]
         | None = None,  # OM1.16
-        telephone_number_of_section: XTN | tuple[XTN] | None = None,  # OM1.17
-        report_subheader: CE | tuple[CE] | None = None,  # OM1.19
-        report_display_order: ST | tuple[ST] | None = None,  # OM1.20
+        telephone_number_of_section: XTN | tuple[XTN, ...] | None = None,  # OM1.17
+        report_subheader: CE | tuple[CE, ...] | None = None,  # OM1.19
+        report_display_order: ST | tuple[ST, ...] | None = None,  # OM1.20
         date_or_time_stamp_for_any_change_in_definition_for_the_observation: TS
-        | tuple[TS]
+        | tuple[TS, ...]
         | None = None,  # OM1.21
-        effective_date_or_time_of_change: TS | tuple[TS] | None = None,  # OM1.22
-        typical_turn_around_time: NM | tuple[NM] | None = None,  # OM1.23
-        processing_time: NM | tuple[NM] | None = None,  # OM1.24
+        effective_date_or_time_of_change: TS | tuple[TS, ...] | None = None,  # OM1.22
+        typical_turn_around_time: NM | tuple[NM, ...] | None = None,  # OM1.23
+        processing_time: NM | tuple[NM, ...] | None = None,  # OM1.24
         processing_priority: ProcessingPriority
         | ID
-        | tuple[ProcessingPriority | ID]
+        | tuple[ProcessingPriority | ID, ...]
         | None = None,  # OM1.25
         reporting_priority: ReportingPriority
         | ID
-        | tuple[ReportingPriority | ID]
+        | tuple[ReportingPriority | ID, ...]
         | None = None,  # OM1.26
-        outside_site: CE | tuple[CE] | None = None,  # OM1.27
-        address_of_outside_site: XAD | tuple[XAD] | None = None,  # OM1.28
-        phone_number_of_outside_site: XTN | tuple[XTN] | None = None,  # OM1.29
+        outside_site: CE | tuple[CE, ...] | None = None,  # OM1.27
+        address_of_outside_site: XAD | tuple[XAD, ...] | None = None,  # OM1.28
+        phone_number_of_outside_site: XTN | tuple[XTN, ...] | None = None,  # OM1.29
         confidentiality_code: ConfidentialityCode
         | CWE
-        | tuple[ConfidentialityCode | CWE]
+        | tuple[ConfidentialityCode | CWE, ...]
         | None = None,  # OM1.30
         observations_required_to_interpret_the_observation: CE
-        | tuple[CE]
+        | tuple[CE, ...]
         | None = None,  # OM1.31
-        interpretation_of_observations: TX | tuple[TX] | None = None,  # OM1.32
-        contraindications_to_observations: CE | tuple[CE] | None = None,  # OM1.33
-        reflex_tests_or_observations: CE | tuple[CE] | None = None,  # OM1.34
-        rules_that_trigger_reflex_testing: TX | tuple[TX] | None = None,  # OM1.35
-        fixed_canned_message: CE | tuple[CE] | None = None,  # OM1.36
-        patient_preparation: TX | tuple[TX] | None = None,  # OM1.37
-        procedure_medication: CE | tuple[CE] | None = None,  # OM1.38
-        factors_that_may_affect_the_observation: TX | tuple[TX] | None = None,  # OM1.39
+        interpretation_of_observations: TX | tuple[TX, ...] | None = None,  # OM1.32
+        contraindications_to_observations: CE | tuple[CE, ...] | None = None,  # OM1.33
+        reflex_tests_or_observations: CE | tuple[CE, ...] | None = None,  # OM1.34
+        rules_that_trigger_reflex_testing: TX | tuple[TX, ...] | None = None,  # OM1.35
+        fixed_canned_message: CE | tuple[CE, ...] | None = None,  # OM1.36
+        patient_preparation: TX | tuple[TX, ...] | None = None,  # OM1.37
+        procedure_medication: CE | tuple[CE, ...] | None = None,  # OM1.38
+        factors_that_may_affect_the_observation: TX
+        | tuple[TX, ...]
+        | None = None,  # OM1.39
         service_or_test_or_observation_performance_schedule: ST
-        | tuple[ST]
+        | tuple[ST, ...]
         | None = None,  # OM1.40
-        description_of_test_methods: TX | tuple[TX] | None = None,  # OM1.41
+        description_of_test_methods: TX | tuple[TX, ...] | None = None,  # OM1.41
         kind_of_quantity_observed: KindOfQuantity
         | CE
-        | tuple[KindOfQuantity | CE]
+        | tuple[KindOfQuantity | CE, ...]
         | None = None,  # OM1.42
         point_versus_interval: DurationCategories
         | CE
-        | tuple[DurationCategories | CE]
+        | tuple[DurationCategories | CE, ...]
         | None = None,  # OM1.43
-        challenge_information: TX | tuple[TX] | None = None,  # OM1.44
+        challenge_information: TX | tuple[TX, ...] | None = None,  # OM1.44
         relationship_modifier: RelationshipModifier
         | CE
-        | tuple[RelationshipModifier | CE]
+        | tuple[RelationshipModifier | CE, ...]
         | None = None,  # OM1.45
-        target_anatomic_site_of_test: CE | tuple[CE] | None = None,  # OM1.46
+        target_anatomic_site_of_test: CE | tuple[CE, ...] | None = None,  # OM1.46
         modality_of_imaging_measurement: Modality
         | CE
-        | tuple[Modality | CE]
+        | tuple[Modality | CE, ...]
         | None = None,  # OM1.47
     ):
         """

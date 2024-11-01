@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segment_groups.MDM_T11_COMMON_ORDER_GROUP import MDM_T11_COMMON_ORDER_GROUP
-from ..segments.PV1 import PV1
-from ..segments.SFT import SFT
 from ..segments.MSH import MSH
-from ..segments.TXA import TXA
-from ..segments.PID import PID
+from ..segment_groups.MDM_T11_COMMON_ORDER_GROUP import MDM_T11_COMMON_ORDER_GROUP
 from ..segments.EVN import EVN
+from ..segments.PV1 import PV1
+from ..segments.PID import PID
+from ..segments.SFT import SFT
+from ..segments.TXA import TXA
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import MDM_T11
 from utils.hl7.v2_5_1.segments import (
-    PID, MSH, PV1, SFT, TXA, EVN
+    PID, SFT, EVN, MSH, PV1, TXA
 )
 from utils.hl7.v2_5_1.segment_groups import (
     MDM_T11_COMMON_ORDER_GROUP

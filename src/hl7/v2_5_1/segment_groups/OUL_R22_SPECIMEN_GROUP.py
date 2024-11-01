@@ -4,10 +4,10 @@ from ..segments.SPM import SPM
 from ..segment_groups.OUL_R22_SPECIMEN_GROUP_CONTAINER_GROUP import (
     OUL_R22_SPECIMEN_GROUP_CONTAINER_GROUP,
 )
+from ..segments.OBX import OBX
 from ..segment_groups.OUL_R22_SPECIMEN_GROUP_ORDER_GROUP import (
     OUL_R22_SPECIMEN_GROUP_ORDER_GROUP,
 )
-from ..segments.OBX import OBX
 
 
 """
@@ -18,10 +18,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OUL_R22_SPECIMEN_GROUP
 from utils.hl7.v2_5_1.segments import (
-    OBX, SPM
+    SPM, OBX
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    OUL_R22_SPECIMEN_GROUP_CONTAINER_GROUP, OUL_R22_SPECIMEN_GROUP_ORDER_GROUP
+    OUL_R22_SPECIMEN_GROUP_ORDER_GROUP, OUL_R22_SPECIMEN_GROUP_CONTAINER_GROUP
 )
 
 oul_r22_specimen_group = OUL_R22_SPECIMEN_GROUP(  # SPECIMEN - Segment group for OUL_R22 - Unsolicited Specimen Oriented Observation Message consisting of SPM, OBX|None, CONTAINER|None, ORDER

@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.APR import APR
-from ..segments.PID import PID
 from ..segment_groups.SQM_S25_REQUEST_GROUP_RESOURCES_GROUP import (
     SQM_S25_REQUEST_GROUP_RESOURCES_GROUP,
 )
+from ..segments.PID import PID
 from ..segments.ARQ import ARQ
+from ..segments.APR import APR
 
 
 """

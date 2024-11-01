@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import VXU_V04_PATIENT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PV2, PV1
+    PV1, PV2
 )
 
 vxu_v04_patient_group = VXU_V04_PATIENT_GROUP(  # PATIENT - Segment group for VXU_V04 - Unsolicited Vaccination Record Update consisting of PV1, PV2|None

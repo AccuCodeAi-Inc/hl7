@@ -1,23 +1,23 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.AL1 import AL1
-from ..segment_groups.RPA_I09_PROCEDURE_GROUP import RPA_I09_PROCEDURE_GROUP
-from ..segment_groups.RPA_I09_OBSERVATION_GROUP import RPA_I09_OBSERVATION_GROUP
-from ..segments.SFT import SFT
-from ..segments.MSH import MSH
-from ..segments.RF1 import RF1
-from ..segments.GT1 import GT1
+from ..segments.DRG import DRG
+from ..segments.NTE import NTE
+from ..segment_groups.RPA_I09_PROVIDER_GROUP import RPA_I09_PROVIDER_GROUP
 from ..segment_groups.RPA_I09_VISIT_GROUP import RPA_I09_VISIT_GROUP
 from ..segments.ACC import ACC
-from ..segments.NTE import NTE
-from ..segment_groups.RPA_I09_INSURANCE_GROUP import RPA_I09_INSURANCE_GROUP
-from ..segments.MSA import MSA
-from ..segments.PID import PID
 from ..segments.NK1 import NK1
-from ..segment_groups.RPA_I09_PROVIDER_GROUP import RPA_I09_PROVIDER_GROUP
-from ..segments.DG1 import DG1
+from ..segments.MSH import MSH
+from ..segments.AL1 import AL1
+from ..segment_groups.RPA_I09_PROCEDURE_GROUP import RPA_I09_PROCEDURE_GROUP
+from ..segments.MSA import MSA
+from ..segments.RF1 import RF1
 from ..segment_groups.RPA_I09_AUTHORIZATION_GROUP import RPA_I09_AUTHORIZATION_GROUP
-from ..segments.DRG import DRG
+from ..segments.GT1 import GT1
+from ..segment_groups.RPA_I09_OBSERVATION_GROUP import RPA_I09_OBSERVATION_GROUP
+from ..segment_groups.RPA_I09_INSURANCE_GROUP import RPA_I09_INSURANCE_GROUP
+from ..segments.PID import PID
+from ..segments.DG1 import DG1
+from ..segments.SFT import SFT
 
 
 """
@@ -28,10 +28,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RPA_I09
 from utils.hl7.v2_5_1.segments import (
-    RF1, MSH, PID, AL1, NK1, DG1, SFT, GT1, ACC, NTE, DRG, MSA
+    NK1, DG1, ACC, AL1, NTE, PID, SFT, MSH, MSA, RF1, DRG, GT1
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    RPA_I09_VISIT_GROUP, RPA_I09_PROCEDURE_GROUP, RPA_I09_PROVIDER_GROUP, RPA_I09_AUTHORIZATION_GROUP, RPA_I09_OBSERVATION_GROUP, RPA_I09_INSURANCE_GROUP
+    RPA_I09_OBSERVATION_GROUP, RPA_I09_PROCEDURE_GROUP, RPA_I09_AUTHORIZATION_GROUP, RPA_I09_INSURANCE_GROUP, RPA_I09_VISIT_GROUP, RPA_I09_PROVIDER_GROUP
 )
 
 rpa_i09 = RPA_I09(  #  - This event triggers a message sent from a healthcare provider to a payor requesting changes to a previously referenced authorization

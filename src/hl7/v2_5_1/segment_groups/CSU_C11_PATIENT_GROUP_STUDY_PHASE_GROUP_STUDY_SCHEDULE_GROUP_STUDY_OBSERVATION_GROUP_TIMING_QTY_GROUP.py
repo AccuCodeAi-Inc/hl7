@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.TQ2 import TQ2
 from ..segments.TQ1 import TQ1
+from ..segments.TQ2 import TQ2
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import CSU_C11_PATIENT_GROUP_STUDY_PHASE_GROUP_STUDY_SCHEDULE_GROUP_STUDY_OBSERVATION_GROUP_TIMING_QTY_GROUP
 from utils.hl7.v2_5_1.segments import (
-    TQ1, TQ2
+    TQ2, TQ1
 )
 
 csu_c11_patient_group_study_phase_group_study_schedule_group_study_observation_group_timing_qty_group = CSU_C11_PATIENT_GROUP_STUDY_PHASE_GROUP_STUDY_SCHEDULE_GROUP_STUDY_OBSERVATION_GROUP_TIMING_QTY_GROUP(  # TIMING QTY - Segment group for CSU_C11_PATIENT_GROUP_STUDY_PHASE_GROUP_STUDY_SCHEDULE_GROUP_STUDY_OBSERVATION_GROUP - STUDY OBSERVATION consisting of TQ1, TQ2|None

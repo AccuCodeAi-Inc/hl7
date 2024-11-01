@@ -3,8 +3,8 @@ from ...base import HL7SegmentGroup
 from ..segment_groups.RDR_RDR_DEFINITION_GROUP_PATIENT_GROUP import (
     RDR_RDR_DEFINITION_GROUP_PATIENT_GROUP,
 )
-from ..segments.QRF import QRF
 from ..segments.QRD import QRD
+from ..segments.QRF import QRF
 from ..segment_groups.RDR_RDR_DEFINITION_GROUP_ORDER_GROUP import (
     RDR_RDR_DEFINITION_GROUP_ORDER_GROUP,
 )

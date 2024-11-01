@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OUL_R23_VISIT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PV2, PV1
+    PV1, PV2
 )
 
 oul_r23_visit_group = OUL_R23_VISIT_GROUP(  # VISIT - Segment group for OUL_R23 - Unsolicited Specimen Container Oriented Observation Message consisting of PV1, PV2|None

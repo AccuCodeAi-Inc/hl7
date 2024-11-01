@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.APR import APR
 from ..segments.ARQ import ARQ
+from ..segment_groups.SRM_S10_PATIENT_GROUP import SRM_S10_PATIENT_GROUP
+from ..segments.APR import APR
 from ..segments.MSH import MSH
 from ..segment_groups.SRM_S10_RESOURCES_GROUP import SRM_S10_RESOURCES_GROUP
 from ..segments.NTE import NTE
-from ..segment_groups.SRM_S10_PATIENT_GROUP import SRM_S10_PATIENT_GROUP
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import SRM_S10
 from utils.hl7.v2_5_1.segments import (
-    NTE, MSH, ARQ, APR
+    NTE, ARQ, APR, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
     SRM_S10_RESOURCES_GROUP, SRM_S10_PATIENT_GROUP

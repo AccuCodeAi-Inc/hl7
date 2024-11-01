@@ -1,13 +1,13 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.CTI import CTI
 from ..segments.CTD import CTD
 from ..segments.ORC import ORC
-from ..segments.CTI import CTI
-from ..segments.NTE import NTE
-from ..segments.OBR import OBR
 from ..segment_groups.ORF_W02_RESPONSE_GROUP_ORDER_GROUP_OBSERVATION_GROUP import (
     ORF_W02_RESPONSE_GROUP_ORDER_GROUP_OBSERVATION_GROUP,
 )
+from ..segments.NTE import NTE
+from ..segments.OBR import OBR
 
 
 """
@@ -18,7 +18,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ORF_W02_RESPONSE_GROUP_ORDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    CTD, OBR, CTI, NTE, ORC
+    CTD, NTE, ORC, OBR, CTI
 )
 from utils.hl7.v2_5_1.segment_groups import (
     ORF_W02_RESPONSE_GROUP_ORDER_GROUP_OBSERVATION_GROUP

@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
 from ..segments.ERR import ERR
-from ..segments.SFT import SFT
 from ..segments.MSH import MSH
-from ..segments.MFA import MFA
 from ..segments.MSA import MSA
 from ..segments.MFI import MFI
+from ..segments.MFA import MFA
+from ..segments.SFT import SFT
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import MFK_M04
 from utils.hl7.v2_5_1.segments import (
-    MSH, MFI, SFT, ERR, MFA, MSA
+    MFI, MFA, SFT, ERR, MSA, MSH
 )
 
 mfk_m04 = MFK_M04(  #  - The charge description (CDM) master file segment should be used in conjunction with the general master file segments in Section 8

@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
 from ..segments.ERR import ERR
-from ..segments.DSC import DSC
+from ..segments.MSH import MSH
+from ..segments.QRD import QRD
+from ..segments.MSA import MSA
+from ..segments.QAK import QAK
 from ..segments.QRF import QRF
 from ..segments.DSP import DSP
+from ..segments.DSC import DSC
 from ..segments.SFT import SFT
-from ..segments.MSH import MSH
-from ..segments.QAK import QAK
-from ..segments.MSA import MSA
-from ..segments.QRD import QRD
 
 
 """
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import DSR_Q03
 from utils.hl7.v2_5_1.segments import (
-    MSH, QRD, SFT, ERR, DSP, QRF, DSC, QAK, MSA
+    QAK, QRD, SFT, DSP, QRF, ERR, MSA, DSC, MSH
 )
 
 dsr_q03 = DSR_Q03(  #  - This section is retained for backward compatibility and the framework for the existing functional queries

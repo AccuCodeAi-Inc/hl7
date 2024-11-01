@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.TQ2 import TQ2
 from ..segments.TQ1 import TQ1
+from ..segments.TQ2 import TQ2
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OMG_O19_ORDER_GROUP_PRIOR_RESULT_GROUP_ORDER_PRIOR_GROUP_TIMING_PRIOR_GROUP
 from utils.hl7.v2_5_1.segments import (
-    TQ1, TQ2
+    TQ2, TQ1
 )
 
 omg_o19_order_group_prior_result_group_order_prior_group_timing_prior_group = OMG_O19_ORDER_GROUP_PRIOR_RESULT_GROUP_ORDER_PRIOR_GROUP_TIMING_PRIOR_GROUP(  # TIMING PRIOR - Segment group for OMG_O19_ORDER_GROUP_PRIOR_RESULT_GROUP_ORDER_PRIOR_GROUP - ORDER PRIOR consisting of TQ1, TQ2|None

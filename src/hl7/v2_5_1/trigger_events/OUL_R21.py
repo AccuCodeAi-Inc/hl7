@@ -1,13 +1,13 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.DSC import DSC
-from ..segment_groups.OUL_R21_VISIT_GROUP import OUL_R21_VISIT_GROUP
-from ..segments.SFT import SFT
-from ..segments.MSH import MSH
 from ..segment_groups.OUL_R21_ORDER_OBSERVATION_GROUP import (
     OUL_R21_ORDER_OBSERVATION_GROUP,
 )
+from ..segments.MSH import MSH
+from ..segments.SFT import SFT
+from ..segment_groups.OUL_R21_VISIT_GROUP import OUL_R21_VISIT_GROUP
 from ..segments.NTE import NTE
+from ..segments.DSC import DSC
 from ..segment_groups.OUL_R21_PATIENT_GROUP import OUL_R21_PATIENT_GROUP
 
 
@@ -19,10 +19,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OUL_R21
 from utils.hl7.v2_5_1.segments import (
-    DSC, NTE, SFT, MSH
+    SFT, DSC, NTE, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    OUL_R21_ORDER_OBSERVATION_GROUP, OUL_R21_VISIT_GROUP, OUL_R21_PATIENT_GROUP
+    OUL_R21_VISIT_GROUP, OUL_R21_ORDER_OBSERVATION_GROUP, OUL_R21_PATIENT_GROUP
 )
 
 oul_r21 = OUL_R21(  #  - This message was designed to accommodate laboratory automation systems

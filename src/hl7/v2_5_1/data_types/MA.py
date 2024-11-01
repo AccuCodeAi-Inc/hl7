@@ -47,12 +47,12 @@ class MA(DataType):
 
     def __init__(
         self,
-        sample_1_from_channel_1: NM | tuple[NM] | None = None,  # MA.1
-        sample_1_from_channel_2: NM | tuple[NM] | None = None,  # MA.2
-        sample_1_from_channel_n: NM | tuple[NM] | None = None,  # MA.3
-        sample_2_from_channel_1: NM | tuple[NM] | None = None,  # MA.4
-        sample_2_from_channel_n: NM | tuple[NM] | None = None,  # MA.5
-        sample_n_from_channel_n: NM | tuple[NM] | None = None,  # MA.6
+        sample_1_from_channel_1: NM | tuple[NM, ...] | None = None,  # MA.1
+        sample_1_from_channel_2: NM | tuple[NM, ...] | None = None,  # MA.2
+        sample_1_from_channel_n: NM | tuple[NM, ...] | None = None,  # MA.3
+        sample_2_from_channel_1: NM | tuple[NM, ...] | None = None,  # MA.4
+        sample_2_from_channel_n: NM | tuple[NM, ...] | None = None,  # MA.5
+        sample_n_from_channel_n: NM | tuple[NM, ...] | None = None,  # MA.6
     ):
         """
                 Multiplexed Array - `MA <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/MA>`_

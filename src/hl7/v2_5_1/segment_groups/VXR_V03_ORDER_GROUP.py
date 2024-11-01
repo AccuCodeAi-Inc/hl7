@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segment_groups.VXR_V03_ORDER_GROUP_TIMING_GROUP import (
-    VXR_V03_ORDER_GROUP_TIMING_GROUP,
-)
-from ..segments.RXA import RXA
-from ..segments.ORC import ORC
 from ..segment_groups.VXR_V03_ORDER_GROUP_OBSERVATION_GROUP import (
     VXR_V03_ORDER_GROUP_OBSERVATION_GROUP,
 )
+from ..segments.ORC import ORC
 from ..segments.RXR import RXR
+from ..segments.RXA import RXA
+from ..segment_groups.VXR_V03_ORDER_GROUP_TIMING_GROUP import (
+    VXR_V03_ORDER_GROUP_TIMING_GROUP,
+)
 
 
 """

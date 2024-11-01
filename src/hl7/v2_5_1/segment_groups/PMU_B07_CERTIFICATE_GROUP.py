@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PMU_B07_CERTIFICATE_GROUP
 from utils.hl7.v2_5_1.segments import (
-    ROL, CER
+    CER, ROL
 )
 
 pmu_b07_certificate_group = PMU_B07_CERTIFICATE_GROUP(  # CERTIFICATE - Segment group for PMU_B07 - Add personnel record consisting of CER, ROL|None

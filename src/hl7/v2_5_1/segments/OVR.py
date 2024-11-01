@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TX import TX
-from ..data_types.CWE import CWE
 from ..data_types.XCN import XCN
-from ..tables.OverrideCode import OverrideCode
+from ..data_types.CWE import CWE
+from ..data_types.TX import TX
 from ..tables.OverrideType import OverrideType
+from ..tables.OverrideCode import OverrideCode
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     OVR,
-    TX, CWE, XCN
+    XCN, CWE, TX
 )
 
 ovr = OVR(  #  - Definition: This segment allows a sender to override specific receiving applications business rules to allow for processing of a message that would normally be rejected or ignored
@@ -52,15 +52,15 @@ class OVR(HL7Segment):
         self,
         business_rule_override_type: OverrideType
         | CWE
-        | tuple[OverrideType | CWE]
+        | tuple[OverrideType | CWE, ...]
         | None = None,  # OVR.1
         business_rule_override_code: OverrideCode
         | CWE
-        | tuple[OverrideCode | CWE]
+        | tuple[OverrideCode | CWE, ...]
         | None = None,  # OVR.2
-        override_comments: TX | tuple[TX] | None = None,  # OVR.3
-        override_entered_by: XCN | tuple[XCN] | None = None,  # OVR.4
-        override_authorized_by: XCN | tuple[XCN] | None = None,  # OVR.5
+        override_comments: TX | tuple[TX, ...] | None = None,  # OVR.3
+        override_entered_by: XCN | tuple[XCN, ...] | None = None,  # OVR.4
+        override_authorized_by: XCN | tuple[XCN, ...] | None = None,  # OVR.5
     ):
         """
                 Override Segment - `OVR <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/OVR>`_

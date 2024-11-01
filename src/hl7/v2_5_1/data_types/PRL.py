@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import DataType
-from .TX import TX
 from .ST import ST
 from .CE import CE
+from .TX import TX
 
 
 """
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PRL,
-    TX, ST, CE
+    ST, CE, TX
 )
 
 prl = PRL(  # Parent Result Link - Uniquely identifies the parent results OBX segment related to the current order, together with the information in OBR-29-parent
@@ -46,9 +46,9 @@ class PRL(DataType):
 
     def __init__(
         self,
-        parent_observation_identifier: CE | tuple[CE],  # PRL.1
-        parent_observation_sub_identifier: ST | tuple[ST] | None = None,  # PRL.2
-        parent_observation_value_descriptor: TX | tuple[TX] | None = None,  # PRL.3
+        parent_observation_identifier: CE | tuple[CE, ...],  # PRL.1
+        parent_observation_sub_identifier: ST | tuple[ST, ...] | None = None,  # PRL.2
+        parent_observation_value_descriptor: TX | tuple[TX, ...] | None = None,  # PRL.3
     ):
         """
         Parent Result Link - `PRL <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/PRL>`_

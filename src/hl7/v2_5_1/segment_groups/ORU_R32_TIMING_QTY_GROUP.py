@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.TQ2 import TQ2
 from ..segments.TQ1 import TQ1
+from ..segments.TQ2 import TQ2
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ORU_R32_TIMING_QTY_GROUP
 from utils.hl7.v2_5_1.segments import (
-    TQ1, TQ2
+    TQ2, TQ1
 )
 
 oru_r32_timing_qty_group = ORU_R32_TIMING_QTY_GROUP(  # TIMING QTY - Segment group for ORU_R32 - Unsolicited Pre-Ordered Point-Of-Care Observation consisting of TQ1, TQ2|None

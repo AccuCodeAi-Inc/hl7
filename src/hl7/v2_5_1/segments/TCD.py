@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
 from ..data_types.SN import SN
 from ..data_types.CE import CE
-from ..tables.AnalyteRepeatStatus import AnalyteRepeatStatus
+from ..data_types.ID import ID
 from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..tables.AnalyteRepeatStatus import AnalyteRepeatStatus
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     TCD,
-    ID, SN, CE
+    SN, CE, ID
 )
 
 tcd = TCD(  #  - The test code detail segment contains the data necessary to perform operations or calculations, or execute decisions by the laboratory automation system, and which are not supported by the original HL7 segments related to orders (ORC, OBR)
@@ -53,24 +53,24 @@ class TCD(HL7Segment):
 
     def __init__(
         self,
-        universal_service_identifier: CE | tuple[CE],  # TCD.1
-        auto_dilution_factor: SN | tuple[SN] | None = None,  # TCD.2
-        rerun_dilution_factor: SN | tuple[SN] | None = None,  # TCD.3
-        pre_dilution_factor: SN | tuple[SN] | None = None,  # TCD.4
+        universal_service_identifier: CE | tuple[CE, ...],  # TCD.1
+        auto_dilution_factor: SN | tuple[SN, ...] | None = None,  # TCD.2
+        rerun_dilution_factor: SN | tuple[SN, ...] | None = None,  # TCD.3
+        pre_dilution_factor: SN | tuple[SN, ...] | None = None,  # TCD.4
         endogenous_content_of_pre_dilution_diluent: SN
-        | tuple[SN]
+        | tuple[SN, ...]
         | None = None,  # TCD.5
         automatic_repeat_allowed: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # TCD.6
         reflex_allowed: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # TCD.7
         analyte_repeat_status: AnalyteRepeatStatus
         | CE
-        | tuple[AnalyteRepeatStatus | CE]
+        | tuple[AnalyteRepeatStatus | CE, ...]
         | None = None,  # TCD.8
     ):
         """

@@ -1,13 +1,13 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TS import TS
-from ..data_types.ID import ID
 from ..data_types.CE import CE
-from ..data_types.ST import ST
+from ..data_types.TS import TS
 from ..data_types.XCN import XCN
-from ..tables.QueryResultsLevel import QueryResultsLevel
+from ..data_types.ST import ST
+from ..data_types.ID import ID
 from ..tables.WhatSubjectFilter import WhatSubjectFilter
 from ..tables.ReportPriority import ReportPriority
+from ..tables.QueryResultsLevel import QueryResultsLevel
 
 
 """
@@ -18,7 +18,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     URD,
-    TS, ID, CE, ST, XCN
+    CE, TS, XCN, ST, ID
 )
 
 urd = URD(  #  - This segment is not carried forward to the recommended queries for v 2
@@ -55,21 +55,21 @@ class URD(HL7Segment):
 
     def __init__(
         self,
-        r_or_u_who_subject_definition: XCN | tuple[XCN],  # URD.3
-        r_or_u_date_or_time: TS | tuple[TS] | None = None,  # URD.1
+        r_or_u_who_subject_definition: XCN | tuple[XCN, ...],  # URD.3
+        r_or_u_date_or_time: TS | tuple[TS, ...] | None = None,  # URD.1
         report_priority: ReportPriority
         | ID
-        | tuple[ReportPriority | ID]
+        | tuple[ReportPriority | ID, ...]
         | None = None,  # URD.2
         r_or_u_what_subject_definition: WhatSubjectFilter
         | CE
-        | tuple[WhatSubjectFilter | CE]
+        | tuple[WhatSubjectFilter | CE, ...]
         | None = None,  # URD.4
-        r_or_u_what_department_code: CE | tuple[CE] | None = None,  # URD.5
-        r_or_u_display_or_print_locations: ST | tuple[ST] | None = None,  # URD.6
+        r_or_u_what_department_code: CE | tuple[CE, ...] | None = None,  # URD.5
+        r_or_u_display_or_print_locations: ST | tuple[ST, ...] | None = None,  # URD.6
         r_or_u_results_level: QueryResultsLevel
         | ID
-        | tuple[QueryResultsLevel | ID]
+        | tuple[QueryResultsLevel | ID, ...]
         | None = None,  # URD.7
     ):
         """

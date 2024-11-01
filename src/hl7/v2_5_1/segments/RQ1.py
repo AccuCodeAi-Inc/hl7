@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
 from ..data_types.ST import ST
 from ..data_types.CE import CE
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..data_types.ID import ID
 from ..tables.ManufacturerIdentifier import ManufacturerIdentifier
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RQ1,
-    ID, ST, CE
+    ST, CE, ID
 )
 
 rq1 = RQ1(  #  - RQ1 contains additional detail for each nonstock requisitioned item
@@ -52,21 +52,21 @@ class RQ1(HL7Segment):
 
     def __init__(
         self,
-        anticipated_price: ST | tuple[ST] | None = None,  # RQ1.1
+        anticipated_price: ST | tuple[ST, ...] | None = None,  # RQ1.1
         manufacturer_identifier: ManufacturerIdentifier
         | CE
-        | tuple[ManufacturerIdentifier | CE]
+        | tuple[ManufacturerIdentifier | CE, ...]
         | None = None,  # RQ1.2
-        manufacturers_catalog: ST | tuple[ST] | None = None,  # RQ1.3
-        vendor_id: CE | tuple[CE] | None = None,  # RQ1.4
-        vendor_catalog: ST | tuple[ST] | None = None,  # RQ1.5
+        manufacturers_catalog: ST | tuple[ST, ...] | None = None,  # RQ1.3
+        vendor_id: CE | tuple[CE, ...] | None = None,  # RQ1.4
+        vendor_catalog: ST | tuple[ST, ...] | None = None,  # RQ1.5
         taxable: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # RQ1.6
         substitute_allowed: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # RQ1.7
     ):
         """

@@ -1,20 +1,20 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segment_groups.OMP_O09_ORDER_GROUP_OBSERVATION_GROUP import (
-    OMP_O09_ORDER_GROUP_OBSERVATION_GROUP,
-)
+from ..segments.BLG import BLG
+from ..segments.RXO import RXO
+from ..segments.FT1 import FT1
+from ..segments.ORC import ORC
+from ..segments.RXR import RXR
 from ..segment_groups.OMP_O09_ORDER_GROUP_TIMING_GROUP import (
     OMP_O09_ORDER_GROUP_TIMING_GROUP,
 )
-from ..segments.BLG import BLG
-from ..segments.ORC import ORC
-from ..segments.RXR import RXR
-from ..segments.NTE import NTE
-from ..segments.FT1 import FT1
 from ..segment_groups.OMP_O09_ORDER_GROUP_COMPONENT_GROUP import (
     OMP_O09_ORDER_GROUP_COMPONENT_GROUP,
 )
-from ..segments.RXO import RXO
+from ..segments.NTE import NTE
+from ..segment_groups.OMP_O09_ORDER_GROUP_OBSERVATION_GROUP import (
+    OMP_O09_ORDER_GROUP_OBSERVATION_GROUP,
+)
 
 
 """
@@ -25,10 +25,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OMP_O09_ORDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    FT1, BLG, RXO, RXR, NTE, ORC
+    NTE, ORC, RXR, RXO, FT1, BLG
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    OMP_O09_ORDER_GROUP_OBSERVATION_GROUP, OMP_O09_ORDER_GROUP_COMPONENT_GROUP, OMP_O09_ORDER_GROUP_TIMING_GROUP
+    OMP_O09_ORDER_GROUP_COMPONENT_GROUP, OMP_O09_ORDER_GROUP_TIMING_GROUP, OMP_O09_ORDER_GROUP_OBSERVATION_GROUP
 )
 
 omp_o09_order_group = OMP_O09_ORDER_GROUP(  # ORDER - Segment group for OMP_O09 - Pharmacy/Treatment Order consisting of ORC, TIMING|None, RXO, NTE|None, RXR, COMPONENT|None, OBSERVATION|None, FT1|None, BLG|None

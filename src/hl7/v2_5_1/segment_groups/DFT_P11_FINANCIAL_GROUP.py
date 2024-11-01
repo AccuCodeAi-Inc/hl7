@@ -1,18 +1,18 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segment_groups.DFT_P11_FINANCIAL_GROUP_FINANCIAL_PROCEDURE_GROUP import (
+    DFT_P11_FINANCIAL_GROUP_FINANCIAL_PROCEDURE_GROUP,
+)
+from ..segments.FT1 import FT1
 from ..segment_groups.DFT_P11_FINANCIAL_GROUP_FINANCIAL_INSURANCE_GROUP import (
     DFT_P11_FINANCIAL_GROUP_FINANCIAL_INSURANCE_GROUP,
 )
 from ..segments.GT1 import GT1
-from ..segments.FT1 import FT1
-from ..segment_groups.DFT_P11_FINANCIAL_GROUP_FINANCIAL_PROCEDURE_GROUP import (
-    DFT_P11_FINANCIAL_GROUP_FINANCIAL_PROCEDURE_GROUP,
-)
 from ..segment_groups.DFT_P11_FINANCIAL_GROUP_FINANCIAL_COMMON_ORDER_GROUP import (
     DFT_P11_FINANCIAL_GROUP_FINANCIAL_COMMON_ORDER_GROUP,
 )
-from ..segments.DG1 import DG1
 from ..segments.DRG import DRG
+from ..segments.DG1 import DG1
 
 
 """
@@ -23,10 +23,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import DFT_P11_FINANCIAL_GROUP
 from utils.hl7.v2_5_1.segments import (
-    FT1, GT1, DRG, DG1
+    DG1, DRG, FT1, GT1
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    DFT_P11_FINANCIAL_GROUP_FINANCIAL_PROCEDURE_GROUP, DFT_P11_FINANCIAL_GROUP_FINANCIAL_INSURANCE_GROUP, DFT_P11_FINANCIAL_GROUP_FINANCIAL_COMMON_ORDER_GROUP
+    DFT_P11_FINANCIAL_GROUP_FINANCIAL_PROCEDURE_GROUP, DFT_P11_FINANCIAL_GROUP_FINANCIAL_COMMON_ORDER_GROUP, DFT_P11_FINANCIAL_GROUP_FINANCIAL_INSURANCE_GROUP
 )
 
 dft_p11_financial_group = DFT_P11_FINANCIAL_GROUP(  # FINANCIAL - Segment group for DFT_P11 - Post Detail Financial Transactions - Expanded consisting of FT1, FINANCIAL PROCEDURE|None, FINANCIAL COMMON ORDER|None, DG1|None, DRG|None, GT1|None, FINANCIAL INSURANCE|None

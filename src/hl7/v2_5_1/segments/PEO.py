@@ -1,19 +1,19 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.XPN import XPN
-from ..data_types.TS import TS
-from ..data_types.ID import ID
 from ..data_types.CE import CE
-from ..data_types.XTN import XTN
+from ..data_types.TS import TS
 from ..data_types.XAD import XAD
+from ..data_types.XTN import XTN
+from ..data_types.XPN import XPN
+from ..data_types.ID import ID
 from ..data_types.FT import FT
-from ..tables.EventConsequence import EventConsequence
 from ..tables.PrimaryObserverSQualification import PrimaryObserverSQualification
-from ..tables.EventExpected import EventExpected
-from ..tables.PatientOutcome import PatientOutcome
-from ..tables.EventQualification import EventQualification
-from ..tables.IdentityMayBeDivulged import IdentityMayBeDivulged
 from ..tables.EventSeriousness import EventSeriousness
+from ..tables.EventQualification import EventQualification
+from ..tables.PatientOutcome import PatientOutcome
+from ..tables.EventConsequence import EventConsequence
+from ..tables.EventExpected import EventExpected
+from ..tables.IdentityMayBeDivulged import IdentityMayBeDivulged
 
 
 """
@@ -24,7 +24,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PEO,
-    XPN, TS, ID, CE, XTN, XAD, FT
+    CE, TS, XAD, XTN, XPN, ID, FT
 )
 
 peo = PEO(  #  - Details related to a particular clinical experience or event are embodied in the PEO segment
@@ -79,54 +79,58 @@ class PEO(HL7Segment):
 
     def __init__(
         self,
-        event_onset_date_or_time: TS | tuple[TS],  # PEO.3
-        event_identifiers_used: CE | tuple[CE] | None = None,  # PEO.1
-        event_symptom_or_diagnosis_code: CE | tuple[CE] | None = None,  # PEO.2
-        event_exacerbation_date_or_time: TS | tuple[TS] | None = None,  # PEO.4
-        event_improved_date_or_time: TS | tuple[TS] | None = None,  # PEO.5
-        event_ended_data_or_time: TS | tuple[TS] | None = None,  # PEO.6
-        event_location_occurred_address: XAD | tuple[XAD] | None = None,  # PEO.7
+        event_onset_date_or_time: TS | tuple[TS, ...],  # PEO.3
+        event_identifiers_used: CE | tuple[CE, ...] | None = None,  # PEO.1
+        event_symptom_or_diagnosis_code: CE | tuple[CE, ...] | None = None,  # PEO.2
+        event_exacerbation_date_or_time: TS | tuple[TS, ...] | None = None,  # PEO.4
+        event_improved_date_or_time: TS | tuple[TS, ...] | None = None,  # PEO.5
+        event_ended_data_or_time: TS | tuple[TS, ...] | None = None,  # PEO.6
+        event_location_occurred_address: XAD | tuple[XAD, ...] | None = None,  # PEO.7
         event_qualification: EventQualification
         | ID
-        | tuple[EventQualification | ID]
+        | tuple[EventQualification | ID, ...]
         | None = None,  # PEO.8
         event_serious: EventSeriousness
         | ID
-        | tuple[EventSeriousness | ID]
+        | tuple[EventSeriousness | ID, ...]
         | None = None,  # PEO.9
         event_expected: EventExpected
         | ID
-        | tuple[EventExpected | ID]
+        | tuple[EventExpected | ID, ...]
         | None = None,  # PEO.10
         event_outcome: EventConsequence
         | ID
-        | tuple[EventConsequence | ID]
+        | tuple[EventConsequence | ID, ...]
         | None = None,  # PEO.11
         patient_outcome: PatientOutcome
         | ID
-        | tuple[PatientOutcome | ID]
+        | tuple[PatientOutcome | ID, ...]
         | None = None,  # PEO.12
-        event_description_from_others: FT | tuple[FT] | None = None,  # PEO.13
-        event_from_original_reporter: FT | tuple[FT] | None = None,  # PEO.14
-        event_description_from_patient: FT | tuple[FT] | None = None,  # PEO.15
-        event_description_from_practitioner: FT | tuple[FT] | None = None,  # PEO.16
-        event_description_from_autopsy: FT | tuple[FT] | None = None,  # PEO.17
-        cause_of_death: CE | tuple[CE] | None = None,  # PEO.18
-        primary_observer_name: XPN | tuple[XPN] | None = None,  # PEO.19
-        primary_observer_address: XAD | tuple[XAD] | None = None,  # PEO.20
-        primary_observer_telephone: XTN | tuple[XTN] | None = None,  # PEO.21
+        event_description_from_others: FT | tuple[FT, ...] | None = None,  # PEO.13
+        event_from_original_reporter: FT | tuple[FT, ...] | None = None,  # PEO.14
+        event_description_from_patient: FT | tuple[FT, ...] | None = None,  # PEO.15
+        event_description_from_practitioner: FT
+        | tuple[FT, ...]
+        | None = None,  # PEO.16
+        event_description_from_autopsy: FT | tuple[FT, ...] | None = None,  # PEO.17
+        cause_of_death: CE | tuple[CE, ...] | None = None,  # PEO.18
+        primary_observer_name: XPN | tuple[XPN, ...] | None = None,  # PEO.19
+        primary_observer_address: XAD | tuple[XAD, ...] | None = None,  # PEO.20
+        primary_observer_telephone: XTN | tuple[XTN, ...] | None = None,  # PEO.21
         primary_observers_qualification: PrimaryObserverSQualification
         | ID
-        | tuple[PrimaryObserverSQualification | ID]
+        | tuple[PrimaryObserverSQualification | ID, ...]
         | None = None,  # PEO.22
         confirmation_provided_by: PrimaryObserverSQualification
         | ID
-        | tuple[PrimaryObserverSQualification | ID]
+        | tuple[PrimaryObserverSQualification | ID, ...]
         | None = None,  # PEO.23
-        primary_observer_aware_date_or_time: TS | tuple[TS] | None = None,  # PEO.24
+        primary_observer_aware_date_or_time: TS
+        | tuple[TS, ...]
+        | None = None,  # PEO.24
         primary_observers_identity_may_be_divulged: IdentityMayBeDivulged
         | ID
-        | tuple[IdentityMayBeDivulged | ID]
+        | tuple[IdentityMayBeDivulged | ID, ...]
         | None = None,  # PEO.25
     ):
         """

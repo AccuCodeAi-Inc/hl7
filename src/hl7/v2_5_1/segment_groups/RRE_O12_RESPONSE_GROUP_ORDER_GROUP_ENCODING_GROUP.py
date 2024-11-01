@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.RXE import RXE
-from ..segments.RXC import RXC
 from ..segments.RXR import RXR
-from ..segments.NTE import NTE
+from ..segments.RXC import RXC
+from ..segments.RXE import RXE
 from ..segment_groups.RRE_O12_RESPONSE_GROUP_ORDER_GROUP_ENCODING_GROUP_TIMING_ENCODED_GROUP import (
     RRE_O12_RESPONSE_GROUP_ORDER_GROUP_ENCODING_GROUP_TIMING_ENCODED_GROUP,
 )
+from ..segments.NTE import NTE
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RRE_O12_RESPONSE_GROUP_ORDER_GROUP_ENCODING_GROUP
 from utils.hl7.v2_5_1.segments import (
-    RXR, NTE, RXE, RXC
+    RXC, NTE, RXR, RXE
 )
 from utils.hl7.v2_5_1.segment_groups import (
     RRE_O12_RESPONSE_GROUP_ORDER_GROUP_ENCODING_GROUP_TIMING_ENCODED_GROUP

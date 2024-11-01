@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.RXO import RXO
 from ..segments.RXR import RXR
 from ..segments.RXC import RXC
+from ..segments.RXO import RXO
 from ..segments.ORC import ORC
 
 

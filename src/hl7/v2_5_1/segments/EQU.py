@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.EI import EI
-from ..data_types.CE import CE
 from ..data_types.TS import TS
-from ..tables.EquipmentState import EquipmentState
+from ..data_types.CE import CE
+from ..data_types.EI import EI
 from ..tables.LocalOrRemoteControlState import LocalOrRemoteControlState
+from ..tables.EquipmentState import EquipmentState
 from ..tables.AlertLevel import AlertLevel
 
 
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     EQU,
-    EI, CE, TS
+    TS, CE, EI
 )
 
 equ = EQU(  #  - The equipment detail segment contains the data necessary to identify and maintain the equipment that is being used throughout the Laboratory Automation System
@@ -51,17 +51,20 @@ class EQU(HL7Segment):
 
     def __init__(
         self,
-        equipment_instance_identifier: EI | tuple[EI],  # EQU.1
-        event_date_or_time: TS | tuple[TS],  # EQU.2
+        equipment_instance_identifier: EI | tuple[EI, ...],  # EQU.1
+        event_date_or_time: TS | tuple[TS, ...],  # EQU.2
         equipment_state: EquipmentState
         | CE
-        | tuple[EquipmentState | CE]
+        | tuple[EquipmentState | CE, ...]
         | None = None,  # EQU.3
         local_or_remote_control_state: LocalOrRemoteControlState
         | CE
-        | tuple[LocalOrRemoteControlState | CE]
+        | tuple[LocalOrRemoteControlState | CE, ...]
         | None = None,  # EQU.4
-        alert_level: AlertLevel | CE | tuple[AlertLevel | CE] | None = None,  # EQU.5
+        alert_level: AlertLevel
+        | CE
+        | tuple[AlertLevel | CE, ...]
+        | None = None,  # EQU.5
     ):
         """
         Equipment Detail - `EQU <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/EQU>`_

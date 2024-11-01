@@ -1,22 +1,22 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.XPN import XPN
-from ..data_types.TS import TS
-from ..data_types.CNE import CNE
-from ..data_types.DT import DT
-from ..data_types.ST import ST
 from ..data_types.SI import SI
 from ..data_types.CE import CE
-from ..data_types.EI import EI
+from ..data_types.CNE import CNE
+from ..data_types.DT import DT
+from ..data_types.TS import TS
 from ..data_types.XCN import XCN
 from ..data_types.XON import XON
-from ..tables.AllergenType import AllergenType
-from ..tables.AllergyClinicalStatus import AllergyClinicalStatus
+from ..data_types.ST import ST
+from ..data_types.XPN import XPN
+from ..data_types.EI import EI
 from ..tables.SensitivityToCausativeAgentCode import SensitivityToCausativeAgentCode
-from ..tables.AlertDeviceCode import AlertDeviceCode
-from ..tables.AllergySeverity import AllergySeverity
 from ..tables.Relationship import Relationship
+from ..tables.AllergyClinicalStatus import AllergyClinicalStatus
+from ..tables.AlertDeviceCode import AlertDeviceCode
 from ..tables.ActionCode import ActionCode
+from ..tables.AllergenType import AllergenType
+from ..tables.AllergySeverity import AllergySeverity
 
 
 """
@@ -27,7 +27,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     IAM,
-    XPN, TS, CNE, DT, ST, SI, CE, EI, XCN, XON
+    SI, CE, CNE, DT, TS, XCN, XON, ST, XPN, EI
 )
 
 iam = IAM(  #  - The IAM segment contains person/patient adverse reaction information of various types
@@ -77,46 +77,46 @@ class IAM(HL7Segment):
 
     def __init__(
         self,
-        set_id_iam: SI | tuple[SI],  # IAM.1
-        allergen_code_or_mnemonic_or_description: CE | tuple[CE],  # IAM.3
-        allergy_action_code: ActionCode | CNE | tuple[ActionCode | CNE],  # IAM.6
+        set_id_iam: SI | tuple[SI, ...],  # IAM.1
+        allergen_code_or_mnemonic_or_description: CE | tuple[CE, ...],  # IAM.3
+        allergy_action_code: ActionCode | CNE | tuple[ActionCode | CNE, ...],  # IAM.6
         allergen_type_code: AllergenType
         | CE
-        | tuple[AllergenType | CE]
+        | tuple[AllergenType | CE, ...]
         | None = None,  # IAM.2
         allergy_severity_code: AllergySeverity
         | CE
-        | tuple[AllergySeverity | CE]
+        | tuple[AllergySeverity | CE, ...]
         | None = None,  # IAM.4
-        allergy_reaction_code: ST | tuple[ST] | None = None,  # IAM.5
-        allergy_unique_identifier: EI | tuple[EI] | None = None,  # IAM.7
-        action_reason: ST | tuple[ST] | None = None,  # IAM.8
+        allergy_reaction_code: ST | tuple[ST, ...] | None = None,  # IAM.5
+        allergy_unique_identifier: EI | tuple[EI, ...] | None = None,  # IAM.7
+        action_reason: ST | tuple[ST, ...] | None = None,  # IAM.8
         sensitivity_to_causative_agent_code: SensitivityToCausativeAgentCode
         | CE
-        | tuple[SensitivityToCausativeAgentCode | CE]
+        | tuple[SensitivityToCausativeAgentCode | CE, ...]
         | None = None,  # IAM.9
         allergen_group_code_or_mnemonic_or_description: CE
-        | tuple[CE]
+        | tuple[CE, ...]
         | None = None,  # IAM.10
-        onset_date: DT | tuple[DT] | None = None,  # IAM.11
-        onset_date_text: ST | tuple[ST] | None = None,  # IAM.12
-        reported_date_or_time: TS | tuple[TS] | None = None,  # IAM.13
-        reported_by: XPN | tuple[XPN] | None = None,  # IAM.14
+        onset_date: DT | tuple[DT, ...] | None = None,  # IAM.11
+        onset_date_text: ST | tuple[ST, ...] | None = None,  # IAM.12
+        reported_date_or_time: TS | tuple[TS, ...] | None = None,  # IAM.13
+        reported_by: XPN | tuple[XPN, ...] | None = None,  # IAM.14
         relationship_to_patient_code: Relationship
         | CE
-        | tuple[Relationship | CE]
+        | tuple[Relationship | CE, ...]
         | None = None,  # IAM.15
         alert_device_code: AlertDeviceCode
         | CE
-        | tuple[AlertDeviceCode | CE]
+        | tuple[AlertDeviceCode | CE, ...]
         | None = None,  # IAM.16
         allergy_clinical_status_code: AllergyClinicalStatus
         | CE
-        | tuple[AllergyClinicalStatus | CE]
+        | tuple[AllergyClinicalStatus | CE, ...]
         | None = None,  # IAM.17
-        statused_by_person: XCN | tuple[XCN] | None = None,  # IAM.18
-        statused_by_organization: XON | tuple[XON] | None = None,  # IAM.19
-        statused_at_date_or_time: TS | tuple[TS] | None = None,  # IAM.20
+        statused_by_person: XCN | tuple[XCN, ...] | None = None,  # IAM.18
+        statused_by_organization: XON | tuple[XON, ...] | None = None,  # IAM.19
+        statused_at_date_or_time: TS | tuple[TS, ...] | None = None,  # IAM.20
     ):
         """
         Patient Adverse Reaction Information - `IAM <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/IAM>`_

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.BPX import BPX
 from ..segments.NTE import NTE
+from ..segments.BPX import BPX
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import BPS_O29_ORDER_GROUP_PRODUCT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NTE, BPX
+    BPX, NTE
 )
 
 bps_o29_order_group_product_group = BPS_O29_ORDER_GROUP_PRODUCT_GROUP(  # PRODUCT - Segment group for BPS_O29_ORDER_GROUP - ORDER consisting of BPX, NTE|None

@@ -1,26 +1,26 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TS import TS
-from ..data_types.ID import ID
-from ..data_types.NM import NM
-from ..data_types.IS import IS
-from ..data_types.EI import EI
-from ..data_types.ST import ST
 from ..data_types.SI import SI
 from ..data_types.CE import CE
+from ..data_types.TS import TS
+from ..data_types.IS import IS
 from ..data_types.XCN import XCN
+from ..data_types.NM import NM
+from ..data_types.ST import ST
+from ..data_types.ID import ID
+from ..data_types.EI import EI
+from ..tables.SegmentActionCode import SegmentActionCode
+from ..tables.PhysicianId import PhysicianId
 from ..tables.ProcedurePriority import ProcedurePriority
+from ..tables.TissueTypeCode import TissueTypeCode
 from ..tables.ProcedureCode import ProcedureCode
 from ..tables.ProcedureCodingMethod import ProcedureCodingMethod
-from ..tables.ProcedureDrgType import ProcedureDrgType
-from ..tables.PhysicianId import PhysicianId
-from ..tables.DiagnosisCode import DiagnosisCode
-from ..tables.TissueTypeCode import TissueTypeCode
-from ..tables.ProcedureCodeModifier import ProcedureCodeModifier
-from ..tables.SegmentActionCode import SegmentActionCode
-from ..tables.AnesthesiaCode import AnesthesiaCode
 from ..tables.ProcedureFunctionalType import ProcedureFunctionalType
+from ..tables.ProcedureDrgType import ProcedureDrgType
+from ..tables.DiagnosisCode import DiagnosisCode
+from ..tables.AnesthesiaCode import AnesthesiaCode
 from ..tables.ConsentCode import ConsentCode
+from ..tables.ProcedureCodeModifier import ProcedureCodeModifier
 
 
 """
@@ -31,7 +31,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PR1,
-    TS, ID, NM, IS, EI, ST, SI, CE, XCN
+    SI, CE, TS, IS, XCN, NM, ST, ID, EI
 )
 
 pr1 = PR1(  #  - The PR1 segment contains information relative to various types of procedures that can be performed on a patient
@@ -81,61 +81,64 @@ class PR1(HL7Segment):
 
     def __init__(
         self,
-        set_id_pr1: SI | tuple[SI],  # PR1.1
-        procedure_code: ProcedureCode | CE | tuple[ProcedureCode | CE],  # PR1.3
-        procedure_date_or_time: TS | tuple[TS],  # PR1.5
+        set_id_pr1: SI | tuple[SI, ...],  # PR1.1
+        procedure_code: ProcedureCode | CE | tuple[ProcedureCode | CE, ...],  # PR1.3
+        procedure_date_or_time: TS | tuple[TS, ...],  # PR1.5
         procedure_coding_method: ProcedureCodingMethod
         | IS
-        | tuple[ProcedureCodingMethod | IS]
+        | tuple[ProcedureCodingMethod | IS, ...]
         | None = None,  # PR1.2
-        procedure_description: ST | tuple[ST] | None = None,  # PR1.4
+        procedure_description: ST | tuple[ST, ...] | None = None,  # PR1.4
         procedure_functional_type: ProcedureFunctionalType
         | IS
-        | tuple[ProcedureFunctionalType | IS]
+        | tuple[ProcedureFunctionalType | IS, ...]
         | None = None,  # PR1.6
-        procedure_minutes: NM | tuple[NM] | None = None,  # PR1.7
+        procedure_minutes: NM | tuple[NM, ...] | None = None,  # PR1.7
         anesthesiologist: PhysicianId
         | XCN
-        | tuple[PhysicianId | XCN]
+        | tuple[PhysicianId | XCN, ...]
         | None = None,  # PR1.8
         anesthesia_code: AnesthesiaCode
         | IS
-        | tuple[AnesthesiaCode | IS]
+        | tuple[AnesthesiaCode | IS, ...]
         | None = None,  # PR1.9
-        anesthesia_minutes: NM | tuple[NM] | None = None,  # PR1.10
-        surgeon: PhysicianId | XCN | tuple[PhysicianId | XCN] | None = None,  # PR1.11
+        anesthesia_minutes: NM | tuple[NM, ...] | None = None,  # PR1.10
+        surgeon: PhysicianId
+        | XCN
+        | tuple[PhysicianId | XCN, ...]
+        | None = None,  # PR1.11
         procedure_practitioner: PhysicianId
         | XCN
-        | tuple[PhysicianId | XCN]
+        | tuple[PhysicianId | XCN, ...]
         | None = None,  # PR1.12
         consent_code: ConsentCode
         | CE
-        | tuple[ConsentCode | CE]
+        | tuple[ConsentCode | CE, ...]
         | None = None,  # PR1.13
         procedure_priority: ProcedurePriority
         | ID
-        | tuple[ProcedurePriority | ID]
+        | tuple[ProcedurePriority | ID, ...]
         | None = None,  # PR1.14
         associated_diagnosis_code: DiagnosisCode
         | CE
-        | tuple[DiagnosisCode | CE]
+        | tuple[DiagnosisCode | CE, ...]
         | None = None,  # PR1.15
         procedure_code_modifier: ProcedureCodeModifier
         | CE
-        | tuple[ProcedureCodeModifier | CE]
+        | tuple[ProcedureCodeModifier | CE, ...]
         | None = None,  # PR1.16
         procedure_drg_type: ProcedureDrgType
         | IS
-        | tuple[ProcedureDrgType | IS]
+        | tuple[ProcedureDrgType | IS, ...]
         | None = None,  # PR1.17
         tissue_type_code: TissueTypeCode
         | CE
-        | tuple[TissueTypeCode | CE]
+        | tuple[TissueTypeCode | CE, ...]
         | None = None,  # PR1.18
-        procedure_identifier: EI | tuple[EI] | None = None,  # PR1.19
+        procedure_identifier: EI | tuple[EI, ...] | None = None,  # PR1.19
         procedure_action_code: SegmentActionCode
         | ID
-        | tuple[SegmentActionCode | ID]
+        | tuple[SegmentActionCode | ID, ...]
         | None = None,  # PR1.20
     ):
         """

@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.DSC import DSC
-from ..segments.QRF import QRF
-from ..segments.SFT import SFT
 from ..segments.MSH import MSH
 from ..segments.QRD import QRD
+from ..segments.QRF import QRF
+from ..segments.DSC import DSC
+from ..segments.SFT import SFT
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import QRY_Q26
 from utils.hl7.v2_5_1.segments import (
-    MSH, QRD, SFT, QRF, DSC
+    QRD, SFT, QRF, DSC, MSH
 )
 
 qry_q26 = QRY_Q26(  #  - This query/response pair is retained for backward compatibility only

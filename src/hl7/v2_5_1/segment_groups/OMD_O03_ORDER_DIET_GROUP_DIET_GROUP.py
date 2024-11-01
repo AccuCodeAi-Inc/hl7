@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
 from ..segments.NTE import NTE
-from ..segments.ODS import ODS
 from ..segment_groups.OMD_O03_ORDER_DIET_GROUP_DIET_GROUP_OBSERVATION_GROUP import (
     OMD_O03_ORDER_DIET_GROUP_DIET_GROUP_OBSERVATION_GROUP,
 )
+from ..segments.ODS import ODS
 
 
 """

@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
 from ..segments.RXR import RXR
-from ..segments.RXE import RXE
 from ..segments.RXC import RXC
 from ..segments.ORC import ORC
+from ..segments.RXE import RXE
 
 
 """
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RER_RER_DEFINITION_GROUP_ORDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    RXR, RXC, RXE, ORC
+    RXC, RXR, ORC, RXE
 )
 
 rer_rer_definition_group_order_group = RER_RER_DEFINITION_GROUP_ORDER_GROUP(  # ORDER - Segment group for RER_RER_DEFINITION_GROUP - DEFINITION consisting of ORC, RXE, RXR, RXC|None

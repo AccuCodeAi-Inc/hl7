@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.TQ2 import TQ2
 from ..segments.TQ1 import TQ1
+from ..segments.TQ2 import TQ2
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RRG_O16_RESPONSE_GROUP_ORDER_GROUP_GIVE_GROUP_TIMING_GIVE_GROUP
 from utils.hl7.v2_5_1.segments import (
-    TQ1, TQ2
+    TQ2, TQ1
 )
 
 rrg_o16_response_group_order_group_give_group_timing_give_group = RRG_O16_RESPONSE_GROUP_ORDER_GROUP_GIVE_GROUP_TIMING_GIVE_GROUP(  # TIMING GIVE - Segment group for RRG_O16_RESPONSE_GROUP_ORDER_GROUP_GIVE_GROUP - GIVE consisting of TQ1, TQ2|None

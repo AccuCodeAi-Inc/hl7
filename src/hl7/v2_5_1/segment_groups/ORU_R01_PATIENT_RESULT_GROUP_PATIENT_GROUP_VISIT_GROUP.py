@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ORU_R01_PATIENT_RESULT_GROUP_PATIENT_GROUP_VISIT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PV2, PV1
+    PV1, PV2
 )
 
 oru_r01_patient_result_group_patient_group_visit_group = ORU_R01_PATIENT_RESULT_GROUP_PATIENT_GROUP_VISIT_GROUP(  # VISIT - Segment group for ORU_R01_PATIENT_RESULT_GROUP_PATIENT_GROUP - PATIENT consisting of PV1, PV2|None

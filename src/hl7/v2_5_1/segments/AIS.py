@@ -1,17 +1,17 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TS import TS
-from ..data_types.ID import ID
-from ..data_types.NM import NM
-from ..data_types.IS import IS
 from ..data_types.SI import SI
 from ..data_types.CE import CE
+from ..data_types.TS import TS
+from ..data_types.IS import IS
+from ..data_types.NM import NM
+from ..data_types.ID import ID
 from ..tables.AllowSubstitutionCodes import AllowSubstitutionCodes
-from ..tables.FillerStatusCodes import FillerStatusCodes
 from ..tables.SegmentActionCode import SegmentActionCode
 from ..tables.SupplementalServiceInformationValues import (
     SupplementalServiceInformationValues,
 )
+from ..tables.FillerStatusCodes import FillerStatusCodes
 
 
 """
@@ -22,7 +22,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     AIS,
-    TS, ID, NM, IS, SI, CE
+    SI, CE, TS, IS, NM, ID
 )
 
 ais = AIS(  #  - The AIS segment contains information about various kinds of services that can be scheduled
@@ -64,32 +64,32 @@ class AIS(HL7Segment):
 
     def __init__(
         self,
-        set_id_ais: SI | tuple[SI],  # AIS.1
-        universal_service_identifier: CE | tuple[CE],  # AIS.3
+        set_id_ais: SI | tuple[SI, ...],  # AIS.1
+        universal_service_identifier: CE | tuple[CE, ...],  # AIS.3
         segment_action_code: SegmentActionCode
         | ID
-        | tuple[SegmentActionCode | ID]
+        | tuple[SegmentActionCode | ID, ...]
         | None = None,  # AIS.2
-        start_date_or_time: TS | tuple[TS] | None = None,  # AIS.4
-        start_date_or_time_offset: NM | tuple[NM] | None = None,  # AIS.5
-        start_date_or_time_offset_units: CE | tuple[CE] | None = None,  # AIS.6
-        duration: NM | tuple[NM] | None = None,  # AIS.7
-        duration_units: CE | tuple[CE] | None = None,  # AIS.8
+        start_date_or_time: TS | tuple[TS, ...] | None = None,  # AIS.4
+        start_date_or_time_offset: NM | tuple[NM, ...] | None = None,  # AIS.5
+        start_date_or_time_offset_units: CE | tuple[CE, ...] | None = None,  # AIS.6
+        duration: NM | tuple[NM, ...] | None = None,  # AIS.7
+        duration_units: CE | tuple[CE, ...] | None = None,  # AIS.8
         allow_substitution_code: AllowSubstitutionCodes
         | IS
-        | tuple[AllowSubstitutionCodes | IS]
+        | tuple[AllowSubstitutionCodes | IS, ...]
         | None = None,  # AIS.9
         filler_status_code: FillerStatusCodes
         | CE
-        | tuple[FillerStatusCodes | CE]
+        | tuple[FillerStatusCodes | CE, ...]
         | None = None,  # AIS.10
         placer_supplemental_service_information: SupplementalServiceInformationValues
         | CE
-        | tuple[SupplementalServiceInformationValues | CE]
+        | tuple[SupplementalServiceInformationValues | CE, ...]
         | None = None,  # AIS.11
         filler_supplemental_service_information: SupplementalServiceInformationValues
         | CE
-        | tuple[SupplementalServiceInformationValues | CE]
+        | tuple[SupplementalServiceInformationValues | CE, ...]
         | None = None,  # AIS.12
     ):
         """

@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
 from ..segments.CTD import CTD
+from ..segments.ORC import ORC
 from ..segment_groups.RSP_Z90_QUERY_RESPONSE_GROUP_COMMON_ORDER_GROUP_TIMING_GROUP import (
     RSP_Z90_QUERY_RESPONSE_GROUP_COMMON_ORDER_GROUP_TIMING_GROUP,
 )
-from ..segments.ORC import ORC
-from ..segments.NTE import NTE
 from ..segment_groups.RSP_Z90_QUERY_RESPONSE_GROUP_COMMON_ORDER_GROUP_OBSERVATION_GROUP import (
     RSP_Z90_QUERY_RESPONSE_GROUP_COMMON_ORDER_GROUP_OBSERVATION_GROUP,
 )
+from ..segments.NTE import NTE
 from ..segments.OBR import OBR
 
 
@@ -20,7 +20,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RSP_Z90_QUERY_RESPONSE_GROUP_COMMON_ORDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    CTD, OBR, NTE, ORC
+    OBR, CTD, NTE, ORC
 )
 from utils.hl7.v2_5_1.segment_groups import (
     RSP_Z90_QUERY_RESPONSE_GROUP_COMMON_ORDER_GROUP_TIMING_GROUP, RSP_Z90_QUERY_RESPONSE_GROUP_COMMON_ORDER_GROUP_OBSERVATION_GROUP

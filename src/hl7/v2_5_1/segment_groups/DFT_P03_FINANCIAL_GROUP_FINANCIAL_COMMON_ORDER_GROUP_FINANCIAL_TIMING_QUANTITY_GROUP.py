@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.TQ2 import TQ2
 from ..segments.TQ1 import TQ1
+from ..segments.TQ2 import TQ2
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import DFT_P03_FINANCIAL_GROUP_FINANCIAL_COMMON_ORDER_GROUP_FINANCIAL_TIMING_QUANTITY_GROUP
 from utils.hl7.v2_5_1.segments import (
-    TQ1, TQ2
+    TQ2, TQ1
 )
 
 dft_p03_financial_group_financial_common_order_group_financial_timing_quantity_group = DFT_P03_FINANCIAL_GROUP_FINANCIAL_COMMON_ORDER_GROUP_FINANCIAL_TIMING_QUANTITY_GROUP(  # FINANCIAL TIMING QUANTITY - Segment group for DFT_P03_FINANCIAL_GROUP_FINANCIAL_COMMON_ORDER_GROUP - FINANCIAL COMMON ORDER consisting of TQ1, TQ2|None

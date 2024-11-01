@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PIN_I07_PROVIDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    CTD, PRD
+    PRD, CTD
 )
 
 pin_i07_provider_group = PIN_I07_PROVIDER_GROUP(  # PROVIDER - Segment group for PIN_I07 - Unsolicited insurance information consisting of PRD, CTD|None

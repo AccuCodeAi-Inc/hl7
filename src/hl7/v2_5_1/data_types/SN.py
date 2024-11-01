@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import DataType
-from .NM import NM
 from .ST import ST
+from .NM import NM
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     SN,
-    NM, ST
+    ST, NM
 )
 
 sn = SN(  # Structured Numeric - The structured numeric data type is used to unambiguously express numeric clinical results along with qualifications
@@ -46,10 +46,10 @@ class SN(DataType):
 
     def __init__(
         self,
-        comparator: ST | tuple[ST] | None = None,  # SN.1
-        num1: NM | tuple[NM] | None = None,  # SN.2
-        separator_or_suffix: ST | tuple[ST] | None = None,  # SN.3
-        num2: NM | tuple[NM] | None = None,  # SN.4
+        comparator: ST | tuple[ST, ...] | None = None,  # SN.1
+        num1: NM | tuple[NM, ...] | None = None,  # SN.2
+        separator_or_suffix: ST | tuple[ST, ...] | None = None,  # SN.3
+        num2: NM | tuple[NM, ...] | None = None,  # SN.4
     ):
         """
                 Structured Numeric - `SN <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/SN>`_

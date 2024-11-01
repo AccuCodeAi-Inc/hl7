@@ -1,23 +1,23 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.AL1 import AL1
-from ..segments.PV2 import PV2
-from ..segment_groups.ADT_A16_INSURANCE_GROUP import ADT_A16_INSURANCE_GROUP
-from ..segments.OBX import OBX
-from ..segment_groups.ADT_A16_PROCEDURE_GROUP import ADT_A16_PROCEDURE_GROUP
-from ..segments.ROL import ROL
-from ..segments.PV1 import PV1
-from ..segments.SFT import SFT
-from ..segments.MSH import MSH
-from ..segments.GT1 import GT1
-from ..segments.ACC import ACC
-from ..segments.DB1 import DB1
 from ..segments.PD1 import PD1
-from ..segments.PID import PID
+from ..segment_groups.ADT_A16_INSURANCE_GROUP import ADT_A16_INSURANCE_GROUP
+from ..segments.ACC import ACC
+from ..segments.ROL import ROL
 from ..segments.NK1 import NK1
-from ..segments.DG1 import DG1
+from ..segments.MSH import MSH
+from ..segments.PV2 import PV2
+from ..segments.AL1 import AL1
 from ..segments.EVN import EVN
+from ..segment_groups.ADT_A16_PROCEDURE_GROUP import ADT_A16_PROCEDURE_GROUP
+from ..segments.DB1 import DB1
+from ..segments.PV1 import PV1
+from ..segments.GT1 import GT1
+from ..segments.OBX import OBX
 from ..segments.DRG import DRG
+from ..segments.PID import PID
+from ..segments.DG1 import DG1
+from ..segments.SFT import SFT
 
 
 """
@@ -28,10 +28,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ADT_A16
 from utils.hl7.v2_5_1.segments import (
-    OBX, PID, MSH, PD1, PV1, NK1, ROL, PV2, SFT, DB1, AL1, DG1, GT1, ACC, DRG, EVN
+    NK1, DG1, DRG, DB1, ACC, AL1, PID, SFT, EVN, MSH, PD1, ROL, PV1, GT1, PV2, OBX
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    ADT_A16_PROCEDURE_GROUP, ADT_A16_INSURANCE_GROUP
+    ADT_A16_INSURANCE_GROUP, ADT_A16_PROCEDURE_GROUP
 )
 
 adt_a16 = ADT_A16(  #  - An A16 event notifies other systems of a plan to discharge a patient when the patient has not yet left the healthcare facility

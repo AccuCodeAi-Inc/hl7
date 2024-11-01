@@ -1,18 +1,18 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.SPM import SPM
-from ..segments.BPO import BPO
-from ..segments.BLG import BLG
-from ..segments.ORC import ORC
 from ..segment_groups.OMB_O27_ORDER_GROUP_TIMING_GROUP import (
     OMB_O27_ORDER_GROUP_TIMING_GROUP,
 )
+from ..segments.BLG import BLG
+from ..segments.FT1 import FT1
+from ..segments.ORC import ORC
+from ..segments.SPM import SPM
 from ..segment_groups.OMB_O27_ORDER_GROUP_OBSERVATION_GROUP import (
     OMB_O27_ORDER_GROUP_OBSERVATION_GROUP,
 )
-from ..segments.FT1 import FT1
-from ..segments.NTE import NTE
 from ..segments.DG1 import DG1
+from ..segments.NTE import NTE
+from ..segments.BPO import BPO
 
 
 """
@@ -23,7 +23,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OMB_O27_ORDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    FT1, BLG, DG1, SPM, NTE, BPO, ORC
+    DG1, BPO, NTE, SPM, ORC, FT1, BLG
 )
 from utils.hl7.v2_5_1.segment_groups import (
     OMB_O27_ORDER_GROUP_TIMING_GROUP, OMB_O27_ORDER_GROUP_OBSERVATION_GROUP

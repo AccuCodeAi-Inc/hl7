@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import MFN_M09_MF_TEST_CATEGORICAL_GROUP_MF_TEST_CAT_DETAIL_GROUP
 from utils.hl7.v2_5_1.segments import (
-    OM3, OM4
+    OM4, OM3
 )
 
 mfn_m09_mf_test_categorical_group_mf_test_cat_detail_group = MFN_M09_MF_TEST_CATEGORICAL_GROUP_MF_TEST_CAT_DETAIL_GROUP(  # MF TEST CAT DETAIL - Segment group for MFN_M09_MF_TEST_CATEGORICAL_GROUP - MF TEST CATEGORICAL consisting of OM3, OM4|None

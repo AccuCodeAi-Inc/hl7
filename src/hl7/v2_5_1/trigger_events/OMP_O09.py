@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
 from ..segment_groups.OMP_O09_PATIENT_GROUP import OMP_O09_PATIENT_GROUP
-from ..segments.SFT import SFT
 from ..segments.MSH import MSH
 from ..segment_groups.OMP_O09_ORDER_GROUP import OMP_O09_ORDER_GROUP
 from ..segments.NTE import NTE
+from ..segments.SFT import SFT
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OMP_O09
 from utils.hl7.v2_5_1.segments import (
-    NTE, SFT, MSH
+    SFT, NTE, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
     OMP_O09_ORDER_GROUP, OMP_O09_PATIENT_GROUP

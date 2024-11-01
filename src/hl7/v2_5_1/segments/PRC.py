@@ -1,22 +1,22 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.MO import MO
-from ..data_types.TS import TS
-from ..data_types.ID import ID
-from ..data_types.NM import NM
-from ..data_types.IS import IS
-from ..data_types.ST import ST
 from ..data_types.CE import CE
+from ..data_types.TS import TS
+from ..data_types.IS import IS
+from ..data_types.NM import NM
 from ..data_types.CP import CP
-from ..tables.PatientClass import PatientClass
-from ..tables.FacilityId import FacilityId
-from ..tables.ChargeOnIndicator import ChargeOnIndicator
-from ..tables.Department import Department
-from ..tables.BillingCategory import BillingCategory
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..data_types.ST import ST
+from ..data_types.ID import ID
+from ..data_types.MO import MO
 from ..tables.ActiveOrInactive import ActiveOrInactive
-from ..tables.Override import Override
+from ..tables.Department import Department
+from ..tables.ChargeOnIndicator import ChargeOnIndicator
 from ..tables.TransactionCode import TransactionCode
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..tables.Override import Override
+from ..tables.PatientClass import PatientClass
+from ..tables.BillingCategory import BillingCategory
+from ..tables.FacilityId import FacilityId
 
 
 """
@@ -27,7 +27,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PRC,
-    MO, TS, ID, NM, IS, ST, CE, CP
+    CE, TS, IS, NM, CP, ST, ID, MO
 )
 
 prc = PRC(  #  - The PRC segment contains the pricing information for the preceding CDM segment’s chargeable item
@@ -77,44 +77,47 @@ class PRC(HL7Segment):
         self,
         primary_key_value_prc: TransactionCode
         | CE
-        | tuple[TransactionCode | CE],  # PRC.1
+        | tuple[TransactionCode | CE, ...],  # PRC.1
         facility_id_prc: FacilityId
         | CE
-        | tuple[FacilityId | CE]
+        | tuple[FacilityId | CE, ...]
         | None = None,  # PRC.2
-        department: Department | CE | tuple[Department | CE] | None = None,  # PRC.3
+        department: Department
+        | CE
+        | tuple[Department | CE, ...]
+        | None = None,  # PRC.3
         valid_patient_classes: PatientClass
         | IS
-        | tuple[PatientClass | IS]
+        | tuple[PatientClass | IS, ...]
         | None = None,  # PRC.4
-        price: CP | tuple[CP] | None = None,  # PRC.5
-        formula: ST | tuple[ST] | None = None,  # PRC.6
-        minimum_quantity: NM | tuple[NM] | None = None,  # PRC.7
-        maximum_quantity: NM | tuple[NM] | None = None,  # PRC.8
-        minimum_price: MO | tuple[MO] | None = None,  # PRC.9
-        maximum_price: MO | tuple[MO] | None = None,  # PRC.10
-        effective_start_date: TS | tuple[TS] | None = None,  # PRC.11
-        effective_end_date: TS | tuple[TS] | None = None,  # PRC.12
+        price: CP | tuple[CP, ...] | None = None,  # PRC.5
+        formula: ST | tuple[ST, ...] | None = None,  # PRC.6
+        minimum_quantity: NM | tuple[NM, ...] | None = None,  # PRC.7
+        maximum_quantity: NM | tuple[NM, ...] | None = None,  # PRC.8
+        minimum_price: MO | tuple[MO, ...] | None = None,  # PRC.9
+        maximum_price: MO | tuple[MO, ...] | None = None,  # PRC.10
+        effective_start_date: TS | tuple[TS, ...] | None = None,  # PRC.11
+        effective_end_date: TS | tuple[TS, ...] | None = None,  # PRC.12
         price_override_flag: Override
         | IS
-        | tuple[Override | IS]
+        | tuple[Override | IS, ...]
         | None = None,  # PRC.13
         billing_category: BillingCategory
         | CE
-        | tuple[BillingCategory | CE]
+        | tuple[BillingCategory | CE, ...]
         | None = None,  # PRC.14
         chargeable_flag: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # PRC.15
         active_or_inactive_flag: ActiveOrInactive
         | ID
-        | tuple[ActiveOrInactive | ID]
+        | tuple[ActiveOrInactive | ID, ...]
         | None = None,  # PRC.16
-        cost: MO | tuple[MO] | None = None,  # PRC.17
+        cost: MO | tuple[MO, ...] | None = None,  # PRC.17
         charge_on_indicator: ChargeOnIndicator
         | IS
-        | tuple[ChargeOnIndicator | IS]
+        | tuple[ChargeOnIndicator | IS, ...]
         | None = None,  # PRC.18
     ):
         """

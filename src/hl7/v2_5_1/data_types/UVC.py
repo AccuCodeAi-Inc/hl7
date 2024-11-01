@@ -45,8 +45,8 @@ class UVC(DataType):
 
     def __init__(
         self,
-        value_code: ValueCode | CNE | tuple[ValueCode | CNE],  # UVC.1
-        value_amount: MO | tuple[MO] | None = None,  # UVC.2
+        value_code: ValueCode | CNE | tuple[ValueCode | CNE, ...],  # UVC.1
+        value_amount: MO | tuple[MO, ...] | None = None,  # UVC.2
     ):
         """
         UB Value Code and Amount - `UVC <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/UVC>`_

@@ -1,26 +1,26 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TS import TS
-from ..data_types.ID import ID
-from ..data_types.NM import NM
-from ..data_types.CP import CP
-from ..data_types.IS import IS
-from ..data_types.EI import EI
-from ..data_types.ST import ST
 from ..data_types.SI import SI
 from ..data_types.CE import CE
+from ..data_types.TS import TS
+from ..data_types.IS import IS
 from ..data_types.XCN import XCN
-from ..tables.DiagnosisCodingMethod import DiagnosisCodingMethod
-from ..tables.DrgGrouperReviewCode import DrgGrouperReviewCode
-from ..tables.OutlierType import OutlierType
-from ..tables.DiagnosisPriority import DiagnosisPriority
-from ..tables.DiagnosisRelatedGroup import DiagnosisRelatedGroup
+from ..data_types.NM import NM
+from ..data_types.CP import CP
+from ..data_types.ST import ST
+from ..data_types.ID import ID
+from ..data_types.EI import EI
+from ..tables.SegmentActionCode import SegmentActionCode
 from ..tables.DiagnosisType import DiagnosisType
+from ..tables.DiagnosisCodingMethod import DiagnosisCodingMethod
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..tables.DiagnosisRelatedGroup import DiagnosisRelatedGroup
+from ..tables.DiagnosisPriority import DiagnosisPriority
 from ..tables.DiagnosisClassification import DiagnosisClassification
 from ..tables.DiagnosisCode import DiagnosisCode
 from ..tables.MajorDiagnosticCategory import MajorDiagnosticCategory
-from ..tables.SegmentActionCode import SegmentActionCode
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..tables.OutlierType import OutlierType
+from ..tables.DrgGrouperReviewCode import DrgGrouperReviewCode
 
 
 """
@@ -31,7 +31,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     DG1,
-    TS, ID, NM, CP, IS, EI, ST, SI, CE, XCN
+    SI, CE, TS, IS, XCN, NM, CP, ST, ID, EI
 )
 
 dg1 = DG1(  #  - The DG1 segment contains patient diagnosis information of various types, for example, admitting, primary, etc
@@ -82,59 +82,59 @@ class DG1(HL7Segment):
 
     def __init__(
         self,
-        set_id_dg1: SI | tuple[SI],  # DG1.1
-        diagnosis_type: DiagnosisType | IS | tuple[DiagnosisType | IS],  # DG1.6
+        set_id_dg1: SI | tuple[SI, ...],  # DG1.1
+        diagnosis_type: DiagnosisType | IS | tuple[DiagnosisType | IS, ...],  # DG1.6
         diagnosis_coding_method: DiagnosisCodingMethod
         | ID
-        | tuple[DiagnosisCodingMethod | ID]
+        | tuple[DiagnosisCodingMethod | ID, ...]
         | None = None,  # DG1.2
         diagnosis_code_dg1: DiagnosisCode
         | CE
-        | tuple[DiagnosisCode | CE]
+        | tuple[DiagnosisCode | CE, ...]
         | None = None,  # DG1.3
-        diagnosis_description: ST | tuple[ST] | None = None,  # DG1.4
-        diagnosis_date_or_time: TS | tuple[TS] | None = None,  # DG1.5
+        diagnosis_description: ST | tuple[ST, ...] | None = None,  # DG1.4
+        diagnosis_date_or_time: TS | tuple[TS, ...] | None = None,  # DG1.5
         major_diagnostic_category: MajorDiagnosticCategory
         | CE
-        | tuple[MajorDiagnosticCategory | CE]
+        | tuple[MajorDiagnosticCategory | CE, ...]
         | None = None,  # DG1.7
         diagnostic_related_group: DiagnosisRelatedGroup
         | CE
-        | tuple[DiagnosisRelatedGroup | CE]
+        | tuple[DiagnosisRelatedGroup | CE, ...]
         | None = None,  # DG1.8
         drg_approval_indicator: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # DG1.9
         drg_grouper_review_code: DrgGrouperReviewCode
         | IS
-        | tuple[DrgGrouperReviewCode | IS]
+        | tuple[DrgGrouperReviewCode | IS, ...]
         | None = None,  # DG1.10
         outlier_type: OutlierType
         | CE
-        | tuple[OutlierType | CE]
+        | tuple[OutlierType | CE, ...]
         | None = None,  # DG1.11
-        outlier_days: NM | tuple[NM] | None = None,  # DG1.12
-        outlier_cost: CP | tuple[CP] | None = None,  # DG1.13
-        grouper_version_and_type: ST | tuple[ST] | None = None,  # DG1.14
+        outlier_days: NM | tuple[NM, ...] | None = None,  # DG1.12
+        outlier_cost: CP | tuple[CP, ...] | None = None,  # DG1.13
+        grouper_version_and_type: ST | tuple[ST, ...] | None = None,  # DG1.14
         diagnosis_priority: DiagnosisPriority
         | ID
-        | tuple[DiagnosisPriority | ID]
+        | tuple[DiagnosisPriority | ID, ...]
         | None = None,  # DG1.15
-        diagnosing_clinician: XCN | tuple[XCN] | None = None,  # DG1.16
+        diagnosing_clinician: XCN | tuple[XCN, ...] | None = None,  # DG1.16
         diagnosis_classification: DiagnosisClassification
         | IS
-        | tuple[DiagnosisClassification | IS]
+        | tuple[DiagnosisClassification | IS, ...]
         | None = None,  # DG1.17
         confidential_indicator: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # DG1.18
-        attestation_date_or_time: TS | tuple[TS] | None = None,  # DG1.19
-        diagnosis_identifier: EI | tuple[EI] | None = None,  # DG1.20
+        attestation_date_or_time: TS | tuple[TS, ...] | None = None,  # DG1.19
+        diagnosis_identifier: EI | tuple[EI, ...] | None = None,  # DG1.20
         diagnosis_action_code: SegmentActionCode
         | ID
-        | tuple[SegmentActionCode | ID]
+        | tuple[SegmentActionCode | ID, ...]
         | None = None,  # DG1.21
     ):
         """

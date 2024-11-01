@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CX import CX
 from ..data_types.XPN import XPN
+from ..data_types.CX import CX
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     MRG,
-    CX, XPN
+    XPN, CX
 )
 
 mrg = MRG(  #  - The MRG segment provides receiving applications with information necessary to initiate the merging of patient data as well as groups of records
@@ -49,13 +49,13 @@ class MRG(HL7Segment):
 
     def __init__(
         self,
-        prior_patient_identifier_list: CX | tuple[CX],  # MRG.1
-        prior_alternate_patient_id: CX | tuple[CX] | None = None,  # MRG.2
-        prior_patient_account_number: CX | tuple[CX] | None = None,  # MRG.3
-        prior_patient_id: CX | tuple[CX] | None = None,  # MRG.4
-        prior_visit_number: CX | tuple[CX] | None = None,  # MRG.5
-        prior_alternate_visit_id: CX | tuple[CX] | None = None,  # MRG.6
-        prior_patient_name: XPN | tuple[XPN] | None = None,  # MRG.7
+        prior_patient_identifier_list: CX | tuple[CX, ...],  # MRG.1
+        prior_alternate_patient_id: CX | tuple[CX, ...] | None = None,  # MRG.2
+        prior_patient_account_number: CX | tuple[CX, ...] | None = None,  # MRG.3
+        prior_patient_id: CX | tuple[CX, ...] | None = None,  # MRG.4
+        prior_visit_number: CX | tuple[CX, ...] | None = None,  # MRG.5
+        prior_alternate_visit_id: CX | tuple[CX, ...] | None = None,  # MRG.6
+        prior_patient_name: XPN | tuple[XPN, ...] | None = None,  # MRG.7
     ):
         """
         Merge Patient Information - `MRG <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/MRG>`_

@@ -1,13 +1,13 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
 from ..segments.ERR import ERR
-from ..segments.DSC import DSC
-from ..segments.DSP import DSP
-from ..segments.SFT import SFT
 from ..segments.MSH import MSH
-from ..segments.QAK import QAK
-from ..segments.MSA import MSA
 from ..segments.QPD import QPD
+from ..segments.MSA import MSA
+from ..segments.QAK import QAK
+from ..segments.DSP import DSP
+from ..segments.DSC import DSC
+from ..segments.SFT import SFT
 
 
 """
@@ -18,7 +18,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RDY_K15
 from utils.hl7.v2_5_1.segments import (
-    QPD, MSH, SFT, ERR, DSP, DSC, QAK, MSA
+    QAK, SFT, DSP, ERR, MSA, QPD, MSH, DSC
 )
 
 rdy_k15 = RDY_K15(  #  - The RDY_K15 supports a Display Response to the QBP and contains the MSH, MSA, ERR, QAK, DSP, and the DSC

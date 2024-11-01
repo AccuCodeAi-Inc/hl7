@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.ORC import ORC
 from ..segment_groups.CSU_C09_PATIENT_GROUP_STUDY_PHASE_GROUP_STUDY_SCHEDULE_GROUP_STUDY_PHARM_GROUP_RX_ADMIN_GROUP import (
     CSU_C09_PATIENT_GROUP_STUDY_PHASE_GROUP_STUDY_SCHEDULE_GROUP_STUDY_PHARM_GROUP_RX_ADMIN_GROUP,
 )
-from ..segments.ORC import ORC
 
 
 """

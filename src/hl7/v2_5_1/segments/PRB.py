@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TS import TS
-from ..data_types.ID import ID
-from ..data_types.NM import NM
 from ..data_types.CE import CE
+from ..data_types.TS import TS
+from ..data_types.NM import NM
 from ..data_types.ST import ST
+from ..data_types.ID import ID
 from ..data_types.EI import EI
 from ..tables.ProblemOrGoalActionCode import ProblemOrGoalActionCode
 
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PRB,
-    TS, ID, NM, CE, ST, EI
+    CE, TS, NM, ST, ID, EI
 )
 
 prb = PRB(  #  - The problem detail segment contains the data necessary to add, update, correct, and delete the problems of a given individual
@@ -74,35 +74,39 @@ class PRB(HL7Segment):
         self,
         action_code: ProblemOrGoalActionCode
         | ID
-        | tuple[ProblemOrGoalActionCode | ID],  # PRB.1
-        action_date_or_time: TS | tuple[TS],  # PRB.2
-        problem_id: CE | tuple[CE],  # PRB.3
-        problem_instance_id: EI | tuple[EI],  # PRB.4
-        episode_of_care_id: EI | tuple[EI] | None = None,  # PRB.5
-        problem_list_priority: NM | tuple[NM] | None = None,  # PRB.6
-        problem_established_date_or_time: TS | tuple[TS] | None = None,  # PRB.7
+        | tuple[ProblemOrGoalActionCode | ID, ...],  # PRB.1
+        action_date_or_time: TS | tuple[TS, ...],  # PRB.2
+        problem_id: CE | tuple[CE, ...],  # PRB.3
+        problem_instance_id: EI | tuple[EI, ...],  # PRB.4
+        episode_of_care_id: EI | tuple[EI, ...] | None = None,  # PRB.5
+        problem_list_priority: NM | tuple[NM, ...] | None = None,  # PRB.6
+        problem_established_date_or_time: TS | tuple[TS, ...] | None = None,  # PRB.7
         anticipated_problem_resolution_date_or_time: TS
-        | tuple[TS]
+        | tuple[TS, ...]
         | None = None,  # PRB.8
-        actual_problem_resolution_date_or_time: TS | tuple[TS] | None = None,  # PRB.9
-        problem_classification: CE | tuple[CE] | None = None,  # PRB.10
-        problem_management_discipline: CE | tuple[CE] | None = None,  # PRB.11
-        problem_persistence: CE | tuple[CE] | None = None,  # PRB.12
-        problem_confirmation_status: CE | tuple[CE] | None = None,  # PRB.13
-        problem_life_cycle_status: CE | tuple[CE] | None = None,  # PRB.14
-        problem_life_cycle_status_date_or_time: TS | tuple[TS] | None = None,  # PRB.15
-        problem_date_of_onset: TS | tuple[TS] | None = None,  # PRB.16
-        problem_onset_text: ST | tuple[ST] | None = None,  # PRB.17
-        problem_ranking: CE | tuple[CE] | None = None,  # PRB.18
-        certainty_of_problem: CE | tuple[CE] | None = None,  # PRB.19
-        probability_of_problem: NM | tuple[NM] | None = None,  # PRB.20
-        individual_awareness_of_problem: CE | tuple[CE] | None = None,  # PRB.21
-        problem_prognosis: CE | tuple[CE] | None = None,  # PRB.22
-        individual_awareness_of_prognosis: CE | tuple[CE] | None = None,  # PRB.23
+        actual_problem_resolution_date_or_time: TS
+        | tuple[TS, ...]
+        | None = None,  # PRB.9
+        problem_classification: CE | tuple[CE, ...] | None = None,  # PRB.10
+        problem_management_discipline: CE | tuple[CE, ...] | None = None,  # PRB.11
+        problem_persistence: CE | tuple[CE, ...] | None = None,  # PRB.12
+        problem_confirmation_status: CE | tuple[CE, ...] | None = None,  # PRB.13
+        problem_life_cycle_status: CE | tuple[CE, ...] | None = None,  # PRB.14
+        problem_life_cycle_status_date_or_time: TS
+        | tuple[TS, ...]
+        | None = None,  # PRB.15
+        problem_date_of_onset: TS | tuple[TS, ...] | None = None,  # PRB.16
+        problem_onset_text: ST | tuple[ST, ...] | None = None,  # PRB.17
+        problem_ranking: CE | tuple[CE, ...] | None = None,  # PRB.18
+        certainty_of_problem: CE | tuple[CE, ...] | None = None,  # PRB.19
+        probability_of_problem: NM | tuple[NM, ...] | None = None,  # PRB.20
+        individual_awareness_of_problem: CE | tuple[CE, ...] | None = None,  # PRB.21
+        problem_prognosis: CE | tuple[CE, ...] | None = None,  # PRB.22
+        individual_awareness_of_prognosis: CE | tuple[CE, ...] | None = None,  # PRB.23
         family_or_significant_other_awareness_of_problem_or_prognosis: ST
-        | tuple[ST]
+        | tuple[ST, ...]
         | None = None,  # PRB.24
-        security_or_sensitivity: CE | tuple[CE] | None = None,  # PRB.25
+        security_or_sensitivity: CE | tuple[CE, ...] | None = None,  # PRB.25
     ):
         """
         Problem Details - `PRB <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/PRB>`_

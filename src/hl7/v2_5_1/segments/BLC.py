@@ -47,9 +47,9 @@ class BLC(HL7Segment):
         self,
         blood_product_code: BloodProductCode
         | CE
-        | tuple[BloodProductCode | CE]
+        | tuple[BloodProductCode | CE, ...]
         | None = None,  # BLC.1
-        blood_amount: CQ | tuple[CQ] | None = None,  # BLC.2
+        blood_amount: CQ | tuple[CQ, ...] | None = None,  # BLC.2
     ):
         """
         Blood Code - `BLC <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/BLC>`_

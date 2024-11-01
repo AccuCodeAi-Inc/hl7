@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OMG_O19_ORDER_GROUP_PRIOR_RESULT_GROUP_PATIENT_PRIOR_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PID, PD1
+    PD1, PID
 )
 
 omg_o19_order_group_prior_result_group_patient_prior_group = OMG_O19_ORDER_GROUP_PRIOR_RESULT_GROUP_PATIENT_PRIOR_GROUP(  # PATIENT PRIOR - Segment group for OMG_O19_ORDER_GROUP_PRIOR_RESULT_GROUP - PRIOR RESULT consisting of PID, PD1|None

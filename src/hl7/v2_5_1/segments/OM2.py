@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TX import TX
-from ..data_types.RFR import RFR
-from ..data_types.DLT import DLT
-from ..data_types.NM import NM
 from ..data_types.CE import CE
+from ..data_types.RFR import RFR
+from ..data_types.NM import NM
+from ..data_types.DLT import DLT
+from ..data_types.TX import TX
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     OM2,
-    TX, RFR, DLT, NM, CE
+    CE, RFR, NM, DLT, TX
 )
 
 om2 = OM2(  #  - This segment contains the attributes of observations with continuous values (including those with data types of numeric, date, or time stamp)
@@ -56,21 +56,21 @@ class OM2(HL7Segment):
     def __init__(
         self,
         sequence_number_test_or_observation_master_file: NM
-        | tuple[NM]
+        | tuple[NM, ...]
         | None = None,  # OM2.1
-        units_of_measure: CE | tuple[CE] | None = None,  # OM2.2
-        range_of_decimal_precision: NM | tuple[NM] | None = None,  # OM2.3
-        corresponding_si_units_of_measure: CE | tuple[CE] | None = None,  # OM2.4
-        si_conversion_factor: TX | tuple[TX] | None = None,  # OM2.5
-        reference: RFR | tuple[RFR] | None = None,  # OM2.6
+        units_of_measure: CE | tuple[CE, ...] | None = None,  # OM2.2
+        range_of_decimal_precision: NM | tuple[NM, ...] | None = None,  # OM2.3
+        corresponding_si_units_of_measure: CE | tuple[CE, ...] | None = None,  # OM2.4
+        si_conversion_factor: TX | tuple[TX, ...] | None = None,  # OM2.5
+        reference: RFR | tuple[RFR, ...] | None = None,  # OM2.6
         critical_range_for_ordinal_and_continuous_observations: RFR
-        | tuple[RFR]
+        | tuple[RFR, ...]
         | None = None,  # OM2.7
         absolute_range_for_ordinal_and_continuous_observations: RFR
-        | tuple[RFR]
+        | tuple[RFR, ...]
         | None = None,  # OM2.8
-        delta_check_criteria: DLT | tuple[DLT] | None = None,  # OM2.9
-        minimum_meaningful_increments: NM | tuple[NM] | None = None,  # OM2.10
+        delta_check_criteria: DLT | tuple[DLT, ...] | None = None,  # OM2.9
+        minimum_meaningful_increments: NM | tuple[NM, ...] | None = None,  # OM2.10
     ):
         """
         Numeric Observation - `OM2 <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/OM2>`_

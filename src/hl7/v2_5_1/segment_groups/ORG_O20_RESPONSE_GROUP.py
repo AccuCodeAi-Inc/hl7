@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segment_groups.ORG_O20_RESPONSE_GROUP_PATIENT_GROUP import (
-    ORG_O20_RESPONSE_GROUP_PATIENT_GROUP,
-)
 from ..segment_groups.ORG_O20_RESPONSE_GROUP_ORDER_GROUP import (
     ORG_O20_RESPONSE_GROUP_ORDER_GROUP,
+)
+from ..segment_groups.ORG_O20_RESPONSE_GROUP_PATIENT_GROUP import (
+    ORG_O20_RESPONSE_GROUP_PATIENT_GROUP,
 )
 
 
@@ -19,7 +19,7 @@ from utils.hl7.v2_5_1.segments import (
     
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    ORG_O20_RESPONSE_GROUP_PATIENT_GROUP, ORG_O20_RESPONSE_GROUP_ORDER_GROUP
+    ORG_O20_RESPONSE_GROUP_ORDER_GROUP, ORG_O20_RESPONSE_GROUP_PATIENT_GROUP
 )
 
 org_o20_response_group = ORG_O20_RESPONSE_GROUP(  # RESPONSE - Segment group for ORG_O20 - General Clinical Order Acknowledgement  consisting of PATIENT|None, ORDER

@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.ODT import ODT
 from ..segments.NTE import NTE
 from ..segment_groups.OMD_O03_ORDER_TRAY_GROUP_TIMING_TRAY_GROUP import (
     OMD_O03_ORDER_TRAY_GROUP_TIMING_TRAY_GROUP,
 )
 from ..segments.ORC import ORC
+from ..segments.ODT import ODT
 
 
 """

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.RCD import RCD
 from ..data_types.NM import NM
+from ..data_types.RCD import RCD
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RDF,
-    RCD, NM
+    NM, RCD
 )
 
 rdf = RDF(  #  - The RDF segment defines the content of the row data segments (RDT) in the tabular response (RTB)
@@ -44,8 +44,8 @@ class RDF(HL7Segment):
 
     def __init__(
         self,
-        number_of_columns_per_row: NM | tuple[NM],  # RDF.1
-        column_description: RCD | tuple[RCD],  # RDF.2
+        number_of_columns_per_row: NM | tuple[NM, ...],  # RDF.1
+        column_description: RCD | tuple[RCD, ...],  # RDF.2
     ):
         """
         Table Row Definition - `RDF <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/RDF>`_

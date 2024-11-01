@@ -3,10 +3,10 @@ from ...base import HL7SegmentGroup
 from ..segment_groups.RRE_O26_RESPONSE_GROUP_ORDER_GROUP_ENCODING_GROUP import (
     RRE_O26_RESPONSE_GROUP_ORDER_GROUP_ENCODING_GROUP,
 )
+from ..segments.ORC import ORC
 from ..segment_groups.RRE_O26_RESPONSE_GROUP_ORDER_GROUP_TIMING_GROUP import (
     RRE_O26_RESPONSE_GROUP_ORDER_GROUP_TIMING_GROUP,
 )
-from ..segments.ORC import ORC
 
 
 """
@@ -20,7 +20,7 @@ from utils.hl7.v2_5_1.segments import (
     ORC
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    RRE_O26_RESPONSE_GROUP_ORDER_GROUP_ENCODING_GROUP, RRE_O26_RESPONSE_GROUP_ORDER_GROUP_TIMING_GROUP
+    RRE_O26_RESPONSE_GROUP_ORDER_GROUP_TIMING_GROUP, RRE_O26_RESPONSE_GROUP_ORDER_GROUP_ENCODING_GROUP
 )
 
 rre_o26_response_group_order_group = RRE_O26_RESPONSE_GROUP_ORDER_GROUP(  # ORDER - Segment group for RRE_O26_RESPONSE_GROUP - RESPONSE consisting of ORC, TIMING|None, ENCODING|None

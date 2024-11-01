@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
 from ..data_types.TS import TS
+from ..data_types.CE import CE
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CSP,
-    CE, TS
+    TS, CE
 )
 
 csp = CSP(  #  - The CSP segment contains information on a patients status for a particular phase of the study
@@ -46,10 +46,10 @@ class CSP(HL7Segment):
 
     def __init__(
         self,
-        study_phase_identifier: CE | tuple[CE],  # CSP.1
-        date_or_time_study_phase_began: TS | tuple[TS],  # CSP.2
-        date_or_time_study_phase_ended: TS | tuple[TS] | None = None,  # CSP.3
-        study_phase_evaluability: CE | tuple[CE] | None = None,  # CSP.4
+        study_phase_identifier: CE | tuple[CE, ...],  # CSP.1
+        date_or_time_study_phase_began: TS | tuple[TS, ...],  # CSP.2
+        date_or_time_study_phase_ended: TS | tuple[TS, ...] | None = None,  # CSP.3
+        study_phase_evaluability: CE | tuple[CE, ...] | None = None,  # CSP.4
     ):
         """
         Clinical Study Phase - `CSP <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/CSP>`_

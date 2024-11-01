@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RPA_I10_VISIT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PV2, PV1
+    PV1, PV2
 )
 
 rpa_i10_visit_group = RPA_I10_VISIT_GROUP(  # VISIT - Segment group for RPA_I10 - Request for resubmission of an authorization acknowledgement consisting of PV1, PV2|None

@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.DT import DT
-from ..data_types.ST import ST
 from ..data_types.SI import SI
 from ..data_types.CE import CE
+from ..data_types.DT import DT
+from ..data_types.ST import ST
 from ..tables.AllergySeverity import AllergySeverity
 from ..tables.AllergenType import AllergenType
 
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     AL1,
-    DT, ST, SI, CE
+    SI, CE, DT, ST
 )
 
 al1 = AL1(  #  - The AL1 segment contains patient allergy information of various types
@@ -52,18 +52,18 @@ class AL1(HL7Segment):
 
     def __init__(
         self,
-        set_id_al1: SI | tuple[SI],  # AL1.1
-        allergen_code_or_mnemonic_or_description: CE | tuple[CE],  # AL1.3
+        set_id_al1: SI | tuple[SI, ...],  # AL1.1
+        allergen_code_or_mnemonic_or_description: CE | tuple[CE, ...],  # AL1.3
         allergen_type_code: AllergenType
         | CE
-        | tuple[AllergenType | CE]
+        | tuple[AllergenType | CE, ...]
         | None = None,  # AL1.2
         allergy_severity_code: AllergySeverity
         | CE
-        | tuple[AllergySeverity | CE]
+        | tuple[AllergySeverity | CE, ...]
         | None = None,  # AL1.4
-        allergy_reaction_code: ST | tuple[ST] | None = None,  # AL1.5
-        identification_date: DT | tuple[DT] | None = None,  # AL1.6
+        allergy_reaction_code: ST | tuple[ST, ...] | None = None,  # AL1.5
+        identification_date: DT | tuple[DT, ...] | None = None,  # AL1.6
     ):
         """
         Patient Allergy Information - `AL1 <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/AL1>`_

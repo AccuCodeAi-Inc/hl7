@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CQ import CQ
-from ..data_types.ID import ID
-from ..data_types.NM import NM
 from ..data_types.SI import SI
+from ..data_types.CQ import CQ
+from ..data_types.NM import NM
+from ..data_types.ID import ID
 from ..data_types.EI import EI
-from ..tables.SequenceConditionCode import SequenceConditionCode
-from ..tables.ServiceRequestRelationship import ServiceRequestRelationship
 from ..tables.CyclicEntryOrExitIndicator import CyclicEntryOrExitIndicator
 from ..tables.SequenceOrResultsFlag import SequenceOrResultsFlag
+from ..tables.SequenceConditionCode import SequenceConditionCode
+from ..tables.ServiceRequestRelationship import ServiceRequestRelationship
 
 
 """
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     TQ2,
-    CQ, ID, NM, SI, EI
+    SI, CQ, NM, ID, EI
 )
 
 tq2 = TQ2(  #  - The TQ2 segment is used to form a relationship between the service request the TQ1/TQ2 segments are associated with, and other service requests
@@ -59,27 +59,29 @@ class TQ2(HL7Segment):
 
     def __init__(
         self,
-        set_id_tq2: SI | tuple[SI] | None = None,  # TQ2.1
+        set_id_tq2: SI | tuple[SI, ...] | None = None,  # TQ2.1
         sequence_or_results_flag: SequenceOrResultsFlag
         | ID
-        | tuple[SequenceOrResultsFlag | ID]
+        | tuple[SequenceOrResultsFlag | ID, ...]
         | None = None,  # TQ2.2
-        related_placer_number: EI | tuple[EI] | None = None,  # TQ2.3
-        related_filler_number: EI | tuple[EI] | None = None,  # TQ2.4
-        related_placer_group_number: EI | tuple[EI] | None = None,  # TQ2.5
+        related_placer_number: EI | tuple[EI, ...] | None = None,  # TQ2.3
+        related_filler_number: EI | tuple[EI, ...] | None = None,  # TQ2.4
+        related_placer_group_number: EI | tuple[EI, ...] | None = None,  # TQ2.5
         sequence_condition_code: SequenceConditionCode
         | ID
-        | tuple[SequenceConditionCode | ID]
+        | tuple[SequenceConditionCode | ID, ...]
         | None = None,  # TQ2.6
         cyclic_entry_or_exit_indicator: CyclicEntryOrExitIndicator
         | ID
-        | tuple[CyclicEntryOrExitIndicator | ID]
+        | tuple[CyclicEntryOrExitIndicator | ID, ...]
         | None = None,  # TQ2.7
-        sequence_condition_time_interval: CQ | tuple[CQ] | None = None,  # TQ2.8
-        cyclic_group_maximum_number_of_repeats: NM | tuple[NM] | None = None,  # TQ2.9
+        sequence_condition_time_interval: CQ | tuple[CQ, ...] | None = None,  # TQ2.8
+        cyclic_group_maximum_number_of_repeats: NM
+        | tuple[NM, ...]
+        | None = None,  # TQ2.9
         special_service_request_relationship: ServiceRequestRelationship
         | ID
-        | tuple[ServiceRequestRelationship | ID]
+        | tuple[ServiceRequestRelationship | ID, ...]
         | None = None,  # TQ2.10
     ):
         """

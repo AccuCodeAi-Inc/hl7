@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.APR import APR
 from ..segments.AIP import AIP
+from ..segments.APR import APR
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import SQM_S25_REQUEST_GROUP_RESOURCES_GROUP_PERSONNEL_RESOURCE_GROUP
 from utils.hl7.v2_5_1.segments import (
-    APR, AIP
+    AIP, APR
 )
 
 sqm_s25_request_group_resources_group_personnel_resource_group = SQM_S25_REQUEST_GROUP_RESOURCES_GROUP_PERSONNEL_RESOURCE_GROUP(  # PERSONNEL RESOURCE - Segment group for SQM_S25_REQUEST_GROUP_RESOURCES_GROUP - RESOURCES consisting of AIP, APR|None

@@ -43,8 +43,8 @@ class WVS(DataType):
 
     def __init__(
         self,
-        source_one_name: ST | tuple[ST],  # WVS.1
-        source_two_name: ST | tuple[ST] | None = None,  # WVS.2
+        source_one_name: ST | tuple[ST, ...],  # WVS.1
+        source_two_name: ST | tuple[ST, ...] | None = None,  # WVS.2
     ):
         """
         Waveform Source - `WVS <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/WVS>`_

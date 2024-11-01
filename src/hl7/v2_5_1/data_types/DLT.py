@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import DataType
+from .NR import NR
 from .ID import ID
 from .NM import NM
-from .NR import NR
 from ..tables.ComputationType import ComputationType
 
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     DLT,
-    ID, NM, NR
+    NR, ID, NM
 )
 
 dlt = DLT(  # Delta - Describes the information that controls delta check warnings
@@ -48,13 +48,13 @@ class DLT(DataType):
 
     def __init__(
         self,
-        normal_range: NR | tuple[NR] | None = None,  # DLT.1
-        numeric_threshold: NM | tuple[NM] | None = None,  # DLT.2
+        normal_range: NR | tuple[NR, ...] | None = None,  # DLT.1
+        numeric_threshold: NM | tuple[NM, ...] | None = None,  # DLT.2
         change_computation: ComputationType
         | ID
-        | tuple[ComputationType | ID]
+        | tuple[ComputationType | ID, ...]
         | None = None,  # DLT.3
-        days_retained: NM | tuple[NM] | None = None,  # DLT.4
+        days_retained: NM | tuple[NM, ...] | None = None,  # DLT.4
     ):
         """
         Delta - `DLT <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/DLT>`_

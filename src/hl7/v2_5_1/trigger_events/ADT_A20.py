@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.SFT import SFT
 from ..segments.MSH import MSH
-from ..segments.EVN import EVN
 from ..segments.NPU import NPU
+from ..segments.EVN import EVN
+from ..segments.SFT import SFT
 
 
 """
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ADT_A20
 from utils.hl7.v2_5_1.segments import (
-    SFT, MSH, EVN, NPU
+    SFT, EVN, NPU, MSH
 )
 
 adt_a20 = ADT_A20(  #  - Certain nursing/census applications need to be able to update the Patient Administration system’s bed status

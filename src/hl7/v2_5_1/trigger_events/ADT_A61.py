@@ -1,13 +1,13 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.PV2 import PV2
-from ..segments.ROL import ROL
-from ..segments.PV1 import PV1
-from ..segments.SFT import SFT
-from ..segments.MSH import MSH
 from ..segments.PD1 import PD1
-from ..segments.PID import PID
+from ..segments.ROL import ROL
+from ..segments.MSH import MSH
+from ..segments.PV2 import PV2
 from ..segments.EVN import EVN
+from ..segments.PV1 import PV1
+from ..segments.PID import PID
+from ..segments.SFT import SFT
 
 
 """
@@ -18,7 +18,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ADT_A61
 from utils.hl7.v2_5_1.segments import (
-    PID, MSH, PD1, PV1, PV2, ROL, SFT, EVN
+    ROL, PID, SFT, EVN, MSH, PD1, PV1, PV2
 )
 
 adt_a61 = ADT_A61(  #  - An A61 event is used as a result of a change in the consulting physician(s) for the treatment of a patient

@@ -1,15 +1,15 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
 from ..segment_groups.ORU_R30_VISIT_GROUP import ORU_R30_VISIT_GROUP
-from ..segments.SFT import SFT
-from ..segments.MSH import MSH
-from ..segment_groups.ORU_R30_OBSERVATION_GROUP import ORU_R30_OBSERVATION_GROUP
-from ..segments.ORC import ORC
-from ..segments.NTE import NTE
-from ..segments.PD1 import PD1
-from ..segments.PID import PID
 from ..segment_groups.ORU_R30_TIMING_QTY_GROUP import ORU_R30_TIMING_QTY_GROUP
+from ..segments.PD1 import PD1
+from ..segments.ORC import ORC
+from ..segments.MSH import MSH
 from ..segments.OBR import OBR
+from ..segment_groups.ORU_R30_OBSERVATION_GROUP import ORU_R30_OBSERVATION_GROUP
+from ..segments.PID import PID
+from ..segments.NTE import NTE
+from ..segments.SFT import SFT
 
 
 """
@@ -20,10 +20,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ORU_R30
 from utils.hl7.v2_5_1.segments import (
-    OBR, PID, MSH, PD1, SFT, NTE, ORC
+    NTE, ORC, PID, SFT, MSH, PD1, OBR
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    ORU_R30_TIMING_QTY_GROUP, ORU_R30_VISIT_GROUP, ORU_R30_OBSERVATION_GROUP
+    ORU_R30_OBSERVATION_GROUP, ORU_R30_VISIT_GROUP, ORU_R30_TIMING_QTY_GROUP
 )
 
 oru_r30 = ORU_R30(  #  - This event trigger instructs the receiving system to create a new order for the observation(s) contained in the message

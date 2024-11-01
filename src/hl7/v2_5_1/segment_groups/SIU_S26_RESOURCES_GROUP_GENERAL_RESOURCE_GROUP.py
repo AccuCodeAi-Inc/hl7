@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import SIU_S26_RESOURCES_GROUP_GENERAL_RESOURCE_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NTE, AIG
+    AIG, NTE
 )
 
 siu_s26_resources_group_general_resource_group = SIU_S26_RESOURCES_GROUP_GENERAL_RESOURCE_GROUP(  # GENERAL RESOURCE - Segment group for SIU_S26_RESOURCES_GROUP - RESOURCES consisting of AIG, NTE|None

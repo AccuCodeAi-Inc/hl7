@@ -42,7 +42,7 @@ class NCK(HL7Segment):
 
     def __init__(
         self,
-        system_date_or_time: TS | tuple[TS],  # NCK.1
+        system_date_or_time: TS | tuple[TS, ...],  # NCK.1
     ):
         """
         System Clock - `NCK <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/NCK>`_

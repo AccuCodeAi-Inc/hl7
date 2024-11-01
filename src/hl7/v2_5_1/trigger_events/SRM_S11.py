@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.APR import APR
 from ..segments.ARQ import ARQ
+from ..segments.APR import APR
 from ..segments.MSH import MSH
 from ..segment_groups.SRM_S11_RESOURCES_GROUP import SRM_S11_RESOURCES_GROUP
-from ..segments.NTE import NTE
 from ..segment_groups.SRM_S11_PATIENT_GROUP import SRM_S11_PATIENT_GROUP
+from ..segments.NTE import NTE
 
 
 """
@@ -16,10 +16,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import SRM_S11
 from utils.hl7.v2_5_1.segments import (
-    NTE, MSH, ARQ, APR
+    NTE, ARQ, APR, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    SRM_S11_PATIENT_GROUP, SRM_S11_RESOURCES_GROUP
+    SRM_S11_RESOURCES_GROUP, SRM_S11_PATIENT_GROUP
 )
 
 srm_s11 = SRM_S11(  #  - A request deletion of service/resource is sent by the placer application to the filler application to request that a scheduled appointment requiring a service or resource entered in error be removed from the system

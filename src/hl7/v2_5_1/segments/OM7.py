@@ -1,21 +1,21 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TX import TX
+from ..data_types.CE import CE
 from ..data_types.TS import TS
-from ..data_types.ID import ID
+from ..data_types.IS import IS
+from ..data_types.XCN import XCN
 from ..data_types.NM import NM
 from ..data_types.PL import PL
-from ..data_types.IS import IS
 from ..data_types.ST import ST
-from ..data_types.CE import CE
-from ..data_types.XCN import XCN
-from ..tables.CategoryIdentifier import CategoryIdentifier
-from ..tables.FormularyStatus import FormularyStatus
+from ..data_types.ID import ID
+from ..data_types.TX import TX
 from ..tables.RepeatPattern import RepeatPattern
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..tables.CategoryIdentifier import CategoryIdentifier
 from ..tables.TransactionCode import TransactionCode
-from ..tables.ConsentIdentifier import ConsentIdentifier
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..tables.FormularyStatus import FormularyStatus
 from ..tables.UnitsOfTime import UnitsOfTime
+from ..tables.ConsentIdentifier import ConsentIdentifier
 
 
 """
@@ -26,7 +26,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     OM7,
-    TX, TS, ID, NM, PL, IS, ST, CE, XCN
+    CE, TS, IS, XCN, NM, PL, ST, ID, TX
 )
 
 om7 = OM7(  #  - The OM7 segment contains additional basic attributes that apply to the definition of most observations/services
@@ -80,62 +80,66 @@ class OM7(HL7Segment):
 
     def __init__(
         self,
-        sequence_number_test_or_observation_master_file: NM | tuple[NM],  # OM7.1
-        universal_service_identifier: CE | tuple[CE],  # OM7.2
+        sequence_number_test_or_observation_master_file: NM | tuple[NM, ...],  # OM7.1
+        universal_service_identifier: CE | tuple[CE, ...],  # OM7.2
         category_identifier: CategoryIdentifier
         | CE
-        | tuple[CategoryIdentifier | CE]
+        | tuple[CategoryIdentifier | CE, ...]
         | None = None,  # OM7.3
-        category_description: TX | tuple[TX] | None = None,  # OM7.4
-        category_synonym: ST | tuple[ST] | None = None,  # OM7.5
+        category_description: TX | tuple[TX, ...] | None = None,  # OM7.4
+        category_synonym: ST | tuple[ST, ...] | None = None,  # OM7.5
         effective_test_or_service_start_date_or_time: TS
-        | tuple[TS]
+        | tuple[TS, ...]
         | None = None,  # OM7.6
         effective_test_or_service_end_date_or_time: TS
-        | tuple[TS]
+        | tuple[TS, ...]
         | None = None,  # OM7.7
         test_or_service_default_duration_quantity: NM
-        | tuple[NM]
+        | tuple[NM, ...]
         | None = None,  # OM7.8
-        test_or_service_default_duration_units: CE | tuple[CE] | None = None,  # OM7.9
+        test_or_service_default_duration_units: CE
+        | tuple[CE, ...]
+        | None = None,  # OM7.9
         test_or_service_default_frequency: RepeatPattern
         | IS
-        | tuple[RepeatPattern | IS]
+        | tuple[RepeatPattern | IS, ...]
         | None = None,  # OM7.10
         consent_indicator: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # OM7.11
         consent_identifier: ConsentIdentifier
         | CE
-        | tuple[ConsentIdentifier | CE]
+        | tuple[ConsentIdentifier | CE, ...]
         | None = None,  # OM7.12
-        consent_effective_start_date_or_time: TS | tuple[TS] | None = None,  # OM7.13
-        consent_effective_end_date_or_time: TS | tuple[TS] | None = None,  # OM7.14
-        consent_interval_quantity: NM | tuple[NM] | None = None,  # OM7.15
+        consent_effective_start_date_or_time: TS
+        | tuple[TS, ...]
+        | None = None,  # OM7.13
+        consent_effective_end_date_or_time: TS | tuple[TS, ...] | None = None,  # OM7.14
+        consent_interval_quantity: NM | tuple[NM, ...] | None = None,  # OM7.15
         consent_interval_units: UnitsOfTime
         | CE
-        | tuple[UnitsOfTime | CE]
+        | tuple[UnitsOfTime | CE, ...]
         | None = None,  # OM7.16
-        consent_waiting_period_quantity: NM | tuple[NM] | None = None,  # OM7.17
+        consent_waiting_period_quantity: NM | tuple[NM, ...] | None = None,  # OM7.17
         consent_waiting_period_units: UnitsOfTime
         | CE
-        | tuple[UnitsOfTime | CE]
+        | tuple[UnitsOfTime | CE, ...]
         | None = None,  # OM7.18
-        effective_date_or_time_of_change: TS | tuple[TS] | None = None,  # OM7.19
-        entered_by: XCN | tuple[XCN] | None = None,  # OM7.20
-        orderable_at_location: PL | tuple[PL] | None = None,  # OM7.21
+        effective_date_or_time_of_change: TS | tuple[TS, ...] | None = None,  # OM7.19
+        entered_by: XCN | tuple[XCN, ...] | None = None,  # OM7.20
+        orderable_at_location: PL | tuple[PL, ...] | None = None,  # OM7.21
         formulary_status: FormularyStatus
         | IS
-        | tuple[FormularyStatus | IS]
+        | tuple[FormularyStatus | IS, ...]
         | None = None,  # OM7.22
         special_order_indicator: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # OM7.23
         primary_key_value_cdm: TransactionCode
         | CE
-        | tuple[TransactionCode | CE]
+        | tuple[TransactionCode | CE, ...]
         | None = None,  # OM7.24
     ):
         """

@@ -1,19 +1,19 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.XTN import XTN
-from ..data_types.TS import TS
-from ..data_types.ID import ID
-from ..data_types.PL import PL
-from ..data_types.IS import IS
 from ..data_types.CE import CE
-from ..data_types.ST import ST
+from ..data_types.TS import TS
+from ..data_types.IS import IS
+from ..data_types.XTN import XTN
+from ..data_types.PL import PL
 from ..data_types.VH import VH
+from ..data_types.ST import ST
+from ..data_types.ID import ID
+from ..tables.ActiveOrInactive import ActiveOrInactive
+from ..tables.LocationCostCenter import LocationCostCenter
+from ..tables.SpecialtyType import SpecialtyType
 from ..tables.HospitalService import HospitalService
 from ..tables.PatientClass import PatientClass
-from ..tables.SpecialtyType import SpecialtyType
 from ..tables.LocationDepartment import LocationDepartment
-from ..tables.LocationCostCenter import LocationCostCenter
-from ..tables.ActiveOrInactive import ActiveOrInactive
 
 
 """
@@ -24,7 +24,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     LDP,
-    XTN, TS, ID, PL, IS, CE, ST, VH
+    CE, TS, IS, XTN, PL, VH, ST, ID
 )
 
 ldp = LDP(  #  - The LDP segment identifies how a patient location room is being used by a certain department
@@ -66,34 +66,34 @@ class LDP(HL7Segment):
 
     def __init__(
         self,
-        primary_key_value_ldp: PL | tuple[PL],  # LDP.1
+        primary_key_value_ldp: PL | tuple[PL, ...],  # LDP.1
         location_department: LocationDepartment
         | CE
-        | tuple[LocationDepartment | CE],  # LDP.2
+        | tuple[LocationDepartment | CE, ...],  # LDP.2
         location_service: HospitalService
         | IS
-        | tuple[HospitalService | IS]
+        | tuple[HospitalService | IS, ...]
         | None = None,  # LDP.3
         specialty_type: SpecialtyType
         | CE
-        | tuple[SpecialtyType | CE]
+        | tuple[SpecialtyType | CE, ...]
         | None = None,  # LDP.4
         valid_patient_classes: PatientClass
         | IS
-        | tuple[PatientClass | IS]
+        | tuple[PatientClass | IS, ...]
         | None = None,  # LDP.5
         active_or_inactive_flag: ActiveOrInactive
         | ID
-        | tuple[ActiveOrInactive | ID]
+        | tuple[ActiveOrInactive | ID, ...]
         | None = None,  # LDP.6
-        activation_date_ldp: TS | tuple[TS] | None = None,  # LDP.7
-        inactivation_date_ldp: TS | tuple[TS] | None = None,  # LDP.8
-        inactivated_reason: ST | tuple[ST] | None = None,  # LDP.9
-        visiting_hours: VH | tuple[VH] | None = None,  # LDP.10
-        contact_phone: XTN | tuple[XTN] | None = None,  # LDP.11
+        activation_date_ldp: TS | tuple[TS, ...] | None = None,  # LDP.7
+        inactivation_date_ldp: TS | tuple[TS, ...] | None = None,  # LDP.8
+        inactivated_reason: ST | tuple[ST, ...] | None = None,  # LDP.9
+        visiting_hours: VH | tuple[VH, ...] | None = None,  # LDP.10
+        contact_phone: XTN | tuple[XTN, ...] | None = None,  # LDP.11
         location_cost_center: LocationCostCenter
         | CE
-        | tuple[LocationCostCenter | CE]
+        | tuple[LocationCostCenter | CE, ...]
         | None = None,  # LDP.12
     ):
         """

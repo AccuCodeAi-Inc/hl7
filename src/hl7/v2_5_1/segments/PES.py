@@ -1,17 +1,17 @@
 from __future__ import annotations
 from ...base import HL7Segment
 from ..data_types.TS import TS
-from ..data_types.ID import ID
-from ..data_types.NM import NM
 from ..data_types.XCN import XCN
+from ..data_types.NM import NM
 from ..data_types.XTN import XTN
 from ..data_types.XAD import XAD
+from ..data_types.XON import XON
+from ..data_types.ID import ID
 from ..data_types.EI import EI
 from ..data_types.FT import FT
-from ..data_types.XON import XON
 from ..tables.EventReportedTo import EventReportedTo
-from ..tables.ReportTiming import ReportTiming
 from ..tables.ReportSource import ReportSource
+from ..tables.ReportTiming import ReportTiming
 
 
 """
@@ -22,7 +22,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PES,
-    TS, ID, NM, XCN, XTN, XAD, EI, FT, XON
+    TS, XCN, NM, XTN, XAD, XON, ID, EI, FT
 )
 
 pes = PES(  #  - 
@@ -65,27 +65,27 @@ class PES(HL7Segment):
 
     def __init__(
         self,
-        event_report_date: TS | tuple[TS],  # PES.10
-        sender_organization_name: XON | tuple[XON] | None = None,  # PES.1
-        sender_individual_name: XCN | tuple[XCN] | None = None,  # PES.2
-        sender_address: XAD | tuple[XAD] | None = None,  # PES.3
-        sender_telephone: XTN | tuple[XTN] | None = None,  # PES.4
-        sender_event_identifier: EI | tuple[EI] | None = None,  # PES.5
-        sender_sequence_number: NM | tuple[NM] | None = None,  # PES.6
-        sender_event_description: FT | tuple[FT] | None = None,  # PES.7
-        sender_comment: FT | tuple[FT] | None = None,  # PES.8
-        sender_aware_date_or_time: TS | tuple[TS] | None = None,  # PES.9
+        event_report_date: TS | tuple[TS, ...],  # PES.10
+        sender_organization_name: XON | tuple[XON, ...] | None = None,  # PES.1
+        sender_individual_name: XCN | tuple[XCN, ...] | None = None,  # PES.2
+        sender_address: XAD | tuple[XAD, ...] | None = None,  # PES.3
+        sender_telephone: XTN | tuple[XTN, ...] | None = None,  # PES.4
+        sender_event_identifier: EI | tuple[EI, ...] | None = None,  # PES.5
+        sender_sequence_number: NM | tuple[NM, ...] | None = None,  # PES.6
+        sender_event_description: FT | tuple[FT, ...] | None = None,  # PES.7
+        sender_comment: FT | tuple[FT, ...] | None = None,  # PES.8
+        sender_aware_date_or_time: TS | tuple[TS, ...] | None = None,  # PES.9
         event_report_timing_or_type: ReportTiming
         | ID
-        | tuple[ReportTiming | ID]
+        | tuple[ReportTiming | ID, ...]
         | None = None,  # PES.11
         event_report_source: ReportSource
         | ID
-        | tuple[ReportSource | ID]
+        | tuple[ReportSource | ID, ...]
         | None = None,  # PES.12
         event_reported_to: EventReportedTo
         | ID
-        | tuple[EventReportedTo | ID]
+        | tuple[EventReportedTo | ID, ...]
         | None = None,  # PES.13
     ):
         """

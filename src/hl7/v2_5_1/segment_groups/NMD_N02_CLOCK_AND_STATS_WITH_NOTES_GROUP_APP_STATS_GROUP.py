@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.NST import NST
 from ..segments.NTE import NTE
+from ..segments.NST import NST
 
 
 """

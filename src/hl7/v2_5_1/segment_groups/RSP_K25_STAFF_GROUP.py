@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.LAN import LAN
+from ..segments.EDU import EDU
+from ..segments.AFF import AFF
+from ..segments.CER import CER
+from ..segments.PRA import PRA
 from ..segments.STF import STF
 from ..segments.ORG import ORG
-from ..segments.PRA import PRA
-from ..segments.AFF import AFF
-from ..segments.EDU import EDU
-from ..segments.LAN import LAN
-from ..segments.CER import CER
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RSP_K25_STAFF_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PRA, AFF, ORG, CER, STF, EDU, LAN
+    CER, PRA, AFF, EDU, STF, ORG, LAN
 )
 
 rsp_k25_staff_group = RSP_K25_STAFF_GROUP(  # STAFF - Segment group for RSP_K25 - Response - Personnel information consisting of STF, PRA|None, ORG|None, AFF|None, LAN|None, EDU|None, CER|None

@@ -45,8 +45,8 @@ class QID(HL7Segment):
 
     def __init__(
         self,
-        query_tag: ST | tuple[ST],  # QID.1
-        message_query_name: QueryName | CE | tuple[QueryName | CE],  # QID.2
+        query_tag: ST | tuple[ST, ...],  # QID.1
+        message_query_name: QueryName | CE | tuple[QueryName | CE, ...],  # QID.2
     ):
         """
         Query Identification - `QID <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/QID>`_

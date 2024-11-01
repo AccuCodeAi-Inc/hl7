@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.FT1 import FT1
 from ..segments.NTE import NTE
 from ..segment_groups.DFT_P03_FINANCIAL_GROUP_FINANCIAL_COMMON_ORDER_GROUP import (
     DFT_P03_FINANCIAL_GROUP_FINANCIAL_COMMON_ORDER_GROUP,
 )
-from ..segments.FT1 import FT1
 from ..segment_groups.DFT_P03_FINANCIAL_GROUP_FINANCIAL_PROCEDURE_GROUP import (
     DFT_P03_FINANCIAL_GROUP_FINANCIAL_PROCEDURE_GROUP,
 )
@@ -18,10 +18,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import DFT_P03_FINANCIAL_GROUP
 from utils.hl7.v2_5_1.segments import (
-    FT1, NTE
+    NTE, FT1
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    DFT_P03_FINANCIAL_GROUP_FINANCIAL_PROCEDURE_GROUP, DFT_P03_FINANCIAL_GROUP_FINANCIAL_COMMON_ORDER_GROUP
+    DFT_P03_FINANCIAL_GROUP_FINANCIAL_COMMON_ORDER_GROUP, DFT_P03_FINANCIAL_GROUP_FINANCIAL_PROCEDURE_GROUP
 )
 
 dft_p03_financial_group = DFT_P03_FINANCIAL_GROUP(  # FINANCIAL - Segment group for DFT_P03 - Post Detail Financial Transactions consisting of FT1, NTE|None, FINANCIAL PROCEDURE|None, FINANCIAL COMMON ORDER|None

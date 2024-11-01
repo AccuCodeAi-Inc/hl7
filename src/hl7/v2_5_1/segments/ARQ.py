@@ -1,17 +1,17 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.XTN import XTN
-from ..data_types.XAD import XAD
-from ..data_types.NM import NM
-from ..data_types.PL import PL
-from ..data_types.DR import DR
-from ..data_types.ST import ST
 from ..data_types.CE import CE
 from ..data_types.RI import RI
-from ..data_types.EI import EI
 from ..data_types.XCN import XCN
-from ..tables.AppointmentReasonCodes import AppointmentReasonCodes
+from ..data_types.NM import NM
+from ..data_types.XTN import XTN
+from ..data_types.XAD import XAD
+from ..data_types.PL import PL
+from ..data_types.ST import ST
+from ..data_types.DR import DR
+from ..data_types.EI import EI
 from ..tables.AppointmentTypeCodes import AppointmentTypeCodes
+from ..tables.AppointmentReasonCodes import AppointmentReasonCodes
 
 
 """
@@ -22,7 +22,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     ARQ,
-    XTN, XAD, NM, PL, DR, ST, CE, RI, EI, XCN
+    CE, RI, XCN, NM, XTN, XAD, PL, ST, DR, EI
 )
 
 arq = ARQ(  #  - The ARQ segment defines a request for the booking of an appointment
@@ -77,37 +77,37 @@ class ARQ(HL7Segment):
 
     def __init__(
         self,
-        placer_appointment_id: EI | tuple[EI],  # ARQ.1
-        placer_contact_person: XCN | tuple[XCN],  # ARQ.15
-        entered_by_person: XCN | tuple[XCN],  # ARQ.19
-        filler_appointment_id: EI | tuple[EI] | None = None,  # ARQ.2
-        occurrence_number: NM | tuple[NM] | None = None,  # ARQ.3
-        placer_group_number: EI | tuple[EI] | None = None,  # ARQ.4
-        schedule_id: CE | tuple[CE] | None = None,  # ARQ.5
-        request_event_reason: CE | tuple[CE] | None = None,  # ARQ.6
+        placer_appointment_id: EI | tuple[EI, ...],  # ARQ.1
+        placer_contact_person: XCN | tuple[XCN, ...],  # ARQ.15
+        entered_by_person: XCN | tuple[XCN, ...],  # ARQ.19
+        filler_appointment_id: EI | tuple[EI, ...] | None = None,  # ARQ.2
+        occurrence_number: NM | tuple[NM, ...] | None = None,  # ARQ.3
+        placer_group_number: EI | tuple[EI, ...] | None = None,  # ARQ.4
+        schedule_id: CE | tuple[CE, ...] | None = None,  # ARQ.5
+        request_event_reason: CE | tuple[CE, ...] | None = None,  # ARQ.6
         appointment_reason: AppointmentReasonCodes
         | CE
-        | tuple[AppointmentReasonCodes | CE]
+        | tuple[AppointmentReasonCodes | CE, ...]
         | None = None,  # ARQ.7
         appointment_type: AppointmentTypeCodes
         | CE
-        | tuple[AppointmentTypeCodes | CE]
+        | tuple[AppointmentTypeCodes | CE, ...]
         | None = None,  # ARQ.8
-        appointment_duration: NM | tuple[NM] | None = None,  # ARQ.9
-        appointment_duration_units: CE | tuple[CE] | None = None,  # ARQ.10
-        requested_start_date_or_time_range: DR | tuple[DR] | None = None,  # ARQ.11
-        priority_arq: ST | tuple[ST] | None = None,  # ARQ.12
-        repeating_interval: RI | tuple[RI] | None = None,  # ARQ.13
-        repeating_interval_duration: ST | tuple[ST] | None = None,  # ARQ.14
-        placer_contact_phone_number: XTN | tuple[XTN] | None = None,  # ARQ.16
-        placer_contact_address: XAD | tuple[XAD] | None = None,  # ARQ.17
-        placer_contact_location: PL | tuple[PL] | None = None,  # ARQ.18
-        entered_by_phone_number: XTN | tuple[XTN] | None = None,  # ARQ.20
-        entered_by_location: PL | tuple[PL] | None = None,  # ARQ.21
-        parent_placer_appointment_id: EI | tuple[EI] | None = None,  # ARQ.22
-        parent_filler_appointment_id: EI | tuple[EI] | None = None,  # ARQ.23
-        placer_order_number: EI | tuple[EI] | None = None,  # ARQ.24
-        filler_order_number: EI | tuple[EI] | None = None,  # ARQ.25
+        appointment_duration: NM | tuple[NM, ...] | None = None,  # ARQ.9
+        appointment_duration_units: CE | tuple[CE, ...] | None = None,  # ARQ.10
+        requested_start_date_or_time_range: DR | tuple[DR, ...] | None = None,  # ARQ.11
+        priority_arq: ST | tuple[ST, ...] | None = None,  # ARQ.12
+        repeating_interval: RI | tuple[RI, ...] | None = None,  # ARQ.13
+        repeating_interval_duration: ST | tuple[ST, ...] | None = None,  # ARQ.14
+        placer_contact_phone_number: XTN | tuple[XTN, ...] | None = None,  # ARQ.16
+        placer_contact_address: XAD | tuple[XAD, ...] | None = None,  # ARQ.17
+        placer_contact_location: PL | tuple[PL, ...] | None = None,  # ARQ.18
+        entered_by_phone_number: XTN | tuple[XTN, ...] | None = None,  # ARQ.20
+        entered_by_location: PL | tuple[PL, ...] | None = None,  # ARQ.21
+        parent_placer_appointment_id: EI | tuple[EI, ...] | None = None,  # ARQ.22
+        parent_filler_appointment_id: EI | tuple[EI, ...] | None = None,  # ARQ.23
+        placer_order_number: EI | tuple[EI, ...] | None = None,  # ARQ.24
+        filler_order_number: EI | tuple[EI, ...] | None = None,  # ARQ.25
     ):
         """
         Appointment Request - `ARQ <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/ARQ>`_

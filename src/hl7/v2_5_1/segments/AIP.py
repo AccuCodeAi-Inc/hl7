@@ -1,16 +1,16 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TS import TS
-from ..data_types.ID import ID
-from ..data_types.NM import NM
-from ..data_types.IS import IS
-from ..data_types.XCN import XCN
 from ..data_types.SI import SI
 from ..data_types.CE import CE
-from ..tables.StaffType import StaffType
+from ..data_types.TS import TS
+from ..data_types.IS import IS
+from ..data_types.XCN import XCN
+from ..data_types.NM import NM
+from ..data_types.ID import ID
 from ..tables.AllowSubstitutionCodes import AllowSubstitutionCodes
-from ..tables.FillerStatusCodes import FillerStatusCodes
 from ..tables.SegmentActionCode import SegmentActionCode
+from ..tables.FillerStatusCodes import FillerStatusCodes
+from ..tables.StaffType import StaffType
 
 
 """
@@ -21,7 +21,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     AIP,
-    TS, ID, NM, IS, XCN, SI, CE
+    SI, CE, TS, IS, XCN, NM, ID
 )
 
 aip = AIP(  #  - The AIP segment contains information about the personnel types that can be scheduled
@@ -63,26 +63,29 @@ class AIP(HL7Segment):
 
     def __init__(
         self,
-        set_id_aip: SI | tuple[SI],  # AIP.1
+        set_id_aip: SI | tuple[SI, ...],  # AIP.1
         segment_action_code: SegmentActionCode
         | ID
-        | tuple[SegmentActionCode | ID]
+        | tuple[SegmentActionCode | ID, ...]
         | None = None,  # AIP.2
-        personnel_resource_id: XCN | tuple[XCN] | None = None,  # AIP.3
-        resource_type: StaffType | CE | tuple[StaffType | CE] | None = None,  # AIP.4
-        resource_group: CE | tuple[CE] | None = None,  # AIP.5
-        start_date_or_time: TS | tuple[TS] | None = None,  # AIP.6
-        start_date_or_time_offset: NM | tuple[NM] | None = None,  # AIP.7
-        start_date_or_time_offset_units: CE | tuple[CE] | None = None,  # AIP.8
-        duration: NM | tuple[NM] | None = None,  # AIP.9
-        duration_units: CE | tuple[CE] | None = None,  # AIP.10
+        personnel_resource_id: XCN | tuple[XCN, ...] | None = None,  # AIP.3
+        resource_type: StaffType
+        | CE
+        | tuple[StaffType | CE, ...]
+        | None = None,  # AIP.4
+        resource_group: CE | tuple[CE, ...] | None = None,  # AIP.5
+        start_date_or_time: TS | tuple[TS, ...] | None = None,  # AIP.6
+        start_date_or_time_offset: NM | tuple[NM, ...] | None = None,  # AIP.7
+        start_date_or_time_offset_units: CE | tuple[CE, ...] | None = None,  # AIP.8
+        duration: NM | tuple[NM, ...] | None = None,  # AIP.9
+        duration_units: CE | tuple[CE, ...] | None = None,  # AIP.10
         allow_substitution_code: AllowSubstitutionCodes
         | IS
-        | tuple[AllowSubstitutionCodes | IS]
+        | tuple[AllowSubstitutionCodes | IS, ...]
         | None = None,  # AIP.11
         filler_status_code: FillerStatusCodes
         | CE
-        | tuple[FillerStatusCodes | CE]
+        | tuple[FillerStatusCodes | CE, ...]
         | None = None,  # AIP.12
     ):
         """

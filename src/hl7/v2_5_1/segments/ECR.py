@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TX import TX
-from ..data_types.CE import CE
 from ..data_types.TS import TS
+from ..data_types.CE import CE
+from ..data_types.TX import TX
 from ..tables.CommandResponse import CommandResponse
 
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     ECR,
-    TX, CE, TS
+    TS, CE, TX
 )
 
 ecr = ECR(  #  - The equipment command response segment contains the receiving component's response to the previously received command
@@ -47,9 +47,11 @@ class ECR(HL7Segment):
 
     def __init__(
         self,
-        command_response: CommandResponse | CE | tuple[CommandResponse | CE],  # ECR.1
-        date_or_time_completed: TS | tuple[TS],  # ECR.2
-        command_response_parameters: TX | tuple[TX] | None = None,  # ECR.3
+        command_response: CommandResponse
+        | CE
+        | tuple[CommandResponse | CE, ...],  # ECR.1
+        date_or_time_completed: TS | tuple[TS, ...],  # ECR.2
+        command_response_parameters: TX | tuple[TX, ...] | None = None,  # ECR.3
     ):
         """
         Equipment Command Response - `ECR <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/ECR>`_

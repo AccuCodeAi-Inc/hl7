@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.QIP import QIP
-from ..data_types.ID import ID
 from ..data_types.ST import ST
 from ..data_types.CE import CE
+from ..data_types.QIP import QIP
+from ..data_types.ID import ID
 from ..tables.QueryOrResponseFormatCode import QueryOrResponseFormatCode
 
 
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     SPR,
-    QIP, ID, ST, CE
+    ST, CE, QIP, ID
 )
 
 spr = SPR(  #  - This segment is not carried forward to the recommended queries for v 2
@@ -51,10 +51,10 @@ class SPR(HL7Segment):
         self,
         query_or_response_format_code: QueryOrResponseFormatCode
         | ID
-        | tuple[QueryOrResponseFormatCode | ID],  # SPR.2
-        stored_procedure_name: CE | tuple[CE],  # SPR.3
-        query_tag: ST | tuple[ST] | None = None,  # SPR.1
-        input_parameter_list: QIP | tuple[QIP] | None = None,  # SPR.4
+        | tuple[QueryOrResponseFormatCode | ID, ...],  # SPR.2
+        stored_procedure_name: CE | tuple[CE, ...],  # SPR.3
+        query_tag: ST | tuple[ST, ...] | None = None,  # SPR.1
+        input_parameter_list: QIP | tuple[QIP, ...] | None = None,  # SPR.4
     ):
         """
                 Stored Procedure Request Definition - `SPR <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/SPR>`_

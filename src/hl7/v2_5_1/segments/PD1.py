@@ -1,25 +1,25 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.IS import IS
+from ..data_types.CE import CE
 from ..data_types.CX import CX
 from ..data_types.DT import DT
+from ..data_types.IS import IS
 from ..data_types.XCN import XCN
-from ..data_types.CE import CE
 from ..data_types.XON import XON
-from ..tables.StudentStatus import StudentStatus
-from ..tables.OrganDonorCode import OrganDonorCode
-from ..tables.ImmunizationRegistryStatus import ImmunizationRegistryStatus
-from ..tables.LivingWillCode import LivingWillCode
-from ..tables.AdvanceDirectiveCode import AdvanceDirectiveCode
+from ..data_types.ID import ID
 from ..tables.LivingArrangement import LivingArrangement
-from ..tables.MilitaryService import MilitaryService
-from ..tables.MilitaryStatus import MilitaryStatus
-from ..tables.LivingDependency import LivingDependency
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
 from ..tables.Handicap import Handicap
 from ..tables.PublicityCode import PublicityCode
+from ..tables.MilitaryStatus import MilitaryStatus
 from ..tables.MilitaryRankOrGrade import MilitaryRankOrGrade
+from ..tables.LivingDependency import LivingDependency
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..tables.StudentStatus import StudentStatus
+from ..tables.ImmunizationRegistryStatus import ImmunizationRegistryStatus
+from ..tables.MilitaryService import MilitaryService
+from ..tables.AdvanceDirectiveCode import AdvanceDirectiveCode
+from ..tables.LivingWillCode import LivingWillCode
+from ..tables.OrganDonorCode import OrganDonorCode
 
 
 """
@@ -30,7 +30,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PD1,
-    ID, IS, CX, DT, XCN, CE, XON
+    CE, CX, DT, IS, XCN, XON, ID
 )
 
 pd1 = PD1(  #  - The patient additional demographic segment contains demographic information that is likely to change about the patient
@@ -83,67 +83,69 @@ class PD1(HL7Segment):
         self,
         living_dependency: LivingDependency
         | IS
-        | tuple[LivingDependency | IS]
+        | tuple[LivingDependency | IS, ...]
         | None = None,  # PD1.1
         living_arrangement: LivingArrangement
         | IS
-        | tuple[LivingArrangement | IS]
+        | tuple[LivingArrangement | IS, ...]
         | None = None,  # PD1.2
-        patient_primary_facility: XON | tuple[XON] | None = None,  # PD1.3
+        patient_primary_facility: XON | tuple[XON, ...] | None = None,  # PD1.3
         patient_primary_care_provider_name_and_id_no: XCN
-        | tuple[XCN]
+        | tuple[XCN, ...]
         | None = None,  # PD1.4
         student_indicator: StudentStatus
         | IS
-        | tuple[StudentStatus | IS]
+        | tuple[StudentStatus | IS, ...]
         | None = None,  # PD1.5
-        handicap: Handicap | IS | tuple[Handicap | IS] | None = None,  # PD1.6
+        handicap: Handicap | IS | tuple[Handicap | IS, ...] | None = None,  # PD1.6
         living_will_code: LivingWillCode
         | IS
-        | tuple[LivingWillCode | IS]
+        | tuple[LivingWillCode | IS, ...]
         | None = None,  # PD1.7
         organ_donor_code: OrganDonorCode
         | IS
-        | tuple[OrganDonorCode | IS]
+        | tuple[OrganDonorCode | IS, ...]
         | None = None,  # PD1.8
         separate_bill: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # PD1.9
-        duplicate_patient: CX | tuple[CX] | None = None,  # PD1.10
+        duplicate_patient: CX | tuple[CX, ...] | None = None,  # PD1.10
         publicity_code: PublicityCode
         | CE
-        | tuple[PublicityCode | CE]
+        | tuple[PublicityCode | CE, ...]
         | None = None,  # PD1.11
         protection_indicator: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # PD1.12
-        protection_indicator_effective_date: DT | tuple[DT] | None = None,  # PD1.13
-        place_of_worship: XON | tuple[XON] | None = None,  # PD1.14
+        protection_indicator_effective_date: DT
+        | tuple[DT, ...]
+        | None = None,  # PD1.13
+        place_of_worship: XON | tuple[XON, ...] | None = None,  # PD1.14
         advance_directive_code: AdvanceDirectiveCode
         | CE
-        | tuple[AdvanceDirectiveCode | CE]
+        | tuple[AdvanceDirectiveCode | CE, ...]
         | None = None,  # PD1.15
         immunization_registry_status: ImmunizationRegistryStatus
         | IS
-        | tuple[ImmunizationRegistryStatus | IS]
+        | tuple[ImmunizationRegistryStatus | IS, ...]
         | None = None,  # PD1.16
         immunization_registry_status_effective_date: DT
-        | tuple[DT]
+        | tuple[DT, ...]
         | None = None,  # PD1.17
-        publicity_code_effective_date: DT | tuple[DT] | None = None,  # PD1.18
+        publicity_code_effective_date: DT | tuple[DT, ...] | None = None,  # PD1.18
         military_branch: MilitaryService
         | IS
-        | tuple[MilitaryService | IS]
+        | tuple[MilitaryService | IS, ...]
         | None = None,  # PD1.19
         military_rank_or_grade: MilitaryRankOrGrade
         | IS
-        | tuple[MilitaryRankOrGrade | IS]
+        | tuple[MilitaryRankOrGrade | IS, ...]
         | None = None,  # PD1.20
         military_status: MilitaryStatus
         | IS
-        | tuple[MilitaryStatus | IS]
+        | tuple[MilitaryStatus | IS, ...]
         | None = None,  # PD1.21
     ):
         """

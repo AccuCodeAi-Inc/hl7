@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segment_groups.RDS_O13_ORDER_GROUP import RDS_O13_ORDER_GROUP
-from ..segments.SFT import SFT
 from ..segments.MSH import MSH
-from ..segments.NTE import NTE
 from ..segment_groups.RDS_O13_PATIENT_GROUP import RDS_O13_PATIENT_GROUP
+from ..segment_groups.RDS_O13_ORDER_GROUP import RDS_O13_ORDER_GROUP
+from ..segments.NTE import NTE
+from ..segments.SFT import SFT
 
 
 """
@@ -15,10 +15,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RDS_O13
 from utils.hl7.v2_5_1.segments import (
-    NTE, SFT, MSH
+    SFT, NTE, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    RDS_O13_ORDER_GROUP, RDS_O13_PATIENT_GROUP
+    RDS_O13_PATIENT_GROUP, RDS_O13_ORDER_GROUP
 )
 
 rds_o13 = RDS_O13(  #  - The RDS message may be created by the pharmacy/treatment application for each instance of dispensing a drug or treatment to fill an existing order or orders

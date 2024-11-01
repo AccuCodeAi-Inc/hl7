@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.CM2 import CM2
 from ..segments.CM0 import CM0
 from ..segments.MFE import MFE
-from ..segments.CM2 import CM2
 
 
 """
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import MFN_M07_MF_CLIN_STUDY_SCHED_GROUP
 from utils.hl7.v2_5_1.segments import (
-    CM2, CM0, MFE
+    CM0, CM2, MFE
 )
 
 mfn_m07_mf_clin_study_sched_group = MFN_M07_MF_CLIN_STUDY_SCHED_GROUP(  # MF CLIN STUDY SCHED - Segment group for MFN_M07 - Master files notification - Clinical study without phases but with schedules master file consisting of MFE, CM0, CM2|None

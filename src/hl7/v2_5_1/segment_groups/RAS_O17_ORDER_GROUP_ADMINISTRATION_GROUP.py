@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.RXA import RXA
 from ..segments.RXR import RXR
 from ..segment_groups.RAS_O17_ORDER_GROUP_ADMINISTRATION_GROUP_OBSERVATION_GROUP import (
     RAS_O17_ORDER_GROUP_ADMINISTRATION_GROUP_OBSERVATION_GROUP,
 )
-from ..segments.RXA import RXA
 
 
 """

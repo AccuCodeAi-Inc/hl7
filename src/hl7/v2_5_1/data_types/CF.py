@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import DataType
-from .FT import FT
-from .ID import ID
 from .ST import ST
+from .ID import ID
+from .FT import FT
 from ..tables.CodingSystem import CodingSystem
 
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CF,
-    FT, ID, ST
+    ST, ID, FT
 )
 
 cf = CF(  # Coded Element with Formatted Values - This data type transmits codes and the formatted text associated with the code
@@ -50,17 +50,17 @@ class CF(DataType):
 
     def __init__(
         self,
-        identifier: ST | tuple[ST] | None = None,  # CF.1
-        formatted_text: FT | tuple[FT] | None = None,  # CF.2
+        identifier: ST | tuple[ST, ...] | None = None,  # CF.1
+        formatted_text: FT | tuple[FT, ...] | None = None,  # CF.2
         name_of_coding_system: CodingSystem
         | ID
-        | tuple[CodingSystem | ID]
+        | tuple[CodingSystem | ID, ...]
         | None = None,  # CF.3
-        alternate_identifier: ST | tuple[ST] | None = None,  # CF.4
-        alternate_formatted_text: FT | tuple[FT] | None = None,  # CF.5
+        alternate_identifier: ST | tuple[ST, ...] | None = None,  # CF.4
+        alternate_formatted_text: FT | tuple[FT, ...] | None = None,  # CF.5
         name_of_alternate_coding_system: CodingSystem
         | ID
-        | tuple[CodingSystem | ID]
+        | tuple[CodingSystem | ID, ...]
         | None = None,  # CF.6
     ):
         """

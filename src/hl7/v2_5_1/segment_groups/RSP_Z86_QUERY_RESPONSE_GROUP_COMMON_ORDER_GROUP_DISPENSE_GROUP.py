@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.RXR import RXR
 from ..segments.RXD import RXD
 from ..segments.RXC import RXC
+from ..segments.RXR import RXR
 
 
 """
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RSP_Z86_QUERY_RESPONSE_GROUP_COMMON_ORDER_GROUP_DISPENSE_GROUP
 from utils.hl7.v2_5_1.segments import (
-    RXR, RXD, RXC
+    RXC, RXD, RXR
 )
 
 rsp_z86_query_response_group_common_order_group_dispense_group = RSP_Z86_QUERY_RESPONSE_GROUP_COMMON_ORDER_GROUP_DISPENSE_GROUP(  # DISPENSE - Segment group for RSP_Z86_QUERY_RESPONSE_GROUP_COMMON_ORDER_GROUP - COMMON ORDER consisting of RXD, RXR, RXC|None

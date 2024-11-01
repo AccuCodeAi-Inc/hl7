@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.SFT import SFT
-from ..segments.MSH import MSH
-from ..segment_groups.PGL_PC6_GOAL_GROUP import PGL_PC6_GOAL_GROUP
 from ..segment_groups.PGL_PC6_PATIENT_VISIT_GROUP import PGL_PC6_PATIENT_VISIT_GROUP
+from ..segments.MSH import MSH
 from ..segments.PID import PID
+from ..segment_groups.PGL_PC6_GOAL_GROUP import PGL_PC6_GOAL_GROUP
+from ..segments.SFT import SFT
 
 
 """
@@ -15,10 +15,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PGL_PC6
 from utils.hl7.v2_5_1.segments import (
-    PID, SFT, MSH
+    SFT, PID, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    PGL_PC6_PATIENT_VISIT_GROUP, PGL_PC6_GOAL_GROUP
+    PGL_PC6_GOAL_GROUP, PGL_PC6_PATIENT_VISIT_GROUP
 )
 
 pgl_pc6 = PGL_PC6(  #  - This message is used to send goals from one application to another (e

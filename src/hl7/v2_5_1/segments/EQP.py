@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.FT import FT
 from ..data_types.ST import ST
 from ..data_types.CE import CE
 from ..data_types.TS import TS
+from ..data_types.FT import FT
 from ..tables.EventType import EventType
 
 
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     EQP,
-    FT, ST, CE, TS
+    ST, CE, TS, FT
 )
 
 eqp = EQP(  #  - The equipment log/service segment is the data necessary to maintain an adequate audit trail of events that have occurred on a particular piece of equipment
@@ -50,11 +50,11 @@ class EQP(HL7Segment):
 
     def __init__(
         self,
-        event_type: EventType | CE | tuple[EventType | CE],  # EQP.1
-        start_date_or_time: TS | tuple[TS],  # EQP.3
-        transaction_data: FT | tuple[FT],  # EQP.5
-        file_name: ST | tuple[ST] | None = None,  # EQP.2
-        end_date_or_time: TS | tuple[TS] | None = None,  # EQP.4
+        event_type: EventType | CE | tuple[EventType | CE, ...],  # EQP.1
+        start_date_or_time: TS | tuple[TS, ...],  # EQP.3
+        transaction_data: FT | tuple[FT, ...],  # EQP.5
+        file_name: ST | tuple[ST, ...] | None = None,  # EQP.2
+        end_date_or_time: TS | tuple[TS, ...] | None = None,  # EQP.4
     ):
         """
         Equipment/log Service - `EQP <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/EQP>`_

@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.SAC import SAC
-from ..segments.OBX import OBX
 from ..segment_groups.SSU_U03_SPECIMEN_CONTAINER_GROUP_SPECIMEN_GROUP import (
     SSU_U03_SPECIMEN_CONTAINER_GROUP_SPECIMEN_GROUP,
 )
+from ..segments.OBX import OBX
+from ..segments.SAC import SAC
 
 
 """

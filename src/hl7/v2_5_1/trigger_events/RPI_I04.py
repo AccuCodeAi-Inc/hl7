@@ -1,15 +1,15 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.SFT import SFT
-from ..segments.MSH import MSH
-from ..segments.NTE import NTE
 from ..segment_groups.RPI_I04_PROVIDER_GROUP import RPI_I04_PROVIDER_GROUP
-from ..segments.MSA import MSA
-from ..segments.PID import PID
-from ..segments.NK1 import NK1
 from ..segment_groups.RPI_I04_GUARANTOR_INSURANCE_GROUP import (
     RPI_I04_GUARANTOR_INSURANCE_GROUP,
 )
+from ..segments.NK1 import NK1
+from ..segments.MSH import MSH
+from ..segments.MSA import MSA
+from ..segments.PID import PID
+from ..segments.NTE import NTE
+from ..segments.SFT import SFT
 
 
 """
@@ -20,10 +20,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RPI_I04
 from utils.hl7.v2_5_1.segments import (
-    PID, MSH, NK1, SFT, NTE, MSA
+    NK1, NTE, PID, SFT, MSA, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    RPI_I04_GUARANTOR_INSURANCE_GROUP, RPI_I04_PROVIDER_GROUP
+    RPI_I04_PROVIDER_GROUP, RPI_I04_GUARANTOR_INSURANCE_GROUP
 )
 
 rpi_i04 = RPI_I04(  #  - This event triggers a request from one healthcare provider to another for patient demographic information, including insurance and billing information

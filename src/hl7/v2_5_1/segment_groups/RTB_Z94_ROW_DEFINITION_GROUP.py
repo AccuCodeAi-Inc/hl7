@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RTB_Z94_ROW_DEFINITION_GROUP
 from utils.hl7.v2_5_1.segments import (
-    RDF, RDT
+    RDT, RDF
 )
 
 rtb_z94_row_definition_group = RTB_Z94_ROW_DEFINITION_GROUP(  # ROW DEFINITION - Segment group for RTB_Z94 - Tabular Dispense History Response consisting of RDF, RDT|None

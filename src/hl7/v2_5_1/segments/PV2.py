@@ -1,35 +1,35 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TS import TS
-from ..data_types.ID import ID
-from ..data_types.NM import NM
-from ..data_types.PL import PL
-from ..data_types.IS import IS
-from ..data_types.DT import DT
-from ..data_types.ST import ST
 from ..data_types.CE import CE
+from ..data_types.DT import DT
+from ..data_types.TS import TS
+from ..data_types.IS import IS
 from ..data_types.XCN import XCN
+from ..data_types.NM import NM
 from ..data_types.XON import XON
+from ..data_types.PL import PL
+from ..data_types.ST import ST
+from ..data_types.ID import ID
+from ..tables.VisitPriorityCode import VisitPriorityCode
+from ..tables.ModeOfArrivalCode import ModeOfArrivalCode
 from ..tables.PatientChargeAdjustment import PatientChargeAdjustment
 from ..tables.NotifyClergyCode import NotifyClergyCode
-from ..tables.LivingWillCode import LivingWillCode
-from ..tables.AdvanceDirectiveCode import AdvanceDirectiveCode
-from ..tables.PatientConditionCode import PatientConditionCode
-from ..tables.VisitUserCode import VisitUserCode
-from ..tables.AccommodationCode import AccommodationCode
-from ..tables.RecurringServiceCode import RecurringServiceCode
-from ..tables.ModeOfArrivalCode import ModeOfArrivalCode
-from ..tables.PatientStatusCode import PatientStatusCode
-from ..tables.SpecialProgramCode import SpecialProgramCode
-from ..tables.RecreationalDrugUseCode import RecreationalDrugUseCode
 from ..tables.PurgeStatusCode import PurgeStatusCode
-from ..tables.AdmissionLevelOfCareCode import AdmissionLevelOfCareCode
-from ..tables.DischargeDisposition import DischargeDisposition
-from ..tables.OrganDonorCode import OrganDonorCode
-from ..tables.PrecautionCode import PrecautionCode
-from ..tables.VisitPriorityCode import VisitPriorityCode
+from ..tables.PatientConditionCode import PatientConditionCode
 from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..tables.AdvanceDirectiveCode import AdvanceDirectiveCode
+from ..tables.RecreationalDrugUseCode import RecreationalDrugUseCode
+from ..tables.SpecialProgramCode import SpecialProgramCode
+from ..tables.RecurringServiceCode import RecurringServiceCode
+from ..tables.PatientStatusCode import PatientStatusCode
+from ..tables.DischargeDisposition import DischargeDisposition
+from ..tables.LivingWillCode import LivingWillCode
 from ..tables.PublicityCode import PublicityCode
+from ..tables.OrganDonorCode import OrganDonorCode
+from ..tables.VisitUserCode import VisitUserCode
+from ..tables.AdmissionLevelOfCareCode import AdmissionLevelOfCareCode
+from ..tables.AccommodationCode import AccommodationCode
+from ..tables.PrecautionCode import PrecautionCode
 
 
 """
@@ -40,7 +40,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PV2,
-    TS, ID, NM, PL, IS, DT, ST, CE, XCN, XON
+    CE, DT, TS, IS, XCN, NM, XON, PL, ST, ID
 )
 
 pv2 = PV2(  #  - The PV2 segment is a continuation of information contained on the PV1 segment
@@ -119,137 +119,137 @@ class PV2(HL7Segment):
 
     def __init__(
         self,
-        prior_pending_location: PL | tuple[PL] | None = None,  # PV2.1
+        prior_pending_location: PL | tuple[PL, ...] | None = None,  # PV2.1
         accommodation_code: AccommodationCode
         | CE
-        | tuple[AccommodationCode | CE]
+        | tuple[AccommodationCode | CE, ...]
         | None = None,  # PV2.2
-        admit_reason: CE | tuple[CE] | None = None,  # PV2.3
-        transfer_reason: CE | tuple[CE] | None = None,  # PV2.4
-        patient_valuables: ST | tuple[ST] | None = None,  # PV2.5
-        patient_valuables_location: ST | tuple[ST] | None = None,  # PV2.6
+        admit_reason: CE | tuple[CE, ...] | None = None,  # PV2.3
+        transfer_reason: CE | tuple[CE, ...] | None = None,  # PV2.4
+        patient_valuables: ST | tuple[ST, ...] | None = None,  # PV2.5
+        patient_valuables_location: ST | tuple[ST, ...] | None = None,  # PV2.6
         visit_user_code: VisitUserCode
         | IS
-        | tuple[VisitUserCode | IS]
+        | tuple[VisitUserCode | IS, ...]
         | None = None,  # PV2.7
-        expected_admit_date_or_time: TS | tuple[TS] | None = None,  # PV2.8
-        expected_discharge_date_or_time: TS | tuple[TS] | None = None,  # PV2.9
-        estimated_length_of_inpatient_stay: NM | tuple[NM] | None = None,  # PV2.10
-        actual_length_of_inpatient_stay: NM | tuple[NM] | None = None,  # PV2.11
-        visit_description: ST | tuple[ST] | None = None,  # PV2.12
-        referral_source_code: XCN | tuple[XCN] | None = None,  # PV2.13
-        previous_service_date: DT | tuple[DT] | None = None,  # PV2.14
+        expected_admit_date_or_time: TS | tuple[TS, ...] | None = None,  # PV2.8
+        expected_discharge_date_or_time: TS | tuple[TS, ...] | None = None,  # PV2.9
+        estimated_length_of_inpatient_stay: NM | tuple[NM, ...] | None = None,  # PV2.10
+        actual_length_of_inpatient_stay: NM | tuple[NM, ...] | None = None,  # PV2.11
+        visit_description: ST | tuple[ST, ...] | None = None,  # PV2.12
+        referral_source_code: XCN | tuple[XCN, ...] | None = None,  # PV2.13
+        previous_service_date: DT | tuple[DT, ...] | None = None,  # PV2.14
         employment_illness_related_indicator: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # PV2.15
         purge_status_code: PurgeStatusCode
         | IS
-        | tuple[PurgeStatusCode | IS]
+        | tuple[PurgeStatusCode | IS, ...]
         | None = None,  # PV2.16
-        purge_status_date: DT | tuple[DT] | None = None,  # PV2.17
+        purge_status_date: DT | tuple[DT, ...] | None = None,  # PV2.17
         special_program_code: SpecialProgramCode
         | IS
-        | tuple[SpecialProgramCode | IS]
+        | tuple[SpecialProgramCode | IS, ...]
         | None = None,  # PV2.18
         retention_indicator: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # PV2.19
-        expected_number_of_insurance_plans: NM | tuple[NM] | None = None,  # PV2.20
+        expected_number_of_insurance_plans: NM | tuple[NM, ...] | None = None,  # PV2.20
         visit_publicity_code: PublicityCode
         | IS
-        | tuple[PublicityCode | IS]
+        | tuple[PublicityCode | IS, ...]
         | None = None,  # PV2.21
         visit_protection_indicator: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # PV2.22
-        clinic_organization_name: XON | tuple[XON] | None = None,  # PV2.23
+        clinic_organization_name: XON | tuple[XON, ...] | None = None,  # PV2.23
         patient_status_code: PatientStatusCode
         | IS
-        | tuple[PatientStatusCode | IS]
+        | tuple[PatientStatusCode | IS, ...]
         | None = None,  # PV2.24
         visit_priority_code: VisitPriorityCode
         | IS
-        | tuple[VisitPriorityCode | IS]
+        | tuple[VisitPriorityCode | IS, ...]
         | None = None,  # PV2.25
-        previous_treatment_date: DT | tuple[DT] | None = None,  # PV2.26
+        previous_treatment_date: DT | tuple[DT, ...] | None = None,  # PV2.26
         expected_discharge_disposition: DischargeDisposition
         | IS
-        | tuple[DischargeDisposition | IS]
+        | tuple[DischargeDisposition | IS, ...]
         | None = None,  # PV2.27
-        signature_on_file_date: DT | tuple[DT] | None = None,  # PV2.28
-        first_similar_illness_date: DT | tuple[DT] | None = None,  # PV2.29
+        signature_on_file_date: DT | tuple[DT, ...] | None = None,  # PV2.28
+        first_similar_illness_date: DT | tuple[DT, ...] | None = None,  # PV2.29
         patient_charge_adjustment_code: PatientChargeAdjustment
         | CE
-        | tuple[PatientChargeAdjustment | CE]
+        | tuple[PatientChargeAdjustment | CE, ...]
         | None = None,  # PV2.30
         recurring_service_code: RecurringServiceCode
         | IS
-        | tuple[RecurringServiceCode | IS]
+        | tuple[RecurringServiceCode | IS, ...]
         | None = None,  # PV2.31
         billing_media_code: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # PV2.32
-        expected_surgery_date_and_time: TS | tuple[TS] | None = None,  # PV2.33
+        expected_surgery_date_and_time: TS | tuple[TS, ...] | None = None,  # PV2.33
         military_partnership_code: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # PV2.34
         military_non_availability_code: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # PV2.35
         newborn_baby_indicator: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # PV2.36
         baby_detained_indicator: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # PV2.37
         mode_of_arrival_code: ModeOfArrivalCode
         | CE
-        | tuple[ModeOfArrivalCode | CE]
+        | tuple[ModeOfArrivalCode | CE, ...]
         | None = None,  # PV2.38
         recreational_drug_use_code: RecreationalDrugUseCode
         | CE
-        | tuple[RecreationalDrugUseCode | CE]
+        | tuple[RecreationalDrugUseCode | CE, ...]
         | None = None,  # PV2.39
         admission_level_of_care_code: AdmissionLevelOfCareCode
         | CE
-        | tuple[AdmissionLevelOfCareCode | CE]
+        | tuple[AdmissionLevelOfCareCode | CE, ...]
         | None = None,  # PV2.40
         precaution_code: PrecautionCode
         | CE
-        | tuple[PrecautionCode | CE]
+        | tuple[PrecautionCode | CE, ...]
         | None = None,  # PV2.41
         patient_condition_code: PatientConditionCode
         | CE
-        | tuple[PatientConditionCode | CE]
+        | tuple[PatientConditionCode | CE, ...]
         | None = None,  # PV2.42
         living_will_code: LivingWillCode
         | IS
-        | tuple[LivingWillCode | IS]
+        | tuple[LivingWillCode | IS, ...]
         | None = None,  # PV2.43
         organ_donor_code: OrganDonorCode
         | IS
-        | tuple[OrganDonorCode | IS]
+        | tuple[OrganDonorCode | IS, ...]
         | None = None,  # PV2.44
         advance_directive_code: AdvanceDirectiveCode
         | CE
-        | tuple[AdvanceDirectiveCode | CE]
+        | tuple[AdvanceDirectiveCode | CE, ...]
         | None = None,  # PV2.45
-        patient_status_effective_date: DT | tuple[DT] | None = None,  # PV2.46
-        expected_loa_return_date_or_time: TS | tuple[TS] | None = None,  # PV2.47
+        patient_status_effective_date: DT | tuple[DT, ...] | None = None,  # PV2.46
+        expected_loa_return_date_or_time: TS | tuple[TS, ...] | None = None,  # PV2.47
         expected_pre_admission_testing_date_or_time: TS
-        | tuple[TS]
+        | tuple[TS, ...]
         | None = None,  # PV2.48
         notify_clergy_code: NotifyClergyCode
         | IS
-        | tuple[NotifyClergyCode | IS]
+        | tuple[NotifyClergyCode | IS, ...]
         | None = None,  # PV2.49
     ):
         """

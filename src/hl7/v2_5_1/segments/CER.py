@@ -1,19 +1,19 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ED import ED
-from ..data_types.TS import TS
-from ..data_types.ID import ID
-from ..data_types.CWE import CWE
-from ..data_types.XCN import XCN
-from ..data_types.ST import ST
 from ..data_types.SI import SI
 from ..data_types.CE import CE
+from ..data_types.TS import TS
+from ..data_types.XCN import XCN
 from ..data_types.XON import XON
-from ..tables.CertificateStatus import CertificateStatus
-from ..tables.CountryCode import CountryCode
-from ..tables.JurisdictionalBreadth import JurisdictionalBreadth
-from ..tables.StateOrProvince import StateOrProvince
+from ..data_types.CWE import CWE
+from ..data_types.ST import ST
+from ..data_types.ID import ID
+from ..data_types.ED import ED
 from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..tables.JurisdictionalBreadth import JurisdictionalBreadth
+from ..tables.CountryCode import CountryCode
+from ..tables.StateOrProvince import StateOrProvince
+from ..tables.CertificateStatus import CertificateStatus
 from ..tables.CountyOrParish import CountyOrParish
 
 
@@ -25,7 +25,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CER,
-    ED, TS, ID, CWE, XCN, ST, SI, CE, XON
+    SI, CE, TS, XCN, XON, CWE, ST, ID, ED
 )
 
 cer = CER(  #  - The CER segment adds detailed information regarding the formal authorizations to provide a service (e
@@ -86,63 +86,65 @@ class CER(HL7Segment):
 
     def __init__(
         self,
-        set_id_cer: SI | tuple[SI],  # CER.1
-        subject_name: ST | tuple[ST],  # CER.13
-        serial_number: ST | tuple[ST] | None = None,  # CER.2
-        version: ST | tuple[ST] | None = None,  # CER.3
-        granting_authority: XON | tuple[XON] | None = None,  # CER.4
-        issuing_authority: XCN | tuple[XCN] | None = None,  # CER.5
-        signature_of_issuing_authority: ED | tuple[ED] | None = None,  # CER.6
+        set_id_cer: SI | tuple[SI, ...],  # CER.1
+        subject_name: ST | tuple[ST, ...],  # CER.13
+        serial_number: ST | tuple[ST, ...] | None = None,  # CER.2
+        version: ST | tuple[ST, ...] | None = None,  # CER.3
+        granting_authority: XON | tuple[XON, ...] | None = None,  # CER.4
+        issuing_authority: XCN | tuple[XCN, ...] | None = None,  # CER.5
+        signature_of_issuing_authority: ED | tuple[ED, ...] | None = None,  # CER.6
         granting_country: CountryCode
         | ID
-        | tuple[CountryCode | ID]
+        | tuple[CountryCode | ID, ...]
         | None = None,  # CER.7
         granting_state_or_province: StateOrProvince
         | CWE
-        | tuple[StateOrProvince | CWE]
+        | tuple[StateOrProvince | CWE, ...]
         | None = None,  # CER.8
         granting_county_or_parish: CountyOrParish
         | CWE
-        | tuple[CountyOrParish | CWE]
+        | tuple[CountyOrParish | CWE, ...]
         | None = None,  # CER.9
-        certificate_type: CWE | tuple[CWE] | None = None,  # CER.10
-        certificate_domain: CWE | tuple[CWE] | None = None,  # CER.11
-        subject_id: ID | tuple[ID] | None = None,  # CER.12
-        subject_directory_attribute_extension: CWE | tuple[CWE] | None = None,  # CER.14
-        subject_public_key_info: CWE | tuple[CWE] | None = None,  # CER.15
-        authority_key_identifier: CWE | tuple[CWE] | None = None,  # CER.16
+        certificate_type: CWE | tuple[CWE, ...] | None = None,  # CER.10
+        certificate_domain: CWE | tuple[CWE, ...] | None = None,  # CER.11
+        subject_id: ID | tuple[ID, ...] | None = None,  # CER.12
+        subject_directory_attribute_extension: CWE
+        | tuple[CWE, ...]
+        | None = None,  # CER.14
+        subject_public_key_info: CWE | tuple[CWE, ...] | None = None,  # CER.15
+        authority_key_identifier: CWE | tuple[CWE, ...] | None = None,  # CER.16
         basic_constraint: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # CER.17
-        crl_distribution_point: CWE | tuple[CWE] | None = None,  # CER.18
+        crl_distribution_point: CWE | tuple[CWE, ...] | None = None,  # CER.18
         jurisdiction_country: CountryCode
         | ID
-        | tuple[CountryCode | ID]
+        | tuple[CountryCode | ID, ...]
         | None = None,  # CER.19
         jurisdiction_state_or_province: StateOrProvince
         | CWE
-        | tuple[StateOrProvince | CWE]
+        | tuple[StateOrProvince | CWE, ...]
         | None = None,  # CER.20
         jurisdiction_county_or_parish: CountyOrParish
         | CWE
-        | tuple[CountyOrParish | CWE]
+        | tuple[CountyOrParish | CWE, ...]
         | None = None,  # CER.21
         jurisdiction_breadth: JurisdictionalBreadth
         | CWE
-        | tuple[JurisdictionalBreadth | CWE]
+        | tuple[JurisdictionalBreadth | CWE, ...]
         | None = None,  # CER.22
-        granting_date: TS | tuple[TS] | None = None,  # CER.23
-        issuing_date: TS | tuple[TS] | None = None,  # CER.24
-        activation_date: TS | tuple[TS] | None = None,  # CER.25
-        inactivation_date: TS | tuple[TS] | None = None,  # CER.26
-        expiration_date: TS | tuple[TS] | None = None,  # CER.27
-        renewal_date: TS | tuple[TS] | None = None,  # CER.28
-        revocation_date: TS | tuple[TS] | None = None,  # CER.29
-        revocation_reason_code: CE | tuple[CE] | None = None,  # CER.30
+        granting_date: TS | tuple[TS, ...] | None = None,  # CER.23
+        issuing_date: TS | tuple[TS, ...] | None = None,  # CER.24
+        activation_date: TS | tuple[TS, ...] | None = None,  # CER.25
+        inactivation_date: TS | tuple[TS, ...] | None = None,  # CER.26
+        expiration_date: TS | tuple[TS, ...] | None = None,  # CER.27
+        renewal_date: TS | tuple[TS, ...] | None = None,  # CER.28
+        revocation_date: TS | tuple[TS, ...] | None = None,  # CER.29
+        revocation_reason_code: CE | tuple[CE, ...] | None = None,  # CER.30
         certificate_status: CertificateStatus
         | CWE
-        | tuple[CertificateStatus | CWE]
+        | tuple[CertificateStatus | CWE, ...]
         | None = None,  # CER.31
     ):
         """

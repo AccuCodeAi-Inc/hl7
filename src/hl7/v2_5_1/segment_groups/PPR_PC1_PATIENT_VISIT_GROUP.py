@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PPR_PC1_PATIENT_VISIT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PV2, PV1
+    PV1, PV2
 )
 
 ppr_pc1_patient_visit_group = PPR_PC1_PATIENT_VISIT_GROUP(  # PATIENT VISIT - Segment group for PPR_PC1 - Problem add consisting of PV1, PV2|None

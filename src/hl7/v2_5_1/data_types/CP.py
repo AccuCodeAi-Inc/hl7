@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import DataType
+from .CE import CE
 from .ID import ID
 from .NM import NM
 from .MO import MO
-from .CE import CE
-from ..tables.PriceType import PriceType
 from ..tables.CpRangeType import CpRangeType
+from ..tables.PriceType import PriceType
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CP,
-    ID, NM, MO, CE
+    CE, ID, NM, MO
 )
 
 cp = CP(  # Composite Price - Example: |100
@@ -52,12 +52,15 @@ class CP(DataType):
 
     def __init__(
         self,
-        price: MO | tuple[MO],  # CP.1
-        price_type: PriceType | ID | tuple[PriceType | ID] | None = None,  # CP.2
-        from_value: NM | tuple[NM] | None = None,  # CP.3
-        to_value: NM | tuple[NM] | None = None,  # CP.4
-        range_units: CE | tuple[CE] | None = None,  # CP.5
-        range_type: CpRangeType | ID | tuple[CpRangeType | ID] | None = None,  # CP.6
+        price: MO | tuple[MO, ...],  # CP.1
+        price_type: PriceType | ID | tuple[PriceType | ID, ...] | None = None,  # CP.2
+        from_value: NM | tuple[NM, ...] | None = None,  # CP.3
+        to_value: NM | tuple[NM, ...] | None = None,  # CP.4
+        range_units: CE | tuple[CE, ...] | None = None,  # CP.5
+        range_type: CpRangeType
+        | ID
+        | tuple[CpRangeType | ID, ...]
+        | None = None,  # CP.6
     ):
         """
         Composite Price - `CP <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/CP>`_

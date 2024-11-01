@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.QRF import QRF
 from ..segments.QRD import QRD
+from ..segments.QRF import QRF
 
 
 """

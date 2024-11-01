@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PEX_P08_VISIT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PV2, PV1
+    PV1, PV2
 )
 
 pex_p08_visit_group = PEX_P08_VISIT_GROUP(  # VISIT - Segment group for PEX_P08 - Unsolicited update individual product experience report consisting of PV1, PV2|None

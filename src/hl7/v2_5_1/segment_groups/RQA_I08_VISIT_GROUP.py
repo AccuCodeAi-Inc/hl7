@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RQA_I08_VISIT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PV2, PV1
+    PV1, PV2
 )
 
 rqa_i08_visit_group = RQA_I08_VISIT_GROUP(  # VISIT - Segment group for RQA_I08 - Request for treatment authorization information consisting of PV1, PV2|None

@@ -20,7 +20,7 @@ from utils.hl7.v2_5_1.segments import (
     PID
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    PPT_PCL_PATIENT_GROUP_PATHWAY_GROUP, PPT_PCL_PATIENT_GROUP_PATIENT_VISIT_GROUP
+    PPT_PCL_PATIENT_GROUP_PATIENT_VISIT_GROUP, PPT_PCL_PATIENT_GROUP_PATHWAY_GROUP
 )
 
 ppt_pcl_patient_group = PPT_PCL_PATIENT_GROUP(  # PATIENT - Segment group for PPT_PCL - Pathway (goal-oriented) query response consisting of PID, PATIENT VISIT|None, PATHWAY

@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.SFT import SFT
 from ..segments.MSH import MSH
-from ..segments.MFI import MFI
 from ..segments.MFE import MFE
+from ..segments.MFI import MFI
+from ..segments.SFT import SFT
 
 
 """
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import MFN_M13
 from utils.hl7.v2_5_1.segments import (
-    MFI, SFT, MSH, MFE
+    SFT, MFI, MFE, MSH
 )
 
 mfn_m13 = MFN_M13(  #  - The MFN General master file notification transaction is used where the master file is a simple one that contains only a key and the text value of that key

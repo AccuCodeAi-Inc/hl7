@@ -1,24 +1,24 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segment_groups.OMG_O19_ORDER_GROUP_OBSERVATION_GROUP import (
-    OMG_O19_ORDER_GROUP_OBSERVATION_GROUP,
-)
-from ..segments.CTD import CTD
-from ..segments.BLG import BLG
-from ..segment_groups.OMG_O19_ORDER_GROUP_TIMING_GROUP import (
-    OMG_O19_ORDER_GROUP_TIMING_GROUP,
-)
-from ..segments.ORC import ORC
-from ..segments.FT1 import FT1
 from ..segments.CTI import CTI
-from ..segment_groups.OMG_O19_ORDER_GROUP_SPECIMEN_GROUP import (
-    OMG_O19_ORDER_GROUP_SPECIMEN_GROUP,
-)
-from ..segments.NTE import NTE
+from ..segments.CTD import CTD
+from ..segments.FT1 import FT1
+from ..segments.BLG import BLG
+from ..segments.ORC import ORC
 from ..segment_groups.OMG_O19_ORDER_GROUP_PRIOR_RESULT_GROUP import (
     OMG_O19_ORDER_GROUP_PRIOR_RESULT_GROUP,
 )
+from ..segment_groups.OMG_O19_ORDER_GROUP_OBSERVATION_GROUP import (
+    OMG_O19_ORDER_GROUP_OBSERVATION_GROUP,
+)
+from ..segment_groups.OMG_O19_ORDER_GROUP_SPECIMEN_GROUP import (
+    OMG_O19_ORDER_GROUP_SPECIMEN_GROUP,
+)
 from ..segments.DG1 import DG1
+from ..segments.NTE import NTE
+from ..segment_groups.OMG_O19_ORDER_GROUP_TIMING_GROUP import (
+    OMG_O19_ORDER_GROUP_TIMING_GROUP,
+)
 from ..segments.OBR import OBR
 
 
@@ -30,10 +30,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OMG_O19_ORDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    CTD, OBR, FT1, BLG, DG1, CTI, NTE, ORC
+    DG1, CTD, NTE, ORC, OBR, CTI, FT1, BLG
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    OMG_O19_ORDER_GROUP_PRIOR_RESULT_GROUP, OMG_O19_ORDER_GROUP_TIMING_GROUP, OMG_O19_ORDER_GROUP_SPECIMEN_GROUP, OMG_O19_ORDER_GROUP_OBSERVATION_GROUP
+    OMG_O19_ORDER_GROUP_TIMING_GROUP, OMG_O19_ORDER_GROUP_PRIOR_RESULT_GROUP, OMG_O19_ORDER_GROUP_SPECIMEN_GROUP, OMG_O19_ORDER_GROUP_OBSERVATION_GROUP
 )
 
 omg_o19_order_group = OMG_O19_ORDER_GROUP(  # ORDER - Segment group for OMG_O19 - General Clinical Order consisting of ORC, TIMING|None, OBR, NTE|None, CTD|None, DG1|None, OBSERVATION|None, SPECIMEN|None, PRIOR RESULT|None, FT1|None, CTI|None, BLG|None

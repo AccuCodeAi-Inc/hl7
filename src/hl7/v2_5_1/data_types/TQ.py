@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import DataType
-from .TX import TX
-from .TS import TS
-from .CQ import CQ
-from .ID import ID
-from .NM import NM
-from .ST import ST
 from .CE import CE
+from .CQ import CQ
 from .RI import RI
+from .TS import TS
+from .NM import NM
 from .OSD import OSD
+from .ST import ST
+from .ID import ID
+from .TX import TX
 from ..tables.TqConjunctionId import TqConjunctionId
 
 
@@ -20,7 +20,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     TQ,
-    TX, TS, CQ, ID, NM, ST, CE, RI, OSD
+    CE, CQ, RI, TS, NM, OSD, ST, ID, TX
 )
 
 tq = TQ(  # Timing Quantity - Describes when a service should be performed and how frequently
@@ -62,21 +62,21 @@ class TQ(DataType):
 
     def __init__(
         self,
-        quantity: CQ | tuple[CQ] | None = None,  # TQ.1
-        interval: RI | tuple[RI] | None = None,  # TQ.2
-        duration: ST | tuple[ST] | None = None,  # TQ.3
-        start_date_or_time: TS | tuple[TS] | None = None,  # TQ.4
-        end_date_or_time: TS | tuple[TS] | None = None,  # TQ.5
-        priority: ST | tuple[ST] | None = None,  # TQ.6
-        condition: ST | tuple[ST] | None = None,  # TQ.7
-        text: TX | tuple[TX] | None = None,  # TQ.8
+        quantity: CQ | tuple[CQ, ...] | None = None,  # TQ.1
+        interval: RI | tuple[RI, ...] | None = None,  # TQ.2
+        duration: ST | tuple[ST, ...] | None = None,  # TQ.3
+        start_date_or_time: TS | tuple[TS, ...] | None = None,  # TQ.4
+        end_date_or_time: TS | tuple[TS, ...] | None = None,  # TQ.5
+        priority: ST | tuple[ST, ...] | None = None,  # TQ.6
+        condition: ST | tuple[ST, ...] | None = None,  # TQ.7
+        text: TX | tuple[TX, ...] | None = None,  # TQ.8
         conjunction: TqConjunctionId
         | ID
-        | tuple[TqConjunctionId | ID]
+        | tuple[TqConjunctionId | ID, ...]
         | None = None,  # TQ.9
-        order_sequencing: OSD | tuple[OSD] | None = None,  # TQ.10
-        occurrence_duration: CE | tuple[CE] | None = None,  # TQ.11
-        total_occurrences: NM | tuple[NM] | None = None,  # TQ.12
+        order_sequencing: OSD | tuple[OSD, ...] | None = None,  # TQ.10
+        occurrence_duration: CE | tuple[CE, ...] | None = None,  # TQ.11
+        total_occurrences: NM | tuple[NM, ...] | None = None,  # TQ.12
     ):
         """
                 Timing Quantity - `TQ <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/TQ>`_

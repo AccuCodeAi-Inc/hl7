@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RSP_Z88_QUERY_RESPONSE_GROUP_PATIENT_GROUP_ALLERGY_GROUP_VISIT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PV2, PV1
+    PV1, PV2
 )
 
 rsp_z88_query_response_group_patient_group_allergy_group_visit_group = RSP_Z88_QUERY_RESPONSE_GROUP_PATIENT_GROUP_ALLERGY_GROUP_VISIT_GROUP(  # VISIT - Segment group for RSP_Z88_QUERY_RESPONSE_GROUP_PATIENT_GROUP_ALLERGY_GROUP - ALLERGY consisting of PV1, PV2|None

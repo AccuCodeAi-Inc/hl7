@@ -43,8 +43,8 @@ class DR(DataType):
 
     def __init__(
         self,
-        range_start_date_or_time: TS | tuple[TS] | None = None,  # DR.1
-        range_end_date_or_time: TS | tuple[TS] | None = None,  # DR.2
+        range_start_date_or_time: TS | tuple[TS, ...] | None = None,  # DR.1
+        range_end_date_or_time: TS | tuple[TS, ...] | None = None,  # DR.2
     ):
         """
         Date/Time Range - `DR <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/DR>`_

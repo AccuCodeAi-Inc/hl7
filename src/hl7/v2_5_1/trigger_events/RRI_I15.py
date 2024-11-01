@@ -1,24 +1,24 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.AL1 import AL1
-from ..segment_groups.RRI_I15_OBSERVATION_GROUP import RRI_I15_OBSERVATION_GROUP
-from ..segments.SFT import SFT
-from ..segments.MSH import MSH
-from ..segments.RF1 import RF1
-from ..segment_groups.RRI_I15_AUTHORIZATION_CONTACT_GROUP import (
-    RRI_I15_AUTHORIZATION_CONTACT_GROUP,
-)
-from ..segment_groups.RRI_I15_PROCEDURE_GROUP import RRI_I15_PROCEDURE_GROUP
-from ..segments.NTE import NTE
-from ..segments.MSA import MSA
 from ..segment_groups.RRI_I15_PROVIDER_CONTACT_GROUP import (
     RRI_I15_PROVIDER_CONTACT_GROUP,
 )
-from ..segments.PID import PID
-from ..segment_groups.RRI_I15_PATIENT_VISIT_GROUP import RRI_I15_PATIENT_VISIT_GROUP
-from ..segments.DG1 import DG1
+from ..segments.NTE import NTE
+from ..segment_groups.RRI_I15_AUTHORIZATION_CONTACT_GROUP import (
+    RRI_I15_AUTHORIZATION_CONTACT_GROUP,
+)
+from ..segment_groups.RRI_I15_OBSERVATION_GROUP import RRI_I15_OBSERVATION_GROUP
 from ..segments.ACC import ACC
+from ..segment_groups.RRI_I15_PATIENT_VISIT_GROUP import RRI_I15_PATIENT_VISIT_GROUP
+from ..segments.MSH import MSH
+from ..segments.AL1 import AL1
+from ..segments.MSA import MSA
+from ..segments.RF1 import RF1
+from ..segment_groups.RRI_I15_PROCEDURE_GROUP import RRI_I15_PROCEDURE_GROUP
 from ..segments.DRG import DRG
+from ..segments.PID import PID
+from ..segments.DG1 import DG1
+from ..segments.SFT import SFT
 
 
 """
@@ -29,10 +29,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RRI_I15
 from utils.hl7.v2_5_1.segments import (
-    RF1, MSH, PID, AL1, DG1, SFT, ACC, NTE, DRG, MSA
+    DG1, ACC, AL1, NTE, PID, SFT, MSH, MSA, RF1, DRG
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    RRI_I15_PROVIDER_CONTACT_GROUP, RRI_I15_OBSERVATION_GROUP, RRI_I15_PROCEDURE_GROUP, RRI_I15_PATIENT_VISIT_GROUP, RRI_I15_AUTHORIZATION_CONTACT_GROUP
+    RRI_I15_AUTHORIZATION_CONTACT_GROUP, RRI_I15_OBSERVATION_GROUP, RRI_I15_PROCEDURE_GROUP, RRI_I15_PATIENT_VISIT_GROUP, RRI_I15_PROVIDER_CONTACT_GROUP
 )
 
 rri_i15 = RRI_I15(  #  - This event triggers a message to be sent between healthcare providers regarding the status of a patient referral request

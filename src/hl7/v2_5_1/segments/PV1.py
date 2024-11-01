@@ -1,40 +1,40 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.FC import FC
-from ..data_types.TS import TS
-from ..data_types.NM import NM
-from ..data_types.PL import PL
-from ..data_types.IS import IS
+from ..data_types.SI import SI
+from ..data_types.CE import CE
 from ..data_types.CX import CX
 from ..data_types.DT import DT
 from ..data_types.DLD import DLD
-from ..data_types.SI import SI
+from ..data_types.TS import TS
+from ..data_types.IS import IS
+from ..data_types.FC import FC
 from ..data_types.XCN import XCN
-from ..data_types.CE import CE
-from ..tables.HospitalService import HospitalService
-from ..tables.BedStatus import BedStatus
+from ..data_types.NM import NM
+from ..data_types.PL import PL
 from ..tables.PhysicianId import PhysicianId
+from ..tables.DietType import DietType
+from ..tables.HospitalService import HospitalService
 from ..tables.PreAdmitTestIndicator import PreAdmitTestIndicator
-from ..tables.CreditRating import CreditRating
-from ..tables.AccountStatus import AccountStatus
-from ..tables.DeleteAccountCode import DeleteAccountCode
-from ..tables.ReAdmissionIndicator import ReAdmissionIndicator
-from ..tables.BadDebtAgencyCode import BadDebtAgencyCode
 from ..tables.PatientClass import PatientClass
 from ..tables.CourtesyCode import CourtesyCode
-from ..tables.ChargeOrPriceIndicator import ChargeOrPriceIndicator
-from ..tables.AdmitSource import AdmitSource
-from ..tables.DietType import DietType
-from ..tables.VipIndicator import VipIndicator
 from ..tables.ContractCode import ContractCode
-from ..tables.AdmissionType import AdmissionType
-from ..tables.TransferToBadDebtCode import TransferToBadDebtCode
+from ..tables.AccountStatus import AccountStatus
+from ..tables.BadDebtAgencyCode import BadDebtAgencyCode
+from ..tables.BedStatus import BedStatus
 from ..tables.VisitIndicator import VisitIndicator
-from ..tables.AmbulatoryStatus import AmbulatoryStatus
 from ..tables.DischargeDisposition import DischargeDisposition
-from ..tables.InterestRateCode import InterestRateCode
-from ..tables.PatientType import PatientType
 from ..tables.ServicingFacility import ServicingFacility
+from ..tables.ChargeOrPriceIndicator import ChargeOrPriceIndicator
+from ..tables.AdmissionType import AdmissionType
+from ..tables.AdmitSource import AdmitSource
+from ..tables.CreditRating import CreditRating
+from ..tables.InterestRateCode import InterestRateCode
+from ..tables.TransferToBadDebtCode import TransferToBadDebtCode
+from ..tables.PatientType import PatientType
+from ..tables.VipIndicator import VipIndicator
+from ..tables.ReAdmissionIndicator import ReAdmissionIndicator
+from ..tables.AmbulatoryStatus import AmbulatoryStatus
+from ..tables.DeleteAccountCode import DeleteAccountCode
 
 
 """
@@ -45,7 +45,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PV1,
-    FC, TS, NM, PL, IS, CX, DT, DLD, SI, XCN, CE
+    SI, CE, CX, DT, DLD, TS, IS, FC, XCN, NM, PL
 )
 
 pv1 = PV1(  #  - The PV1 segment is used by Registration/Patient Administration applications to communicate information on an account or visit-specific basis
@@ -127,132 +127,132 @@ class PV1(HL7Segment):
 
     def __init__(
         self,
-        patient_class: PatientClass | IS | tuple[PatientClass | IS],  # PV1.2
-        set_id_pv1: SI | tuple[SI] | None = None,  # PV1.1
-        assigned_patient_location: PL | tuple[PL] | None = None,  # PV1.3
+        patient_class: PatientClass | IS | tuple[PatientClass | IS, ...],  # PV1.2
+        set_id_pv1: SI | tuple[SI, ...] | None = None,  # PV1.1
+        assigned_patient_location: PL | tuple[PL, ...] | None = None,  # PV1.3
         admission_type: AdmissionType
         | IS
-        | tuple[AdmissionType | IS]
+        | tuple[AdmissionType | IS, ...]
         | None = None,  # PV1.4
-        preadmit_number: CX | tuple[CX] | None = None,  # PV1.5
-        prior_patient_location: PL | tuple[PL] | None = None,  # PV1.6
+        preadmit_number: CX | tuple[CX, ...] | None = None,  # PV1.5
+        prior_patient_location: PL | tuple[PL, ...] | None = None,  # PV1.6
         attending_doctor: PhysicianId
         | XCN
-        | tuple[PhysicianId | XCN]
+        | tuple[PhysicianId | XCN, ...]
         | None = None,  # PV1.7
         referring_doctor: PhysicianId
         | XCN
-        | tuple[PhysicianId | XCN]
+        | tuple[PhysicianId | XCN, ...]
         | None = None,  # PV1.8
         consulting_doctor: PhysicianId
         | XCN
-        | tuple[PhysicianId | XCN]
+        | tuple[PhysicianId | XCN, ...]
         | None = None,  # PV1.9
         hospital_service: HospitalService
         | IS
-        | tuple[HospitalService | IS]
+        | tuple[HospitalService | IS, ...]
         | None = None,  # PV1.10
-        temporary_location: PL | tuple[PL] | None = None,  # PV1.11
+        temporary_location: PL | tuple[PL, ...] | None = None,  # PV1.11
         preadmit_test_indicator: PreAdmitTestIndicator
         | IS
-        | tuple[PreAdmitTestIndicator | IS]
+        | tuple[PreAdmitTestIndicator | IS, ...]
         | None = None,  # PV1.12
         re_admission_indicator: ReAdmissionIndicator
         | IS
-        | tuple[ReAdmissionIndicator | IS]
+        | tuple[ReAdmissionIndicator | IS, ...]
         | None = None,  # PV1.13
         admit_source: AdmitSource
         | IS
-        | tuple[AdmitSource | IS]
+        | tuple[AdmitSource | IS, ...]
         | None = None,  # PV1.14
         ambulatory_status: AmbulatoryStatus
         | IS
-        | tuple[AmbulatoryStatus | IS]
+        | tuple[AmbulatoryStatus | IS, ...]
         | None = None,  # PV1.15
         vip_indicator: VipIndicator
         | IS
-        | tuple[VipIndicator | IS]
+        | tuple[VipIndicator | IS, ...]
         | None = None,  # PV1.16
         admitting_doctor: PhysicianId
         | XCN
-        | tuple[PhysicianId | XCN]
+        | tuple[PhysicianId | XCN, ...]
         | None = None,  # PV1.17
         patient_type: PatientType
         | IS
-        | tuple[PatientType | IS]
+        | tuple[PatientType | IS, ...]
         | None = None,  # PV1.18
-        visit_number: CX | tuple[CX] | None = None,  # PV1.19
-        financial_class: FC | tuple[FC] | None = None,  # PV1.20
+        visit_number: CX | tuple[CX, ...] | None = None,  # PV1.19
+        financial_class: FC | tuple[FC, ...] | None = None,  # PV1.20
         charge_price_indicator: ChargeOrPriceIndicator
         | IS
-        | tuple[ChargeOrPriceIndicator | IS]
+        | tuple[ChargeOrPriceIndicator | IS, ...]
         | None = None,  # PV1.21
         courtesy_code: CourtesyCode
         | IS
-        | tuple[CourtesyCode | IS]
+        | tuple[CourtesyCode | IS, ...]
         | None = None,  # PV1.22
         credit_rating: CreditRating
         | IS
-        | tuple[CreditRating | IS]
+        | tuple[CreditRating | IS, ...]
         | None = None,  # PV1.23
         contract_code: ContractCode
         | IS
-        | tuple[ContractCode | IS]
+        | tuple[ContractCode | IS, ...]
         | None = None,  # PV1.24
-        contract_effective_date: DT | tuple[DT] | None = None,  # PV1.25
-        contract_amount: NM | tuple[NM] | None = None,  # PV1.26
-        contract_period: NM | tuple[NM] | None = None,  # PV1.27
+        contract_effective_date: DT | tuple[DT, ...] | None = None,  # PV1.25
+        contract_amount: NM | tuple[NM, ...] | None = None,  # PV1.26
+        contract_period: NM | tuple[NM, ...] | None = None,  # PV1.27
         interest_code: InterestRateCode
         | IS
-        | tuple[InterestRateCode | IS]
+        | tuple[InterestRateCode | IS, ...]
         | None = None,  # PV1.28
         transfer_to_bad_debt_code: TransferToBadDebtCode
         | IS
-        | tuple[TransferToBadDebtCode | IS]
+        | tuple[TransferToBadDebtCode | IS, ...]
         | None = None,  # PV1.29
-        transfer_to_bad_debt_date: DT | tuple[DT] | None = None,  # PV1.30
+        transfer_to_bad_debt_date: DT | tuple[DT, ...] | None = None,  # PV1.30
         bad_debt_agency_code: BadDebtAgencyCode
         | IS
-        | tuple[BadDebtAgencyCode | IS]
+        | tuple[BadDebtAgencyCode | IS, ...]
         | None = None,  # PV1.31
-        bad_debt_transfer_amount: NM | tuple[NM] | None = None,  # PV1.32
-        bad_debt_recovery_amount: NM | tuple[NM] | None = None,  # PV1.33
+        bad_debt_transfer_amount: NM | tuple[NM, ...] | None = None,  # PV1.32
+        bad_debt_recovery_amount: NM | tuple[NM, ...] | None = None,  # PV1.33
         delete_account_indicator: DeleteAccountCode
         | IS
-        | tuple[DeleteAccountCode | IS]
+        | tuple[DeleteAccountCode | IS, ...]
         | None = None,  # PV1.34
-        delete_account_date: DT | tuple[DT] | None = None,  # PV1.35
+        delete_account_date: DT | tuple[DT, ...] | None = None,  # PV1.35
         discharge_disposition: DischargeDisposition
         | IS
-        | tuple[DischargeDisposition | IS]
+        | tuple[DischargeDisposition | IS, ...]
         | None = None,  # PV1.36
-        discharged_to_location: DLD | tuple[DLD] | None = None,  # PV1.37
-        diet_type: DietType | CE | tuple[DietType | CE] | None = None,  # PV1.38
+        discharged_to_location: DLD | tuple[DLD, ...] | None = None,  # PV1.37
+        diet_type: DietType | CE | tuple[DietType | CE, ...] | None = None,  # PV1.38
         servicing_facility: ServicingFacility
         | IS
-        | tuple[ServicingFacility | IS]
+        | tuple[ServicingFacility | IS, ...]
         | None = None,  # PV1.39
-        bed_status: BedStatus | IS | tuple[BedStatus | IS] | None = None,  # PV1.40
+        bed_status: BedStatus | IS | tuple[BedStatus | IS, ...] | None = None,  # PV1.40
         account_status: AccountStatus
         | IS
-        | tuple[AccountStatus | IS]
+        | tuple[AccountStatus | IS, ...]
         | None = None,  # PV1.41
-        pending_location: PL | tuple[PL] | None = None,  # PV1.42
-        prior_temporary_location: PL | tuple[PL] | None = None,  # PV1.43
-        admit_date_or_time: TS | tuple[TS] | None = None,  # PV1.44
-        discharge_date_or_time: TS | tuple[TS] | None = None,  # PV1.45
-        current_patient_balance: NM | tuple[NM] | None = None,  # PV1.46
-        total_charges: NM | tuple[NM] | None = None,  # PV1.47
-        total_adjustments: NM | tuple[NM] | None = None,  # PV1.48
-        total_payments: NM | tuple[NM] | None = None,  # PV1.49
-        alternate_visit_id: CX | tuple[CX] | None = None,  # PV1.50
+        pending_location: PL | tuple[PL, ...] | None = None,  # PV1.42
+        prior_temporary_location: PL | tuple[PL, ...] | None = None,  # PV1.43
+        admit_date_or_time: TS | tuple[TS, ...] | None = None,  # PV1.44
+        discharge_date_or_time: TS | tuple[TS, ...] | None = None,  # PV1.45
+        current_patient_balance: NM | tuple[NM, ...] | None = None,  # PV1.46
+        total_charges: NM | tuple[NM, ...] | None = None,  # PV1.47
+        total_adjustments: NM | tuple[NM, ...] | None = None,  # PV1.48
+        total_payments: NM | tuple[NM, ...] | None = None,  # PV1.49
+        alternate_visit_id: CX | tuple[CX, ...] | None = None,  # PV1.50
         visit_indicator: VisitIndicator
         | IS
-        | tuple[VisitIndicator | IS]
+        | tuple[VisitIndicator | IS, ...]
         | None = None,  # PV1.51
         other_healthcare_provider: PhysicianId
         | XCN
-        | tuple[PhysicianId | XCN]
+        | tuple[PhysicianId | XCN, ...]
         | None = None,  # PV1.52
     ):
         """

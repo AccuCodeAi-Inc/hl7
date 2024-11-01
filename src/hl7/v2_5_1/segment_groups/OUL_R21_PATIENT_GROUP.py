@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OUL_R21_PATIENT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NTE, PID, PD1
+    PD1, NTE, PID
 )
 
 oul_r21_patient_group = OUL_R21_PATIENT_GROUP(  # PATIENT - Segment group for OUL_R21 - Unsolicited laboratory observation consisting of PID, PD1|None, NTE|None

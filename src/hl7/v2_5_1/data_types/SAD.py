@@ -44,9 +44,9 @@ class SAD(DataType):
 
     def __init__(
         self,
-        street_or_mailing_address: ST | tuple[ST] | None = None,  # SAD.1
-        street_name: ST | tuple[ST] | None = None,  # SAD.2
-        dwelling_number: ST | tuple[ST] | None = None,  # SAD.3
+        street_or_mailing_address: ST | tuple[ST, ...] | None = None,  # SAD.1
+        street_name: ST | tuple[ST, ...] | None = None,  # SAD.2
+        dwelling_number: ST | tuple[ST, ...] | None = None,  # SAD.3
     ):
         """
         Street Address - `SAD <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/SAD>`_

@@ -47,12 +47,12 @@ class SID(HL7Segment):
 
     def __init__(
         self,
-        application_or_method_identifier: CE | tuple[CE] | None = None,  # SID.1
-        substance_lot_number: ST | tuple[ST] | None = None,  # SID.2
-        substance_container_identifier: ST | tuple[ST] | None = None,  # SID.3
+        application_or_method_identifier: CE | tuple[CE, ...] | None = None,  # SID.1
+        substance_lot_number: ST | tuple[ST, ...] | None = None,  # SID.2
+        substance_container_identifier: ST | tuple[ST, ...] | None = None,  # SID.3
         substance_manufacturer_identifier: ManufacturerIdentifier
         | CE
-        | tuple[ManufacturerIdentifier | CE]
+        | tuple[ManufacturerIdentifier | CE, ...]
         | None = None,  # SID.4
     ):
         """

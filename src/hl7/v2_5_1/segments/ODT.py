@@ -46,9 +46,9 @@ class ODT(HL7Segment):
 
     def __init__(
         self,
-        tray_type: TrayType | CE | tuple[TrayType | CE],  # ODT.1
-        service_period: CE | tuple[CE] | None = None,  # ODT.2
-        text_instruction: ST | tuple[ST] | None = None,  # ODT.3
+        tray_type: TrayType | CE | tuple[TrayType | CE, ...],  # ODT.1
+        service_period: CE | tuple[CE, ...] | None = None,  # ODT.2
+        text_instruction: ST | tuple[ST, ...] | None = None,  # ODT.3
     ):
         """
         Diet Tray Instructions - `ODT <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/ODT>`_

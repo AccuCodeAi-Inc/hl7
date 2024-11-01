@@ -1,24 +1,24 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.OBX import OBX
-from ..segments.MSH import MSH
-from ..segments.DB1 import DB1
-from ..segments.NK1 import NK1
-from ..segments.DRG import DRG
-from ..segments.AL1 import AL1
-from ..segments.ROL import ROL
-from ..segments.DG1 import DG1
-from ..segments.PV2 import PV2
-from ..segment_groups.ADT_A03_INSURANCE_GROUP import ADT_A03_INSURANCE_GROUP
-from ..segments.GT1 import GT1
-from ..segments.PID import PID
-from ..segments.EVN import EVN
-from ..segments.PV1 import PV1
-from ..segments.SFT import SFT
 from ..segments.PD1 import PD1
-from ..segment_groups.ADT_A03_PROCEDURE_GROUP import ADT_A03_PROCEDURE_GROUP
+from ..segment_groups.ADT_A03_INSURANCE_GROUP import ADT_A03_INSURANCE_GROUP
+from ..segments.MSH import MSH
+from ..segments.EVN import EVN
+from ..segments.GT1 import GT1
 from ..segments.ACC import ACC
+from ..segments.NK1 import NK1
+from ..segments.AL1 import AL1
+from ..segments.SFT import SFT
+from ..segments.ROL import ROL
+from ..segments.PV2 import PV2
+from ..segments.DB1 import DB1
+from ..segments.PV1 import PV1
+from ..segments.DRG import DRG
+from ..segments.DG1 import DG1
 from ..segments.PDA import PDA
+from ..segments.OBX import OBX
+from ..segments.PID import PID
+from ..segment_groups.ADT_A03_PROCEDURE_GROUP import ADT_A03_PROCEDURE_GROUP
 
 
 """
@@ -29,10 +29,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ADT_A03
 from utils.hl7.v2_5_1.segments import (
-    OBX, PID, MSH, PD1, PV1, NK1, ROL, PV2, SFT, DB1, AL1, DG1, GT1, ACC, PDA, DRG, EVN
+    NK1, DG1, DRG, DB1, ACC, AL1, PID, SFT, EVN, PDA, MSH, PD1, ROL, PV1, GT1, PV2, OBX
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    ADT_A03_INSURANCE_GROUP, ADT_A03_PROCEDURE_GROUP
+    ADT_A03_PROCEDURE_GROUP, ADT_A03_INSURANCE_GROUP
 )
 
 adt_a03 = ADT_A03(  #  - An A03 event signals the end of a patient’s stay in a healthcare facility

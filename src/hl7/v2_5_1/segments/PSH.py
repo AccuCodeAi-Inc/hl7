@@ -2,9 +2,9 @@ from __future__ import annotations
 from ...base import HL7Segment
 from ..data_types.CQ import CQ
 from ..data_types.TS import TS
-from ..data_types.ID import ID
 from ..data_types.NM import NM
 from ..data_types.ST import ST
+from ..data_types.ID import ID
 from ..data_types.FT import FT
 from ..tables.QuantityMethod import QuantityMethod
 
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PSH,
-    CQ, TS, ID, NM, ST, FT
+    CQ, TS, NM, ST, ID, FT
 )
 
 psh = PSH(  #  - 
@@ -61,29 +61,29 @@ class PSH(HL7Segment):
 
     def __init__(
         self,
-        report_type: ST | tuple[ST],  # PSH.1
-        report_date: TS | tuple[TS],  # PSH.3
-        report_form_identifier: ST | tuple[ST] | None = None,  # PSH.2
-        report_interval_start_date: TS | tuple[TS] | None = None,  # PSH.4
-        report_interval_end_date: TS | tuple[TS] | None = None,  # PSH.5
-        quantity_manufactured: CQ | tuple[CQ] | None = None,  # PSH.6
-        quantity_distributed: CQ | tuple[CQ] | None = None,  # PSH.7
+        report_type: ST | tuple[ST, ...],  # PSH.1
+        report_date: TS | tuple[TS, ...],  # PSH.3
+        report_form_identifier: ST | tuple[ST, ...] | None = None,  # PSH.2
+        report_interval_start_date: TS | tuple[TS, ...] | None = None,  # PSH.4
+        report_interval_end_date: TS | tuple[TS, ...] | None = None,  # PSH.5
+        quantity_manufactured: CQ | tuple[CQ, ...] | None = None,  # PSH.6
+        quantity_distributed: CQ | tuple[CQ, ...] | None = None,  # PSH.7
         quantity_distributed_method: QuantityMethod
         | ID
-        | tuple[QuantityMethod | ID]
+        | tuple[QuantityMethod | ID, ...]
         | None = None,  # PSH.8
-        quantity_distributed_comment: FT | tuple[FT] | None = None,  # PSH.9
-        quantity_in_use: CQ | tuple[CQ] | None = None,  # PSH.10
+        quantity_distributed_comment: FT | tuple[FT, ...] | None = None,  # PSH.9
+        quantity_in_use: CQ | tuple[CQ, ...] | None = None,  # PSH.10
         quantity_in_use_method: QuantityMethod
         | ID
-        | tuple[QuantityMethod | ID]
+        | tuple[QuantityMethod | ID, ...]
         | None = None,  # PSH.11
-        quantity_in_use_comment: FT | tuple[FT] | None = None,  # PSH.12
+        quantity_in_use_comment: FT | tuple[FT, ...] | None = None,  # PSH.12
         number_of_product_experience_reports_filed_by_facility: NM
-        | tuple[NM]
+        | tuple[NM, ...]
         | None = None,  # PSH.13
         number_of_product_experience_reports_filed_by_distributor: NM
-        | tuple[NM]
+        | tuple[NM, ...]
         | None = None,  # PSH.14
     ):
         """

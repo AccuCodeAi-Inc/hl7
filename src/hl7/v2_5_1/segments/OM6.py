@@ -45,9 +45,9 @@ class OM6(HL7Segment):
     def __init__(
         self,
         sequence_number_test_or_observation_master_file: NM
-        | tuple[NM]
+        | tuple[NM, ...]
         | None = None,  # OM6.1
-        derivation_rule: TX | tuple[TX] | None = None,  # OM6.2
+        derivation_rule: TX | tuple[TX, ...] | None = None,  # OM6.2
     ):
         """
         Observations that are Calculated from Other Observations - `OM6 <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/OM6>`_

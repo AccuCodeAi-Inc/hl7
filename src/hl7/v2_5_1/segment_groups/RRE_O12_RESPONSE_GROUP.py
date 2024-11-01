@@ -19,7 +19,7 @@ from utils.hl7.v2_5_1.segments import (
     
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    RRE_O12_RESPONSE_GROUP_PATIENT_GROUP, RRE_O12_RESPONSE_GROUP_ORDER_GROUP
+    RRE_O12_RESPONSE_GROUP_ORDER_GROUP, RRE_O12_RESPONSE_GROUP_PATIENT_GROUP
 )
 
 rre_o12_response_group = RRE_O12_RESPONSE_GROUP(  # RESPONSE - Segment group for RRE_O12 - Pharmacy/Treatment Encoded Order Acknowledgement consisting of PATIENT|None, ORDER

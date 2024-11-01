@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
 from ..segments.RCP import RCP
-from ..segments.DSC import DSC
-from ..segments.SFT import SFT
 from ..segments.MSH import MSH
 from ..segments.QPD import QPD
+from ..segments.DSC import DSC
+from ..segments.SFT import SFT
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import QBP_Q11
 from utils.hl7.v2_5_1.segments import (
-    QPD, MSH, SFT, RCP, DSC
+    SFT, RCP, DSC, QPD, MSH
 )
 
 qbp_q11 = QBP_Q11(  #  - The QBP_Q11 structure supports a Segment Pattern Response and contains the MSH, QPD, RCP, and DSC segments

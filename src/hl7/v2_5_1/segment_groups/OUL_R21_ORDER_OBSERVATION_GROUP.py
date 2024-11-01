@@ -1,16 +1,16 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segment_groups.OUL_R21_ORDER_OBSERVATION_GROUP_OBSERVATION_GROUP import (
+    OUL_R21_ORDER_OBSERVATION_GROUP_OBSERVATION_GROUP,
+)
+from ..segments.CTI import CTI
+from ..segments.ORC import ORC
 from ..segment_groups.OUL_R21_ORDER_OBSERVATION_GROUP_CONTAINER_GROUP import (
     OUL_R21_ORDER_OBSERVATION_GROUP_CONTAINER_GROUP,
 )
 from ..segment_groups.OUL_R21_ORDER_OBSERVATION_GROUP_TIMING_QTY_GROUP import (
     OUL_R21_ORDER_OBSERVATION_GROUP_TIMING_QTY_GROUP,
 )
-from ..segments.ORC import ORC
-from ..segment_groups.OUL_R21_ORDER_OBSERVATION_GROUP_OBSERVATION_GROUP import (
-    OUL_R21_ORDER_OBSERVATION_GROUP_OBSERVATION_GROUP,
-)
-from ..segments.CTI import CTI
 from ..segments.NTE import NTE
 from ..segments.OBR import OBR
 
@@ -23,7 +23,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OUL_R21_ORDER_OBSERVATION_GROUP
 from utils.hl7.v2_5_1.segments import (
-    OBR, NTE, CTI, ORC
+    OBR, CTI, NTE, ORC
 )
 from utils.hl7.v2_5_1.segment_groups import (
     OUL_R21_ORDER_OBSERVATION_GROUP_OBSERVATION_GROUP, OUL_R21_ORDER_OBSERVATION_GROUP_CONTAINER_GROUP, OUL_R21_ORDER_OBSERVATION_GROUP_TIMING_QTY_GROUP

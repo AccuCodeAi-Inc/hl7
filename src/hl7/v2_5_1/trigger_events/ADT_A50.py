@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.MRG import MRG
-from ..segments.PV1 import PV1
-from ..segments.SFT import SFT
-from ..segments.MSH import MSH
 from ..segments.PD1 import PD1
-from ..segments.PID import PID
+from ..segments.MSH import MSH
+from ..segments.MRG import MRG
 from ..segments.EVN import EVN
+from ..segments.PV1 import PV1
+from ..segments.PID import PID
+from ..segments.SFT import SFT
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ADT_A50
 from utils.hl7.v2_5_1.segments import (
-    PID, MSH, PD1, PV1, SFT, EVN, MRG
+    MRG, PID, SFT, EVN, MSH, PD1, PV1
 )
 
 adt_a50 = ADT_A50(  #  - A change has been done at the visit identifier level

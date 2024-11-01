@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.BPO import BPO
 from ..segment_groups.ORB_O28_RESPONSE_GROUP_PATIENT_GROUP_ORDER_GROUP_TIMING_GROUP import (
     ORB_O28_RESPONSE_GROUP_PATIENT_GROUP_ORDER_GROUP_TIMING_GROUP,
 )
 from ..segments.ORC import ORC
+from ..segments.BPO import BPO
 
 
 """

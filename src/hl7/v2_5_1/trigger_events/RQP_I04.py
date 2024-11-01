@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.SFT import SFT
+from ..segment_groups.RQP_I04_PROVIDER_GROUP import RQP_I04_PROVIDER_GROUP
+from ..segments.NK1 import NK1
 from ..segments.MSH import MSH
 from ..segments.GT1 import GT1
-from ..segments.NTE import NTE
 from ..segments.PID import PID
-from ..segments.NK1 import NK1
-from ..segment_groups.RQP_I04_PROVIDER_GROUP import RQP_I04_PROVIDER_GROUP
+from ..segments.NTE import NTE
+from ..segments.SFT import SFT
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RQP_I04
 from utils.hl7.v2_5_1.segments import (
-    PID, MSH, NK1, SFT, GT1, NTE
+    NK1, NTE, PID, SFT, MSH, GT1
 )
 from utils.hl7.v2_5_1.segment_groups import (
     RQP_I04_PROVIDER_GROUP

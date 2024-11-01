@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ST import ST
 from ..data_types.SI import SI
 from ..data_types.CE import CE
+from ..data_types.ST import ST
 
 
 """
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CM1,
-    ST, SI, CE
+    SI, CE, ST
 )
 
 cm1 = CM1(  #  - Each Clinical Study Phase Master (CM1) segment contains the information about one phase of a study identified in the preceding CM0
@@ -46,9 +46,9 @@ class CM1(HL7Segment):
 
     def __init__(
         self,
-        set_id_cm1: SI | tuple[SI],  # CM1.1
-        study_phase_identifier: CE | tuple[CE],  # CM1.2
-        description_of_study_phase: ST | tuple[ST],  # CM1.3
+        set_id_cm1: SI | tuple[SI, ...],  # CM1.1
+        study_phase_identifier: CE | tuple[CE, ...],  # CM1.2
+        description_of_study_phase: ST | tuple[ST, ...],  # CM1.3
     ):
         """
         Clinical Study Phase Master - `CM1 <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/CM1>`_

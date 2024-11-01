@@ -4,8 +4,8 @@ from ..segment_groups.BRP_O30_RESPONSE_GROUP_PATIENT_GROUP_ORDER_GROUP_TIMING_GR
     BRP_O30_RESPONSE_GROUP_PATIENT_GROUP_ORDER_GROUP_TIMING_GROUP,
 )
 from ..segments.BPX import BPX
-from ..segments.BPO import BPO
 from ..segments.ORC import ORC
+from ..segments.BPO import BPO
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import BRP_O30_RESPONSE_GROUP_PATIENT_GROUP_ORDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    BPO, BPX, ORC
+    BPX, BPO, ORC
 )
 from utils.hl7.v2_5_1.segment_groups import (
     BRP_O30_RESPONSE_GROUP_PATIENT_GROUP_ORDER_GROUP_TIMING_GROUP

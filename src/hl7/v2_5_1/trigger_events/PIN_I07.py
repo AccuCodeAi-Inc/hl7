@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segment_groups.PIN_I07_PROVIDER_GROUP import PIN_I07_PROVIDER_GROUP
-from ..segments.SFT import SFT
-from ..segments.MSH import MSH
-from ..segments.NTE import NTE
-from ..segments.PID import PID
-from ..segments.NK1 import NK1
 from ..segment_groups.PIN_I07_GUARANTOR_INSURANCE_GROUP import (
     PIN_I07_GUARANTOR_INSURANCE_GROUP,
 )
+from ..segments.NK1 import NK1
+from ..segments.MSH import MSH
+from ..segments.PID import PID
+from ..segments.NTE import NTE
+from ..segment_groups.PIN_I07_PROVIDER_GROUP import PIN_I07_PROVIDER_GROUP
+from ..segments.SFT import SFT
 
 
 """
@@ -19,10 +19,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PIN_I07
 from utils.hl7.v2_5_1.segments import (
-    PID, MSH, NK1, SFT, NTE
+    NK1, NTE, PID, SFT, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    PIN_I07_PROVIDER_GROUP, PIN_I07_GUARANTOR_INSURANCE_GROUP
+    PIN_I07_GUARANTOR_INSURANCE_GROUP, PIN_I07_PROVIDER_GROUP
 )
 
 pin_i07 = PIN_I07(  #  - This trigger event is used by an entity or organization to transmit to a healthcare provider the insurance information on a specific patient

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
 from ..data_types.ST import ST
+from ..data_types.ID import ID
 from ..tables.ContinuationStyleCode import ContinuationStyleCode
 
 
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     DSC,
-    ID, ST
+    ST, ID
 )
 
 dsc = DSC(  #  - The DSC segment is used in the continuation protocol
@@ -45,10 +45,10 @@ class DSC(HL7Segment):
 
     def __init__(
         self,
-        continuation_pointer: ST | tuple[ST] | None = None,  # DSC.1
+        continuation_pointer: ST | tuple[ST, ...] | None = None,  # DSC.1
         continuation_style: ContinuationStyleCode
         | ID
-        | tuple[ContinuationStyleCode | ID]
+        | tuple[ContinuationStyleCode | ID, ...]
         | None = None,  # DSC.2
     ):
         """

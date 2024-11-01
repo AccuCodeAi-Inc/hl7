@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.QIP import QIP
 from ..data_types.ST import ST
 from ..data_types.CE import CE
+from ..data_types.QIP import QIP
 
 
 """
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     ERQ,
-    QIP, ST, CE
+    ST, CE, QIP
 )
 
 erq = ERQ(  #  - This segment is not carried forward to the recommended queries for v 2
@@ -46,9 +46,9 @@ class ERQ(HL7Segment):
 
     def __init__(
         self,
-        event_identifier: CE | tuple[CE],  # ERQ.2
-        query_tag: ST | tuple[ST] | None = None,  # ERQ.1
-        input_parameter_list: QIP | tuple[QIP] | None = None,  # ERQ.3
+        event_identifier: CE | tuple[CE, ...],  # ERQ.2
+        query_tag: ST | tuple[ST, ...] | None = None,  # ERQ.1
+        input_parameter_list: QIP | tuple[QIP, ...] | None = None,  # ERQ.3
     ):
         """
         Event replay query - `ERQ <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/ERQ>`_

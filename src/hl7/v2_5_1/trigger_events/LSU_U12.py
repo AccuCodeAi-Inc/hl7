@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.EQU import EQU
-from ..segments.EQP import EQP
-from ..segments.SFT import SFT
-from ..segments.MSH import MSH
 from ..segments.ROL import ROL
+from ..segments.MSH import MSH
+from ..segments.SFT import SFT
+from ..segments.EQP import EQP
+from ..segments.EQU import EQU
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import LSU_U12
 from utils.hl7.v2_5_1.segments import (
-    MSH, EQP, ROL, EQU, SFT
+    EQU, SFT, MSH, ROL, EQP
 )
 
 lsu_u12 = LSU_U12(  #  - This message is used to send log and/or service events from one application to another (e

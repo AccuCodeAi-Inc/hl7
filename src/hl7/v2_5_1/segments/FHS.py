@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.HD import HD
 from ..data_types.ST import ST
+from ..data_types.HD import HD
 from ..data_types.TS import TS
 
 
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     FHS,
-    HD, ST, TS
+    ST, HD, TS
 )
 
 fhs = FHS(  #  - The FHS segment is used to head a file (group of batches)
@@ -55,18 +55,18 @@ class FHS(HL7Segment):
 
     def __init__(
         self,
-        file_field_separator: ST | tuple[ST],  # FHS.1
-        file_encoding_characters: ST | tuple[ST],  # FHS.2
-        file_sending_application: HD | tuple[HD] | None = None,  # FHS.3
-        file_sending_facility: HD | tuple[HD] | None = None,  # FHS.4
-        file_receiving_application: HD | tuple[HD] | None = None,  # FHS.5
-        file_receiving_facility: HD | tuple[HD] | None = None,  # FHS.6
-        file_creation_date_or_time: TS | tuple[TS] | None = None,  # FHS.7
-        file_security: ST | tuple[ST] | None = None,  # FHS.8
-        file_name_or_id: ST | tuple[ST] | None = None,  # FHS.9
-        file_header_comment: ST | tuple[ST] | None = None,  # FHS.10
-        file_control_id: ST | tuple[ST] | None = None,  # FHS.11
-        reference_file_control_id: ST | tuple[ST] | None = None,  # FHS.12
+        file_field_separator: ST | tuple[ST, ...],  # FHS.1
+        file_encoding_characters: ST | tuple[ST, ...],  # FHS.2
+        file_sending_application: HD | tuple[HD, ...] | None = None,  # FHS.3
+        file_sending_facility: HD | tuple[HD, ...] | None = None,  # FHS.4
+        file_receiving_application: HD | tuple[HD, ...] | None = None,  # FHS.5
+        file_receiving_facility: HD | tuple[HD, ...] | None = None,  # FHS.6
+        file_creation_date_or_time: TS | tuple[TS, ...] | None = None,  # FHS.7
+        file_security: ST | tuple[ST, ...] | None = None,  # FHS.8
+        file_name_or_id: ST | tuple[ST, ...] | None = None,  # FHS.9
+        file_header_comment: ST | tuple[ST, ...] | None = None,  # FHS.10
+        file_control_id: ST | tuple[ST, ...] | None = None,  # FHS.11
+        reference_file_control_id: ST | tuple[ST, ...] | None = None,  # FHS.12
     ):
         """
         File Header Segment - `FHS <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/FHS>`_

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import DataType
-from .CE import CE
 from .TS import TS
+from .CE import CE
 from ..tables.Institution import Institution
 
 
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     DIN,
-    CE, TS
+    TS, CE
 )
 
 din = DIN(  # Date and Institution Name - Specifies the date and institution information where a staff member became active or inactive
@@ -45,8 +45,8 @@ class DIN(DataType):
 
     def __init__(
         self,
-        date: TS | tuple[TS],  # DIN.1
-        institution_name: Institution | CE | tuple[Institution | CE],  # DIN.2
+        date: TS | tuple[TS, ...],  # DIN.1
+        institution_name: Institution | CE | tuple[Institution | CE, ...],  # DIN.2
     ):
         """
         Date and Institution Name - `DIN <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/DIN>`_

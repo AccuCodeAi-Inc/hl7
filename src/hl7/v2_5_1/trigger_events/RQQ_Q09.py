@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
+from ..segments.MSH import MSH
 from ..segments.DSC import DSC
 from ..segments.SFT import SFT
-from ..segments.MSH import MSH
 from ..segments.ERQ import ERQ
 
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RQQ_Q09
 from utils.hl7.v2_5_1.segments import (
-    ERQ, DSC, SFT, MSH
+    SFT, ERQ, DSC, MSH
 )
 
 rqq_q09 = RQQ_Q09(  #  - The Event Replay Query under version 2

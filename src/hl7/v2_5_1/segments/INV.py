@@ -1,15 +1,15 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TQ import TQ
-from ..data_types.TS import TS
-from ..data_types.CQ import CQ
-from ..data_types.NM import NM
-from ..data_types.ST import ST
 from ..data_types.CE import CE
-from ..tables.SubstanceIdentifier import SubstanceIdentifier
-from ..tables.SubstanceType import SubstanceType
-from ..tables.SubstanceStatus import SubstanceStatus
+from ..data_types.CQ import CQ
+from ..data_types.TS import TS
+from ..data_types.NM import NM
+from ..data_types.TQ import TQ
+from ..data_types.ST import ST
 from ..tables.ManufacturerIdentifier import ManufacturerIdentifier
+from ..tables.SubstanceStatus import SubstanceStatus
+from ..tables.SubstanceType import SubstanceType
+from ..tables.SubstanceIdentifier import SubstanceIdentifier
 from ..tables.SupplierIdentifier import SupplierIdentifier
 
 
@@ -21,7 +21,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     INV,
-    TQ, TS, CQ, NM, ST, CE
+    CE, CQ, TS, NM, TQ, ST
 )
 
 inv = INV(  #  - The inventory detail segment is the data necessary to track the inventory of substances (e
@@ -73,35 +73,37 @@ class INV(HL7Segment):
         self,
         substance_identifier: SubstanceIdentifier
         | CE
-        | tuple[SubstanceIdentifier | CE],  # INV.1
-        substance_status: SubstanceStatus | CE | tuple[SubstanceStatus | CE],  # INV.2
+        | tuple[SubstanceIdentifier | CE, ...],  # INV.1
+        substance_status: SubstanceStatus
+        | CE
+        | tuple[SubstanceStatus | CE, ...],  # INV.2
         substance_type: SubstanceType
         | CE
-        | tuple[SubstanceType | CE]
+        | tuple[SubstanceType | CE, ...]
         | None = None,  # INV.3
-        inventory_container_identifier: CE | tuple[CE] | None = None,  # INV.4
-        container_carrier_identifier: CE | tuple[CE] | None = None,  # INV.5
-        position_on_carrier: CE | tuple[CE] | None = None,  # INV.6
-        initial_quantity: NM | tuple[NM] | None = None,  # INV.7
-        current_quantity: NM | tuple[NM] | None = None,  # INV.8
-        available_quantity: NM | tuple[NM] | None = None,  # INV.9
-        consumption_quantity: NM | tuple[NM] | None = None,  # INV.10
-        quantity_units: CE | tuple[CE] | None = None,  # INV.11
-        expiration_date_or_time: TS | tuple[TS] | None = None,  # INV.12
-        first_used_date_or_time: TS | tuple[TS] | None = None,  # INV.13
-        on_board_stability_duration: TQ | tuple[TQ] | None = None,  # INV.14
-        test_or_fluid_identifier: CE | tuple[CE] | None = None,  # INV.15
-        manufacturer_lot_number: ST | tuple[ST] | None = None,  # INV.16
+        inventory_container_identifier: CE | tuple[CE, ...] | None = None,  # INV.4
+        container_carrier_identifier: CE | tuple[CE, ...] | None = None,  # INV.5
+        position_on_carrier: CE | tuple[CE, ...] | None = None,  # INV.6
+        initial_quantity: NM | tuple[NM, ...] | None = None,  # INV.7
+        current_quantity: NM | tuple[NM, ...] | None = None,  # INV.8
+        available_quantity: NM | tuple[NM, ...] | None = None,  # INV.9
+        consumption_quantity: NM | tuple[NM, ...] | None = None,  # INV.10
+        quantity_units: CE | tuple[CE, ...] | None = None,  # INV.11
+        expiration_date_or_time: TS | tuple[TS, ...] | None = None,  # INV.12
+        first_used_date_or_time: TS | tuple[TS, ...] | None = None,  # INV.13
+        on_board_stability_duration: TQ | tuple[TQ, ...] | None = None,  # INV.14
+        test_or_fluid_identifier: CE | tuple[CE, ...] | None = None,  # INV.15
+        manufacturer_lot_number: ST | tuple[ST, ...] | None = None,  # INV.16
         manufacturer_identifier: ManufacturerIdentifier
         | CE
-        | tuple[ManufacturerIdentifier | CE]
+        | tuple[ManufacturerIdentifier | CE, ...]
         | None = None,  # INV.17
         supplier_identifier: SupplierIdentifier
         | CE
-        | tuple[SupplierIdentifier | CE]
+        | tuple[SupplierIdentifier | CE, ...]
         | None = None,  # INV.18
-        on_board_stability_time: CQ | tuple[CQ] | None = None,  # INV.19
-        target_value: CQ | tuple[CQ] | None = None,  # INV.20
+        on_board_stability_time: CQ | tuple[CQ, ...] | None = None,  # INV.19
+        target_value: CQ | tuple[CQ, ...] | None = None,  # INV.20
     ):
         """
         Inventory Detail - `INV <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/INV>`_

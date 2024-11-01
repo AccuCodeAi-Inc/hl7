@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.SFT import SFT
-from ..segments.MSH import MSH
-from ..segment_groups.NMQ_N01_QRY_WITH_DETAIL_GROUP import NMQ_N01_QRY_WITH_DETAIL_GROUP
 from ..segment_groups.NMQ_N01_CLOCK_AND_STATISTICS_GROUP import (
     NMQ_N01_CLOCK_AND_STATISTICS_GROUP,
 )
+from ..segment_groups.NMQ_N01_QRY_WITH_DETAIL_GROUP import NMQ_N01_QRY_WITH_DETAIL_GROUP
+from ..segments.MSH import MSH
+from ..segments.SFT import SFT
 
 
 """

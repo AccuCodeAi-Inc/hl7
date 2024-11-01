@@ -1,22 +1,22 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TS import TS
-from ..data_types.ID import ID
+from ..data_types.SI import SI
 from ..data_types.CNE import CNE
+from ..data_types.CE import CE
+from ..data_types.TS import TS
+from ..data_types.XCN import XCN
 from ..data_types.NM import NM
+from ..data_types.XAD import XAD
+from ..data_types.XON import XON
 from ..data_types.PL import PL
 from ..data_types.CWE import CWE
-from ..data_types.SI import SI
-from ..data_types.CE import CE
-from ..data_types.XAD import XAD
+from ..data_types.ID import ID
 from ..data_types.EI import EI
-from ..data_types.XCN import XCN
-from ..data_types.XON import XON
-from ..tables.BloodProductDispenseStatus import BloodProductDispenseStatus
-from ..tables.CommercialProduct import CommercialProduct
 from ..tables.BpObservationStatusCodesInterpretation import (
     BpObservationStatusCodesInterpretation,
 )
+from ..tables.BloodProductDispenseStatus import BloodProductDispenseStatus
+from ..tables.CommercialProduct import CommercialProduct
 
 
 """
@@ -27,7 +27,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     BPX,
-    TS, ID, CNE, NM, PL, CWE, SI, CE, XAD, EI, XCN, XON
+    SI, CNE, CE, TS, XCN, NM, XAD, XON, PL, CWE, ID, EI
 )
 
 bpx = BPX(  #  - In the processing of blood products, it is necessary for the transfusion service and the placer system to communicate information
@@ -78,34 +78,34 @@ class BPX(HL7Segment):
 
     def __init__(
         self,
-        set_id_bpx: SI | tuple[SI],  # BPX.1
+        set_id_bpx: SI | tuple[SI, ...],  # BPX.1
         bp_dispense_status: BloodProductDispenseStatus
         | CWE
-        | tuple[BloodProductDispenseStatus | CWE],  # BPX.2
+        | tuple[BloodProductDispenseStatus | CWE, ...],  # BPX.2
         bp_status: BpObservationStatusCodesInterpretation
         | ID
-        | tuple[BpObservationStatusCodesInterpretation | ID],  # BPX.3
-        bp_date_or_time_of_status: TS | tuple[TS],  # BPX.4
-        bp_quantity: NM | tuple[NM],  # BPX.14
-        bc_donation_id: EI | tuple[EI] | None = None,  # BPX.5
-        bc_component: CNE | tuple[CNE] | None = None,  # BPX.6
-        bc_donation_type_or_intended_use: CNE | tuple[CNE] | None = None,  # BPX.7
+        | tuple[BpObservationStatusCodesInterpretation | ID, ...],  # BPX.3
+        bp_date_or_time_of_status: TS | tuple[TS, ...],  # BPX.4
+        bp_quantity: NM | tuple[NM, ...],  # BPX.14
+        bc_donation_id: EI | tuple[EI, ...] | None = None,  # BPX.5
+        bc_component: CNE | tuple[CNE, ...] | None = None,  # BPX.6
+        bc_donation_type_or_intended_use: CNE | tuple[CNE, ...] | None = None,  # BPX.7
         cp_commercial_product: CommercialProduct
         | CWE
-        | tuple[CommercialProduct | CWE]
+        | tuple[CommercialProduct | CWE, ...]
         | None = None,  # BPX.8
-        cp_manufacturer: XON | tuple[XON] | None = None,  # BPX.9
-        cp_lot_number: EI | tuple[EI] | None = None,  # BPX.10
-        bp_blood_group: CNE | tuple[CNE] | None = None,  # BPX.11
-        bc_special_testing: CNE | tuple[CNE] | None = None,  # BPX.12
-        bp_expiration_date_or_time: TS | tuple[TS] | None = None,  # BPX.13
-        bp_amount: NM | tuple[NM] | None = None,  # BPX.15
-        bp_units: CE | tuple[CE] | None = None,  # BPX.16
-        bp_unique_id: EI | tuple[EI] | None = None,  # BPX.17
-        bp_actual_dispensed_to_location: PL | tuple[PL] | None = None,  # BPX.18
-        bp_actual_dispensed_to_address: XAD | tuple[XAD] | None = None,  # BPX.19
-        bp_dispensed_to_receiver: XCN | tuple[XCN] | None = None,  # BPX.20
-        bp_dispensing_individual: XCN | tuple[XCN] | None = None,  # BPX.21
+        cp_manufacturer: XON | tuple[XON, ...] | None = None,  # BPX.9
+        cp_lot_number: EI | tuple[EI, ...] | None = None,  # BPX.10
+        bp_blood_group: CNE | tuple[CNE, ...] | None = None,  # BPX.11
+        bc_special_testing: CNE | tuple[CNE, ...] | None = None,  # BPX.12
+        bp_expiration_date_or_time: TS | tuple[TS, ...] | None = None,  # BPX.13
+        bp_amount: NM | tuple[NM, ...] | None = None,  # BPX.15
+        bp_units: CE | tuple[CE, ...] | None = None,  # BPX.16
+        bp_unique_id: EI | tuple[EI, ...] | None = None,  # BPX.17
+        bp_actual_dispensed_to_location: PL | tuple[PL, ...] | None = None,  # BPX.18
+        bp_actual_dispensed_to_address: XAD | tuple[XAD, ...] | None = None,  # BPX.19
+        bp_dispensed_to_receiver: XCN | tuple[XCN, ...] | None = None,  # BPX.20
+        bp_dispensing_individual: XCN | tuple[XCN, ...] | None = None,  # BPX.21
     ):
         """
         Blood product dispense status - `BPX <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/BPX>`_

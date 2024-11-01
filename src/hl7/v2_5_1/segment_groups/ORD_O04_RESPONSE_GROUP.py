@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segment_groups.ORD_O04_RESPONSE_GROUP_ORDER_TRAY_GROUP import (
-    ORD_O04_RESPONSE_GROUP_ORDER_TRAY_GROUP,
-)
 from ..segment_groups.ORD_O04_RESPONSE_GROUP_ORDER_DIET_GROUP import (
     ORD_O04_RESPONSE_GROUP_ORDER_DIET_GROUP,
+)
+from ..segment_groups.ORD_O04_RESPONSE_GROUP_ORDER_TRAY_GROUP import (
+    ORD_O04_RESPONSE_GROUP_ORDER_TRAY_GROUP,
 )
 from ..segment_groups.ORD_O04_RESPONSE_GROUP_PATIENT_GROUP import (
     ORD_O04_RESPONSE_GROUP_PATIENT_GROUP,
@@ -22,7 +22,7 @@ from utils.hl7.v2_5_1.segments import (
     
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    ORD_O04_RESPONSE_GROUP_ORDER_DIET_GROUP, ORD_O04_RESPONSE_GROUP_PATIENT_GROUP, ORD_O04_RESPONSE_GROUP_ORDER_TRAY_GROUP
+    ORD_O04_RESPONSE_GROUP_ORDER_TRAY_GROUP, ORD_O04_RESPONSE_GROUP_PATIENT_GROUP, ORD_O04_RESPONSE_GROUP_ORDER_DIET_GROUP
 )
 
 ord_o04_response_group = ORD_O04_RESPONSE_GROUP(  # RESPONSE - Segment group for ORD_O04 - Dietary Order Acknowledgement consisting of PATIENT|None, ORDER DIET, ORDER TRAY|None

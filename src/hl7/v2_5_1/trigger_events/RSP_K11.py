@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
 from ..segments.ERR import ERR
+from ..segments.MSH import MSH
+from ..segments.QPD import QPD
+from ..segments.MSA import MSA
+from ..segments.QAK import QAK
 from ..segments.DSC import DSC
 from ..segments.SFT import SFT
-from ..segments.MSH import MSH
-from ..segments.QAK import QAK
-from ..segments.MSA import MSA
-from ..segments.QPD import QPD
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RSP_K11
 from utils.hl7.v2_5_1.segments import (
-    QPD, MSH, SFT, ERR, DSC, QAK, MSA
+    QAK, SFT, ERR, MSA, QPD, MSH, DSC
 )
 
 rsp_k11 = RSP_K11(  #  - The RSP_K11 supports a Segment Pattern Response to the QBP and contains the MSH, MSA, ERR, QAK, QPD, variable content segments, and the DSC

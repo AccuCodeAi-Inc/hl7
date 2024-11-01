@@ -1,22 +1,22 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TS import TS
+from ..data_types.CE import CE
 from ..data_types.CQ import CQ
-from ..data_types.ID import ID
+from ..data_types.TS import TS
 from ..data_types.IS import IS
 from ..data_types.ST import ST
-from ..data_types.CE import CE
-from ..tables.PrimaryObserverSQualification import PrimaryObserverSQualification
-from ..tables.IndirectExposureMechanism import IndirectExposureMechanism
-from ..tables.GenericProduct import GenericProduct
-from ..tables.SingleUseDevice import SingleUseDevice
-from ..tables.CausalityObservations import CausalityObservations
-from ..tables.ProductProblem import ProductProblem
+from ..data_types.ID import ID
 from ..tables.ActionTakenInResponseToTheEvent import ActionTakenInResponseToTheEvent
-from ..tables.StatusOfEvaluation import StatusOfEvaluation
 from ..tables.ProductSource import ProductSource
-from ..tables.ProductAvailableForInspection import ProductAvailableForInspection
 from ..tables.RelatednessAssessment import RelatednessAssessment
+from ..tables.CausalityObservations import CausalityObservations
+from ..tables.GenericProduct import GenericProduct
+from ..tables.StatusOfEvaluation import StatusOfEvaluation
+from ..tables.PrimaryObserverSQualification import PrimaryObserverSQualification
+from ..tables.SingleUseDevice import SingleUseDevice
+from ..tables.ProductProblem import ProductProblem
+from ..tables.IndirectExposureMechanism import IndirectExposureMechanism
+from ..tables.ProductAvailableForInspection import ProductAvailableForInspection
 
 
 """
@@ -27,7 +27,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PCR,
-    TS, CQ, ID, IS, ST, CE
+    CE, CQ, TS, IS, ST, ID
 )
 
 pcr = PCR(  #  - The PCR segment is used to communicate a potential or suspected relationship between a product (drug or device) or test and an event with detrimental effect on a patient
@@ -80,61 +80,63 @@ class PCR(HL7Segment):
 
     def __init__(
         self,
-        implicated_product: CE | tuple[CE],  # PCR.1
+        implicated_product: CE | tuple[CE, ...],  # PCR.1
         generic_product: GenericProduct
         | IS
-        | tuple[GenericProduct | IS]
+        | tuple[GenericProduct | IS, ...]
         | None = None,  # PCR.2
-        product_class: CE | tuple[CE] | None = None,  # PCR.3
-        total_duration_of_therapy: CQ | tuple[CQ] | None = None,  # PCR.4
-        product_manufacture_date: TS | tuple[TS] | None = None,  # PCR.5
-        product_expiration_date: TS | tuple[TS] | None = None,  # PCR.6
-        product_implantation_date: TS | tuple[TS] | None = None,  # PCR.7
-        product_explantation_date: TS | tuple[TS] | None = None,  # PCR.8
+        product_class: CE | tuple[CE, ...] | None = None,  # PCR.3
+        total_duration_of_therapy: CQ | tuple[CQ, ...] | None = None,  # PCR.4
+        product_manufacture_date: TS | tuple[TS, ...] | None = None,  # PCR.5
+        product_expiration_date: TS | tuple[TS, ...] | None = None,  # PCR.6
+        product_implantation_date: TS | tuple[TS, ...] | None = None,  # PCR.7
+        product_explantation_date: TS | tuple[TS, ...] | None = None,  # PCR.8
         single_use_device: SingleUseDevice
         | IS
-        | tuple[SingleUseDevice | IS]
+        | tuple[SingleUseDevice | IS, ...]
         | None = None,  # PCR.9
-        indication_for_product_use: CE | tuple[CE] | None = None,  # PCR.10
+        indication_for_product_use: CE | tuple[CE, ...] | None = None,  # PCR.10
         product_problem: ProductProblem
         | IS
-        | tuple[ProductProblem | IS]
+        | tuple[ProductProblem | IS, ...]
         | None = None,  # PCR.11
-        product_serial_or_lot_number: ST | tuple[ST] | None = None,  # PCR.12
+        product_serial_or_lot_number: ST | tuple[ST, ...] | None = None,  # PCR.12
         product_available_for_inspection: ProductAvailableForInspection
         | IS
-        | tuple[ProductAvailableForInspection | IS]
+        | tuple[ProductAvailableForInspection | IS, ...]
         | None = None,  # PCR.13
-        product_evaluation_performed: CE | tuple[CE] | None = None,  # PCR.14
+        product_evaluation_performed: CE | tuple[CE, ...] | None = None,  # PCR.14
         product_evaluation_status: StatusOfEvaluation
         | CE
-        | tuple[StatusOfEvaluation | CE]
+        | tuple[StatusOfEvaluation | CE, ...]
         | None = None,  # PCR.15
-        product_evaluation_results: CE | tuple[CE] | None = None,  # PCR.16
+        product_evaluation_results: CE | tuple[CE, ...] | None = None,  # PCR.16
         evaluated_product_source: ProductSource
         | ID
-        | tuple[ProductSource | ID]
+        | tuple[ProductSource | ID, ...]
         | None = None,  # PCR.17
-        date_product_returned_to_manufacturer: TS | tuple[TS] | None = None,  # PCR.18
+        date_product_returned_to_manufacturer: TS
+        | tuple[TS, ...]
+        | None = None,  # PCR.18
         device_operator_qualifications: PrimaryObserverSQualification
         | ID
-        | tuple[PrimaryObserverSQualification | ID]
+        | tuple[PrimaryObserverSQualification | ID, ...]
         | None = None,  # PCR.19
         relatedness_assessment: RelatednessAssessment
         | ID
-        | tuple[RelatednessAssessment | ID]
+        | tuple[RelatednessAssessment | ID, ...]
         | None = None,  # PCR.20
         action_taken_in_response_to_the_event: ActionTakenInResponseToTheEvent
         | ID
-        | tuple[ActionTakenInResponseToTheEvent | ID]
+        | tuple[ActionTakenInResponseToTheEvent | ID, ...]
         | None = None,  # PCR.21
         event_causality_observations: CausalityObservations
         | ID
-        | tuple[CausalityObservations | ID]
+        | tuple[CausalityObservations | ID, ...]
         | None = None,  # PCR.22
         indirect_exposure_mechanism: IndirectExposureMechanism
         | ID
-        | tuple[IndirectExposureMechanism | ID]
+        | tuple[IndirectExposureMechanism | ID, ...]
         | None = None,  # PCR.23
     ):
         """

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.NTE import NTE
 from ..segments.BTX import BTX
+from ..segments.NTE import NTE
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import BTS_O31_ORDER_GROUP_PRODUCT_STATUS_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NTE, BTX
+    BTX, NTE
 )
 
 bts_o31_order_group_product_status_group = BTS_O31_ORDER_GROUP_PRODUCT_STATUS_GROUP(  # PRODUCT STATUS - Segment group for BTS_O31_ORDER_GROUP - ORDER consisting of BTX, NTE|None

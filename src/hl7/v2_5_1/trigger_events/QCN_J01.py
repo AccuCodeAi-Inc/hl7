@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
 from ..segments.QID import QID
-from ..segments.SFT import SFT
 from ..segments.MSH import MSH
+from ..segments.SFT import SFT
 
 
 """
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import QCN_J01
 from utils.hl7.v2_5_1.segments import (
-    QID, SFT, MSH
+    SFT, QID, MSH
 )
 
 qcn_j01 = QCN_J01(  #  - 

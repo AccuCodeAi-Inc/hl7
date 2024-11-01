@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.XPN import XPN
+from ..data_types.CE import CE
 from ..data_types.PLN import PLN
 from ..data_types.TS import TS
-from ..data_types.PL import PL
-from ..data_types.CE import CE
 from ..data_types.XTN import XTN
 from ..data_types.XAD import XAD
-from ..tables.PreferredMethodOfContact import PreferredMethodOfContact
+from ..data_types.PL import PL
+from ..data_types.XPN import XPN
 from ..tables.ProviderRole import ProviderRole
+from ..tables.PreferredMethodOfContact import PreferredMethodOfContact
 
 
 """
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PRD,
-    XPN, PLN, TS, PL, CE, XTN, XAD
+    CE, PLN, TS, XTN, XAD, PL, XPN
 )
 
 prd = PRD(  #  - This segment will be employed as part of a patient referral message and its related transactions
@@ -58,18 +58,22 @@ class PRD(HL7Segment):
 
     def __init__(
         self,
-        provider_role: ProviderRole | CE | tuple[ProviderRole | CE],  # PRD.1
-        provider_name: XPN | tuple[XPN] | None = None,  # PRD.2
-        provider_address: XAD | tuple[XAD] | None = None,  # PRD.3
-        provider_location: PL | tuple[PL] | None = None,  # PRD.4
-        provider_communication_information: XTN | tuple[XTN] | None = None,  # PRD.5
+        provider_role: ProviderRole | CE | tuple[ProviderRole | CE, ...],  # PRD.1
+        provider_name: XPN | tuple[XPN, ...] | None = None,  # PRD.2
+        provider_address: XAD | tuple[XAD, ...] | None = None,  # PRD.3
+        provider_location: PL | tuple[PL, ...] | None = None,  # PRD.4
+        provider_communication_information: XTN
+        | tuple[XTN, ...]
+        | None = None,  # PRD.5
         preferred_method_of_contact: PreferredMethodOfContact
         | CE
-        | tuple[PreferredMethodOfContact | CE]
+        | tuple[PreferredMethodOfContact | CE, ...]
         | None = None,  # PRD.6
-        provider_identifiers: PLN | tuple[PLN] | None = None,  # PRD.7
-        effective_start_date_of_provider_role: TS | tuple[TS] | None = None,  # PRD.8
-        effective_end_date_of_provider_role: TS | tuple[TS] | None = None,  # PRD.9
+        provider_identifiers: PLN | tuple[PLN, ...] | None = None,  # PRD.7
+        effective_start_date_of_provider_role: TS
+        | tuple[TS, ...]
+        | None = None,  # PRD.8
+        effective_end_date_of_provider_role: TS | tuple[TS, ...] | None = None,  # PRD.9
     ):
         """
         Provider Data - `PRD <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/PRD>`_

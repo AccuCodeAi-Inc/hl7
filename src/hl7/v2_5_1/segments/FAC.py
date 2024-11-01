@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
 from ..data_types.XCN import XCN
 from ..data_types.XTN import XTN
 from ..data_types.XAD import XAD
-from ..data_types.EI import EI
 from ..data_types.ST import ST
+from ..data_types.ID import ID
+from ..data_types.EI import EI
 from ..tables.FacilityType import FacilityType
 
 
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     FAC,
-    ID, XCN, XTN, XAD, EI, ST
+    XCN, XTN, XAD, ST, ID, EI
 )
 
 fac = FAC(  #  - 
@@ -59,21 +59,23 @@ class FAC(HL7Segment):
 
     def __init__(
         self,
-        facility_id_fac: EI | tuple[EI],  # FAC.1
-        facility_address: XAD | tuple[XAD],  # FAC.3
-        facility_telecommunication: XTN | tuple[XTN],  # FAC.4
-        signature_authority: XCN | tuple[XCN],  # FAC.9
+        facility_id_fac: EI | tuple[EI, ...],  # FAC.1
+        facility_address: XAD | tuple[XAD, ...],  # FAC.3
+        facility_telecommunication: XTN | tuple[XTN, ...],  # FAC.4
+        signature_authority: XCN | tuple[XCN, ...],  # FAC.9
         facility_type: FacilityType
         | ID
-        | tuple[FacilityType | ID]
+        | tuple[FacilityType | ID, ...]
         | None = None,  # FAC.2
-        contact_person: XCN | tuple[XCN] | None = None,  # FAC.5
-        contact_title: ST | tuple[ST] | None = None,  # FAC.6
-        contact_address: XAD | tuple[XAD] | None = None,  # FAC.7
-        contact_telecommunication: XTN | tuple[XTN] | None = None,  # FAC.8
-        signature_authority_title: ST | tuple[ST] | None = None,  # FAC.10
-        signature_authority_address: XAD | tuple[XAD] | None = None,  # FAC.11
-        signature_authority_telecommunication: XTN | tuple[XTN] | None = None,  # FAC.12
+        contact_person: XCN | tuple[XCN, ...] | None = None,  # FAC.5
+        contact_title: ST | tuple[ST, ...] | None = None,  # FAC.6
+        contact_address: XAD | tuple[XAD, ...] | None = None,  # FAC.7
+        contact_telecommunication: XTN | tuple[XTN, ...] | None = None,  # FAC.8
+        signature_authority_title: ST | tuple[ST, ...] | None = None,  # FAC.10
+        signature_authority_address: XAD | tuple[XAD, ...] | None = None,  # FAC.11
+        signature_authority_telecommunication: XTN
+        | tuple[XTN, ...]
+        | None = None,  # FAC.12
     ):
         """
         Facility - `FAC <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/FAC>`_

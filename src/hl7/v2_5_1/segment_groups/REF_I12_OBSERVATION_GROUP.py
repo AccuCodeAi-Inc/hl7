@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
 from ..segments.NTE import NTE
+from ..segments.OBR import OBR
 from ..segment_groups.REF_I12_OBSERVATION_GROUP_RESULTS_NOTES_GROUP import (
     REF_I12_OBSERVATION_GROUP_RESULTS_NOTES_GROUP,
 )
-from ..segments.OBR import OBR
 
 
 """

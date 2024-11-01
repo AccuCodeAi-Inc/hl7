@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TQ import TQ
-from ..data_types.XPN import XPN
-from ..data_types.TS import TS
-from ..data_types.ID import ID
-from ..data_types.NM import NM
 from ..data_types.CE import CE
+from ..data_types.TS import TS
+from ..data_types.NM import NM
+from ..data_types.TQ import TQ
 from ..data_types.ST import ST
+from ..data_types.XPN import XPN
+from ..data_types.ID import ID
 from ..data_types.EI import EI
 from ..tables.ProblemOrGoalActionCode import ProblemOrGoalActionCode
 
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     GOL,
-    TQ, XPN, TS, ID, NM, CE, ST, EI
+    CE, TS, NM, TQ, ST, XPN, ID, EI
 )
 
 gol = GOL(  #  - The goal detail segment contains the data necessary to add, update, correct, and delete the goals for an individual
@@ -72,27 +72,29 @@ class GOL(HL7Segment):
         self,
         action_code: ProblemOrGoalActionCode
         | ID
-        | tuple[ProblemOrGoalActionCode | ID],  # GOL.1
-        action_date_or_time: TS | tuple[TS],  # GOL.2
-        goal_id: CE | tuple[CE],  # GOL.3
-        goal_instance_id: EI | tuple[EI],  # GOL.4
-        episode_of_care_id: EI | tuple[EI] | None = None,  # GOL.5
-        goal_list_priority: NM | tuple[NM] | None = None,  # GOL.6
-        goal_established_date_or_time: TS | tuple[TS] | None = None,  # GOL.7
-        expected_goal_achieve_date_or_time: TS | tuple[TS] | None = None,  # GOL.8
-        goal_classification: CE | tuple[CE] | None = None,  # GOL.9
-        goal_management_discipline: CE | tuple[CE] | None = None,  # GOL.10
-        current_goal_review_status: CE | tuple[CE] | None = None,  # GOL.11
-        current_goal_review_date_or_time: TS | tuple[TS] | None = None,  # GOL.12
-        next_goal_review_date_or_time: TS | tuple[TS] | None = None,  # GOL.13
-        previous_goal_review_date_or_time: TS | tuple[TS] | None = None,  # GOL.14
-        goal_review_interval: TQ | tuple[TQ] | None = None,  # GOL.15
-        goal_evaluation: CE | tuple[CE] | None = None,  # GOL.16
-        goal_evaluation_comment: ST | tuple[ST] | None = None,  # GOL.17
-        goal_life_cycle_status: CE | tuple[CE] | None = None,  # GOL.18
-        goal_life_cycle_status_date_or_time: TS | tuple[TS] | None = None,  # GOL.19
-        goal_target_type: CE | tuple[CE] | None = None,  # GOL.20
-        goal_target_name: XPN | tuple[XPN] | None = None,  # GOL.21
+        | tuple[ProblemOrGoalActionCode | ID, ...],  # GOL.1
+        action_date_or_time: TS | tuple[TS, ...],  # GOL.2
+        goal_id: CE | tuple[CE, ...],  # GOL.3
+        goal_instance_id: EI | tuple[EI, ...],  # GOL.4
+        episode_of_care_id: EI | tuple[EI, ...] | None = None,  # GOL.5
+        goal_list_priority: NM | tuple[NM, ...] | None = None,  # GOL.6
+        goal_established_date_or_time: TS | tuple[TS, ...] | None = None,  # GOL.7
+        expected_goal_achieve_date_or_time: TS | tuple[TS, ...] | None = None,  # GOL.8
+        goal_classification: CE | tuple[CE, ...] | None = None,  # GOL.9
+        goal_management_discipline: CE | tuple[CE, ...] | None = None,  # GOL.10
+        current_goal_review_status: CE | tuple[CE, ...] | None = None,  # GOL.11
+        current_goal_review_date_or_time: TS | tuple[TS, ...] | None = None,  # GOL.12
+        next_goal_review_date_or_time: TS | tuple[TS, ...] | None = None,  # GOL.13
+        previous_goal_review_date_or_time: TS | tuple[TS, ...] | None = None,  # GOL.14
+        goal_review_interval: TQ | tuple[TQ, ...] | None = None,  # GOL.15
+        goal_evaluation: CE | tuple[CE, ...] | None = None,  # GOL.16
+        goal_evaluation_comment: ST | tuple[ST, ...] | None = None,  # GOL.17
+        goal_life_cycle_status: CE | tuple[CE, ...] | None = None,  # GOL.18
+        goal_life_cycle_status_date_or_time: TS
+        | tuple[TS, ...]
+        | None = None,  # GOL.19
+        goal_target_type: CE | tuple[CE, ...] | None = None,  # GOL.20
+        goal_target_name: XPN | tuple[XPN, ...] | None = None,  # GOL.21
     ):
         """
         Goal Detail - `GOL <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/GOL>`_

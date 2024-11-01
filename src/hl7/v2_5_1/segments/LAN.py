@@ -3,8 +3,8 @@ from ...base import HL7Segment
 from ..data_types.SI import SI
 from ..data_types.CE import CE
 from ..tables.LanguageProficiency import LanguageProficiency
-from ..tables.LanguageAbility import LanguageAbility
 from ..tables.PrimaryLanguage import PrimaryLanguage
+from ..tables.LanguageAbility import LanguageAbility
 
 
 """
@@ -49,15 +49,15 @@ class LAN(HL7Segment):
 
     def __init__(
         self,
-        set_id_lan: SI | tuple[SI],  # LAN.1
-        language_code: PrimaryLanguage | CE | tuple[PrimaryLanguage | CE],  # LAN.2
+        set_id_lan: SI | tuple[SI, ...],  # LAN.1
+        language_code: PrimaryLanguage | CE | tuple[PrimaryLanguage | CE, ...],  # LAN.2
         language_ability_code: LanguageAbility
         | CE
-        | tuple[LanguageAbility | CE]
+        | tuple[LanguageAbility | CE, ...]
         | None = None,  # LAN.3
         language_proficiency_code: LanguageProficiency
         | CE
-        | tuple[LanguageProficiency | CE]
+        | tuple[LanguageProficiency | CE, ...]
         | None = None,  # LAN.4
     ):
         """

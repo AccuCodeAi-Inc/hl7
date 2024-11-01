@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OMG_O19_ORDER_GROUP_PRIOR_RESULT_GROUP_PATIENT_VISIT_PRIOR_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PV2, PV1
+    PV1, PV2
 )
 
 omg_o19_order_group_prior_result_group_patient_visit_prior_group = OMG_O19_ORDER_GROUP_PRIOR_RESULT_GROUP_PATIENT_VISIT_PRIOR_GROUP(  # PATIENT VISIT PRIOR - Segment group for OMG_O19_ORDER_GROUP_PRIOR_RESULT_GROUP - PRIOR RESULT consisting of PV1, PV2|None

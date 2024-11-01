@@ -3,9 +3,9 @@ from ...base import HL7Segment
 from ..data_types.IS import IS
 from ..data_types.CP import CP
 from ..tables.OverallClaimDispositionCode import OverallClaimDispositionCode
-from ..tables.OceEditCode import OceEditCode
-from ..tables.TypeOfBillCode import TypeOfBillCode
 from ..tables.RevenueCode import RevenueCode
+from ..tables.TypeOfBillCode import TypeOfBillCode
+from ..tables.OceEditCode import OceEditCode
 
 
 """
@@ -51,17 +51,22 @@ class GP1(HL7Segment):
 
     def __init__(
         self,
-        type_of_bill_code: TypeOfBillCode | IS | tuple[TypeOfBillCode | IS],  # GP1.1
-        revenue_code: RevenueCode | IS | tuple[RevenueCode | IS] | None = None,  # GP1.2
+        type_of_bill_code: TypeOfBillCode
+        | IS
+        | tuple[TypeOfBillCode | IS, ...],  # GP1.1
+        revenue_code: RevenueCode
+        | IS
+        | tuple[RevenueCode | IS, ...]
+        | None = None,  # GP1.2
         overall_claim_disposition_code: OverallClaimDispositionCode
         | IS
-        | tuple[OverallClaimDispositionCode | IS]
+        | tuple[OverallClaimDispositionCode | IS, ...]
         | None = None,  # GP1.3
         oce_edits_per_visit_code: OceEditCode
         | IS
-        | tuple[OceEditCode | IS]
+        | tuple[OceEditCode | IS, ...]
         | None = None,  # GP1.4
-        outlier_cost: CP | tuple[CP] | None = None,  # GP1.5
+        outlier_cost: CP | tuple[CP, ...] | None = None,  # GP1.5
     ):
         """
         Grouping/Reimbursement - Visit - `GP1 <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/GP1>`_

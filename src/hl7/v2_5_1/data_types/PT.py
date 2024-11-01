@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import DataType
 from .ID import ID
-from ..tables.ProcessingMode import ProcessingMode
 from ..tables.ProcessingId import ProcessingId
+from ..tables.ProcessingMode import ProcessingMode
 
 
 """
@@ -47,11 +47,11 @@ class PT(DataType):
         self,
         processing_id: ProcessingId
         | ID
-        | tuple[ProcessingId | ID]
+        | tuple[ProcessingId | ID, ...]
         | None = None,  # PT.1
         processing_mode: ProcessingMode
         | ID
-        | tuple[ProcessingMode | ID]
+        | tuple[ProcessingMode | ID, ...]
         | None = None,  # PT.2
     ):
         """

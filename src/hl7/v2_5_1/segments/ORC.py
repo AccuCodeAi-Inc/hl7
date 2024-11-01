@@ -1,28 +1,28 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TQ import TQ
-from ..data_types.XAD import XAD
-from ..data_types.TS import TS
-from ..data_types.EIP import EIP
-from ..data_types.ID import ID
 from ..data_types.CNE import CNE
-from ..data_types.PL import PL
-from ..data_types.CWE import CWE
+from ..data_types.CE import CE
+from ..data_types.TS import TS
 from ..data_types.XCN import XCN
 from ..data_types.XTN import XTN
-from ..data_types.CE import CE
-from ..data_types.EI import EI
+from ..data_types.XAD import XAD
 from ..data_types.XON import XON
-from ..tables.AdvancedBeneficiaryNoticeCode import AdvancedBeneficiaryNoticeCode
-from ..tables.OrderType import OrderType
-from ..tables.ConfidentialityCode import ConfidentialityCode
+from ..data_types.PL import PL
+from ..data_types.CWE import CWE
+from ..data_types.TQ import TQ
+from ..data_types.EIP import EIP
+from ..data_types.ID import ID
+from ..data_types.EI import EI
+from ..tables.OrderStatus import OrderStatus
 from ..tables.AuthorizationMode import AuthorizationMode
-from ..tables.OrderControlCodes import OrderControlCodes
+from ..tables.AdvancedBeneficiaryNoticeCode import AdvancedBeneficiaryNoticeCode
 from ..tables.ResponseFlag import ResponseFlag
 from ..tables.AdvancedBeneficiaryNoticeOverrideReason import (
     AdvancedBeneficiaryNoticeOverrideReason,
 )
-from ..tables.OrderStatus import OrderStatus
+from ..tables.OrderControlCodes import OrderControlCodes
+from ..tables.ConfidentialityCode import ConfidentialityCode
+from ..tables.OrderType import OrderType
 
 
 """
@@ -33,7 +33,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     ORC,
-    TQ, XAD, TS, EIP, ID, CNE, PL, CWE, XCN, XTN, CE, EI, XON
+    CNE, CE, TS, XCN, XTN, XAD, XON, PL, CWE, TQ, EIP, ID, EI
 )
 
 orc = ORC(  #  - The Common Order segment (ORC) is used to transmit fields that are common to all orders (all types of services that are requested)
@@ -94,54 +94,64 @@ class ORC(HL7Segment):
 
     def __init__(
         self,
-        order_control: OrderControlCodes | ID | tuple[OrderControlCodes | ID],  # ORC.1
-        placer_order_number: EI | tuple[EI] | None = None,  # ORC.2
-        filler_order_number: EI | tuple[EI] | None = None,  # ORC.3
-        placer_group_number: EI | tuple[EI] | None = None,  # ORC.4
-        order_status: OrderStatus | ID | tuple[OrderStatus | ID] | None = None,  # ORC.5
+        order_control: OrderControlCodes
+        | ID
+        | tuple[OrderControlCodes | ID, ...],  # ORC.1
+        placer_order_number: EI | tuple[EI, ...] | None = None,  # ORC.2
+        filler_order_number: EI | tuple[EI, ...] | None = None,  # ORC.3
+        placer_group_number: EI | tuple[EI, ...] | None = None,  # ORC.4
+        order_status: OrderStatus
+        | ID
+        | tuple[OrderStatus | ID, ...]
+        | None = None,  # ORC.5
         response_flag: ResponseFlag
         | ID
-        | tuple[ResponseFlag | ID]
+        | tuple[ResponseFlag | ID, ...]
         | None = None,  # ORC.6
-        quantity_or_timing: TQ | tuple[TQ] | None = None,  # ORC.7
-        parent_order: EIP | tuple[EIP] | None = None,  # ORC.8
-        date_or_time_of_transaction: TS | tuple[TS] | None = None,  # ORC.9
-        entered_by: XCN | tuple[XCN] | None = None,  # ORC.10
-        verified_by: XCN | tuple[XCN] | None = None,  # ORC.11
-        ordering_provider: XCN | tuple[XCN] | None = None,  # ORC.12
-        enterers_location: PL | tuple[PL] | None = None,  # ORC.13
-        call_back_phone_number: XTN | tuple[XTN] | None = None,  # ORC.14
-        order_effective_date_or_time: TS | tuple[TS] | None = None,  # ORC.15
-        order_control_code_reason: CE | tuple[CE] | None = None,  # ORC.16
-        entering_organization: CE | tuple[CE] | None = None,  # ORC.17
-        entering_device: CE | tuple[CE] | None = None,  # ORC.18
-        action_by: XCN | tuple[XCN] | None = None,  # ORC.19
+        quantity_or_timing: TQ | tuple[TQ, ...] | None = None,  # ORC.7
+        parent_order: EIP | tuple[EIP, ...] | None = None,  # ORC.8
+        date_or_time_of_transaction: TS | tuple[TS, ...] | None = None,  # ORC.9
+        entered_by: XCN | tuple[XCN, ...] | None = None,  # ORC.10
+        verified_by: XCN | tuple[XCN, ...] | None = None,  # ORC.11
+        ordering_provider: XCN | tuple[XCN, ...] | None = None,  # ORC.12
+        enterers_location: PL | tuple[PL, ...] | None = None,  # ORC.13
+        call_back_phone_number: XTN | tuple[XTN, ...] | None = None,  # ORC.14
+        order_effective_date_or_time: TS | tuple[TS, ...] | None = None,  # ORC.15
+        order_control_code_reason: CE | tuple[CE, ...] | None = None,  # ORC.16
+        entering_organization: CE | tuple[CE, ...] | None = None,  # ORC.17
+        entering_device: CE | tuple[CE, ...] | None = None,  # ORC.18
+        action_by: XCN | tuple[XCN, ...] | None = None,  # ORC.19
         advanced_beneficiary_notice_code: AdvancedBeneficiaryNoticeCode
         | CE
-        | tuple[AdvancedBeneficiaryNoticeCode | CE]
+        | tuple[AdvancedBeneficiaryNoticeCode | CE, ...]
         | None = None,  # ORC.20
-        ordering_facility_name: XON | tuple[XON] | None = None,  # ORC.21
-        ordering_facility_address: XAD | tuple[XAD] | None = None,  # ORC.22
-        ordering_facility_phone_number: XTN | tuple[XTN] | None = None,  # ORC.23
-        ordering_provider_address: XAD | tuple[XAD] | None = None,  # ORC.24
-        order_status_modifier: CWE | tuple[CWE] | None = None,  # ORC.25
+        ordering_facility_name: XON | tuple[XON, ...] | None = None,  # ORC.21
+        ordering_facility_address: XAD | tuple[XAD, ...] | None = None,  # ORC.22
+        ordering_facility_phone_number: XTN | tuple[XTN, ...] | None = None,  # ORC.23
+        ordering_provider_address: XAD | tuple[XAD, ...] | None = None,  # ORC.24
+        order_status_modifier: CWE | tuple[CWE, ...] | None = None,  # ORC.25
         advanced_beneficiary_notice_override_reason: AdvancedBeneficiaryNoticeOverrideReason
         | CWE
-        | tuple[AdvancedBeneficiaryNoticeOverrideReason | CWE]
+        | tuple[AdvancedBeneficiaryNoticeOverrideReason | CWE, ...]
         | None = None,  # ORC.26
         fillers_expected_availability_date_or_time: TS
-        | tuple[TS]
+        | tuple[TS, ...]
         | None = None,  # ORC.27
         confidentiality_code: ConfidentialityCode
         | CWE
-        | tuple[ConfidentialityCode | CWE]
+        | tuple[ConfidentialityCode | CWE, ...]
         | None = None,  # ORC.28
-        order_type: OrderType | CWE | tuple[OrderType | CWE] | None = None,  # ORC.29
+        order_type: OrderType
+        | CWE
+        | tuple[OrderType | CWE, ...]
+        | None = None,  # ORC.29
         enterer_authorization_mode: AuthorizationMode
         | CNE
-        | tuple[AuthorizationMode | CNE]
+        | tuple[AuthorizationMode | CNE, ...]
         | None = None,  # ORC.30
-        parent_universal_service_identifier: CWE | tuple[CWE] | None = None,  # ORC.31
+        parent_universal_service_identifier: CWE
+        | tuple[CWE, ...]
+        | None = None,  # ORC.31
     ):
         """
                 Common Order - `ORC <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/ORC>`_

@@ -1,19 +1,19 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TS import TS
-from ..data_types.ID import ID
-from ..data_types.IS import IS
-from ..data_types.PPN import PPN
-from ..data_types.XCN import XCN
 from ..data_types.SI import SI
+from ..data_types.PPN import PPN
+from ..data_types.TS import TS
+from ..data_types.IS import IS
+from ..data_types.XCN import XCN
 from ..data_types.ST import ST
+from ..data_types.ID import ID
 from ..data_types.EI import EI
-from ..tables.DocumentStorageStatus import DocumentStorageStatus
 from ..tables.DocumentCompletionStatus import DocumentCompletionStatus
 from ..tables.DocumentAvailabilityStatus import DocumentAvailabilityStatus
-from ..tables.DocumentConfidentialityStatus import DocumentConfidentialityStatus
-from ..tables.TypeOfReferencedData import TypeOfReferencedData
 from ..tables.DocumentType import DocumentType
+from ..tables.DocumentConfidentialityStatus import DocumentConfidentialityStatus
+from ..tables.DocumentStorageStatus import DocumentStorageStatus
+from ..tables.TypeOfReferencedData import TypeOfReferencedData
 
 
 """
@@ -24,7 +24,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     TXA,
-    TS, ID, IS, PPN, XCN, SI, ST, EI
+    SI, PPN, TS, IS, XCN, ST, ID, EI
 )
 
 txa = TXA(  #  - The TXA segment contains information specific to a transcribed document but does not include the text of the document
@@ -77,43 +77,45 @@ class TXA(HL7Segment):
 
     def __init__(
         self,
-        set_id_txa: SI | tuple[SI],  # TXA.1
-        document_type: DocumentType | IS | tuple[DocumentType | IS],  # TXA.2
-        unique_document_number: EI | tuple[EI],  # TXA.12
+        set_id_txa: SI | tuple[SI, ...],  # TXA.1
+        document_type: DocumentType | IS | tuple[DocumentType | IS, ...],  # TXA.2
+        unique_document_number: EI | tuple[EI, ...],  # TXA.12
         document_completion_status: DocumentCompletionStatus
         | ID
-        | tuple[DocumentCompletionStatus | ID],  # TXA.17
+        | tuple[DocumentCompletionStatus | ID, ...],  # TXA.17
         document_content_presentation: TypeOfReferencedData
         | ID
-        | tuple[TypeOfReferencedData | ID]
+        | tuple[TypeOfReferencedData | ID, ...]
         | None = None,  # TXA.3
-        activity_date_or_time: TS | tuple[TS] | None = None,  # TXA.4
-        primary_activity_provider_code_or_name: XCN | tuple[XCN] | None = None,  # TXA.5
-        origination_date_or_time: TS | tuple[TS] | None = None,  # TXA.6
-        transcription_date_or_time: TS | tuple[TS] | None = None,  # TXA.7
-        edit_date_or_time: TS | tuple[TS] | None = None,  # TXA.8
-        originator_code_or_name: XCN | tuple[XCN] | None = None,  # TXA.9
-        assigned_document_authenticator: XCN | tuple[XCN] | None = None,  # TXA.10
-        transcriptionist_code_or_name: XCN | tuple[XCN] | None = None,  # TXA.11
-        parent_document_number: EI | tuple[EI] | None = None,  # TXA.13
-        placer_order_number: EI | tuple[EI] | None = None,  # TXA.14
-        filler_order_number: EI | tuple[EI] | None = None,  # TXA.15
-        unique_document_file_name: ST | tuple[ST] | None = None,  # TXA.16
+        activity_date_or_time: TS | tuple[TS, ...] | None = None,  # TXA.4
+        primary_activity_provider_code_or_name: XCN
+        | tuple[XCN, ...]
+        | None = None,  # TXA.5
+        origination_date_or_time: TS | tuple[TS, ...] | None = None,  # TXA.6
+        transcription_date_or_time: TS | tuple[TS, ...] | None = None,  # TXA.7
+        edit_date_or_time: TS | tuple[TS, ...] | None = None,  # TXA.8
+        originator_code_or_name: XCN | tuple[XCN, ...] | None = None,  # TXA.9
+        assigned_document_authenticator: XCN | tuple[XCN, ...] | None = None,  # TXA.10
+        transcriptionist_code_or_name: XCN | tuple[XCN, ...] | None = None,  # TXA.11
+        parent_document_number: EI | tuple[EI, ...] | None = None,  # TXA.13
+        placer_order_number: EI | tuple[EI, ...] | None = None,  # TXA.14
+        filler_order_number: EI | tuple[EI, ...] | None = None,  # TXA.15
+        unique_document_file_name: ST | tuple[ST, ...] | None = None,  # TXA.16
         document_confidentiality_status: DocumentConfidentialityStatus
         | ID
-        | tuple[DocumentConfidentialityStatus | ID]
+        | tuple[DocumentConfidentialityStatus | ID, ...]
         | None = None,  # TXA.18
         document_availability_status: DocumentAvailabilityStatus
         | ID
-        | tuple[DocumentAvailabilityStatus | ID]
+        | tuple[DocumentAvailabilityStatus | ID, ...]
         | None = None,  # TXA.19
         document_storage_status: DocumentStorageStatus
         | ID
-        | tuple[DocumentStorageStatus | ID]
+        | tuple[DocumentStorageStatus | ID, ...]
         | None = None,  # TXA.20
-        document_change_reason: ST | tuple[ST] | None = None,  # TXA.21
-        authentication_person_time_stamp: PPN | tuple[PPN] | None = None,  # TXA.22
-        distributed_copies: XCN | tuple[XCN] | None = None,  # TXA.23
+        document_change_reason: ST | tuple[ST, ...] | None = None,  # TXA.21
+        authentication_person_time_stamp: PPN | tuple[PPN, ...] | None = None,  # TXA.22
+        distributed_copies: XCN | tuple[XCN, ...] | None = None,  # TXA.23
     ):
         """
         Transcription Document Header - `TXA <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/TXA>`_

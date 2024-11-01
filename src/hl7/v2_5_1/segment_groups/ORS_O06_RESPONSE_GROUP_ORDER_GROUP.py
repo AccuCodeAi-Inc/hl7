@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.RQD import RQD
 from ..segment_groups.ORS_O06_RESPONSE_GROUP_ORDER_GROUP_TIMING_GROUP import (
     ORS_O06_RESPONSE_GROUP_ORDER_GROUP_TIMING_GROUP,
 )
 from ..segments.ORC import ORC
 from ..segments.RQ1 import RQ1
+from ..segments.RQD import RQD
 from ..segments.NTE import NTE
 
 

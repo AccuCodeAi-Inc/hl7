@@ -1,17 +1,17 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.CX import CX
 from ..data_types.SI import SI
-from ..data_types.DR import DR
 from ..data_types.CE import CE
+from ..data_types.CX import CX
+from ..data_types.ID import ID
+from ..data_types.DR import DR
+from ..tables.EmploymentStatus import EmploymentStatus
 from ..tables.OrganizationUnit import OrganizationUnit
 from ..tables.HealthCareProviderClassification import HealthCareProviderClassification
-from ..tables.EmploymentStatus import EmploymentStatus
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
 from ..tables.HealthCareProviderAreaOfSpecialization import (
     HealthCareProviderAreaOfSpecialization,
 )
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
 from ..tables.OrganizationUnitType import OrganizationUnitType
 from ..tables.HealthCareProviderTypeCode import HealthCareProviderTypeCode
 
@@ -24,7 +24,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     ORG,
-    ID, CX, SI, DR, CE
+    SI, CE, CX, ID, DR
 )
 
 org = ORG(  #  - The ORG segment relates a practitioner to an organization unit and adds detailed information regarding the practitioner's practicing specialty in that organization unit
@@ -66,44 +66,44 @@ class ORG(HL7Segment):
 
     def __init__(
         self,
-        set_id_org: SI | tuple[SI],  # ORG.1
+        set_id_org: SI | tuple[SI, ...],  # ORG.1
         organization_unit_code: OrganizationUnit
         | CE
-        | tuple[OrganizationUnit | CE]
+        | tuple[OrganizationUnit | CE, ...]
         | None = None,  # ORG.2
         organization_unit_type_code: OrganizationUnitType
         | CE
-        | tuple[OrganizationUnitType | CE]
+        | tuple[OrganizationUnitType | CE, ...]
         | None = None,  # ORG.3
         primary_org_unit_indicator: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # ORG.4
-        practitioner_org_unit_identifier: CX | tuple[CX] | None = None,  # ORG.5
+        practitioner_org_unit_identifier: CX | tuple[CX, ...] | None = None,  # ORG.5
         health_care_provider_type_code: HealthCareProviderTypeCode
         | CE
-        | tuple[HealthCareProviderTypeCode | CE]
+        | tuple[HealthCareProviderTypeCode | CE, ...]
         | None = None,  # ORG.6
         health_care_provider_classification_code: HealthCareProviderClassification
         | CE
-        | tuple[HealthCareProviderClassification | CE]
+        | tuple[HealthCareProviderClassification | CE, ...]
         | None = None,  # ORG.7
         health_care_provider_area_of_specialization_code: HealthCareProviderAreaOfSpecialization
         | CE
-        | tuple[HealthCareProviderAreaOfSpecialization | CE]
+        | tuple[HealthCareProviderAreaOfSpecialization | CE, ...]
         | None = None,  # ORG.8
-        effective_date_range: DR | tuple[DR] | None = None,  # ORG.9
+        effective_date_range: DR | tuple[DR, ...] | None = None,  # ORG.9
         employment_status_code: EmploymentStatus
         | CE
-        | tuple[EmploymentStatus | CE]
+        | tuple[EmploymentStatus | CE, ...]
         | None = None,  # ORG.10
         board_approval_indicator: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # ORG.11
         primary_care_physician_indicator: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # ORG.12
     ):
         """

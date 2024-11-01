@@ -49,14 +49,14 @@ class VH(DataType):
         self,
         start_day_range: DaysOfTheWeek
         | ID
-        | tuple[DaysOfTheWeek | ID]
+        | tuple[DaysOfTheWeek | ID, ...]
         | None = None,  # VH.1
         end_day_range: DaysOfTheWeek
         | ID
-        | tuple[DaysOfTheWeek | ID]
+        | tuple[DaysOfTheWeek | ID, ...]
         | None = None,  # VH.2
-        start_hour_range: TM | tuple[TM] | None = None,  # VH.3
-        end_hour_range: TM | tuple[TM] | None = None,  # VH.4
+        start_hour_range: TM | tuple[TM, ...] | None = None,  # VH.3
+        end_hour_range: TM | tuple[TM, ...] | None = None,  # VH.4
     ):
         """
         Visiting Hours - `VH <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/VH>`_

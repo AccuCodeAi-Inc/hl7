@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import DataType
+from .TS import TS
 from .IS import IS
 from .ID import ID
-from .TS import TS
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
 from ..tables.CertificationPatientType import CertificationPatientType
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     ICD,
-    IS, ID, TS
+    TS, IS, ID
 )
 
 icd = ICD(  # Insurance Certification Definition - This data type specifies whether insurance certification is required for particular patient types, and the time window for obtaining the certification
@@ -50,12 +50,12 @@ class ICD(DataType):
         self,
         certification_required: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID],  # ICD.2
+        | tuple[YesOrNoIndicator | ID, ...],  # ICD.2
         certification_patient_type: CertificationPatientType
         | IS
-        | tuple[CertificationPatientType | IS]
+        | tuple[CertificationPatientType | IS, ...]
         | None = None,  # ICD.1
-        date_or_time_certification_required: TS | tuple[TS] | None = None,  # ICD.3
+        date_or_time_certification_required: TS | tuple[TS, ...] | None = None,  # ICD.3
     ):
         """
         Insurance Certification Definition - `ICD <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/ICD>`_

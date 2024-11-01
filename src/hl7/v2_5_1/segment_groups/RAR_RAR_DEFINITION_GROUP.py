@@ -1,13 +1,13 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segment_groups.RAR_RAR_DEFINITION_GROUP_PATIENT_GROUP import (
-    RAR_RAR_DEFINITION_GROUP_PATIENT_GROUP,
-)
-from ..segments.QRF import QRF
-from ..segments.QRD import QRD
 from ..segment_groups.RAR_RAR_DEFINITION_GROUP_ORDER_GROUP import (
     RAR_RAR_DEFINITION_GROUP_ORDER_GROUP,
 )
+from ..segment_groups.RAR_RAR_DEFINITION_GROUP_PATIENT_GROUP import (
+    RAR_RAR_DEFINITION_GROUP_PATIENT_GROUP,
+)
+from ..segments.QRD import QRD
+from ..segments.QRF import QRF
 
 
 """
@@ -21,7 +21,7 @@ from utils.hl7.v2_5_1.segments import (
     QRF, QRD
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    RAR_RAR_DEFINITION_GROUP_PATIENT_GROUP, RAR_RAR_DEFINITION_GROUP_ORDER_GROUP
+    RAR_RAR_DEFINITION_GROUP_ORDER_GROUP, RAR_RAR_DEFINITION_GROUP_PATIENT_GROUP
 )
 
 rar_rar_definition_group = RAR_RAR_DEFINITION_GROUP(  # DEFINITION - Segment group for RAR_RAR - Pharmacy/Treatment Administration Information Response consisting of QRD, QRF|None, PATIENT|None, ORDER

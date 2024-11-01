@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import SRR_S06
 from utils.hl7.v2_5_1.segments import (
-    MSH, MSA, ERR
+    ERR, MSA, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
     SRR_S06_SCHEDULE_GROUP

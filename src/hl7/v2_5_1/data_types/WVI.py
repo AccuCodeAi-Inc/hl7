@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import DataType
-from .NM import NM
 from .ST import ST
+from .NM import NM
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     WVI,
-    NM, ST
+    ST, NM
 )
 
 wvi = WVI(  # Channel Identifier - This data type specifies the number and name of the recording channel where waveform data is transmitted
@@ -44,8 +44,8 @@ class WVI(DataType):
 
     def __init__(
         self,
-        channel_number: NM | tuple[NM],  # WVI.1
-        channel_name: ST | tuple[ST] | None = None,  # WVI.2
+        channel_number: NM | tuple[NM, ...],  # WVI.1
+        channel_name: ST | tuple[ST, ...] | None = None,  # WVI.2
     ):
         """
         Channel Identifier - `WVI <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/WVI>`_

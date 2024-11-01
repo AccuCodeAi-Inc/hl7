@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.PID import PID
 from ..segments.NK1 import NK1
+from ..segments.PID import PID
 from ..segments.QRI import QRI
 from ..segments.PD1 import PD1
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RSP_K21_QUERY_RESPONSE_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NK1, QRI, PID, PD1
+    NK1, PD1, QRI, PID
 )
 
 rsp_k21_query_response_group = RSP_K21_QUERY_RESPONSE_GROUP(  # QUERY RESPONSE - Segment group for RSP_K21 - Get Person Demographics Response consisting of PID, PD1|None, NK1|None, QRI

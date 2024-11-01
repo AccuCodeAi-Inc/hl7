@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.PR1 import PR1
 from ..segments.GP2 import GP2
+from ..segments.PR1 import PR1
 
 
 """

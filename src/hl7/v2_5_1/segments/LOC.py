@@ -1,16 +1,16 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.PL import PL
-from ..data_types.IS import IS
-from ..data_types.ST import ST
-from ..data_types.XTN import XTN
-from ..data_types.XAD import XAD
 from ..data_types.CE import CE
+from ..data_types.IS import IS
+from ..data_types.XAD import XAD
+from ..data_types.XTN import XTN
 from ..data_types.XON import XON
-from ..tables.PatientLocationType import PatientLocationType
-from ..tables.LicenseNumber import LicenseNumber
+from ..data_types.PL import PL
+from ..data_types.ST import ST
 from ..tables.LocationEquipment import LocationEquipment
+from ..tables.PatientLocationType import PatientLocationType
 from ..tables.LocationServiceCode import LocationServiceCode
+from ..tables.LicenseNumber import LicenseNumber
 
 
 """
@@ -21,7 +21,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     LOC,
-    PL, IS, ST, XTN, XAD, CE, XON
+    CE, IS, XAD, XTN, XON, PL, ST
 )
 
 loc = LOC(  #  - The LOC segment can identify any patient location referenced by information systems
@@ -60,25 +60,25 @@ class LOC(HL7Segment):
 
     def __init__(
         self,
-        primary_key_value_loc: PL | tuple[PL],  # LOC.1
+        primary_key_value_loc: PL | tuple[PL, ...],  # LOC.1
         location_type_loc: PatientLocationType
         | IS
-        | tuple[PatientLocationType | IS],  # LOC.3
-        location_description: ST | tuple[ST] | None = None,  # LOC.2
-        organization_name_loc: XON | tuple[XON] | None = None,  # LOC.4
-        location_address: XAD | tuple[XAD] | None = None,  # LOC.5
-        location_phone: XTN | tuple[XTN] | None = None,  # LOC.6
+        | tuple[PatientLocationType | IS, ...],  # LOC.3
+        location_description: ST | tuple[ST, ...] | None = None,  # LOC.2
+        organization_name_loc: XON | tuple[XON, ...] | None = None,  # LOC.4
+        location_address: XAD | tuple[XAD, ...] | None = None,  # LOC.5
+        location_phone: XTN | tuple[XTN, ...] | None = None,  # LOC.6
         license_number: LicenseNumber
         | CE
-        | tuple[LicenseNumber | CE]
+        | tuple[LicenseNumber | CE, ...]
         | None = None,  # LOC.7
         location_equipment: LocationEquipment
         | IS
-        | tuple[LocationEquipment | IS]
+        | tuple[LocationEquipment | IS, ...]
         | None = None,  # LOC.8
         location_service_code: LocationServiceCode
         | IS
-        | tuple[LocationServiceCode | IS]
+        | tuple[LocationServiceCode | IS, ...]
         | None = None,  # LOC.9
     ):
         """

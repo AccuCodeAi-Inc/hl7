@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RPL_I02_PROVIDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    CTD, PRD
+    PRD, CTD
 )
 
 rpl_i02_provider_group = RPL_I02_PROVIDER_GROUP(  # PROVIDER - Segment group for RPL_I02 - Request/receipt of patient selection display list acknowledgement consisting of PRD, CTD|None

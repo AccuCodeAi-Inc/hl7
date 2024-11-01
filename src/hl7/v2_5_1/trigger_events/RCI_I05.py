@@ -1,17 +1,17 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.AL1 import AL1
-from ..segments.QRF import QRF
-from ..segment_groups.RCI_I05_PROVIDER_GROUP import RCI_I05_PROVIDER_GROUP
-from ..segments.SFT import SFT
-from ..segments.MSH import MSH
-from ..segment_groups.RCI_I05_OBSERVATION_GROUP import RCI_I05_OBSERVATION_GROUP
 from ..segments.NTE import NTE
+from ..segment_groups.RCI_I05_PROVIDER_GROUP import RCI_I05_PROVIDER_GROUP
+from ..segments.MSH import MSH
+from ..segments.QRD import QRD
+from ..segments.AL1 import AL1
 from ..segments.MSA import MSA
+from ..segments.QRF import QRF
+from ..segment_groups.RCI_I05_OBSERVATION_GROUP import RCI_I05_OBSERVATION_GROUP
+from ..segments.DRG import DRG
 from ..segments.PID import PID
 from ..segments.DG1 import DG1
-from ..segments.QRD import QRD
-from ..segments.DRG import DRG
+from ..segments.SFT import SFT
 
 
 """
@@ -22,7 +22,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RCI_I05
 from utils.hl7.v2_5_1.segments import (
-    MSH, PID, AL1, QRD, DG1, SFT, NTE, QRF, DRG, MSA
+    DG1, QRD, AL1, NTE, PID, SFT, QRF, MSA, MSH, DRG
 )
 from utils.hl7.v2_5_1.segment_groups import (
     RCI_I05_PROVIDER_GROUP, RCI_I05_OBSERVATION_GROUP

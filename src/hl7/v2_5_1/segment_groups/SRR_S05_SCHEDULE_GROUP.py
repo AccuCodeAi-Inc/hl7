@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.TQ1 import TQ1
-from ..segments.NTE import NTE
+from ..segments.SCH import SCH
 from ..segment_groups.SRR_S05_SCHEDULE_GROUP_PATIENT_GROUP import (
     SRR_S05_SCHEDULE_GROUP_PATIENT_GROUP,
 )
+from ..segments.TQ1 import TQ1
 from ..segment_groups.SRR_S05_SCHEDULE_GROUP_RESOURCES_GROUP import (
     SRR_S05_SCHEDULE_GROUP_RESOURCES_GROUP,
 )
-from ..segments.SCH import SCH
+from ..segments.NTE import NTE
 
 
 """
@@ -19,10 +19,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import SRR_S05_SCHEDULE_GROUP
 from utils.hl7.v2_5_1.segments import (
-    TQ1, NTE, SCH
+    NTE, SCH, TQ1
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    SRR_S05_SCHEDULE_GROUP_RESOURCES_GROUP, SRR_S05_SCHEDULE_GROUP_PATIENT_GROUP
+    SRR_S05_SCHEDULE_GROUP_PATIENT_GROUP, SRR_S05_SCHEDULE_GROUP_RESOURCES_GROUP
 )
 
 srr_s05_schedule_group = SRR_S05_SCHEDULE_GROUP(  # SCHEDULE - Segment group for SRR_S05 - Scheduled request response - Appointment discontinuation consisting of SCH, TQ1|None, NTE|None, PATIENT|None, RESOURCES

@@ -49,10 +49,13 @@ class RMC(DataType):
 
     def __init__(
         self,
-        room_type: RoomType | IS | tuple[RoomType | IS],  # RMC.1
-        money_or_percentage: MOP | tuple[MOP],  # RMC.4
-        amount_type: AmountType | IS | tuple[AmountType | IS] | None = None,  # RMC.2
-        coverage_amount: NM | tuple[NM] | None = None,  # RMC.3
+        room_type: RoomType | IS | tuple[RoomType | IS, ...],  # RMC.1
+        money_or_percentage: MOP | tuple[MOP, ...],  # RMC.4
+        amount_type: AmountType
+        | IS
+        | tuple[AmountType | IS, ...]
+        | None = None,  # RMC.2
+        coverage_amount: NM | tuple[NM, ...] | None = None,  # RMC.3
     ):
         """
         Room Coverage - `RMC <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/RMC>`_

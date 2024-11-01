@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PPR_PC1_PROBLEM_GROUP_PATHWAY_GROUP
 from utils.hl7.v2_5_1.segments import (
-    VAR, PTH
+    PTH, VAR
 )
 
 ppr_pc1_problem_group_pathway_group = PPR_PC1_PROBLEM_GROUP_PATHWAY_GROUP(  # PATHWAY - Segment group for PPR_PC1_PROBLEM_GROUP - PROBLEM consisting of PTH, VAR|None

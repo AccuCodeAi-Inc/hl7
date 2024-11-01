@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.DSC import DSC
-from ..segment_groups.RPL_I02_PROVIDER_GROUP import RPL_I02_PROVIDER_GROUP
-from ..segments.DSP import DSP
-from ..segments.SFT import SFT
 from ..segments.MSH import MSH
+from ..segment_groups.RPL_I02_PROVIDER_GROUP import RPL_I02_PROVIDER_GROUP
 from ..segments.MSA import MSA
+from ..segments.DSP import DSP
 from ..segments.NTE import NTE
+from ..segments.DSC import DSC
+from ..segments.SFT import SFT
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RPL_I02
 from utils.hl7.v2_5_1.segments import (
-    MSH, SFT, NTE, DSP, DSC, MSA
+    NTE, SFT, DSP, MSA, DSC, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
     RPL_I02_PROVIDER_GROUP

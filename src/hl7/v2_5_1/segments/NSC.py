@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7Segment
+from ..data_types.ST import ST
 from ..data_types.IS import IS
 from ..data_types.HD import HD
-from ..data_types.ST import ST
 from ..tables.ApplicationChangeType import ApplicationChangeType
 
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     NSC,
-    IS, HD, ST
+    ST, IS, HD
 )
 
 nsc = NSC(  #  - The NSC segment is used to inform (NMR query response) or announce (NMD unsolicited update) the start-up, shut-down, and/or migration (to a different cpu or file-server/file-system) of a particular application
@@ -55,15 +55,15 @@ class NSC(HL7Segment):
         self,
         application_change_type: ApplicationChangeType
         | IS
-        | tuple[ApplicationChangeType | IS],  # NSC.1
-        current_cpu: ST | tuple[ST] | None = None,  # NSC.2
-        current_fileserver: ST | tuple[ST] | None = None,  # NSC.3
-        current_application: HD | tuple[HD] | None = None,  # NSC.4
-        current_facility: HD | tuple[HD] | None = None,  # NSC.5
-        new_cpu: ST | tuple[ST] | None = None,  # NSC.6
-        new_fileserver: ST | tuple[ST] | None = None,  # NSC.7
-        new_application: HD | tuple[HD] | None = None,  # NSC.8
-        new_facility: HD | tuple[HD] | None = None,  # NSC.9
+        | tuple[ApplicationChangeType | IS, ...],  # NSC.1
+        current_cpu: ST | tuple[ST, ...] | None = None,  # NSC.2
+        current_fileserver: ST | tuple[ST, ...] | None = None,  # NSC.3
+        current_application: HD | tuple[HD, ...] | None = None,  # NSC.4
+        current_facility: HD | tuple[HD, ...] | None = None,  # NSC.5
+        new_cpu: ST | tuple[ST, ...] | None = None,  # NSC.6
+        new_fileserver: ST | tuple[ST, ...] | None = None,  # NSC.7
+        new_application: HD | tuple[HD, ...] | None = None,  # NSC.8
+        new_facility: HD | tuple[HD, ...] | None = None,  # NSC.9
     ):
         """
                 Application Status Change - `NSC <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/NSC>`_

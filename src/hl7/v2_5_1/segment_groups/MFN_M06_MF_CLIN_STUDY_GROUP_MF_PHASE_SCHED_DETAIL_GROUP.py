@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.CM2 import CM2
 from ..segments.CM1 import CM1
+from ..segments.CM2 import CM2
 
 
 """

@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.SFT import SFT
-from ..segments.MSH import MSH
 from ..segment_groups.OMS_O05_ORDER_GROUP import OMS_O05_ORDER_GROUP
-from ..segments.NTE import NTE
+from ..segments.MSH import MSH
 from ..segment_groups.OMS_O05_PATIENT_GROUP import OMS_O05_PATIENT_GROUP
+from ..segments.NTE import NTE
+from ..segments.SFT import SFT
 
 
 """
@@ -15,10 +15,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OMS_O05
 from utils.hl7.v2_5_1.segments import (
-    NTE, SFT, MSH
+    SFT, NTE, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    OMS_O05_PATIENT_GROUP, OMS_O05_ORDER_GROUP
+    OMS_O05_ORDER_GROUP, OMS_O05_PATIENT_GROUP
 )
 
 oms_o05 = OMS_O05(  #  - Stock requisition orders use the ORM where RQD is the detail segment for backward compatibility or can use the OMS and ORS messages

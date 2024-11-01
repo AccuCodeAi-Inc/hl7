@@ -47,11 +47,13 @@ class FN(DataType):
 
     def __init__(
         self,
-        surname: Lastname | ST | tuple[Lastname | ST],  # FN.1
-        own_surname_prefix: ST | tuple[ST] | None = None,  # FN.2
-        own_surname: ST | tuple[ST] | None = None,  # FN.3
-        surname_prefix_from_partner_or_spouse: ST | tuple[ST] | None = None,  # FN.4
-        surname_from_partner_or_spouse: ST | tuple[ST] | None = None,  # FN.5
+        surname: Lastname | ST | tuple[Lastname | ST, ...],  # FN.1
+        own_surname_prefix: ST | tuple[ST, ...] | None = None,  # FN.2
+        own_surname: ST | tuple[ST, ...] | None = None,  # FN.3
+        surname_prefix_from_partner_or_spouse: ST
+        | tuple[ST, ...]
+        | None = None,  # FN.4
+        surname_from_partner_or_spouse: ST | tuple[ST, ...] | None = None,  # FN.5
     ):
         """
         Family Name - `FN <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/FN>`_

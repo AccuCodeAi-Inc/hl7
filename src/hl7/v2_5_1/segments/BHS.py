@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.HD import HD
 from ..data_types.ST import ST
+from ..data_types.HD import HD
 from ..data_types.TS import TS
 
 
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     BHS,
-    HD, ST, TS
+    ST, HD, TS
 )
 
 bhs = BHS(  #  - The BHS segment defines the start of a batch
@@ -55,18 +55,18 @@ class BHS(HL7Segment):
 
     def __init__(
         self,
-        batch_field_separator: ST | tuple[ST],  # BHS.1
-        batch_encoding_characters: ST | tuple[ST],  # BHS.2
-        batch_sending_application: HD | tuple[HD] | None = None,  # BHS.3
-        batch_sending_facility: HD | tuple[HD] | None = None,  # BHS.4
-        batch_receiving_application: HD | tuple[HD] | None = None,  # BHS.5
-        batch_receiving_facility: HD | tuple[HD] | None = None,  # BHS.6
-        batch_creation_date_or_time: TS | tuple[TS] | None = None,  # BHS.7
-        batch_security: ST | tuple[ST] | None = None,  # BHS.8
-        batch_name_or_id_or_type: ST | tuple[ST] | None = None,  # BHS.9
-        batch_comment: ST | tuple[ST] | None = None,  # BHS.10
-        batch_control_id: ST | tuple[ST] | None = None,  # BHS.11
-        reference_batch_control_id: ST | tuple[ST] | None = None,  # BHS.12
+        batch_field_separator: ST | tuple[ST, ...],  # BHS.1
+        batch_encoding_characters: ST | tuple[ST, ...],  # BHS.2
+        batch_sending_application: HD | tuple[HD, ...] | None = None,  # BHS.3
+        batch_sending_facility: HD | tuple[HD, ...] | None = None,  # BHS.4
+        batch_receiving_application: HD | tuple[HD, ...] | None = None,  # BHS.5
+        batch_receiving_facility: HD | tuple[HD, ...] | None = None,  # BHS.6
+        batch_creation_date_or_time: TS | tuple[TS, ...] | None = None,  # BHS.7
+        batch_security: ST | tuple[ST, ...] | None = None,  # BHS.8
+        batch_name_or_id_or_type: ST | tuple[ST, ...] | None = None,  # BHS.9
+        batch_comment: ST | tuple[ST, ...] | None = None,  # BHS.10
+        batch_control_id: ST | tuple[ST, ...] | None = None,  # BHS.11
+        reference_batch_control_id: ST | tuple[ST, ...] | None = None,  # BHS.12
     ):
         """
         Batch Header Segment - `BHS <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/BHS>`_

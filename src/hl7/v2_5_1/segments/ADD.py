@@ -42,7 +42,7 @@ class ADD(HL7Segment):
 
     def __init__(
         self,
-        addendum_continuation_pointer: ST | tuple[ST] | None = None,  # ADD.1
+        addendum_continuation_pointer: ST | tuple[ST, ...] | None = None,  # ADD.1
     ):
         """
         Addendum - `ADD <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/ADD>`_

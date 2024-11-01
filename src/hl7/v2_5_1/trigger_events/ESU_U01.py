@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.EQU import EQU
-from ..segments.SFT import SFT
-from ..segments.MSH import MSH
 from ..segments.ROL import ROL
+from ..segments.MSH import MSH
 from ..segments.ISD import ISD
+from ..segments.SFT import SFT
+from ..segments.EQU import EQU
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ESU_U01
 from utils.hl7.v2_5_1.segments import (
-    MSH, ISD, ROL, EQU, SFT
+    EQU, ISD, SFT, MSH, ROL
 )
 
 esu_u01 = ESU_U01(  #  - This message is used to send information about the status of a device or equipment from one application to another (e

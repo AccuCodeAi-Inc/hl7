@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.RXR import RXR
+from ..segments.RXA import RXA
 from ..segment_groups.RAR_RAR_DEFINITION_GROUP_ORDER_GROUP_ENCODING_GROUP import (
     RAR_RAR_DEFINITION_GROUP_ORDER_GROUP_ENCODING_GROUP,
 )
-from ..segments.RXA import RXA
+from ..segments.RXR import RXR
 from ..segments.ORC import ORC
 
 

@@ -2,8 +2,8 @@ from __future__ import annotations
 from ...base import DataType
 from .ID import ID
 from .NM import NM
-from ..tables.CurrencyCodes import CurrencyCodes
 from ..tables.MoneyOrPercentageIndicator import MoneyOrPercentageIndicator
+from ..tables.CurrencyCodes import CurrencyCodes
 
 
 """
@@ -49,11 +49,11 @@ class MOP(DataType):
         self,
         money_or_percentage_indicator: MoneyOrPercentageIndicator
         | ID
-        | tuple[MoneyOrPercentageIndicator | ID],  # MOP.1
-        money_or_percentage_quantity: NM | tuple[NM],  # MOP.2
+        | tuple[MoneyOrPercentageIndicator | ID, ...],  # MOP.1
+        money_or_percentage_quantity: NM | tuple[NM, ...],  # MOP.2
         currency_denomination: CurrencyCodes
         | ID
-        | tuple[CurrencyCodes | ID]
+        | tuple[CurrencyCodes | ID, ...]
         | None = None,  # MOP.3
     ):
         """

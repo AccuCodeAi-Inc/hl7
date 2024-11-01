@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.STF import STF
-from ..segments.ORG import ORG
-from ..segments.PRA import PRA
-from ..segments.SFT import SFT
 from ..segments.MSH import MSH
 from ..segments.EVN import EVN
+from ..segments.PRA import PRA
+from ..segments.STF import STF
+from ..segments.ORG import ORG
+from ..segments.SFT import SFT
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PMU_B06
 from utils.hl7.v2_5_1.segments import (
-    MSH, PRA, SFT, ORG, STF, EVN
+    PRA, SFT, EVN, MSH, STF, ORG
 )
 
 pmu_b06 = PMU_B06(  #  - An event B06 signals that the formal relationship between a staff member and the institution has ended (e

@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RQP_I04_PROVIDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    CTD, PRD
+    PRD, CTD
 )
 
 rqp_i04_provider_group = RQP_I04_PROVIDER_GROUP(  # PROVIDER - Segment group for RQP_I04 - Request for patient demographic data consisting of PRD, CTD|None

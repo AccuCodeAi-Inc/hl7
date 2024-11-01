@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import DataType
+from .ST import ST
 from .IS import IS
 from .ID import ID
-from .ST import ST
-from ..tables.DegreeOrLicenseOrCertificate import DegreeOrLicenseOrCertificate
-from ..tables.AssigningAuthority import AssigningAuthority
 from ..tables.CnIdSource import CnIdSource
 from ..tables.UniversalIdType import UniversalIdType
+from ..tables.AssigningAuthority import AssigningAuthority
+from ..tables.DegreeOrLicenseOrCertificate import DegreeOrLicenseOrCertificate
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CNN,
-    IS, ID, ST
+    ST, IS, ID
 )
 
 cnn = CNN(  # Composite ID Number and Name Simplified - Specifies a person using both an identifier and the persons name
@@ -58,27 +58,30 @@ class CNN(DataType):
 
     def __init__(
         self,
-        id_number: ST | tuple[ST] | None = None,  # CNN.1
-        family_name: ST | tuple[ST] | None = None,  # CNN.2
-        given_name: ST | tuple[ST] | None = None,  # CNN.3
+        id_number: ST | tuple[ST, ...] | None = None,  # CNN.1
+        family_name: ST | tuple[ST, ...] | None = None,  # CNN.2
+        given_name: ST | tuple[ST, ...] | None = None,  # CNN.3
         second_and_further_given_names_or_initials_thereof: ST
-        | tuple[ST]
+        | tuple[ST, ...]
         | None = None,  # CNN.4
-        suffix: ST | tuple[ST] | None = None,  # CNN.5
-        prefix: ST | tuple[ST] | None = None,  # CNN.6
+        suffix: ST | tuple[ST, ...] | None = None,  # CNN.5
+        prefix: ST | tuple[ST, ...] | None = None,  # CNN.6
         degree: DegreeOrLicenseOrCertificate
         | IS
-        | tuple[DegreeOrLicenseOrCertificate | IS]
+        | tuple[DegreeOrLicenseOrCertificate | IS, ...]
         | None = None,  # CNN.7
-        source_table: CnIdSource | IS | tuple[CnIdSource | IS] | None = None,  # CNN.8
+        source_table: CnIdSource
+        | IS
+        | tuple[CnIdSource | IS, ...]
+        | None = None,  # CNN.8
         assigning_authority_namespace_id: AssigningAuthority
         | IS
-        | tuple[AssigningAuthority | IS]
+        | tuple[AssigningAuthority | IS, ...]
         | None = None,  # CNN.9
-        assigning_authority_universal_id: ST | tuple[ST] | None = None,  # CNN.10
+        assigning_authority_universal_id: ST | tuple[ST, ...] | None = None,  # CNN.10
         assigning_authority_universal_id_type: UniversalIdType
         | ID
-        | tuple[UniversalIdType | ID]
+        | tuple[UniversalIdType | ID, ...]
         | None = None,  # CNN.11
     ):
         """

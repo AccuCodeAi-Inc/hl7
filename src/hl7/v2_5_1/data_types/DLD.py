@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import DataType
-from .IS import IS
 from .TS import TS
+from .IS import IS
 from ..tables.DischargedToLocation import DischargedToLocation
 
 
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     DLD,
-    IS, TS
+    TS, IS
 )
 
 dld = DLD(  # Discharge Location and Date - Specifies the healthcare facility to which the patient was discharged and the date
@@ -47,8 +47,8 @@ class DLD(DataType):
         self,
         discharge_location: DischargedToLocation
         | IS
-        | tuple[DischargedToLocation | IS],  # DLD.1
-        effective_date: TS | tuple[TS] | None = None,  # DLD.2
+        | tuple[DischargedToLocation | IS, ...],  # DLD.1
+        effective_date: TS | tuple[TS, ...] | None = None,  # DLD.2
     ):
         """
         Discharge Location and Date - `DLD <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/DLD>`_

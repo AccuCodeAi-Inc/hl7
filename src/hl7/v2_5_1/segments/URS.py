@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TQ import TQ
-from ..data_types.ID import ID
 from ..data_types.ST import ST
+from ..data_types.ID import ID
 from ..data_types.TS import TS
-from ..tables.DateOrTimeSelectionQualifier import DateOrTimeSelectionQualifier
-from ..tables.WhichDateOrTimeStatusQualifier import WhichDateOrTimeStatusQualifier
+from ..data_types.TQ import TQ
 from ..tables.WhichDateOrTimeQualifier import WhichDateOrTimeQualifier
+from ..tables.WhichDateOrTimeStatusQualifier import WhichDateOrTimeStatusQualifier
+from ..tables.DateOrTimeSelectionQualifier import DateOrTimeSelectionQualifier
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     URS,
-    TQ, ID, ST, TS
+    ST, ID, TS, TQ
 )
 
 urs = URS(  #  - This segment is not carried forward to the recommended queries for v 2
@@ -56,24 +56,26 @@ class URS(HL7Segment):
 
     def __init__(
         self,
-        r_or_u_where_subject_definition: ST | tuple[ST],  # URS.1
-        r_or_u_when_data_start_date_or_time: TS | tuple[TS] | None = None,  # URS.2
-        r_or_u_when_data_end_date_or_time: TS | tuple[TS] | None = None,  # URS.3
-        r_or_u_what_user_qualifier: ST | tuple[ST] | None = None,  # URS.4
-        r_or_u_other_results_subject_definition: ST | tuple[ST] | None = None,  # URS.5
+        r_or_u_where_subject_definition: ST | tuple[ST, ...],  # URS.1
+        r_or_u_when_data_start_date_or_time: TS | tuple[TS, ...] | None = None,  # URS.2
+        r_or_u_when_data_end_date_or_time: TS | tuple[TS, ...] | None = None,  # URS.3
+        r_or_u_what_user_qualifier: ST | tuple[ST, ...] | None = None,  # URS.4
+        r_or_u_other_results_subject_definition: ST
+        | tuple[ST, ...]
+        | None = None,  # URS.5
         r_or_u_which_date_or_time_qualifier: WhichDateOrTimeQualifier
         | ID
-        | tuple[WhichDateOrTimeQualifier | ID]
+        | tuple[WhichDateOrTimeQualifier | ID, ...]
         | None = None,  # URS.6
         r_or_u_which_date_or_time_status_qualifier: WhichDateOrTimeStatusQualifier
         | ID
-        | tuple[WhichDateOrTimeStatusQualifier | ID]
+        | tuple[WhichDateOrTimeStatusQualifier | ID, ...]
         | None = None,  # URS.7
         r_or_u_date_or_time_selection_qualifier: DateOrTimeSelectionQualifier
         | ID
-        | tuple[DateOrTimeSelectionQualifier | ID]
+        | tuple[DateOrTimeSelectionQualifier | ID, ...]
         | None = None,  # URS.8
-        r_or_u_quantity_or_timing_qualifier: TQ | tuple[TQ] | None = None,  # URS.9
+        r_or_u_quantity_or_timing_qualifier: TQ | tuple[TQ, ...] | None = None,  # URS.9
     ):
         """
                 Unsolicited Selection - `URS <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/URS>`_

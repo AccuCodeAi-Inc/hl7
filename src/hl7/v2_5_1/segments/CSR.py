@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TS import TS
-from ..data_types.CX import CX
-from ..data_types.XCN import XCN
 from ..data_types.CE import CE
+from ..data_types.CX import CX
+from ..data_types.TS import TS
+from ..data_types.XCN import XCN
 from ..data_types.EI import EI
 
 
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CSR,
-    TS, CX, XCN, CE, EI
+    CE, CX, TS, XCN, EI
 )
 
 csr = CSR(  #  - The CSR segment will contain fundamental administrative and regulatory information required to document a patients enrollment on a clinical trial
@@ -61,24 +61,26 @@ class CSR(HL7Segment):
 
     def __init__(
         self,
-        sponsor_study_id: EI | tuple[EI],  # CSR.1
-        sponsor_patient_id: CX | tuple[CX],  # CSR.4
-        date_or_time_of_patient_study_registration: TS | tuple[TS],  # CSR.6
-        study_authorizing_provider: XCN | tuple[XCN],  # CSR.8
-        alternate_study_id: EI | tuple[EI] | None = None,  # CSR.2
-        institution_registering_the_patient: CE | tuple[CE] | None = None,  # CSR.3
-        alternate_patient_id_csr: CX | tuple[CX] | None = None,  # CSR.5
-        person_performing_study_registration: XCN | tuple[XCN] | None = None,  # CSR.7
+        sponsor_study_id: EI | tuple[EI, ...],  # CSR.1
+        sponsor_patient_id: CX | tuple[CX, ...],  # CSR.4
+        date_or_time_of_patient_study_registration: TS | tuple[TS, ...],  # CSR.6
+        study_authorizing_provider: XCN | tuple[XCN, ...],  # CSR.8
+        alternate_study_id: EI | tuple[EI, ...] | None = None,  # CSR.2
+        institution_registering_the_patient: CE | tuple[CE, ...] | None = None,  # CSR.3
+        alternate_patient_id_csr: CX | tuple[CX, ...] | None = None,  # CSR.5
+        person_performing_study_registration: XCN
+        | tuple[XCN, ...]
+        | None = None,  # CSR.7
         date_or_time_patient_study_consent_signed: TS
-        | tuple[TS]
+        | tuple[TS, ...]
         | None = None,  # CSR.9
-        patient_study_eligibility_status: CE | tuple[CE] | None = None,  # CSR.10
-        study_randomization_date_or_time: TS | tuple[TS] | None = None,  # CSR.11
-        randomized_study_arm: CE | tuple[CE] | None = None,  # CSR.12
-        stratum_for_study_randomization: CE | tuple[CE] | None = None,  # CSR.13
-        patient_evaluability_status: CE | tuple[CE] | None = None,  # CSR.14
-        date_or_time_ended_study: TS | tuple[TS] | None = None,  # CSR.15
-        reason_ended_study: CE | tuple[CE] | None = None,  # CSR.16
+        patient_study_eligibility_status: CE | tuple[CE, ...] | None = None,  # CSR.10
+        study_randomization_date_or_time: TS | tuple[TS, ...] | None = None,  # CSR.11
+        randomized_study_arm: CE | tuple[CE, ...] | None = None,  # CSR.12
+        stratum_for_study_randomization: CE | tuple[CE, ...] | None = None,  # CSR.13
+        patient_evaluability_status: CE | tuple[CE, ...] | None = None,  # CSR.14
+        date_or_time_ended_study: TS | tuple[TS, ...] | None = None,  # CSR.15
+        reason_ended_study: CE | tuple[CE, ...] | None = None,  # CSR.16
     ):
         """
         Clinical Study Registration - `CSR <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/CSR>`_

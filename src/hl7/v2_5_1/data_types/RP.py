@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import DataType
+from .ST import ST
 from .ID import ID
 from .HD import HD
-from .ST import ST
-from ..tables.SubtypeOfReferencedData import SubtypeOfReferencedData
 from ..tables.TypeOfReferencedData import TypeOfReferencedData
+from ..tables.SubtypeOfReferencedData import SubtypeOfReferencedData
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RP,
-    ID, HD, ST
+    ST, ID, HD
 )
 
 rp = RP(  # Reference Pointer - This data type transmits information about data stored on another system
@@ -49,15 +49,15 @@ class RP(DataType):
 
     def __init__(
         self,
-        pointer: ST | tuple[ST] | None = None,  # RP.1
-        application_id: HD | tuple[HD] | None = None,  # RP.2
+        pointer: ST | tuple[ST, ...] | None = None,  # RP.1
+        application_id: HD | tuple[HD, ...] | None = None,  # RP.2
         type_of_data: TypeOfReferencedData
         | ID
-        | tuple[TypeOfReferencedData | ID]
+        | tuple[TypeOfReferencedData | ID, ...]
         | None = None,  # RP.3
         subtype: SubtypeOfReferencedData
         | ID
-        | tuple[SubtypeOfReferencedData | ID]
+        | tuple[SubtypeOfReferencedData | ID, ...]
         | None = None,  # RP.4
     ):
         """

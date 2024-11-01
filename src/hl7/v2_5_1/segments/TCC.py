@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.NM import NM
-from ..data_types.SPS import SPS
 from ..data_types.CE import CE
-from ..data_types.EI import EI
+from ..data_types.SPS import SPS
 from ..data_types.SN import SN
+from ..data_types.NM import NM
+from ..data_types.ID import ID
+from ..data_types.EI import EI
 from ..tables.ProcessingType import ProcessingType
 from ..tables.YesOrNoIndicator import YesOrNoIndicator
 
@@ -18,7 +18,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     TCC,
-    ID, NM, SPS, CE, EI, SN
+    CE, SPS, SN, NM, ID, EI
 )
 
 tcc = TCC(  #  - The test (e
@@ -62,33 +62,33 @@ class TCC(HL7Segment):
 
     def __init__(
         self,
-        universal_service_identifier: CE | tuple[CE],  # TCC.1
-        test_application_identifier: EI | tuple[EI],  # TCC.2
-        specimen_source: SPS | tuple[SPS] | None = None,  # TCC.3
-        auto_dilution_factor_default: SN | tuple[SN] | None = None,  # TCC.4
-        rerun_dilution_factor_default: SN | tuple[SN] | None = None,  # TCC.5
-        pre_dilution_factor_default: SN | tuple[SN] | None = None,  # TCC.6
+        universal_service_identifier: CE | tuple[CE, ...],  # TCC.1
+        test_application_identifier: EI | tuple[EI, ...],  # TCC.2
+        specimen_source: SPS | tuple[SPS, ...] | None = None,  # TCC.3
+        auto_dilution_factor_default: SN | tuple[SN, ...] | None = None,  # TCC.4
+        rerun_dilution_factor_default: SN | tuple[SN, ...] | None = None,  # TCC.5
+        pre_dilution_factor_default: SN | tuple[SN, ...] | None = None,  # TCC.6
         endogenous_content_of_pre_dilution_diluent: SN
-        | tuple[SN]
+        | tuple[SN, ...]
         | None = None,  # TCC.7
-        inventory_limits_warning_level: NM | tuple[NM] | None = None,  # TCC.8
+        inventory_limits_warning_level: NM | tuple[NM, ...] | None = None,  # TCC.8
         automatic_rerun_allowed: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # TCC.9
         automatic_repeat_allowed: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # TCC.10
         automatic_reflex_allowed: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # TCC.11
-        equipment_dynamic_range: SN | tuple[SN] | None = None,  # TCC.12
-        units: CE | tuple[CE] | None = None,  # TCC.13
+        equipment_dynamic_range: SN | tuple[SN, ...] | None = None,  # TCC.12
+        units: CE | tuple[CE, ...] | None = None,  # TCC.13
         processing_type: ProcessingType
         | CE
-        | tuple[ProcessingType | CE]
+        | tuple[ProcessingType | CE, ...]
         | None = None,  # TCC.14
     ):
         """

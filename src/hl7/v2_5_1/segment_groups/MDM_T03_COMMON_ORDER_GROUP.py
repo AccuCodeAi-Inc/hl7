@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.NTE import NTE
 from ..segment_groups.MDM_T03_COMMON_ORDER_GROUP_TIMING_GROUP import (
     MDM_T03_COMMON_ORDER_GROUP_TIMING_GROUP,
 )
 from ..segments.OBR import OBR
+from ..segments.NTE import NTE
 from ..segments.ORC import ORC
 
 

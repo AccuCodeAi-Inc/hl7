@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
 from ..segments.ERR import ERR
-from ..segments.SFT import SFT
 from ..segments.MSH import MSH
-from ..segments.QAK import QAK
-from ..segments.MSA import MSA
-from ..segment_groups.PPT_PCL_PATIENT_GROUP import PPT_PCL_PATIENT_GROUP
 from ..segments.QRD import QRD
+from ..segments.MSA import MSA
+from ..segments.QAK import QAK
+from ..segments.SFT import SFT
+from ..segment_groups.PPT_PCL_PATIENT_GROUP import PPT_PCL_PATIENT_GROUP
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PPT_PCL
 from utils.hl7.v2_5_1.segments import (
-    MSH, QRD, SFT, ERR, QAK, MSA
+    QAK, QRD, SFT, ERR, MSA, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
     PPT_PCL_PATIENT_GROUP

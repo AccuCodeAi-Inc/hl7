@@ -1,16 +1,16 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.PD1 import PD1
 from ..segments.AL1 import AL1
 from ..segment_groups.OMP_O09_PATIENT_GROUP_INSURANCE_GROUP import (
     OMP_O09_PATIENT_GROUP_INSURANCE_GROUP,
 )
 from ..segments.GT1 import GT1
-from ..segments.NTE import NTE
-from ..segments.PD1 import PD1
-from ..segments.PID import PID
 from ..segment_groups.OMP_O09_PATIENT_GROUP_PATIENT_VISIT_GROUP import (
     OMP_O09_PATIENT_GROUP_PATIENT_VISIT_GROUP,
 )
+from ..segments.PID import PID
+from ..segments.NTE import NTE
 
 
 """
@@ -21,10 +21,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OMP_O09_PATIENT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PID, PD1, AL1, GT1, NTE
+    AL1, NTE, PID, PD1, GT1
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    OMP_O09_PATIENT_GROUP_INSURANCE_GROUP, OMP_O09_PATIENT_GROUP_PATIENT_VISIT_GROUP
+    OMP_O09_PATIENT_GROUP_PATIENT_VISIT_GROUP, OMP_O09_PATIENT_GROUP_INSURANCE_GROUP
 )
 
 omp_o09_patient_group = OMP_O09_PATIENT_GROUP(  # PATIENT - Segment group for OMP_O09 - Pharmacy/Treatment Order consisting of PID, PD1|None, NTE|None, PATIENT VISIT|None, INSURANCE|None, GT1|None, AL1|None

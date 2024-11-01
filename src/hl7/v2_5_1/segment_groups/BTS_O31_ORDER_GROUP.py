@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.BPO import BPO
-from ..segment_groups.BTS_O31_ORDER_GROUP_PRODUCT_STATUS_GROUP import (
-    BTS_O31_ORDER_GROUP_PRODUCT_STATUS_GROUP,
-)
-from ..segments.ORC import ORC
 from ..segment_groups.BTS_O31_ORDER_GROUP_TIMING_GROUP import (
     BTS_O31_ORDER_GROUP_TIMING_GROUP,
 )
+from ..segments.ORC import ORC
+from ..segments.BPO import BPO
 from ..segments.NTE import NTE
+from ..segment_groups.BTS_O31_ORDER_GROUP_PRODUCT_STATUS_GROUP import (
+    BTS_O31_ORDER_GROUP_PRODUCT_STATUS_GROUP,
+)
 
 
 """
@@ -19,10 +19,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import BTS_O31_ORDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NTE, BPO, ORC
+    BPO, NTE, ORC
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    BTS_O31_ORDER_GROUP_PRODUCT_STATUS_GROUP, BTS_O31_ORDER_GROUP_TIMING_GROUP
+    BTS_O31_ORDER_GROUP_TIMING_GROUP, BTS_O31_ORDER_GROUP_PRODUCT_STATUS_GROUP
 )
 
 bts_o31_order_group = BTS_O31_ORDER_GROUP(  # ORDER - Segment group for BTS_O31 - Blood Product Transfusion/Disposition consisting of ORC, TIMING|None, BPO, NTE|None, PRODUCT STATUS|None

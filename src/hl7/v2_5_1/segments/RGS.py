@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
 from ..data_types.SI import SI
 from ..data_types.CE import CE
+from ..data_types.ID import ID
 from ..tables.SegmentActionCode import SegmentActionCode
 
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RGS,
-    ID, SI, CE
+    SI, CE, ID
 )
 
 rgs = RGS(  #  - The RGS segment is used to identify relationships between resources identified for a scheduled event
@@ -47,12 +47,12 @@ class RGS(HL7Segment):
 
     def __init__(
         self,
-        set_id_rgs: SI | tuple[SI],  # RGS.1
+        set_id_rgs: SI | tuple[SI, ...],  # RGS.1
         segment_action_code: SegmentActionCode
         | ID
-        | tuple[SegmentActionCode | ID]
+        | tuple[SegmentActionCode | ID, ...]
         | None = None,  # RGS.2
-        resource_group_id: CE | tuple[CE] | None = None,  # RGS.3
+        resource_group_id: CE | tuple[CE, ...] | None = None,  # RGS.3
     ):
         """
                 Resource Group - `RGS <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/RGS>`_

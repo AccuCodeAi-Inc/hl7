@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import DataType
-from .NM import NM
 from .CE import CE
+from .NM import NM
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CQ,
-    NM, CE
+    CE, NM
 )
 
 cq = CQ(  # Composite Quantity with Units - Note: CQ cannot be legally expressed when embedded within another data type
@@ -44,8 +44,8 @@ class CQ(DataType):
 
     def __init__(
         self,
-        quantity: NM | tuple[NM] | None = None,  # CQ.1
-        units: CE | tuple[CE] | None = None,  # CQ.2
+        quantity: NM | tuple[NM, ...] | None = None,  # CQ.1
+        units: CE | tuple[CE, ...] | None = None,  # CQ.2
     ):
         """
                 Composite Quantity with Units - `CQ <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/CQ>`_

@@ -1,23 +1,23 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segment_groups.PGL_PC8_GOAL_GROUP_GOAL_ROLE_GROUP import (
-    PGL_PC8_GOAL_GROUP_GOAL_ROLE_GROUP,
-)
-from ..segments.GOL import GOL
-from ..segment_groups.PGL_PC8_GOAL_GROUP_PATHWAY_GROUP import (
-    PGL_PC8_GOAL_GROUP_PATHWAY_GROUP,
-)
-from ..segments.VAR import VAR
-from ..segment_groups.PGL_PC8_GOAL_GROUP_PROBLEM_GROUP import (
-    PGL_PC8_GOAL_GROUP_PROBLEM_GROUP,
-)
 from ..segment_groups.PGL_PC8_GOAL_GROUP_OBSERVATION_GROUP import (
     PGL_PC8_GOAL_GROUP_OBSERVATION_GROUP,
 )
-from ..segments.NTE import NTE
+from ..segment_groups.PGL_PC8_GOAL_GROUP_PROBLEM_GROUP import (
+    PGL_PC8_GOAL_GROUP_PROBLEM_GROUP,
+)
 from ..segment_groups.PGL_PC8_GOAL_GROUP_ORDER_GROUP import (
     PGL_PC8_GOAL_GROUP_ORDER_GROUP,
 )
+from ..segment_groups.PGL_PC8_GOAL_GROUP_PATHWAY_GROUP import (
+    PGL_PC8_GOAL_GROUP_PATHWAY_GROUP,
+)
+from ..segment_groups.PGL_PC8_GOAL_GROUP_GOAL_ROLE_GROUP import (
+    PGL_PC8_GOAL_GROUP_GOAL_ROLE_GROUP,
+)
+from ..segments.VAR import VAR
+from ..segments.GOL import GOL
+from ..segments.NTE import NTE
 
 
 """
@@ -28,10 +28,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PGL_PC8_GOAL_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NTE, VAR, GOL
+    GOL, NTE, VAR
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    PGL_PC8_GOAL_GROUP_GOAL_ROLE_GROUP, PGL_PC8_GOAL_GROUP_ORDER_GROUP, PGL_PC8_GOAL_GROUP_PROBLEM_GROUP, PGL_PC8_GOAL_GROUP_OBSERVATION_GROUP, PGL_PC8_GOAL_GROUP_PATHWAY_GROUP
+    PGL_PC8_GOAL_GROUP_PATHWAY_GROUP, PGL_PC8_GOAL_GROUP_OBSERVATION_GROUP, PGL_PC8_GOAL_GROUP_ORDER_GROUP, PGL_PC8_GOAL_GROUP_GOAL_ROLE_GROUP, PGL_PC8_GOAL_GROUP_PROBLEM_GROUP
 )
 
 pgl_pc8_goal_group = PGL_PC8_GOAL_GROUP(  # GOAL - Segment group for PGL_PC8 - Goal delete consisting of GOL, NTE|None, VAR|None, GOAL ROLE|None, PATHWAY|None, OBSERVATION|None, PROBLEM|None, ORDER|None

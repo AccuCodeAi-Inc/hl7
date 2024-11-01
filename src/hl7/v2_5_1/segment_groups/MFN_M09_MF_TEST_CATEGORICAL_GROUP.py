@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.OM1 import OM1
 from ..segment_groups.MFN_M09_MF_TEST_CATEGORICAL_GROUP_MF_TEST_CAT_DETAIL_GROUP import (
     MFN_M09_MF_TEST_CATEGORICAL_GROUP_MF_TEST_CAT_DETAIL_GROUP,
 )
 from ..segments.MFE import MFE
+from ..segments.OM1 import OM1
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import MFN_M09_MF_TEST_CATEGORICAL_GROUP
 from utils.hl7.v2_5_1.segments import (
-    OM1, MFE
+    MFE, OM1
 )
 from utils.hl7.v2_5_1.segment_groups import (
     MFN_M09_MF_TEST_CATEGORICAL_GROUP_MF_TEST_CAT_DETAIL_GROUP

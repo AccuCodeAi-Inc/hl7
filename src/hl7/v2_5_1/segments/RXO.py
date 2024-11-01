@@ -1,13 +1,13 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CQ import CQ
-from ..data_types.ID import ID
-from ..data_types.NM import NM
-from ..data_types.LA1 import LA1
-from ..data_types.CWE import CWE
-from ..data_types.XCN import XCN
 from ..data_types.CE import CE
+from ..data_types.CQ import CQ
+from ..data_types.XCN import XCN
+from ..data_types.NM import NM
+from ..data_types.CWE import CWE
 from ..data_types.ST import ST
+from ..data_types.LA1 import LA1
+from ..data_types.ID import ID
 from ..tables.PharmacyOrderTypes import PharmacyOrderTypes
 from ..tables.AllowSubstitution import AllowSubstitution
 from ..tables.YesOrNoIndicator import YesOrNoIndicator
@@ -21,7 +21,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RXO,
-    CQ, ID, NM, LA1, CWE, XCN, CE, ST
+    CE, CQ, XCN, NM, CWE, ST, LA1, ID
 )
 
 rxo = RXO(  #  - This is the master pharmacy/treatment order segment
@@ -79,47 +79,51 @@ class RXO(HL7Segment):
 
     def __init__(
         self,
-        requested_give_code: CE | tuple[CE] | None = None,  # RXO.1
-        requested_give_amount_minimum: NM | tuple[NM] | None = None,  # RXO.2
-        requested_give_amount_maximum: NM | tuple[NM] | None = None,  # RXO.3
-        requested_give_units: CE | tuple[CE] | None = None,  # RXO.4
-        requested_dosage_form: CE | tuple[CE] | None = None,  # RXO.5
+        requested_give_code: CE | tuple[CE, ...] | None = None,  # RXO.1
+        requested_give_amount_minimum: NM | tuple[NM, ...] | None = None,  # RXO.2
+        requested_give_amount_maximum: NM | tuple[NM, ...] | None = None,  # RXO.3
+        requested_give_units: CE | tuple[CE, ...] | None = None,  # RXO.4
+        requested_dosage_form: CE | tuple[CE, ...] | None = None,  # RXO.5
         providers_pharmacy_or_treatment_instructions: CE
-        | tuple[CE]
+        | tuple[CE, ...]
         | None = None,  # RXO.6
-        providers_administration_instructions: CE | tuple[CE] | None = None,  # RXO.7
-        deliver_to_location: LA1 | tuple[LA1] | None = None,  # RXO.8
+        providers_administration_instructions: CE
+        | tuple[CE, ...]
+        | None = None,  # RXO.7
+        deliver_to_location: LA1 | tuple[LA1, ...] | None = None,  # RXO.8
         allow_substitutions: AllowSubstitution
         | ID
-        | tuple[AllowSubstitution | ID]
+        | tuple[AllowSubstitution | ID, ...]
         | None = None,  # RXO.9
-        requested_dispense_code: CE | tuple[CE] | None = None,  # RXO.10
-        requested_dispense_amount: NM | tuple[NM] | None = None,  # RXO.11
-        requested_dispense_units: CE | tuple[CE] | None = None,  # RXO.12
-        number_of_refills: NM | tuple[NM] | None = None,  # RXO.13
-        ordering_providers_dea_number: XCN | tuple[XCN] | None = None,  # RXO.14
+        requested_dispense_code: CE | tuple[CE, ...] | None = None,  # RXO.10
+        requested_dispense_amount: NM | tuple[NM, ...] | None = None,  # RXO.11
+        requested_dispense_units: CE | tuple[CE, ...] | None = None,  # RXO.12
+        number_of_refills: NM | tuple[NM, ...] | None = None,  # RXO.13
+        ordering_providers_dea_number: XCN | tuple[XCN, ...] | None = None,  # RXO.14
         pharmacist_or_treatment_suppliers_verifier_id: XCN
-        | tuple[XCN]
+        | tuple[XCN, ...]
         | None = None,  # RXO.15
         needs_human_review: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # RXO.16
-        requested_give_per: ST | tuple[ST] | None = None,  # RXO.17
-        requested_give_strength: NM | tuple[NM] | None = None,  # RXO.18
-        requested_give_strength_units: CE | tuple[CE] | None = None,  # RXO.19
-        indication: CE | tuple[CE] | None = None,  # RXO.20
-        requested_give_rate_amount: ST | tuple[ST] | None = None,  # RXO.21
-        requested_give_rate_units: CE | tuple[CE] | None = None,  # RXO.22
-        total_daily_dose: CQ | tuple[CQ] | None = None,  # RXO.23
-        supplementary_code: CE | tuple[CE] | None = None,  # RXO.24
-        requested_drug_strength_volume: NM | tuple[NM] | None = None,  # RXO.25
-        requested_drug_strength_volume_units: CWE | tuple[CWE] | None = None,  # RXO.26
+        requested_give_per: ST | tuple[ST, ...] | None = None,  # RXO.17
+        requested_give_strength: NM | tuple[NM, ...] | None = None,  # RXO.18
+        requested_give_strength_units: CE | tuple[CE, ...] | None = None,  # RXO.19
+        indication: CE | tuple[CE, ...] | None = None,  # RXO.20
+        requested_give_rate_amount: ST | tuple[ST, ...] | None = None,  # RXO.21
+        requested_give_rate_units: CE | tuple[CE, ...] | None = None,  # RXO.22
+        total_daily_dose: CQ | tuple[CQ, ...] | None = None,  # RXO.23
+        supplementary_code: CE | tuple[CE, ...] | None = None,  # RXO.24
+        requested_drug_strength_volume: NM | tuple[NM, ...] | None = None,  # RXO.25
+        requested_drug_strength_volume_units: CWE
+        | tuple[CWE, ...]
+        | None = None,  # RXO.26
         pharmacy_order_type: PharmacyOrderTypes
         | ID
-        | tuple[PharmacyOrderTypes | ID]
+        | tuple[PharmacyOrderTypes | ID, ...]
         | None = None,  # RXO.27
-        dispensing_interval: NM | tuple[NM] | None = None,  # RXO.28
+        dispensing_interval: NM | tuple[NM, ...] | None = None,  # RXO.28
     ):
         """
         Pharmacy/Treatment Order - `RXO <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/RXO>`_

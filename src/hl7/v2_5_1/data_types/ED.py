@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import DataType
-from .TX import TX
 from .ID import ID
 from .HD import HD
-from ..tables.SubtypeOfReferencedData import SubtypeOfReferencedData
+from .TX import TX
 from ..tables.TypeOfReferencedData import TypeOfReferencedData
+from ..tables.SubtypeOfReferencedData import SubtypeOfReferencedData
 from ..tables.Encoding import Encoding
 
 
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     ED,
-    TX, ID, HD
+    ID, HD, TX
 )
 
 ed = ED(  # Encapsulated Data - This data type transmits encapsulated data from a source system to a destination system
@@ -53,13 +53,13 @@ class ED(DataType):
         self,
         type_of_data: TypeOfReferencedData
         | ID
-        | tuple[TypeOfReferencedData | ID],  # ED.2
-        encoding: Encoding | ID | tuple[Encoding | ID],  # ED.4
-        data: TX | tuple[TX],  # ED.5
-        source_application: HD | tuple[HD] | None = None,  # ED.1
+        | tuple[TypeOfReferencedData | ID, ...],  # ED.2
+        encoding: Encoding | ID | tuple[Encoding | ID, ...],  # ED.4
+        data: TX | tuple[TX, ...],  # ED.5
+        source_application: HD | tuple[HD, ...] | None = None,  # ED.1
         data_subtype: SubtypeOfReferencedData
         | ID
-        | tuple[SubtypeOfReferencedData | ID]
+        | tuple[SubtypeOfReferencedData | ID, ...]
         | None = None,  # ED.3
     ):
         """

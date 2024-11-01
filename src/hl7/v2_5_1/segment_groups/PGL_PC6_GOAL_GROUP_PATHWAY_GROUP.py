@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PGL_PC6_GOAL_GROUP_PATHWAY_GROUP
 from utils.hl7.v2_5_1.segments import (
-    VAR, PTH
+    PTH, VAR
 )
 
 pgl_pc6_goal_group_pathway_group = PGL_PC6_GOAL_GROUP_PATHWAY_GROUP(  # PATHWAY - Segment group for PGL_PC6_GOAL_GROUP - GOAL consisting of PTH, VAR|None

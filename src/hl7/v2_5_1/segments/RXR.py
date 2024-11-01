@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CWE import CWE
 from ..data_types.CE import CE
+from ..data_types.CWE import CWE
+from ..tables.RouteOfAdministration import RouteOfAdministration
+from ..tables.BodySite import BodySite
 from ..tables.AdministrationMethod import AdministrationMethod
 from ..tables.AdministrationDevice import AdministrationDevice
 from ..tables.BodySiteModifier import BodySiteModifier
-from ..tables.BodySite import BodySite
-from ..tables.RouteOfAdministration import RouteOfAdministration
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RXR,
-    CWE, CE
+    CE, CWE
 )
 
 rxr = RXR(  #  - The Pharmacy/Treatment Route segment contains the alternative combination of route, site, administration device, and administration method that are prescribed as they apply to a particular order
@@ -53,23 +53,25 @@ class RXR(HL7Segment):
 
     def __init__(
         self,
-        route: RouteOfAdministration | CE | tuple[RouteOfAdministration | CE],  # RXR.1
+        route: RouteOfAdministration
+        | CE
+        | tuple[RouteOfAdministration | CE, ...],  # RXR.1
         administration_site: BodySite
         | CWE
-        | tuple[BodySite | CWE]
+        | tuple[BodySite | CWE, ...]
         | None = None,  # RXR.2
         administration_device: AdministrationDevice
         | CE
-        | tuple[AdministrationDevice | CE]
+        | tuple[AdministrationDevice | CE, ...]
         | None = None,  # RXR.3
         administration_method: AdministrationMethod
         | CWE
-        | tuple[AdministrationMethod | CWE]
+        | tuple[AdministrationMethod | CWE, ...]
         | None = None,  # RXR.4
-        routing_instruction: CE | tuple[CE] | None = None,  # RXR.5
+        routing_instruction: CE | tuple[CE, ...] | None = None,  # RXR.5
         administration_site_modifier: BodySiteModifier
         | CWE
-        | tuple[BodySiteModifier | CWE]
+        | tuple[BodySiteModifier | CWE, ...]
         | None = None,  # RXR.6
     ):
         """

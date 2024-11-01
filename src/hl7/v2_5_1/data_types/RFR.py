@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import DataType
+from .NR import NR
 from .IS import IS
 from .TX import TX
 from .ST import ST
-from .NR import NR
 from ..tables.AdministrativeSex import AdministrativeSex
 
 
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RFR,
-    IS, TX, ST, NR
+    NR, IS, TX, ST
 )
 
 rfr = RFR(  # Reference Range - Describes a reference range and its supporting detail
@@ -52,16 +52,16 @@ class RFR(DataType):
 
     def __init__(
         self,
-        numeric_range: NR | tuple[NR],  # RFR.1
+        numeric_range: NR | tuple[NR, ...],  # RFR.1
         administrative_sex: AdministrativeSex
         | IS
-        | tuple[AdministrativeSex | IS]
+        | tuple[AdministrativeSex | IS, ...]
         | None = None,  # RFR.2
-        age_range: NR | tuple[NR] | None = None,  # RFR.3
-        gestational_age_range: NR | tuple[NR] | None = None,  # RFR.4
-        species: ST | tuple[ST] | None = None,  # RFR.5
-        race_or_subspecies: ST | tuple[ST] | None = None,  # RFR.6
-        conditions: TX | tuple[TX] | None = None,  # RFR.7
+        age_range: NR | tuple[NR, ...] | None = None,  # RFR.3
+        gestational_age_range: NR | tuple[NR, ...] | None = None,  # RFR.4
+        species: ST | tuple[ST, ...] | None = None,  # RFR.5
+        race_or_subspecies: ST | tuple[ST, ...] | None = None,  # RFR.6
+        conditions: TX | tuple[TX, ...] | None = None,  # RFR.7
     ):
         """
         Reference Range - `RFR <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/RFR>`_

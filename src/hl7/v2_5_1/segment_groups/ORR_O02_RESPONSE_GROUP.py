@@ -19,7 +19,7 @@ from utils.hl7.v2_5_1.segments import (
     
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    ORR_O02_RESPONSE_GROUP_PATIENT_GROUP, ORR_O02_RESPONSE_GROUP_ORDER_GROUP
+    ORR_O02_RESPONSE_GROUP_ORDER_GROUP, ORR_O02_RESPONSE_GROUP_PATIENT_GROUP
 )
 
 orr_o02_response_group = ORR_O02_RESPONSE_GROUP(  # RESPONSE - Segment group for ORR_O02 - General Order Response consisting of PATIENT|None, ORDER

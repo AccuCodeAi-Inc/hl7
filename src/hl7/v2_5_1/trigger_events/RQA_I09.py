@@ -1,23 +1,23 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.AL1 import AL1
+from ..segments.NTE import NTE
 from ..segment_groups.RQA_I09_PROVIDER_GROUP import RQA_I09_PROVIDER_GROUP
-from ..segment_groups.RQA_I09_OBSERVATION_GROUP import RQA_I09_OBSERVATION_GROUP
-from ..segments.SFT import SFT
-from ..segments.MSH import MSH
-from ..segments.RF1 import RF1
-from ..segment_groups.RQA_I09_VISIT_GROUP import RQA_I09_VISIT_GROUP
+from ..segment_groups.RQA_I09_AUTHORIZATION_GROUP import RQA_I09_AUTHORIZATION_GROUP
+from ..segments.ACC import ACC
+from ..segments.NK1 import NK1
 from ..segment_groups.RQA_I09_GUARANTOR_INSURANCE_GROUP import (
     RQA_I09_GUARANTOR_INSURANCE_GROUP,
 )
-from ..segments.NTE import NTE
+from ..segments.MSH import MSH
+from ..segments.AL1 import AL1
+from ..segments.RF1 import RF1
+from ..segment_groups.RQA_I09_OBSERVATION_GROUP import RQA_I09_OBSERVATION_GROUP
 from ..segment_groups.RQA_I09_PROCEDURE_GROUP import RQA_I09_PROCEDURE_GROUP
-from ..segments.PID import PID
-from ..segment_groups.RQA_I09_AUTHORIZATION_GROUP import RQA_I09_AUTHORIZATION_GROUP
-from ..segments.DG1 import DG1
-from ..segments.ACC import ACC
-from ..segments.NK1 import NK1
 from ..segments.DRG import DRG
+from ..segments.PID import PID
+from ..segment_groups.RQA_I09_VISIT_GROUP import RQA_I09_VISIT_GROUP
+from ..segments.DG1 import DG1
+from ..segments.SFT import SFT
 
 
 """
@@ -28,10 +28,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RQA_I09
 from utils.hl7.v2_5_1.segments import (
-    RF1, MSH, PID, AL1, NK1, DG1, SFT, ACC, NTE, DRG
+    NK1, DG1, ACC, AL1, NTE, PID, SFT, MSH, RF1, DRG
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    RQA_I09_AUTHORIZATION_GROUP, RQA_I09_VISIT_GROUP, RQA_I09_PROCEDURE_GROUP, RQA_I09_OBSERVATION_GROUP, RQA_I09_GUARANTOR_INSURANCE_GROUP, RQA_I09_PROVIDER_GROUP
+    RQA_I09_VISIT_GROUP, RQA_I09_GUARANTOR_INSURANCE_GROUP, RQA_I09_PROCEDURE_GROUP, RQA_I09_PROVIDER_GROUP, RQA_I09_OBSERVATION_GROUP, RQA_I09_AUTHORIZATION_GROUP
 )
 
 rqa_i09 = RQA_I09(  #  - This event triggers a message sent from a healthcare provider to a payor requesting changes to a previously referenced authorization

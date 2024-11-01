@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
 from ..segment_groups.OMG_O19_PATIENT_GROUP import OMG_O19_PATIENT_GROUP
-from ..segments.SFT import SFT
 from ..segments.MSH import MSH
-from ..segments.NTE import NTE
 from ..segment_groups.OMG_O19_ORDER_GROUP import OMG_O19_ORDER_GROUP
+from ..segments.NTE import NTE
+from ..segments.SFT import SFT
 
 
 """
@@ -15,10 +15,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OMG_O19
 from utils.hl7.v2_5_1.segments import (
-    NTE, SFT, MSH
+    SFT, NTE, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    OMG_O19_PATIENT_GROUP, OMG_O19_ORDER_GROUP
+    OMG_O19_ORDER_GROUP, OMG_O19_PATIENT_GROUP
 )
 
 omg_o19 = OMG_O19(  #  - The function of this message is to initiate the transmission of information about a general clinical order that uses the OBR segment

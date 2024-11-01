@@ -1,21 +1,21 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.PV2 import PV2
 from ..segment_groups.DFT_P11_FINANCIAL_GROUP import DFT_P11_FINANCIAL_GROUP
-from ..segments.ROL import ROL
-from ..segments.PV1 import PV1
-from ..segments.SFT import SFT
-from ..segments.MSH import MSH
-from ..segment_groups.DFT_P11_COMMON_ORDER_GROUP import DFT_P11_COMMON_ORDER_GROUP
-from ..segments.GT1 import GT1
-from ..segments.ACC import ACC
-from ..segments.DB1 import DB1
 from ..segments.PD1 import PD1
-from ..segments.PID import PID
-from ..segment_groups.DFT_P11_INSURANCE_GROUP import DFT_P11_INSURANCE_GROUP
-from ..segments.DG1 import DG1
+from ..segments.ACC import ACC
+from ..segments.ROL import ROL
+from ..segments.MSH import MSH
+from ..segments.PV2 import PV2
 from ..segments.EVN import EVN
+from ..segments.DB1 import DB1
+from ..segments.PV1 import PV1
+from ..segments.GT1 import GT1
+from ..segment_groups.DFT_P11_INSURANCE_GROUP import DFT_P11_INSURANCE_GROUP
 from ..segments.DRG import DRG
+from ..segments.PID import PID
+from ..segment_groups.DFT_P11_COMMON_ORDER_GROUP import DFT_P11_COMMON_ORDER_GROUP
+from ..segments.DG1 import DG1
+from ..segments.SFT import SFT
 
 
 """
@@ -26,10 +26,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import DFT_P11
 from utils.hl7.v2_5_1.segments import (
-    PID, MSH, PD1, PV1, PV2, ROL, DB1, SFT, DG1, GT1, ACC, DRG, EVN
+    DG1, DRG, DB1, ACC, PID, SFT, EVN, MSH, PD1, ROL, PV1, PV2, GT1
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    DFT_P11_COMMON_ORDER_GROUP, DFT_P11_INSURANCE_GROUP, DFT_P11_FINANCIAL_GROUP
+    DFT_P11_INSURANCE_GROUP, DFT_P11_FINANCIAL_GROUP, DFT_P11_COMMON_ORDER_GROUP
 )
 
 dft_p11 = DFT_P11(  #  - The Detail Financial Transaction (DFT) - Expanded message is used to describe a financial transaction transmitted between systems, that is, to the billing system for ancillary charges, ADT to billing system for patient deposits, etc

@@ -1,23 +1,23 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TQ import TQ
-from ..data_types.XAD import XAD
-from ..data_types.TS import TS
-from ..data_types.CQ import CQ
-from ..data_types.ID import ID
-from ..data_types.NM import NM
-from ..data_types.PL import PL
-from ..data_types.LA1 import LA1
-from ..data_types.CWE import CWE
 from ..data_types.CE import CE
+from ..data_types.CQ import CQ
+from ..data_types.TS import TS
 from ..data_types.XCN import XCN
+from ..data_types.NM import NM
+from ..data_types.XAD import XAD
+from ..data_types.PL import PL
+from ..data_types.CWE import CWE
+from ..data_types.TQ import TQ
 from ..data_types.ST import ST
-from ..tables.PharmacyOrderTypes import PharmacyOrderTypes
-from ..tables.DispenseMethod import DispenseMethod
-from ..tables.FormularyStatus import FormularyStatus
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..data_types.LA1 import LA1
+from ..data_types.ID import ID
 from ..tables.SubstitutionStatus import SubstitutionStatus
+from ..tables.DispenseMethod import DispenseMethod
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
 from ..tables.ControlledSubstanceSchedule_ import ControlledSubstanceSchedule_
+from ..tables.PharmacyOrderTypes import PharmacyOrderTypes
+from ..tables.FormularyStatus import FormularyStatus
 
 
 """
@@ -28,7 +28,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RXE,
-    TQ, XAD, TS, CQ, ID, NM, PL, LA1, CWE, CE, XCN, ST
+    CE, CQ, TS, XCN, NM, XAD, PL, CWE, TQ, ST, LA1, ID
 )
 
 rxe = RXE(  #  - The RXE segment details the pharmacy or treatment application's encoding of the order
@@ -102,73 +102,79 @@ class RXE(HL7Segment):
 
     def __init__(
         self,
-        give_code: CE | tuple[CE],  # RXE.2
-        give_amount_minimum: NM | tuple[NM],  # RXE.3
-        give_units: CE | tuple[CE],  # RXE.5
-        quantity_or_timing: TQ | tuple[TQ] | None = None,  # RXE.1
-        give_amount_maximum: NM | tuple[NM] | None = None,  # RXE.4
-        give_dosage_form: CE | tuple[CE] | None = None,  # RXE.6
-        providers_administration_instructions: CE | tuple[CE] | None = None,  # RXE.7
-        deliver_to_location: LA1 | tuple[LA1] | None = None,  # RXE.8
+        give_code: CE | tuple[CE, ...],  # RXE.2
+        give_amount_minimum: NM | tuple[NM, ...],  # RXE.3
+        give_units: CE | tuple[CE, ...],  # RXE.5
+        quantity_or_timing: TQ | tuple[TQ, ...] | None = None,  # RXE.1
+        give_amount_maximum: NM | tuple[NM, ...] | None = None,  # RXE.4
+        give_dosage_form: CE | tuple[CE, ...] | None = None,  # RXE.6
+        providers_administration_instructions: CE
+        | tuple[CE, ...]
+        | None = None,  # RXE.7
+        deliver_to_location: LA1 | tuple[LA1, ...] | None = None,  # RXE.8
         substitution_status: SubstitutionStatus
         | ID
-        | tuple[SubstitutionStatus | ID]
+        | tuple[SubstitutionStatus | ID, ...]
         | None = None,  # RXE.9
-        dispense_amount: NM | tuple[NM] | None = None,  # RXE.10
-        dispense_units: CE | tuple[CE] | None = None,  # RXE.11
-        number_of_refills: NM | tuple[NM] | None = None,  # RXE.12
-        ordering_providers_dea_number: XCN | tuple[XCN] | None = None,  # RXE.13
+        dispense_amount: NM | tuple[NM, ...] | None = None,  # RXE.10
+        dispense_units: CE | tuple[CE, ...] | None = None,  # RXE.11
+        number_of_refills: NM | tuple[NM, ...] | None = None,  # RXE.12
+        ordering_providers_dea_number: XCN | tuple[XCN, ...] | None = None,  # RXE.13
         pharmacist_or_treatment_suppliers_verifier_id: XCN
-        | tuple[XCN]
+        | tuple[XCN, ...]
         | None = None,  # RXE.14
-        prescription_number: ST | tuple[ST] | None = None,  # RXE.15
-        number_of_refills_remaining: NM | tuple[NM] | None = None,  # RXE.16
-        number_of_refills_or_doses_dispensed: NM | tuple[NM] | None = None,  # RXE.17
+        prescription_number: ST | tuple[ST, ...] | None = None,  # RXE.15
+        number_of_refills_remaining: NM | tuple[NM, ...] | None = None,  # RXE.16
+        number_of_refills_or_doses_dispensed: NM
+        | tuple[NM, ...]
+        | None = None,  # RXE.17
         d_or_t_of_most_recent_refill_or_dose_dispensed: TS
-        | tuple[TS]
+        | tuple[TS, ...]
         | None = None,  # RXE.18
-        total_daily_dose: CQ | tuple[CQ] | None = None,  # RXE.19
+        total_daily_dose: CQ | tuple[CQ, ...] | None = None,  # RXE.19
         needs_human_review: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # RXE.20
         pharmacy_or_treatment_suppliers_special_dispensing_instructions: CE
-        | tuple[CE]
+        | tuple[CE, ...]
         | None = None,  # RXE.21
-        give_per: ST | tuple[ST] | None = None,  # RXE.22
-        give_rate_amount: ST | tuple[ST] | None = None,  # RXE.23
-        give_rate_units: CE | tuple[CE] | None = None,  # RXE.24
-        give_strength: NM | tuple[NM] | None = None,  # RXE.25
-        give_strength_units: CE | tuple[CE] | None = None,  # RXE.26
-        give_indication: CE | tuple[CE] | None = None,  # RXE.27
-        dispense_package_size: NM | tuple[NM] | None = None,  # RXE.28
-        dispense_package_size_unit: CE | tuple[CE] | None = None,  # RXE.29
+        give_per: ST | tuple[ST, ...] | None = None,  # RXE.22
+        give_rate_amount: ST | tuple[ST, ...] | None = None,  # RXE.23
+        give_rate_units: CE | tuple[CE, ...] | None = None,  # RXE.24
+        give_strength: NM | tuple[NM, ...] | None = None,  # RXE.25
+        give_strength_units: CE | tuple[CE, ...] | None = None,  # RXE.26
+        give_indication: CE | tuple[CE, ...] | None = None,  # RXE.27
+        dispense_package_size: NM | tuple[NM, ...] | None = None,  # RXE.28
+        dispense_package_size_unit: CE | tuple[CE, ...] | None = None,  # RXE.29
         dispense_package_method: DispenseMethod
         | ID
-        | tuple[DispenseMethod | ID]
+        | tuple[DispenseMethod | ID, ...]
         | None = None,  # RXE.30
-        supplementary_code: CE | tuple[CE] | None = None,  # RXE.31
-        original_order_date_or_time: TS | tuple[TS] | None = None,  # RXE.32
-        give_drug_strength_volume: NM | tuple[NM] | None = None,  # RXE.33
-        give_drug_strength_volume_units: CWE | tuple[CWE] | None = None,  # RXE.34
+        supplementary_code: CE | tuple[CE, ...] | None = None,  # RXE.31
+        original_order_date_or_time: TS | tuple[TS, ...] | None = None,  # RXE.32
+        give_drug_strength_volume: NM | tuple[NM, ...] | None = None,  # RXE.33
+        give_drug_strength_volume_units: CWE | tuple[CWE, ...] | None = None,  # RXE.34
         controlled_substance_schedule: ControlledSubstanceSchedule_
         | CWE
-        | tuple[ControlledSubstanceSchedule_ | CWE]
+        | tuple[ControlledSubstanceSchedule_ | CWE, ...]
         | None = None,  # RXE.35
         formulary_status: FormularyStatus
         | ID
-        | tuple[FormularyStatus | ID]
+        | tuple[FormularyStatus | ID, ...]
         | None = None,  # RXE.36
-        pharmaceutical_substance_alternative: CWE | tuple[CWE] | None = None,  # RXE.37
-        pharmacy_of_most_recent_fill: CWE | tuple[CWE] | None = None,  # RXE.38
-        initial_dispense_amount: NM | tuple[NM] | None = None,  # RXE.39
-        dispensing_pharmacy: CWE | tuple[CWE] | None = None,  # RXE.40
-        dispensing_pharmacy_address: XAD | tuple[XAD] | None = None,  # RXE.41
-        deliver_to_patient_location: PL | tuple[PL] | None = None,  # RXE.42
-        deliver_to_address: XAD | tuple[XAD] | None = None,  # RXE.43
+        pharmaceutical_substance_alternative: CWE
+        | tuple[CWE, ...]
+        | None = None,  # RXE.37
+        pharmacy_of_most_recent_fill: CWE | tuple[CWE, ...] | None = None,  # RXE.38
+        initial_dispense_amount: NM | tuple[NM, ...] | None = None,  # RXE.39
+        dispensing_pharmacy: CWE | tuple[CWE, ...] | None = None,  # RXE.40
+        dispensing_pharmacy_address: XAD | tuple[XAD, ...] | None = None,  # RXE.41
+        deliver_to_patient_location: PL | tuple[PL, ...] | None = None,  # RXE.42
+        deliver_to_address: XAD | tuple[XAD, ...] | None = None,  # RXE.43
         pharmacy_order_type: PharmacyOrderTypes
         | ID
-        | tuple[PharmacyOrderTypes | ID]
+        | tuple[PharmacyOrderTypes | ID, ...]
         | None = None,  # RXE.44
     ):
         """

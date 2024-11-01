@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segment_groups.RRD_O14_RESPONSE_GROUP_ORDER_GROUP_TIMING_GROUP import (
-    RRD_O14_RESPONSE_GROUP_ORDER_GROUP_TIMING_GROUP,
-)
 from ..segment_groups.RRD_O14_RESPONSE_GROUP_ORDER_GROUP_DISPENSE_GROUP import (
     RRD_O14_RESPONSE_GROUP_ORDER_GROUP_DISPENSE_GROUP,
+)
+from ..segment_groups.RRD_O14_RESPONSE_GROUP_ORDER_GROUP_TIMING_GROUP import (
+    RRD_O14_RESPONSE_GROUP_ORDER_GROUP_TIMING_GROUP,
 )
 from ..segments.ORC import ORC
 

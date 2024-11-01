@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.QSC import QSC
 from ..data_types.ST import ST
 from ..data_types.CE import CE
+from ..data_types.ID import ID
+from ..data_types.QSC import QSC
 from ..tables.QueryOrResponseFormatCode import QueryOrResponseFormatCode
 
 
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     VTQ,
-    ID, QSC, ST, CE
+    ST, CE, ID, QSC
 )
 
 vtq = VTQ(  #  - This segment is not carried forward to the recommended queries for v 2
@@ -52,11 +52,11 @@ class VTQ(HL7Segment):
         self,
         query_or_response_format_code: QueryOrResponseFormatCode
         | ID
-        | tuple[QueryOrResponseFormatCode | ID],  # VTQ.2
-        vt_query_name: CE | tuple[CE],  # VTQ.3
-        virtual_table_name: CE | tuple[CE],  # VTQ.4
-        query_tag: ST | tuple[ST] | None = None,  # VTQ.1
-        selection_criteria: QSC | tuple[QSC] | None = None,  # VTQ.5
+        | tuple[QueryOrResponseFormatCode | ID, ...],  # VTQ.2
+        vt_query_name: CE | tuple[CE, ...],  # VTQ.3
+        virtual_table_name: CE | tuple[CE, ...],  # VTQ.4
+        query_tag: ST | tuple[ST, ...] | None = None,  # VTQ.1
+        selection_criteria: QSC | tuple[QSC, ...] | None = None,  # VTQ.5
     ):
         """
                 Virtual Table Query Request - `VTQ <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/VTQ>`_

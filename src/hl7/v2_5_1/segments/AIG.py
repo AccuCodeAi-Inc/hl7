@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TS import TS
-from ..data_types.ID import ID
-from ..data_types.NM import NM
-from ..data_types.IS import IS
 from ..data_types.SI import SI
 from ..data_types.CE import CE
+from ..data_types.TS import TS
+from ..data_types.IS import IS
+from ..data_types.NM import NM
+from ..data_types.ID import ID
 from ..tables.AllowSubstitutionCodes import AllowSubstitutionCodes
-from ..tables.FillerStatusCodes import FillerStatusCodes
 from ..tables.SegmentActionCode import SegmentActionCode
+from ..tables.FillerStatusCodes import FillerStatusCodes
 
 
 """
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     AIG,
-    TS, ID, NM, IS, SI, CE
+    SI, CE, TS, IS, NM, ID
 )
 
 aig = AIG(  #  - The AIG segment contains information about various kinds of resources (other than those with specifically defined segments in this chapter) that can be scheduled
@@ -63,28 +63,28 @@ class AIG(HL7Segment):
 
     def __init__(
         self,
-        set_id_aig: SI | tuple[SI],  # AIG.1
-        resource_type: CE | tuple[CE],  # AIG.4
+        set_id_aig: SI | tuple[SI, ...],  # AIG.1
+        resource_type: CE | tuple[CE, ...],  # AIG.4
         segment_action_code: SegmentActionCode
         | ID
-        | tuple[SegmentActionCode | ID]
+        | tuple[SegmentActionCode | ID, ...]
         | None = None,  # AIG.2
-        resource_id: CE | tuple[CE] | None = None,  # AIG.3
-        resource_group: CE | tuple[CE] | None = None,  # AIG.5
-        resource_quantity: NM | tuple[NM] | None = None,  # AIG.6
-        resource_quantity_units: CE | tuple[CE] | None = None,  # AIG.7
-        start_date_or_time: TS | tuple[TS] | None = None,  # AIG.8
-        start_date_or_time_offset: NM | tuple[NM] | None = None,  # AIG.9
-        start_date_or_time_offset_units: CE | tuple[CE] | None = None,  # AIG.10
-        duration: NM | tuple[NM] | None = None,  # AIG.11
-        duration_units: CE | tuple[CE] | None = None,  # AIG.12
+        resource_id: CE | tuple[CE, ...] | None = None,  # AIG.3
+        resource_group: CE | tuple[CE, ...] | None = None,  # AIG.5
+        resource_quantity: NM | tuple[NM, ...] | None = None,  # AIG.6
+        resource_quantity_units: CE | tuple[CE, ...] | None = None,  # AIG.7
+        start_date_or_time: TS | tuple[TS, ...] | None = None,  # AIG.8
+        start_date_or_time_offset: NM | tuple[NM, ...] | None = None,  # AIG.9
+        start_date_or_time_offset_units: CE | tuple[CE, ...] | None = None,  # AIG.10
+        duration: NM | tuple[NM, ...] | None = None,  # AIG.11
+        duration_units: CE | tuple[CE, ...] | None = None,  # AIG.12
         allow_substitution_code: AllowSubstitutionCodes
         | IS
-        | tuple[AllowSubstitutionCodes | IS]
+        | tuple[AllowSubstitutionCodes | IS, ...]
         | None = None,  # AIG.13
         filler_status_code: FillerStatusCodes
         | CE
-        | tuple[FillerStatusCodes | CE]
+        | tuple[FillerStatusCodes | CE, ...]
         | None = None,  # AIG.14
     ):
         """

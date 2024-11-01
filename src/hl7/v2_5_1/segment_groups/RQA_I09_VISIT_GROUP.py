@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RQA_I09_VISIT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PV2, PV1
+    PV1, PV2
 )
 
 rqa_i09_visit_group = RQA_I09_VISIT_GROUP(  # VISIT - Segment group for RQA_I09 - Request for modification to an authorization consisting of PV1, PV2|None

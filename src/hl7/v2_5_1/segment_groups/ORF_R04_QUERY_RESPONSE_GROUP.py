@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segment_groups.ORF_R04_QUERY_RESPONSE_GROUP_ORDER_GROUP import (
-    ORF_R04_QUERY_RESPONSE_GROUP_ORDER_GROUP,
-)
 from ..segment_groups.ORF_R04_QUERY_RESPONSE_GROUP_PATIENT_GROUP import (
     ORF_R04_QUERY_RESPONSE_GROUP_PATIENT_GROUP,
+)
+from ..segment_groups.ORF_R04_QUERY_RESPONSE_GROUP_ORDER_GROUP import (
+    ORF_R04_QUERY_RESPONSE_GROUP_ORDER_GROUP,
 )
 
 
@@ -19,7 +19,7 @@ from utils.hl7.v2_5_1.segments import (
     
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    ORF_R04_QUERY_RESPONSE_GROUP_PATIENT_GROUP, ORF_R04_QUERY_RESPONSE_GROUP_ORDER_GROUP
+    ORF_R04_QUERY_RESPONSE_GROUP_ORDER_GROUP, ORF_R04_QUERY_RESPONSE_GROUP_PATIENT_GROUP
 )
 
 orf_r04_query_response_group = ORF_R04_QUERY_RESPONSE_GROUP(  # QUERY RESPONSE - Segment group for ORF_R04 - Response to query; transmission of requested observation consisting of PATIENT|None, ORDER

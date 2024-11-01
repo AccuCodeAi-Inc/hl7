@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.RQD import RQD
-from ..segments.ODT import ODT
-from ..segments.RQ1 import RQ1
 from ..segments.RXO import RXO
-from ..segments.ODS import ODS
+from ..segments.RQ1 import RQ1
+from ..segments.ODT import ODT
+from ..segments.RQD import RQD
 from ..segments.OBR import OBR
+from ..segments.ODS import ODS
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ORM_O01_ORDER_GROUP_ORDER_DETAIL_GROUP_ORDER_DETAIL_SEGMENT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    OBR, RXO, RQ1, RQD, ODS, ODT
+    RQ1, ODT, ODS, RQD, RXO, OBR
 )
 
 orm_o01_order_group_order_detail_group_order_detail_segment_group = ORM_O01_ORDER_GROUP_ORDER_DETAIL_GROUP_ORDER_DETAIL_SEGMENT_GROUP(  # ORDER DETAIL SEGMENT - Segment group for ORM_O01_ORDER_GROUP_ORDER_DETAIL_GROUP - ORDER DETAIL consisting of OBR|None, RQD|None, RQ1|None, RXO|None, ODS|None, ODT|None

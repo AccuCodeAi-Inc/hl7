@@ -19,7 +19,7 @@ from utils.hl7.v2_5_1.segments import (
     
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    RRA_O18_RESPONSE_GROUP_PATIENT_GROUP, RRA_O18_RESPONSE_GROUP_ORDER_GROUP
+    RRA_O18_RESPONSE_GROUP_ORDER_GROUP, RRA_O18_RESPONSE_GROUP_PATIENT_GROUP
 )
 
 rra_o18_response_group = RRA_O18_RESPONSE_GROUP(  # RESPONSE - Segment group for RRA_O18 - Pharmacy/Treatment Administration Acknowledgement consisting of PATIENT|None, ORDER

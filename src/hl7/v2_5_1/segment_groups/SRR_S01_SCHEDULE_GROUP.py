@@ -1,14 +1,14 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.TQ1 import TQ1
 from ..segment_groups.SRR_S01_SCHEDULE_GROUP_PATIENT_GROUP import (
     SRR_S01_SCHEDULE_GROUP_PATIENT_GROUP,
 )
+from ..segments.SCH import SCH
+from ..segments.TQ1 import TQ1
 from ..segment_groups.SRR_S01_SCHEDULE_GROUP_RESOURCES_GROUP import (
     SRR_S01_SCHEDULE_GROUP_RESOURCES_GROUP,
 )
 from ..segments.NTE import NTE
-from ..segments.SCH import SCH
 
 
 """
@@ -19,7 +19,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import SRR_S01_SCHEDULE_GROUP
 from utils.hl7.v2_5_1.segments import (
-    TQ1, NTE, SCH
+    NTE, SCH, TQ1
 )
 from utils.hl7.v2_5_1.segment_groups import (
     SRR_S01_SCHEDULE_GROUP_RESOURCES_GROUP, SRR_S01_SCHEDULE_GROUP_PATIENT_GROUP

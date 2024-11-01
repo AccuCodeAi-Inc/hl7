@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PPG_PCH_PATIENT_VISIT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PV2, PV1
+    PV1, PV2
 )
 
 ppg_pch_patient_visit_group = PPG_PCH_PATIENT_VISIT_GROUP(  # PATIENT VISIT - Segment group for PPG_PCH - Pathway (goal-oriented) update consisting of PV1, PV2|None

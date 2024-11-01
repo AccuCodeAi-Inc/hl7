@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.PV1 import PV1
 from ..segments.MRG import MRG
+from ..segments.PV1 import PV1
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ADT_A45_MERGE_INFO_GROUP
 from utils.hl7.v2_5_1.segments import (
-    MRG, PV1
+    PV1, MRG
 )
 
 adt_a45_merge_info_group = ADT_A45_MERGE_INFO_GROUP(  # MERGE INFO - Segment group for ADT_A45 - Move Visit Information - Visit Number consisting of MRG, PV1

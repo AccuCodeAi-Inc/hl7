@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import DataType
+from .ST import ST
 from .IS import IS
 from .DT import DT
-from .ST import ST
 from ..tables.DriverSLicenseIssuingAuthority import DriverSLicenseIssuingAuthority
 
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     DLN,
-    IS, DT, ST
+    ST, IS, DT
 )
 
 dln = DLN(  # Driver License Number - This field contains the drivers license information
@@ -47,12 +47,12 @@ class DLN(DataType):
 
     def __init__(
         self,
-        license_number: ST | tuple[ST],  # DLN.1
+        license_number: ST | tuple[ST, ...],  # DLN.1
         issuing_state_province_country: DriverSLicenseIssuingAuthority
         | IS
-        | tuple[DriverSLicenseIssuingAuthority | IS]
+        | tuple[DriverSLicenseIssuingAuthority | IS, ...]
         | None = None,  # DLN.2
-        expiration_date: DT | tuple[DT] | None = None,  # DLN.3
+        expiration_date: DT | tuple[DT, ...] | None = None,  # DLN.3
     ):
         """
         Driver License Number - `DLN <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/DLN>`_

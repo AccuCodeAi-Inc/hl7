@@ -1,30 +1,30 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CQ import CQ
-from ..data_types.EIP import EIP
-from ..data_types.TS import TS
-from ..data_types.ID import ID
-from ..data_types.NM import NM
-from ..data_types.DR import DR
-from ..data_types.CWE import CWE
 from ..data_types.SI import SI
 from ..data_types.ST import ST
-from ..tables.SpecimenType import SpecimenType
-from ..tables.SpecimenChildRole import SpecimenChildRole
-from ..tables.SpecimenRejectReason import SpecimenRejectReason
-from ..tables.AdditiveOrPreservative import AdditiveOrPreservative
-from ..tables.SpecimenSourceTypeModifier import SpecimenSourceTypeModifier
-from ..tables.SpecimenCondition import SpecimenCondition
-from ..tables.SpecimenRole import SpecimenRole
+from ..data_types.CQ import CQ
+from ..data_types.TS import TS
+from ..data_types.NM import NM
+from ..data_types.CWE import CWE
+from ..data_types.EIP import EIP
+from ..data_types.ID import ID
+from ..data_types.DR import DR
 from ..tables.SpecimenCollectionMethod import SpecimenCollectionMethod
-from ..tables.RiskCodes import RiskCodes
-from ..tables.SpecimenQuality import SpecimenQuality
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
-from ..tables.SpecialHandlingCode import SpecialHandlingCode
+from ..tables.SpecimenRole import SpecimenRole
+from ..tables.SpecimenChildRole import SpecimenChildRole
+from ..tables.SpecimenSourceTypeModifier import SpecimenSourceTypeModifier
 from ..tables.SpecimenAppropriateness import SpecimenAppropriateness
-from ..tables.ContainerCondition import ContainerCondition
+from ..tables.RiskCodes import RiskCodes
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
+from ..tables.SpecimenCondition import SpecimenCondition
 from ..tables.SpecimenCollectionSite import SpecimenCollectionSite
 from ..tables.SpecimenTypeModifier import SpecimenTypeModifier
+from ..tables.SpecimenType import SpecimenType
+from ..tables.ContainerCondition import ContainerCondition
+from ..tables.AdditiveOrPreservative import AdditiveOrPreservative
+from ..tables.SpecialHandlingCode import SpecialHandlingCode
+from ..tables.SpecimenQuality import SpecimenQuality
+from ..tables.SpecimenRejectReason import SpecimenRejectReason
 
 
 """
@@ -35,7 +35,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     SPM,
-    CQ, EIP, TS, ID, NM, DR, CWE, SI, ST
+    SI, ST, CQ, TS, NM, CWE, EIP, ID, DR
 )
 
 spm = SPM(  #  - The intent of this segment is to describe the characteristics of a specimen
@@ -94,79 +94,79 @@ class SPM(HL7Segment):
 
     def __init__(
         self,
-        specimen_type: SpecimenType | CWE | tuple[SpecimenType | CWE],  # SPM.4
-        set_id_spm: SI | tuple[SI] | None = None,  # SPM.1
-        specimen_id: EIP | tuple[EIP] | None = None,  # SPM.2
-        specimen_parent_ids: EIP | tuple[EIP] | None = None,  # SPM.3
+        specimen_type: SpecimenType | CWE | tuple[SpecimenType | CWE, ...],  # SPM.4
+        set_id_spm: SI | tuple[SI, ...] | None = None,  # SPM.1
+        specimen_id: EIP | tuple[EIP, ...] | None = None,  # SPM.2
+        specimen_parent_ids: EIP | tuple[EIP, ...] | None = None,  # SPM.3
         specimen_type_modifier: SpecimenTypeModifier
         | CWE
-        | tuple[SpecimenTypeModifier | CWE]
+        | tuple[SpecimenTypeModifier | CWE, ...]
         | None = None,  # SPM.5
         specimen_additives: AdditiveOrPreservative
         | CWE
-        | tuple[AdditiveOrPreservative | CWE]
+        | tuple[AdditiveOrPreservative | CWE, ...]
         | None = None,  # SPM.6
         specimen_collection_method: SpecimenCollectionMethod
         | CWE
-        | tuple[SpecimenCollectionMethod | CWE]
+        | tuple[SpecimenCollectionMethod | CWE, ...]
         | None = None,  # SPM.7
-        specimen_source_site: CWE | tuple[CWE] | None = None,  # SPM.8
+        specimen_source_site: CWE | tuple[CWE, ...] | None = None,  # SPM.8
         specimen_source_site_modifier: SpecimenSourceTypeModifier
         | CWE
-        | tuple[SpecimenSourceTypeModifier | CWE]
+        | tuple[SpecimenSourceTypeModifier | CWE, ...]
         | None = None,  # SPM.9
         specimen_collection_site: SpecimenCollectionSite
         | CWE
-        | tuple[SpecimenCollectionSite | CWE]
+        | tuple[SpecimenCollectionSite | CWE, ...]
         | None = None,  # SPM.10
         specimen_role: SpecimenRole
         | CWE
-        | tuple[SpecimenRole | CWE]
+        | tuple[SpecimenRole | CWE, ...]
         | None = None,  # SPM.11
-        specimen_collection_amount: CQ | tuple[CQ] | None = None,  # SPM.12
-        grouped_specimen_count: NM | tuple[NM] | None = None,  # SPM.13
-        specimen_description: ST | tuple[ST] | None = None,  # SPM.14
+        specimen_collection_amount: CQ | tuple[CQ, ...] | None = None,  # SPM.12
+        grouped_specimen_count: NM | tuple[NM, ...] | None = None,  # SPM.13
+        specimen_description: ST | tuple[ST, ...] | None = None,  # SPM.14
         specimen_handling_code: SpecialHandlingCode
         | CWE
-        | tuple[SpecialHandlingCode | CWE]
+        | tuple[SpecialHandlingCode | CWE, ...]
         | None = None,  # SPM.15
         specimen_risk_code: RiskCodes
         | CWE
-        | tuple[RiskCodes | CWE]
+        | tuple[RiskCodes | CWE, ...]
         | None = None,  # SPM.16
-        specimen_collection_date_or_time: DR | tuple[DR] | None = None,  # SPM.17
-        specimen_received_date_or_time: TS | tuple[TS] | None = None,  # SPM.18
-        specimen_expiration_date_or_time: TS | tuple[TS] | None = None,  # SPM.19
+        specimen_collection_date_or_time: DR | tuple[DR, ...] | None = None,  # SPM.17
+        specimen_received_date_or_time: TS | tuple[TS, ...] | None = None,  # SPM.18
+        specimen_expiration_date_or_time: TS | tuple[TS, ...] | None = None,  # SPM.19
         specimen_availability: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # SPM.20
         specimen_reject_reason: SpecimenRejectReason
         | CWE
-        | tuple[SpecimenRejectReason | CWE]
+        | tuple[SpecimenRejectReason | CWE, ...]
         | None = None,  # SPM.21
         specimen_quality: SpecimenQuality
         | CWE
-        | tuple[SpecimenQuality | CWE]
+        | tuple[SpecimenQuality | CWE, ...]
         | None = None,  # SPM.22
         specimen_appropriateness: SpecimenAppropriateness
         | CWE
-        | tuple[SpecimenAppropriateness | CWE]
+        | tuple[SpecimenAppropriateness | CWE, ...]
         | None = None,  # SPM.23
         specimen_condition: SpecimenCondition
         | CWE
-        | tuple[SpecimenCondition | CWE]
+        | tuple[SpecimenCondition | CWE, ...]
         | None = None,  # SPM.24
-        specimen_current_quantity: CQ | tuple[CQ] | None = None,  # SPM.25
-        number_of_specimen_containers: NM | tuple[NM] | None = None,  # SPM.26
-        container_type: CWE | tuple[CWE] | None = None,  # SPM.27
+        specimen_current_quantity: CQ | tuple[CQ, ...] | None = None,  # SPM.25
+        number_of_specimen_containers: NM | tuple[NM, ...] | None = None,  # SPM.26
+        container_type: CWE | tuple[CWE, ...] | None = None,  # SPM.27
         container_condition: ContainerCondition
         | CWE
-        | tuple[ContainerCondition | CWE]
+        | tuple[ContainerCondition | CWE, ...]
         | None = None,  # SPM.28
         specimen_child_role: SpecimenChildRole
         | CWE
-        | tuple[SpecimenChildRole | CWE]
+        | tuple[SpecimenChildRole | CWE, ...]
         | None = None,  # SPM.29
     ):
         """

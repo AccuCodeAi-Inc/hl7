@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.NM import NM
-from ..data_types.CWE import CWE
 from ..data_types.CE import CE
+from ..data_types.ID import ID
+from ..data_types.CWE import CWE
+from ..data_types.NM import NM
 from ..tables.RxComponentType import RxComponentType
 
 
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RXC,
-    ID, NM, CWE, CE
+    CE, ID, CWE, NM
 )
 
 rxc = RXC(  #  - If the drug or treatment ordered with the RXO segment is a compound drug OR an IV solution, AND there is not a coded value for OBR-4-universal service ID , which specifies the components (base and all additives), then the components (the base and additives) are specified by two or more RXC segments
@@ -54,15 +54,19 @@ class RXC(HL7Segment):
 
     def __init__(
         self,
-        rx_component_type: RxComponentType | ID | tuple[RxComponentType | ID],  # RXC.1
-        component_code: CE | tuple[CE],  # RXC.2
-        component_amount: NM | tuple[NM],  # RXC.3
-        component_units: CE | tuple[CE],  # RXC.4
-        component_strength: NM | tuple[NM] | None = None,  # RXC.5
-        component_strength_units: CE | tuple[CE] | None = None,  # RXC.6
-        supplementary_code: CE | tuple[CE] | None = None,  # RXC.7
-        component_drug_strength_volume: NM | tuple[NM] | None = None,  # RXC.8
-        component_drug_strength_volume_units: CWE | tuple[CWE] | None = None,  # RXC.9
+        rx_component_type: RxComponentType
+        | ID
+        | tuple[RxComponentType | ID, ...],  # RXC.1
+        component_code: CE | tuple[CE, ...],  # RXC.2
+        component_amount: NM | tuple[NM, ...],  # RXC.3
+        component_units: CE | tuple[CE, ...],  # RXC.4
+        component_strength: NM | tuple[NM, ...] | None = None,  # RXC.5
+        component_strength_units: CE | tuple[CE, ...] | None = None,  # RXC.6
+        supplementary_code: CE | tuple[CE, ...] | None = None,  # RXC.7
+        component_drug_strength_volume: NM | tuple[NM, ...] | None = None,  # RXC.8
+        component_drug_strength_volume_units: CWE
+        | tuple[CWE, ...]
+        | None = None,  # RXC.9
     ):
         """
         Pharmacy/Treatment Component Order - `RXC <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/RXC>`_

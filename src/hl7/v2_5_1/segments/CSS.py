@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.CE import CE
 from ..data_types.TS import TS
+from ..data_types.CE import CE
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CSS,
-    CE, TS
+    TS, CE
 )
 
 css = CSS(  #  - The Clinical Study Data Schedule (CSS) segment is optional depending on whether messaging of study data needs to be linked to the scheduled data time points for the study
@@ -45,9 +45,9 @@ class CSS(HL7Segment):
 
     def __init__(
         self,
-        study_scheduled_time_point: CE | tuple[CE],  # CSS.1
-        study_scheduled_patient_time_point: TS | tuple[TS] | None = None,  # CSS.2
-        study_quality_control_codes: CE | tuple[CE] | None = None,  # CSS.3
+        study_scheduled_time_point: CE | tuple[CE, ...],  # CSS.1
+        study_scheduled_patient_time_point: TS | tuple[TS, ...] | None = None,  # CSS.2
+        study_quality_control_codes: CE | tuple[CE, ...] | None = None,  # CSS.3
     ):
         """
         Clinical Study Data Schedule Segment - `CSS <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/CSS>`_

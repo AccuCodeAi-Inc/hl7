@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import DataType
+from .ST import ST
 from .ID import ID
 from .NM import NM
-from .ST import ST
 from ..tables.CodingSystem import CodingSystem
 
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CSU,
-    ID, NM, ST
+    ST, ID, NM
 )
 
 csu = CSU(  # Channel Sensitivity - This data type defines the channel sensitivity (gain) and the units in which it is measured in a waveform result
@@ -51,18 +51,22 @@ class CSU(DataType):
 
     def __init__(
         self,
-        channel_sensitivity: NM | tuple[NM],  # CSU.1
-        unit_of_measure_identifier: ST | tuple[ST] | None = None,  # CSU.2
-        unit_of_measure_description: ST | tuple[ST] | None = None,  # CSU.3
+        channel_sensitivity: NM | tuple[NM, ...],  # CSU.1
+        unit_of_measure_identifier: ST | tuple[ST, ...] | None = None,  # CSU.2
+        unit_of_measure_description: ST | tuple[ST, ...] | None = None,  # CSU.3
         unit_of_measure_coding_system: CodingSystem
         | ID
-        | tuple[CodingSystem | ID]
+        | tuple[CodingSystem | ID, ...]
         | None = None,  # CSU.4
-        alternate_unit_of_measure_identifier: ST | tuple[ST] | None = None,  # CSU.5
-        alternate_unit_of_measure_description: ST | tuple[ST] | None = None,  # CSU.6
+        alternate_unit_of_measure_identifier: ST
+        | tuple[ST, ...]
+        | None = None,  # CSU.5
+        alternate_unit_of_measure_description: ST
+        | tuple[ST, ...]
+        | None = None,  # CSU.6
         alternate_unit_of_measure_coding_system: CodingSystem
         | ID
-        | tuple[CodingSystem | ID]
+        | tuple[CodingSystem | ID, ...]
         | None = None,  # CSU.7
     ):
         """

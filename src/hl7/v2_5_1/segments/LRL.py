@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.PL import PL
 from ..data_types.CE import CE
-from ..data_types.EI import EI
 from ..data_types.XON import XON
+from ..data_types.PL import PL
+from ..data_types.ID import ID
+from ..data_types.EI import EI
 from ..tables.LocationRelationshipId import LocationRelationshipId
 from ..tables.SegmentActionCode import SegmentActionCode
 
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     LRL,
-    ID, PL, CE, EI, XON
+    CE, XON, PL, ID, EI
 )
 
 lrl = LRL(  #  - The LRL segment is used to identify one location’s relationship to another location, the nearest lab, pharmacy, etc
@@ -53,19 +53,19 @@ class LRL(HL7Segment):
 
     def __init__(
         self,
-        primary_key_value_lrl: PL | tuple[PL],  # LRL.1
+        primary_key_value_lrl: PL | tuple[PL, ...],  # LRL.1
         location_relationship_id: LocationRelationshipId
         | CE
-        | tuple[LocationRelationshipId | CE],  # LRL.4
+        | tuple[LocationRelationshipId | CE, ...],  # LRL.4
         segment_action_code: SegmentActionCode
         | ID
-        | tuple[SegmentActionCode | ID]
+        | tuple[SegmentActionCode | ID, ...]
         | None = None,  # LRL.2
-        segment_unique_key: EI | tuple[EI] | None = None,  # LRL.3
+        segment_unique_key: EI | tuple[EI, ...] | None = None,  # LRL.3
         organizational_location_relationship_value: XON
-        | tuple[XON]
+        | tuple[XON, ...]
         | None = None,  # LRL.5
-        patient_location_relationship_value: PL | tuple[PL] | None = None,  # LRL.6
+        patient_location_relationship_value: PL | tuple[PL, ...] | None = None,  # LRL.6
     ):
         """
         Location Relationship - `LRL <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/LRL>`_

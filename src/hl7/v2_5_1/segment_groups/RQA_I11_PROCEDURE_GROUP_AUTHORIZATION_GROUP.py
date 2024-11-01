@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.AUT import AUT
 from ..segments.CTD import CTD
+from ..segments.AUT import AUT
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RQA_I11_PROCEDURE_GROUP_AUTHORIZATION_GROUP
 from utils.hl7.v2_5_1.segments import (
-    CTD, AUT
+    AUT, CTD
 )
 
 rqa_i11_procedure_group_authorization_group = RQA_I11_PROCEDURE_GROUP_AUTHORIZATION_GROUP(  # AUTHORIZATION - Segment group for RQA_I11_PROCEDURE_GROUP - PROCEDURE consisting of AUT, CTD|None

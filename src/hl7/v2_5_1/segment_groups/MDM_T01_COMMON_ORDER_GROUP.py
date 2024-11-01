@@ -3,8 +3,8 @@ from ...base import HL7SegmentGroup
 from ..segment_groups.MDM_T01_COMMON_ORDER_GROUP_TIMING_GROUP import (
     MDM_T01_COMMON_ORDER_GROUP_TIMING_GROUP,
 )
-from ..segments.NTE import NTE
 from ..segments.OBR import OBR
+from ..segments.NTE import NTE
 from ..segments.ORC import ORC
 
 

@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import DataType
+from .ST import ST
 from .IS import IS
 from .ID import ID
 from .NM import NM
-from .ST import ST
+from ..tables.UniversalIdType import UniversalIdType
 from ..tables.AssigningAuthority import AssigningAuthority
 from ..tables.SequenceCondition import SequenceCondition
-from ..tables.UniversalIdType import UniversalIdType
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     OSD,
-    IS, ID, NM, ST
+    ST, IS, ID, NM
 )
 
 osd = OSD(  # Order Sequence Definition - This data type specifies a fully coded version for forming a relationship between an order and one or more other orders
@@ -60,28 +60,28 @@ class OSD(DataType):
         self,
         sequence_or_results_flag: SequenceCondition
         | ID
-        | tuple[SequenceCondition | ID],  # OSD.1
-        placer_order_number_entity_identifier: ST | tuple[ST],  # OSD.2
-        filler_order_number_entity_identifier: ST | tuple[ST],  # OSD.4
-        placer_order_number_universal_id: ST | tuple[ST],  # OSD.8
-        filler_order_number_universal_id: ST | tuple[ST],  # OSD.10
+        | tuple[SequenceCondition | ID, ...],  # OSD.1
+        placer_order_number_entity_identifier: ST | tuple[ST, ...],  # OSD.2
+        filler_order_number_entity_identifier: ST | tuple[ST, ...],  # OSD.4
+        placer_order_number_universal_id: ST | tuple[ST, ...],  # OSD.8
+        filler_order_number_universal_id: ST | tuple[ST, ...],  # OSD.10
         placer_order_number_namespace_id: AssigningAuthority
         | IS
-        | tuple[AssigningAuthority | IS]
+        | tuple[AssigningAuthority | IS, ...]
         | None = None,  # OSD.3
         filler_order_number_namespace_id: AssigningAuthority
         | IS
-        | tuple[AssigningAuthority | IS]
+        | tuple[AssigningAuthority | IS, ...]
         | None = None,  # OSD.5
-        sequence_condition_value: ST | tuple[ST] | None = None,  # OSD.6
-        maximum_number_of_repeats: NM | tuple[NM] | None = None,  # OSD.7
+        sequence_condition_value: ST | tuple[ST, ...] | None = None,  # OSD.6
+        maximum_number_of_repeats: NM | tuple[NM, ...] | None = None,  # OSD.7
         placer_order_number_universal_id_type: UniversalIdType
         | ID
-        | tuple[UniversalIdType | ID]
+        | tuple[UniversalIdType | ID, ...]
         | None = None,  # OSD.9
         filler_order_number_universal_id_type: UniversalIdType
         | ID
-        | tuple[UniversalIdType | ID]
+        | tuple[UniversalIdType | ID, ...]
         | None = None,  # OSD.11
     ):
         """

@@ -1,16 +1,16 @@
 from __future__ import annotations
 from ...base import DataType
-from .IS import IS
-from .EI import EI
-from .HD import HD
 from .ST import ST
+from .IS import IS
+from .HD import HD
+from .EI import EI
 from ..tables.LocationStatus import LocationStatus
+from ..tables.Floor import Floor
 from ..tables.PersonLocationType import PersonLocationType
 from ..tables.Building import Building
-from ..tables.Floor import Floor
-from ..tables.Room import Room
 from ..tables.Bed import Bed
 from ..tables.PointOfCare import PointOfCare
+from ..tables.Room import Room
 
 
 """
@@ -21,7 +21,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PL,
-    IS, EI, HD, ST
+    ST, IS, HD, EI
 )
 
 pl = PL(  # Person Location - This data type is used to specify a patient location within a healthcare institution
@@ -62,23 +62,26 @@ class PL(DataType):
 
     def __init__(
         self,
-        point_of_care: PointOfCare | IS | tuple[PointOfCare | IS] | None = None,  # PL.1
-        room: Room | IS | tuple[Room | IS] | None = None,  # PL.2
-        bed: Bed | IS | tuple[Bed | IS] | None = None,  # PL.3
-        facility: HD | tuple[HD] | None = None,  # PL.4
+        point_of_care: PointOfCare
+        | IS
+        | tuple[PointOfCare | IS, ...]
+        | None = None,  # PL.1
+        room: Room | IS | tuple[Room | IS, ...] | None = None,  # PL.2
+        bed: Bed | IS | tuple[Bed | IS, ...] | None = None,  # PL.3
+        facility: HD | tuple[HD, ...] | None = None,  # PL.4
         location_status: LocationStatus
         | IS
-        | tuple[LocationStatus | IS]
+        | tuple[LocationStatus | IS, ...]
         | None = None,  # PL.5
         person_location_type: PersonLocationType
         | IS
-        | tuple[PersonLocationType | IS]
+        | tuple[PersonLocationType | IS, ...]
         | None = None,  # PL.6
-        building: Building | IS | tuple[Building | IS] | None = None,  # PL.7
-        floor: Floor | IS | tuple[Floor | IS] | None = None,  # PL.8
-        location_description: ST | tuple[ST] | None = None,  # PL.9
-        comprehensive_location_identifier: EI | tuple[EI] | None = None,  # PL.10
-        assigning_authority_for_location: HD | tuple[HD] | None = None,  # PL.11
+        building: Building | IS | tuple[Building | IS, ...] | None = None,  # PL.7
+        floor: Floor | IS | tuple[Floor | IS, ...] | None = None,  # PL.8
+        location_description: ST | tuple[ST, ...] | None = None,  # PL.9
+        comprehensive_location_identifier: EI | tuple[EI, ...] | None = None,  # PL.10
+        assigning_authority_for_location: HD | tuple[HD, ...] | None = None,  # PL.11
     ):
         """
                 Person Location - `PL <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/PL>`_

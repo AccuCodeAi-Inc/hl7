@@ -1,15 +1,15 @@
 from __future__ import annotations
 from ...base import DataType
 from .IS import IS
-from .HD import HD
 from .AD import AD
+from .HD import HD
 from ..tables.LocationStatus import LocationStatus
+from ..tables.Floor import Floor
 from ..tables.PersonLocationType import PersonLocationType
 from ..tables.Building import Building
-from ..tables.Floor import Floor
-from ..tables.Room import Room
 from ..tables.Bed import Bed
 from ..tables.PointOfCare import PointOfCare
+from ..tables.Room import Room
 
 
 """
@@ -20,7 +20,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     LA1,
-    IS, HD, AD
+    IS, AD, HD
 )
 
 la1 = LA1(  # Location with Address Variation 1 - Specifies a location and its address
@@ -61,22 +61,22 @@ class LA1(DataType):
         self,
         point_of_care: PointOfCare
         | IS
-        | tuple[PointOfCare | IS]
+        | tuple[PointOfCare | IS, ...]
         | None = None,  # LA1.1
-        room: Room | IS | tuple[Room | IS] | None = None,  # LA1.2
-        bed: Bed | IS | tuple[Bed | IS] | None = None,  # LA1.3
-        facility: HD | tuple[HD] | None = None,  # LA1.4
+        room: Room | IS | tuple[Room | IS, ...] | None = None,  # LA1.2
+        bed: Bed | IS | tuple[Bed | IS, ...] | None = None,  # LA1.3
+        facility: HD | tuple[HD, ...] | None = None,  # LA1.4
         location_status: LocationStatus
         | IS
-        | tuple[LocationStatus | IS]
+        | tuple[LocationStatus | IS, ...]
         | None = None,  # LA1.5
         patient_location_type: PersonLocationType
         | IS
-        | tuple[PersonLocationType | IS]
+        | tuple[PersonLocationType | IS, ...]
         | None = None,  # LA1.6
-        building: Building | IS | tuple[Building | IS] | None = None,  # LA1.7
-        floor: Floor | IS | tuple[Floor | IS] | None = None,  # LA1.8
-        address: AD | tuple[AD] | None = None,  # LA1.9
+        building: Building | IS | tuple[Building | IS, ...] | None = None,  # LA1.7
+        floor: Floor | IS | tuple[Floor | IS, ...] | None = None,  # LA1.8
+        address: AD | tuple[AD, ...] | None = None,  # LA1.9
     ):
         """
         Location with Address Variation 1 - `LA1 <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/LA1>`_

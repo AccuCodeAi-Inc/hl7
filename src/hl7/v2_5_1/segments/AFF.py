@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.DR import DR
-from ..data_types.ST import ST
 from ..data_types.SI import SI
 from ..data_types.XAD import XAD
 from ..data_types.XON import XON
+from ..data_types.ST import ST
+from ..data_types.DR import DR
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     AFF,
-    DR, ST, SI, XAD, XON
+    SI, XAD, XON, ST, DR
 )
 
 aff = AFF(  #  - The AFF segment adds detailed information regarding professional affiliations with which the staff member identified by the STF segment is/was associated
@@ -50,14 +50,14 @@ class AFF(HL7Segment):
 
     def __init__(
         self,
-        set_id_aff: SI | tuple[SI],  # AFF.1
-        professional_organization: XON | tuple[XON],  # AFF.2
-        professional_organization_address: XAD | tuple[XAD] | None = None,  # AFF.3
+        set_id_aff: SI | tuple[SI, ...],  # AFF.1
+        professional_organization: XON | tuple[XON, ...],  # AFF.2
+        professional_organization_address: XAD | tuple[XAD, ...] | None = None,  # AFF.3
         professional_organization_affiliation_date_range: DR
-        | tuple[DR]
+        | tuple[DR, ...]
         | None = None,  # AFF.4
         professional_affiliation_additional_information: ST
-        | tuple[ST]
+        | tuple[ST, ...]
         | None = None,  # AFF.5
     ):
         """

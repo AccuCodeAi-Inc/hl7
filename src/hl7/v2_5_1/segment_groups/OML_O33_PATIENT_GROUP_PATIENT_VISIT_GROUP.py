@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OML_O33_PATIENT_GROUP_PATIENT_VISIT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PV2, PV1
+    PV1, PV2
 )
 
 oml_o33_patient_group_patient_visit_group = OML_O33_PATIENT_GROUP_PATIENT_VISIT_GROUP(  # PATIENT VISIT - Segment group for OML_O33_PATIENT_GROUP - PATIENT consisting of PV1, PV2|None

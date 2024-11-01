@@ -1,26 +1,26 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.OBX import OBX
-from ..segments.MSH import MSH
-from ..segments.DB1 import DB1
-from ..segment_groups.ADT_A07_PROCEDURE_GROUP import ADT_A07_PROCEDURE_GROUP
-from ..segments.NK1 import NK1
-from ..segments.DRG import DRG
-from ..segments.AL1 import AL1
-from ..segments.MRG import MRG
-from ..segments.UB1 import UB1
-from ..segments.ROL import ROL
-from ..segments.DG1 import DG1
-from ..segments.UB2 import UB2
-from ..segments.PV2 import PV2
-from ..segments.GT1 import GT1
-from ..segments.PID import PID
-from ..segments.EVN import EVN
-from ..segments.PV1 import PV1
-from ..segments.SFT import SFT
-from ..segment_groups.ADT_A07_INSURANCE_GROUP import ADT_A07_INSURANCE_GROUP
 from ..segments.PD1 import PD1
+from ..segments.MSH import MSH
+from ..segments.EVN import EVN
+from ..segments.GT1 import GT1
+from ..segments.UB2 import UB2
 from ..segments.ACC import ACC
+from ..segments.NK1 import NK1
+from ..segments.AL1 import AL1
+from ..segment_groups.ADT_A07_PROCEDURE_GROUP import ADT_A07_PROCEDURE_GROUP
+from ..segments.UB1 import UB1
+from ..segments.SFT import SFT
+from ..segments.ROL import ROL
+from ..segments.PV2 import PV2
+from ..segments.DB1 import DB1
+from ..segments.PV1 import PV1
+from ..segments.DRG import DRG
+from ..segments.DG1 import DG1
+from ..segments.MRG import MRG
+from ..segments.OBX import OBX
+from ..segments.PID import PID
+from ..segment_groups.ADT_A07_INSURANCE_GROUP import ADT_A07_INSURANCE_GROUP
 
 
 """
@@ -31,7 +31,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ADT_A07
 from utils.hl7.v2_5_1.segments import (
-    MSH, DG1, PID, AL1, DB1, UB1, GT1, OBX, PV1, NK1, ACC, EVN, MRG, PD1, PV2, ROL, SFT, UB2, DRG
+    SFT, PV1, PV2, ACC, UB2, MSH, ROL, DRG, GT1, NK1, DG1, UB1, AL1, EVN, MRG, PD1, DB1, PID, OBX
 )
 from utils.hl7.v2_5_1.segment_groups import (
     ADT_A07_INSURANCE_GROUP, ADT_A07_PROCEDURE_GROUP

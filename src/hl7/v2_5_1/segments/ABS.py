@@ -1,18 +1,18 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TS import TS
-from ..data_types.ID import ID
-from ..data_types.NM import NM
-from ..data_types.XCN import XCN
 from ..data_types.CE import CE
+from ..data_types.TS import TS
+from ..data_types.XCN import XCN
+from ..data_types.NM import NM
+from ..data_types.ID import ID
+from ..tables.SeverityOfIllnessCode import SeverityOfIllnessCode
+from ..tables.CaseCategoryCode import CaseCategoryCode
+from ..tables.PhysicianId import PhysicianId
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
 from ..tables.HospitalService import HospitalService
 from ..tables.TriageCode import TriageCode
-from ..tables.PhysicianId import PhysicianId
-from ..tables.NewbornCode import NewbornCode
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
 from ..tables.GestationCategoryCode import GestationCategoryCode
-from ..tables.CaseCategoryCode import CaseCategoryCode
-from ..tables.SeverityOfIllnessCode import SeverityOfIllnessCode
+from ..tables.NewbornCode import NewbornCode
 
 
 """
@@ -23,7 +23,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     ABS,
-    TS, ID, NM, XCN, CE
+    CE, TS, XCN, NM, ID
 )
 
 abs = ABS(  #  - This segment was created to communicate patient abstract information used for billing and reimbursement purposes
@@ -69,41 +69,44 @@ class ABS(HL7Segment):
         self,
         discharge_care_provider: PhysicianId
         | XCN
-        | tuple[PhysicianId | XCN]
+        | tuple[PhysicianId | XCN, ...]
         | None = None,  # ABS.1
         transfer_medical_service_code: HospitalService
         | CE
-        | tuple[HospitalService | CE]
+        | tuple[HospitalService | CE, ...]
         | None = None,  # ABS.2
         severity_of_illness_code: SeverityOfIllnessCode
         | CE
-        | tuple[SeverityOfIllnessCode | CE]
+        | tuple[SeverityOfIllnessCode | CE, ...]
         | None = None,  # ABS.3
-        date_or_time_of_attestation: TS | tuple[TS] | None = None,  # ABS.4
-        attested_by: XCN | tuple[XCN] | None = None,  # ABS.5
-        triage_code: TriageCode | CE | tuple[TriageCode | CE] | None = None,  # ABS.6
-        abstract_completion_date_or_time: TS | tuple[TS] | None = None,  # ABS.7
-        abstracted_by: XCN | tuple[XCN] | None = None,  # ABS.8
+        date_or_time_of_attestation: TS | tuple[TS, ...] | None = None,  # ABS.4
+        attested_by: XCN | tuple[XCN, ...] | None = None,  # ABS.5
+        triage_code: TriageCode
+        | CE
+        | tuple[TriageCode | CE, ...]
+        | None = None,  # ABS.6
+        abstract_completion_date_or_time: TS | tuple[TS, ...] | None = None,  # ABS.7
+        abstracted_by: XCN | tuple[XCN, ...] | None = None,  # ABS.8
         case_category_code: CaseCategoryCode
         | CE
-        | tuple[CaseCategoryCode | CE]
+        | tuple[CaseCategoryCode | CE, ...]
         | None = None,  # ABS.9
         caesarian_section_indicator: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # ABS.10
         gestation_category_code: GestationCategoryCode
         | CE
-        | tuple[GestationCategoryCode | CE]
+        | tuple[GestationCategoryCode | CE, ...]
         | None = None,  # ABS.11
-        gestation_period_weeks: NM | tuple[NM] | None = None,  # ABS.12
+        gestation_period_weeks: NM | tuple[NM, ...] | None = None,  # ABS.12
         newborn_code: NewbornCode
         | CE
-        | tuple[NewbornCode | CE]
+        | tuple[NewbornCode | CE, ...]
         | None = None,  # ABS.13
         stillborn_indicator: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # ABS.14
     ):
         """

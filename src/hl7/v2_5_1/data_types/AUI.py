@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import DataType
-from .DT import DT
 from .ST import ST
+from .DT import DT
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     AUI,
-    DT, ST
+    ST, DT
 )
 
 aui = AUI(  # Authorization Information - This data type specifies the identifier or code for an insurance authorization instance and its associated detail
@@ -45,9 +45,9 @@ class AUI(DataType):
 
     def __init__(
         self,
-        authorization_number: ST | tuple[ST] | None = None,  # AUI.1
-        date: DT | tuple[DT] | None = None,  # AUI.2
-        source: ST | tuple[ST] | None = None,  # AUI.3
+        authorization_number: ST | tuple[ST, ...] | None = None,  # AUI.1
+        date: DT | tuple[DT, ...] | None = None,  # AUI.2
+        source: ST | tuple[ST, ...] | None = None,  # AUI.3
     ):
         """
         Authorization Information - `AUI <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/AUI>`_

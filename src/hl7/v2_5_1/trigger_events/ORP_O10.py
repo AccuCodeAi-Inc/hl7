@@ -2,10 +2,10 @@ from __future__ import annotations
 from ...base import HL7TriggerEvent
 from ..segments.ERR import ERR
 from ..segment_groups.ORP_O10_RESPONSE_GROUP import ORP_O10_RESPONSE_GROUP
-from ..segments.SFT import SFT
 from ..segments.MSH import MSH
 from ..segments.MSA import MSA
 from ..segments.NTE import NTE
+from ..segments.SFT import SFT
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ORP_O10
 from utils.hl7.v2_5_1.segments import (
-    MSH, SFT, ERR, NTE, MSA
+    NTE, SFT, ERR, MSA, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
     ORP_O10_RESPONSE_GROUP

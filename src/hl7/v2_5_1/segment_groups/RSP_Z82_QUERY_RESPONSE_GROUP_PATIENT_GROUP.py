@@ -2,10 +2,10 @@ from __future__ import annotations
 from ...base import HL7SegmentGroup
 from ..segments.PID import PID
 from ..segments.NTE import NTE
+from ..segments.PD1 import PD1
 from ..segment_groups.RSP_Z82_QUERY_RESPONSE_GROUP_PATIENT_GROUP_VISIT_GROUP import (
     RSP_Z82_QUERY_RESPONSE_GROUP_PATIENT_GROUP_VISIT_GROUP,
 )
-from ..segments.PD1 import PD1
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RSP_Z82_QUERY_RESPONSE_GROUP_PATIENT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NTE, PID, PD1
+    PD1, NTE, PID
 )
 from utils.hl7.v2_5_1.segment_groups import (
     RSP_Z82_QUERY_RESPONSE_GROUP_PATIENT_GROUP_VISIT_GROUP

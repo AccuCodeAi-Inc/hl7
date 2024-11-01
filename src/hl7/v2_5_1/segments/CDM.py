@@ -1,18 +1,18 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.NM import NM
-from ..data_types.IS import IS
-from ..data_types.CX import CX
-from ..data_types.ST import ST
 from ..data_types.CE import CE
+from ..data_types.CX import CX
+from ..data_types.IS import IS
+from ..data_types.NM import NM
 from ..data_types.XON import XON
-from ..tables.ProcedureCode import ProcedureCode
-from ..tables.InventoryNumber import InventoryNumber
+from ..data_types.ST import ST
+from ..data_types.ID import ID
 from ..tables.ActiveOrInactive import ActiveOrInactive
+from ..tables.TransactionCode import TransactionCode
+from ..tables.ProcedureCode import ProcedureCode
 from ..tables.YesOrNoIndicator import YesOrNoIndicator
 from ..tables.Override import Override
-from ..tables.TransactionCode import TransactionCode
+from ..tables.InventoryNumber import InventoryNumber
 
 
 """
@@ -23,7 +23,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CDM,
-    ID, NM, IS, CX, ST, CE, XON
+    CE, CX, IS, NM, XON, ST, ID
 )
 
 cdm = CDM(  #  - The CDM segment contains the fields for identifying anything which is charged to patient accounts, including procedures, services, supplies
@@ -68,33 +68,33 @@ class CDM(HL7Segment):
         self,
         primary_key_value_cdm: TransactionCode
         | CE
-        | tuple[TransactionCode | CE],  # CDM.1
-        charge_description_short: ST | tuple[ST],  # CDM.3
-        charge_code_alias: CE | tuple[CE] | None = None,  # CDM.2
-        charge_description_long: ST | tuple[ST] | None = None,  # CDM.4
+        | tuple[TransactionCode | CE, ...],  # CDM.1
+        charge_description_short: ST | tuple[ST, ...],  # CDM.3
+        charge_code_alias: CE | tuple[CE, ...] | None = None,  # CDM.2
+        charge_description_long: ST | tuple[ST, ...] | None = None,  # CDM.4
         description_override_indicator: Override
         | IS
-        | tuple[Override | IS]
+        | tuple[Override | IS, ...]
         | None = None,  # CDM.5
-        exploding_charges: CE | tuple[CE] | None = None,  # CDM.6
+        exploding_charges: CE | tuple[CE, ...] | None = None,  # CDM.6
         procedure_code: ProcedureCode
         | CE
-        | tuple[ProcedureCode | CE]
+        | tuple[ProcedureCode | CE, ...]
         | None = None,  # CDM.7
         active_or_inactive_flag: ActiveOrInactive
         | ID
-        | tuple[ActiveOrInactive | ID]
+        | tuple[ActiveOrInactive | ID, ...]
         | None = None,  # CDM.8
         inventory_number: InventoryNumber
         | CE
-        | tuple[InventoryNumber | CE]
+        | tuple[InventoryNumber | CE, ...]
         | None = None,  # CDM.9
-        resource_load: NM | tuple[NM] | None = None,  # CDM.10
-        contract_number: CX | tuple[CX] | None = None,  # CDM.11
-        contract_organization: XON | tuple[XON] | None = None,  # CDM.12
+        resource_load: NM | tuple[NM, ...] | None = None,  # CDM.10
+        contract_number: CX | tuple[CX, ...] | None = None,  # CDM.11
+        contract_organization: XON | tuple[XON, ...] | None = None,  # CDM.12
         room_fee_indicator: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # CDM.13
     ):
         """

@@ -1,24 +1,24 @@
 from __future__ import annotations
 from ...base import DataType
+from .CE import CE
 from .TS import TS
-from .ID import ID
 from .IS import IS
-from .DR import DR
+from .HD import HD
 from .CWE import CWE
 from .ST import ST
-from .HD import HD
-from .CE import CE
+from .ID import ID
+from .DR import DR
 from .FN import FN
-from ..tables.IdentifierType import IdentifierType
-from ..tables.NameContext import NameContext
-from ..tables.AssigningAuthority import AssigningAuthority
+from ..tables.NameOrAddressRepresentation import NameOrAddressRepresentation
 from ..tables.NameType import NameType
 from ..tables.CnIdSource import CnIdSource
-from ..tables.CheckDigitScheme import CheckDigitScheme
+from ..tables.IdentifierType import IdentifierType
 from ..tables.DegreeOrLicenseOrCertificate import DegreeOrLicenseOrCertificate
 from ..tables.FirstName import FirstName
-from ..tables.NameOrAddressRepresentation import NameOrAddressRepresentation
 from ..tables.NameAssemblyOrder import NameAssemblyOrder
+from ..tables.CheckDigitScheme import CheckDigitScheme
+from ..tables.AssigningAuthority import AssigningAuthority
+from ..tables.NameContext import NameContext
 
 
 """
@@ -29,7 +29,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     XCN,
-    TS, ID, IS, DR, CWE, ST, HD, CE, FN
+    CE, TS, IS, HD, CWE, ST, ID, DR, FN
 )
 
 xcn = XCN(  # Extended Composite ID Number and Name for Persons - Example without assigning authority and assigning facility: |1234567^Everyman^Adam^A^III^DR^PHD^ADT01^^L^4^M11^MR| 
@@ -84,52 +84,58 @@ Examples with assigning authority and assigning facility: |12188^Hippocrates^Har
 
     def __init__(
         self,
-        id_number: ST | tuple[ST] | None = None,  # XCN.1
-        family_name: FN | tuple[FN] | None = None,  # XCN.2
-        given_name: FirstName | ST | tuple[FirstName | ST] | None = None,  # XCN.3
+        id_number: ST | tuple[ST, ...] | None = None,  # XCN.1
+        family_name: FN | tuple[FN, ...] | None = None,  # XCN.2
+        given_name: FirstName | ST | tuple[FirstName | ST, ...] | None = None,  # XCN.3
         second_and_further_given_names_or_initials_thereof: ST
-        | tuple[ST]
+        | tuple[ST, ...]
         | None = None,  # XCN.4
-        suffix: ST | tuple[ST] | None = None,  # XCN.5
-        prefix: ST | tuple[ST] | None = None,  # XCN.6
+        suffix: ST | tuple[ST, ...] | None = None,  # XCN.5
+        prefix: ST | tuple[ST, ...] | None = None,  # XCN.6
         degree: DegreeOrLicenseOrCertificate
         | IS
-        | tuple[DegreeOrLicenseOrCertificate | IS]
+        | tuple[DegreeOrLicenseOrCertificate | IS, ...]
         | None = None,  # XCN.7
-        source_table: CnIdSource | IS | tuple[CnIdSource | IS] | None = None,  # XCN.8
+        source_table: CnIdSource
+        | IS
+        | tuple[CnIdSource | IS, ...]
+        | None = None,  # XCN.8
         assigning_authority: AssigningAuthority
         | HD
-        | tuple[AssigningAuthority | HD]
+        | tuple[AssigningAuthority | HD, ...]
         | None = None,  # XCN.9
-        name_type_code: NameType | ID | tuple[NameType | ID] | None = None,  # XCN.10
-        identifier_check_digit: ST | tuple[ST] | None = None,  # XCN.11
+        name_type_code: NameType
+        | ID
+        | tuple[NameType | ID, ...]
+        | None = None,  # XCN.10
+        identifier_check_digit: ST | tuple[ST, ...] | None = None,  # XCN.11
         check_digit_scheme: CheckDigitScheme
         | ID
-        | tuple[CheckDigitScheme | ID]
+        | tuple[CheckDigitScheme | ID, ...]
         | None = None,  # XCN.12
         identifier_type_code: IdentifierType
         | ID
-        | tuple[IdentifierType | ID]
+        | tuple[IdentifierType | ID, ...]
         | None = None,  # XCN.13
-        assigning_facility: HD | tuple[HD] | None = None,  # XCN.14
+        assigning_facility: HD | tuple[HD, ...] | None = None,  # XCN.14
         name_representation_code: NameOrAddressRepresentation
         | ID
-        | tuple[NameOrAddressRepresentation | ID]
+        | tuple[NameOrAddressRepresentation | ID, ...]
         | None = None,  # XCN.15
         name_context: NameContext
         | CE
-        | tuple[NameContext | CE]
+        | tuple[NameContext | CE, ...]
         | None = None,  # XCN.16
-        name_validity_range: DR | tuple[DR] | None = None,  # XCN.17
+        name_validity_range: DR | tuple[DR, ...] | None = None,  # XCN.17
         name_assembly_order: NameAssemblyOrder
         | ID
-        | tuple[NameAssemblyOrder | ID]
+        | tuple[NameAssemblyOrder | ID, ...]
         | None = None,  # XCN.18
-        effective_date: TS | tuple[TS] | None = None,  # XCN.19
-        expiration_date: TS | tuple[TS] | None = None,  # XCN.20
-        professional_suffix: ST | tuple[ST] | None = None,  # XCN.21
-        assigning_jurisdiction: CWE | tuple[CWE] | None = None,  # XCN.22
-        assigning_agency_or_department: CWE | tuple[CWE] | None = None,  # XCN.23
+        effective_date: TS | tuple[TS, ...] | None = None,  # XCN.19
+        expiration_date: TS | tuple[TS, ...] | None = None,  # XCN.20
+        professional_suffix: ST | tuple[ST, ...] | None = None,  # XCN.21
+        assigning_jurisdiction: CWE | tuple[CWE, ...] | None = None,  # XCN.22
+        assigning_agency_or_department: CWE | tuple[CWE, ...] | None = None,  # XCN.23
     ):
         """
                 Extended Composite ID Number and Name for Persons - `XCN <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/XCN>`_

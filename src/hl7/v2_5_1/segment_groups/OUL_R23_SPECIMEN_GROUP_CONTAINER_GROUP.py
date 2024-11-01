@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.INV import INV
 from ..segment_groups.OUL_R23_SPECIMEN_GROUP_CONTAINER_GROUP_ORDER_GROUP import (
     OUL_R23_SPECIMEN_GROUP_CONTAINER_GROUP_ORDER_GROUP,
 )
 from ..segments.SAC import SAC
-from ..segments.INV import INV
 
 
 """

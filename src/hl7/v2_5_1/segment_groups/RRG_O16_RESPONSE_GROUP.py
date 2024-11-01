@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segment_groups.RRG_O16_RESPONSE_GROUP_ORDER_GROUP import (
-    RRG_O16_RESPONSE_GROUP_ORDER_GROUP,
-)
 from ..segment_groups.RRG_O16_RESPONSE_GROUP_PATIENT_GROUP import (
     RRG_O16_RESPONSE_GROUP_PATIENT_GROUP,
+)
+from ..segment_groups.RRG_O16_RESPONSE_GROUP_ORDER_GROUP import (
+    RRG_O16_RESPONSE_GROUP_ORDER_GROUP,
 )
 
 
@@ -19,7 +19,7 @@ from utils.hl7.v2_5_1.segments import (
     
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    RRG_O16_RESPONSE_GROUP_PATIENT_GROUP, RRG_O16_RESPONSE_GROUP_ORDER_GROUP
+    RRG_O16_RESPONSE_GROUP_ORDER_GROUP, RRG_O16_RESPONSE_GROUP_PATIENT_GROUP
 )
 
 rrg_o16_response_group = RRG_O16_RESPONSE_GROUP(  # RESPONSE - Segment group for RRG_O16 - Pharmacy/Treatment Give Acknowledgement consisting of PATIENT|None, ORDER

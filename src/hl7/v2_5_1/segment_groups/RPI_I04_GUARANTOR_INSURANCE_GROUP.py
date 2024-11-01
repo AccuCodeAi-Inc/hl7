@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.GT1 import GT1
 from ..segment_groups.RPI_I04_GUARANTOR_INSURANCE_GROUP_INSURANCE_GROUP import (
     RPI_I04_GUARANTOR_INSURANCE_GROUP_INSURANCE_GROUP,
 )
-from ..segments.GT1 import GT1
 
 
 """

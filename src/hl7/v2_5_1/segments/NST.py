@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
-from ..data_types.NM import NM
 from ..data_types.ST import ST
+from ..data_types.ID import ID
 from ..data_types.TS import TS
+from ..data_types.NM import NM
 from ..tables.SourceType import SourceType
 from ..tables.YesOrNoIndicator import YesOrNoIndicator
 
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     NST,
-    ID, NM, ST, TS
+    ST, ID, TS, NM
 )
 
 nst = NST(  #  - The NST segment allows application control-level statistical information to be passed between the various systems on the network
@@ -63,21 +63,24 @@ class NST(HL7Segment):
         self,
         statistics_available: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID],  # NST.1
-        source_identifier: ST | tuple[ST] | None = None,  # NST.2
-        source_type: SourceType | ID | tuple[SourceType | ID] | None = None,  # NST.3
-        statistics_start: TS | tuple[TS] | None = None,  # NST.4
-        statistics_end: TS | tuple[TS] | None = None,  # NST.5
-        receive_character_count: NM | tuple[NM] | None = None,  # NST.6
-        send_character_count: NM | tuple[NM] | None = None,  # NST.7
-        messages_received: NM | tuple[NM] | None = None,  # NST.8
-        messages_sent: NM | tuple[NM] | None = None,  # NST.9
-        checksum_errors_received: NM | tuple[NM] | None = None,  # NST.10
-        length_errors_received: NM | tuple[NM] | None = None,  # NST.11
-        other_errors_received: NM | tuple[NM] | None = None,  # NST.12
-        connect_timeouts: NM | tuple[NM] | None = None,  # NST.13
-        receive_timeouts: NM | tuple[NM] | None = None,  # NST.14
-        application_control_level_errors: NM | tuple[NM] | None = None,  # NST.15
+        | tuple[YesOrNoIndicator | ID, ...],  # NST.1
+        source_identifier: ST | tuple[ST, ...] | None = None,  # NST.2
+        source_type: SourceType
+        | ID
+        | tuple[SourceType | ID, ...]
+        | None = None,  # NST.3
+        statistics_start: TS | tuple[TS, ...] | None = None,  # NST.4
+        statistics_end: TS | tuple[TS, ...] | None = None,  # NST.5
+        receive_character_count: NM | tuple[NM, ...] | None = None,  # NST.6
+        send_character_count: NM | tuple[NM, ...] | None = None,  # NST.7
+        messages_received: NM | tuple[NM, ...] | None = None,  # NST.8
+        messages_sent: NM | tuple[NM, ...] | None = None,  # NST.9
+        checksum_errors_received: NM | tuple[NM, ...] | None = None,  # NST.10
+        length_errors_received: NM | tuple[NM, ...] | None = None,  # NST.11
+        other_errors_received: NM | tuple[NM, ...] | None = None,  # NST.12
+        connect_timeouts: NM | tuple[NM, ...] | None = None,  # NST.13
+        receive_timeouts: NM | tuple[NM, ...] | None = None,  # NST.14
+        application_control_level_errors: NM | tuple[NM, ...] | None = None,  # NST.15
     ):
         """
                 Application control level statistics - `NST <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/NST>`_

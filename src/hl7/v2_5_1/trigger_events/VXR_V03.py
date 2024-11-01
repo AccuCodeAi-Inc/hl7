@@ -1,17 +1,17 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.QRF import QRF
-from ..segment_groups.VXR_V03_PATIENT_VISIT_GROUP import VXR_V03_PATIENT_VISIT_GROUP
-from ..segments.SFT import SFT
-from ..segments.MSH import MSH
-from ..segments.GT1 import GT1
-from ..segments.MSA import MSA
-from ..segment_groups.VXR_V03_ORDER_GROUP import VXR_V03_ORDER_GROUP
 from ..segments.PD1 import PD1
-from ..segments.PID import PID
 from ..segments.NK1 import NK1
+from ..segments.MSH import MSH
 from ..segments.QRD import QRD
 from ..segment_groups.VXR_V03_INSURANCE_GROUP import VXR_V03_INSURANCE_GROUP
+from ..segment_groups.VXR_V03_PATIENT_VISIT_GROUP import VXR_V03_PATIENT_VISIT_GROUP
+from ..segments.MSA import MSA
+from ..segments.GT1 import GT1
+from ..segments.QRF import QRF
+from ..segment_groups.VXR_V03_ORDER_GROUP import VXR_V03_ORDER_GROUP
+from ..segments.PID import PID
+from ..segments.SFT import SFT
 
 
 """
@@ -22,10 +22,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import VXR_V03
 from utils.hl7.v2_5_1.segments import (
-    MSH, PID, PD1, QRD, NK1, SFT, GT1, QRF, MSA
+    NK1, QRD, PID, SFT, QRF, MSA, MSH, PD1, GT1
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    VXR_V03_INSURANCE_GROUP, VXR_V03_PATIENT_VISIT_GROUP, VXR_V03_ORDER_GROUP
+    VXR_V03_PATIENT_VISIT_GROUP, VXR_V03_INSURANCE_GROUP, VXR_V03_ORDER_GROUP
 )
 
 vxr_v03 = VXR_V03(  #  - When the patient has been uniquely identified (there is only one match to the query), the response to the query (with a V03 event) will follow this format

@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.SFT import SFT
 from ..segments.MSH import MSH
 from ..segment_groups.PPR_PC2_PROBLEM_GROUP import PPR_PC2_PROBLEM_GROUP
-from ..segments.PID import PID
 from ..segment_groups.PPR_PC2_PATIENT_VISIT_GROUP import PPR_PC2_PATIENT_VISIT_GROUP
+from ..segments.PID import PID
+from ..segments.SFT import SFT
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PPR_PC2
 from utils.hl7.v2_5_1.segments import (
-    PID, SFT, MSH
+    SFT, PID, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
     PPR_PC2_PROBLEM_GROUP, PPR_PC2_PATIENT_VISIT_GROUP

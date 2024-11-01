@@ -1,20 +1,20 @@
 from __future__ import annotations
 from ...base import DataType
 from .TS import TS
-from .ID import ID
 from .IS import IS
-from .ST import ST
-from .DR import DR
 from .SAD import SAD
-from ..tables.Street import Street
-from ..tables.CensusTract import CensusTract
+from .ST import ST
+from .ID import ID
+from .DR import DR
+from ..tables.NameOrAddressRepresentation import NameOrAddressRepresentation
 from ..tables.State import State
+from ..tables.AddressType import AddressType
+from ..tables.Street import Street
 from ..tables.CountryCode import CountryCode
 from ..tables.City import City
-from ..tables.NameOrAddressRepresentation import NameOrAddressRepresentation
 from ..tables.ZipCode import ZipCode
 from ..tables.CountyOrParish import CountyOrParish
-from ..tables.AddressType import AddressType
+from ..tables.CensusTract import CensusTract
 
 
 """
@@ -25,7 +25,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     XAD,
-    TS, ID, IS, ST, DR, SAD
+    TS, IS, SAD, ST, ID, DR
 )
 
 xad = XAD(  # Extended Address - This data type specifies the address of a person, place or organization plus associated information
@@ -69,29 +69,35 @@ class XAD(DataType):
 
     def __init__(
         self,
-        street_address: Street | SAD | tuple[Street | SAD] | None = None,  # XAD.1
-        other_designation: ST | tuple[ST] | None = None,  # XAD.2
-        city: City | ST | tuple[City | ST] | None = None,  # XAD.3
-        state_or_province: State | ST | tuple[State | ST] | None = None,  # XAD.4
-        zip_or_postal_code: ZipCode | ST | tuple[ZipCode | ST] | None = None,  # XAD.5
-        country: CountryCode | ID | tuple[CountryCode | ID] | None = None,  # XAD.6
-        address_type: AddressType | ID | tuple[AddressType | ID] | None = None,  # XAD.7
-        other_geographic_designation: ST | tuple[ST] | None = None,  # XAD.8
+        street_address: Street | SAD | tuple[Street | SAD, ...] | None = None,  # XAD.1
+        other_designation: ST | tuple[ST, ...] | None = None,  # XAD.2
+        city: City | ST | tuple[City | ST, ...] | None = None,  # XAD.3
+        state_or_province: State | ST | tuple[State | ST, ...] | None = None,  # XAD.4
+        zip_or_postal_code: ZipCode
+        | ST
+        | tuple[ZipCode | ST, ...]
+        | None = None,  # XAD.5
+        country: CountryCode | ID | tuple[CountryCode | ID, ...] | None = None,  # XAD.6
+        address_type: AddressType
+        | ID
+        | tuple[AddressType | ID, ...]
+        | None = None,  # XAD.7
+        other_geographic_designation: ST | tuple[ST, ...] | None = None,  # XAD.8
         county_or_parish_code: CountyOrParish
         | IS
-        | tuple[CountyOrParish | IS]
+        | tuple[CountyOrParish | IS, ...]
         | None = None,  # XAD.9
         census_tract: CensusTract
         | IS
-        | tuple[CensusTract | IS]
+        | tuple[CensusTract | IS, ...]
         | None = None,  # XAD.10
         address_representation_code: NameOrAddressRepresentation
         | ID
-        | tuple[NameOrAddressRepresentation | ID]
+        | tuple[NameOrAddressRepresentation | ID, ...]
         | None = None,  # XAD.11
-        address_validity_range: DR | tuple[DR] | None = None,  # XAD.12
-        effective_date: TS | tuple[TS] | None = None,  # XAD.13
-        expiration_date: TS | tuple[TS] | None = None,  # XAD.14
+        address_validity_range: DR | tuple[DR, ...] | None = None,  # XAD.12
+        effective_date: TS | tuple[TS, ...] | None = None,  # XAD.13
+        expiration_date: TS | tuple[TS, ...] | None = None,  # XAD.14
     ):
         """
                 Extended Address - `XAD <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/XAD>`_

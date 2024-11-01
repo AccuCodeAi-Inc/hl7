@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.LCC import LCC
-from ..segments.LRL import LRL
 from ..segments.MFE import MFE
+from ..segments.LCH import LCH
+from ..segments.LRL import LRL
+from ..segments.LCC import LCC
 from ..segments.LDP import LDP
 from ..segments.LOC import LOC
-from ..segments.LCH import LCH
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import MFR_M05_MF_QUERY_GROUP
 from utils.hl7.v2_5_1.segments import (
-    LDP, LCC, LCH, MFE, LOC, LRL
+    LRL, LCH, LDP, LCC, LOC, MFE
 )
 
 mfr_m05_mf_query_group = MFR_M05_MF_QUERY_GROUP(  # MF QUERY - Segment group for MFR_M05 - Master Files Response - Patient Location master file consisting of MFE, LOC, LCH|None, LRL|None, LDP, LCH|None, LCC|None

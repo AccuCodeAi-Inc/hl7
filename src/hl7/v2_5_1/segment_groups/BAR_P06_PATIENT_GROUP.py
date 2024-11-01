@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import BAR_P06_PATIENT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PID, PV1
+    PV1, PID
 )
 
 bar_p06_patient_group = BAR_P06_PATIENT_GROUP(  # PATIENT - Segment group for BAR_P06 - End account consisting of PID, PV1|None

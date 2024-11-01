@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.AUT import AUT
 from ..segments.CTD import CTD
+from ..segments.AUT import AUT
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RRI_I13_AUTHORIZATION_CONTACT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    CTD, AUT
+    AUT, CTD
 )
 
 rri_i13_authorization_contact_group = RRI_I13_AUTHORIZATION_CONTACT_GROUP(  # AUTHORIZATION CONTACT - Segment group for RRI_I13 - Modify patient referral acknowledgement consisting of AUT, CTD|None

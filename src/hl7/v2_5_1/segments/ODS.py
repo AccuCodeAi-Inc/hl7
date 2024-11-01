@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.ID import ID
 from ..data_types.ST import ST
 from ..data_types.CE import CE
+from ..data_types.ID import ID
 from ..tables.DietCodeSpecificationType import DietCodeSpecificationType
 
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     ODS,
-    ID, ST, CE
+    ST, CE, ID
 )
 
 ods = ODS(  #  - The ORC sequence items of interest to ODS are ORC-1-order control, ORC-2-placer order number, ORC-3-filler order number, ORC-7-quantity/timing, ORC-9-date/time of transaction, ORC-10-entered by, and ORC-11-verified by
@@ -50,10 +50,10 @@ class ODS(HL7Segment):
         self,
         type: DietCodeSpecificationType
         | ID
-        | tuple[DietCodeSpecificationType | ID],  # ODS.1
-        diet_supplement_or_preference_code: CE | tuple[CE],  # ODS.3
-        service_period: CE | tuple[CE] | None = None,  # ODS.2
-        text_instruction: ST | tuple[ST] | None = None,  # ODS.4
+        | tuple[DietCodeSpecificationType | ID, ...],  # ODS.1
+        diet_supplement_or_preference_code: CE | tuple[CE, ...],  # ODS.3
+        service_period: CE | tuple[CE, ...] | None = None,  # ODS.2
+        text_instruction: ST | tuple[ST, ...] | None = None,  # ODS.4
     ):
         """
         Dietary Orders, Supplements, and Preferences - `ODS <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/ODS>`_

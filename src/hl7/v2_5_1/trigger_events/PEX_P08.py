@@ -1,13 +1,13 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
 from ..segment_groups.PEX_P08_VISIT_GROUP import PEX_P08_VISIT_GROUP
-from ..segments.SFT import SFT
-from ..segments.MSH import MSH
-from ..segment_groups.PEX_P08_EXPERIENCE_GROUP import PEX_P08_EXPERIENCE_GROUP
-from ..segments.NTE import NTE
 from ..segments.PD1 import PD1
-from ..segments.PID import PID
+from ..segments.MSH import MSH
 from ..segments.EVN import EVN
+from ..segment_groups.PEX_P08_EXPERIENCE_GROUP import PEX_P08_EXPERIENCE_GROUP
+from ..segments.PID import PID
+from ..segments.NTE import NTE
+from ..segments.SFT import SFT
 
 
 """
@@ -18,7 +18,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PEX_P08
 from utils.hl7.v2_5_1.segments import (
-    PID, MSH, PD1, SFT, NTE, EVN
+    NTE, PID, SFT, EVN, MSH, PD1
 )
 from utils.hl7.v2_5_1.segment_groups import (
     PEX_P08_EXPERIENCE_GROUP, PEX_P08_VISIT_GROUP

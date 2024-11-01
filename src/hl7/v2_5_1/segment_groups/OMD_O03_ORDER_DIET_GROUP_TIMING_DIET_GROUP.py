@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.TQ2 import TQ2
 from ..segments.TQ1 import TQ1
+from ..segments.TQ2 import TQ2
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OMD_O03_ORDER_DIET_GROUP_TIMING_DIET_GROUP
 from utils.hl7.v2_5_1.segments import (
-    TQ1, TQ2
+    TQ2, TQ1
 )
 
 omd_o03_order_diet_group_timing_diet_group = OMD_O03_ORDER_DIET_GROUP_TIMING_DIET_GROUP(  # TIMING DIET - Segment group for OMD_O03_ORDER_DIET_GROUP - ORDER DIET consisting of TQ1, TQ2|None

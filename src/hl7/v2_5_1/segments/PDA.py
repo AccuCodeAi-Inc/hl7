@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TS import TS
-from ..data_types.ID import ID
-from ..data_types.PL import PL
-from ..data_types.DR import DR
-from ..data_types.XCN import XCN
 from ..data_types.CE import CE
+from ..data_types.TS import TS
+from ..data_types.XCN import XCN
+from ..data_types.PL import PL
+from ..data_types.ID import ID
+from ..data_types.DR import DR
 from ..tables.YesOrNoIndicator import YesOrNoIndicator
 
 
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PDA,
-    TS, ID, PL, DR, XCN, CE
+    CE, TS, XCN, PL, ID, DR
 )
 
 pda = PDA(  #  - This segment carries information on a patients death and possible autopsy
@@ -56,23 +56,25 @@ class PDA(HL7Segment):
 
     def __init__(
         self,
-        death_cause_code: CE | tuple[CE] | None = None,  # PDA.1
-        death_location: PL | tuple[PL] | None = None,  # PDA.2
+        death_cause_code: CE | tuple[CE, ...] | None = None,  # PDA.1
+        death_location: PL | tuple[PL, ...] | None = None,  # PDA.2
         death_certified_indicator: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # PDA.3
-        death_certificate_signed_date_or_time: TS | tuple[TS] | None = None,  # PDA.4
-        death_certified_by: XCN | tuple[XCN] | None = None,  # PDA.5
+        death_certificate_signed_date_or_time: TS
+        | tuple[TS, ...]
+        | None = None,  # PDA.4
+        death_certified_by: XCN | tuple[XCN, ...] | None = None,  # PDA.5
         autopsy_indicator: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # PDA.6
-        autopsy_start_and_end_date_or_time: DR | tuple[DR] | None = None,  # PDA.7
-        autopsy_performed_by: XCN | tuple[XCN] | None = None,  # PDA.8
+        autopsy_start_and_end_date_or_time: DR | tuple[DR, ...] | None = None,  # PDA.7
+        autopsy_performed_by: XCN | tuple[XCN, ...] | None = None,  # PDA.8
         coroner_indicator: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # PDA.9
     ):
         """

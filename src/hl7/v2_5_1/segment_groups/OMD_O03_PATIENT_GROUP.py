@@ -1,15 +1,15 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segment_groups.OMD_O03_PATIENT_GROUP_INSURANCE_GROUP import (
+    OMD_O03_PATIENT_GROUP_INSURANCE_GROUP,
+)
+from ..segments.PD1 import PD1
 from ..segments.AL1 import AL1
 from ..segments.GT1 import GT1
+from ..segments.PID import PID
 from ..segments.NTE import NTE
 from ..segment_groups.OMD_O03_PATIENT_GROUP_PATIENT_VISIT_GROUP import (
     OMD_O03_PATIENT_GROUP_PATIENT_VISIT_GROUP,
-)
-from ..segments.PD1 import PD1
-from ..segments.PID import PID
-from ..segment_groups.OMD_O03_PATIENT_GROUP_INSURANCE_GROUP import (
-    OMD_O03_PATIENT_GROUP_INSURANCE_GROUP,
 )
 
 
@@ -21,10 +21,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import OMD_O03_PATIENT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PID, PD1, AL1, GT1, NTE
+    AL1, NTE, PID, PD1, GT1
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    OMD_O03_PATIENT_GROUP_PATIENT_VISIT_GROUP, OMD_O03_PATIENT_GROUP_INSURANCE_GROUP
+    OMD_O03_PATIENT_GROUP_INSURANCE_GROUP, OMD_O03_PATIENT_GROUP_PATIENT_VISIT_GROUP
 )
 
 omd_o03_patient_group = OMD_O03_PATIENT_GROUP(  # PATIENT - Segment group for OMD_O03 - Dietary Order consisting of PID, PD1|None, NTE|None, PATIENT VISIT|None, INSURANCE|None, GT1|None, AL1|None

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.AUT import AUT
 from ..segments.CTD import CTD
+from ..segments.AUT import AUT
 
 
 """
@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RPA_I09_AUTHORIZATION_GROUP
 from utils.hl7.v2_5_1.segments import (
-    CTD, AUT
+    AUT, CTD
 )
 
 rpa_i09_authorization_group = RPA_I09_AUTHORIZATION_GROUP(  # AUTHORIZATION - Segment group for RPA_I09 - Request for modification to an authorization acknowledgement consisting of AUT, CTD|None

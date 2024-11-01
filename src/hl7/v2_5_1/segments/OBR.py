@@ -1,38 +1,38 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TQ import TQ
-from ..data_types.XTN import XTN
-from ..data_types.TS import TS
-from ..data_types.CQ import CQ
-from ..data_types.ID import ID
-from ..data_types.EIP import EIP
-from ..data_types.NM import NM
-from ..data_types.MOC import MOC
-from ..data_types.IS import IS
-from ..data_types.SPS import SPS
-from ..data_types.NDL import NDL
-from ..data_types.CWE import CWE
 from ..data_types.SI import SI
 from ..data_types.CE import CE
+from ..data_types.CQ import CQ
+from ..data_types.TS import TS
+from ..data_types.SPS import SPS
+from ..data_types.MOC import MOC
+from ..data_types.IS import IS
 from ..data_types.XCN import XCN
-from ..data_types.EI import EI
+from ..data_types.NM import NM
+from ..data_types.XTN import XTN
+from ..data_types.NDL import NDL
+from ..data_types.CWE import CWE
+from ..data_types.TQ import TQ
 from ..data_types.ST import ST
+from ..data_types.EIP import EIP
+from ..data_types.ID import ID
+from ..data_types.EI import EI
 from ..data_types.PRL import PRL
+from ..tables.TransportArranged import TransportArranged
+from ..tables.EscortRequired import EscortRequired
+from ..tables.ObservationResultHandling import ObservationResultHandling
+from ..tables.ProcedureCode import ProcedureCode
+from ..tables.ResultStatus import ResultStatus
+from ..tables.SpecimenActionCode import SpecimenActionCode
+from ..tables.ProcedureCodeModifier import ProcedureCodeModifier
 from ..tables.MedicallyNecessaryDuplicateProcedureReason import (
     MedicallyNecessaryDuplicateProcedureReason,
 )
-from ..tables.SpecimenActionCode import SpecimenActionCode
+from ..tables.TransportationMode import TransportationMode
+from ..tables.DiagnosticServiceSectionId import DiagnosticServiceSectionId
 from ..tables.SupplementalServiceInformationValues import (
     SupplementalServiceInformationValues,
 )
-from ..tables.ProcedureCode import ProcedureCode
-from ..tables.ObservationResultHandling import ObservationResultHandling
-from ..tables.EscortRequired import EscortRequired
-from ..tables.ResultStatus import ResultStatus
-from ..tables.ProcedureCodeModifier import ProcedureCodeModifier
-from ..tables.TransportationMode import TransportationMode
-from ..tables.TransportArranged import TransportArranged
-from ..tables.DiagnosticServiceSectionId import DiagnosticServiceSectionId
 
 
 """
@@ -43,7 +43,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     OBR,
-    TQ, XTN, TS, CQ, ID, EIP, NM, MOC, IS, SPS, NDL, CWE, SI, CE, XCN, EI, ST, PRL
+    SI, CE, CQ, TS, SPS, MOC, IS, XCN, NM, XTN, NDL, CWE, TQ, ST, EIP, ID, EI, PRL
 )
 
 obr = OBR(  #  - The Observation Request (OBR) segment is used to transmit information specific to an order for a diagnostic study or observation, physical exam, or assessment
@@ -123,92 +123,100 @@ class OBR(HL7Segment):
 
     def __init__(
         self,
-        universal_service_identifier: CE | tuple[CE],  # OBR.4
-        set_id_obr: SI | tuple[SI] | None = None,  # OBR.1
-        placer_order_number: EI | tuple[EI] | None = None,  # OBR.2
-        filler_order_number: EI | tuple[EI] | None = None,  # OBR.3
-        priority_obr: ID | tuple[ID] | None = None,  # OBR.5
-        requested_date_or_time: TS | tuple[TS] | None = None,  # OBR.6
-        observation_date_or_time: TS | tuple[TS] | None = None,  # OBR.7
-        observation_end_date_or_time: TS | tuple[TS] | None = None,  # OBR.8
-        collection_volume: CQ | tuple[CQ] | None = None,  # OBR.9
-        collector_identifier: XCN | tuple[XCN] | None = None,  # OBR.10
+        universal_service_identifier: CE | tuple[CE, ...],  # OBR.4
+        set_id_obr: SI | tuple[SI, ...] | None = None,  # OBR.1
+        placer_order_number: EI | tuple[EI, ...] | None = None,  # OBR.2
+        filler_order_number: EI | tuple[EI, ...] | None = None,  # OBR.3
+        priority_obr: ID | tuple[ID, ...] | None = None,  # OBR.5
+        requested_date_or_time: TS | tuple[TS, ...] | None = None,  # OBR.6
+        observation_date_or_time: TS | tuple[TS, ...] | None = None,  # OBR.7
+        observation_end_date_or_time: TS | tuple[TS, ...] | None = None,  # OBR.8
+        collection_volume: CQ | tuple[CQ, ...] | None = None,  # OBR.9
+        collector_identifier: XCN | tuple[XCN, ...] | None = None,  # OBR.10
         specimen_action_code: SpecimenActionCode
         | ID
-        | tuple[SpecimenActionCode | ID]
+        | tuple[SpecimenActionCode | ID, ...]
         | None = None,  # OBR.11
-        danger_code: CE | tuple[CE] | None = None,  # OBR.12
-        relevant_clinical_information: ST | tuple[ST] | None = None,  # OBR.13
-        specimen_received_date_or_time: TS | tuple[TS] | None = None,  # OBR.14
-        specimen_source: SPS | tuple[SPS] | None = None,  # OBR.15
-        ordering_provider: XCN | tuple[XCN] | None = None,  # OBR.16
-        order_callback_phone_number: XTN | tuple[XTN] | None = None,  # OBR.17
-        placer_field_1: ST | tuple[ST] | None = None,  # OBR.18
-        placer_field_2: ST | tuple[ST] | None = None,  # OBR.19
-        filler_field_1: ST | tuple[ST] | None = None,  # OBR.20
-        filler_field_2: ST | tuple[ST] | None = None,  # OBR.21
-        results_rpt_or_status_chng_date_or_time: TS | tuple[TS] | None = None,  # OBR.22
-        charge_to_practice: MOC | tuple[MOC] | None = None,  # OBR.23
+        danger_code: CE | tuple[CE, ...] | None = None,  # OBR.12
+        relevant_clinical_information: ST | tuple[ST, ...] | None = None,  # OBR.13
+        specimen_received_date_or_time: TS | tuple[TS, ...] | None = None,  # OBR.14
+        specimen_source: SPS | tuple[SPS, ...] | None = None,  # OBR.15
+        ordering_provider: XCN | tuple[XCN, ...] | None = None,  # OBR.16
+        order_callback_phone_number: XTN | tuple[XTN, ...] | None = None,  # OBR.17
+        placer_field_1: ST | tuple[ST, ...] | None = None,  # OBR.18
+        placer_field_2: ST | tuple[ST, ...] | None = None,  # OBR.19
+        filler_field_1: ST | tuple[ST, ...] | None = None,  # OBR.20
+        filler_field_2: ST | tuple[ST, ...] | None = None,  # OBR.21
+        results_rpt_or_status_chng_date_or_time: TS
+        | tuple[TS, ...]
+        | None = None,  # OBR.22
+        charge_to_practice: MOC | tuple[MOC, ...] | None = None,  # OBR.23
         diagnostic_serv_sect_id: DiagnosticServiceSectionId
         | ID
-        | tuple[DiagnosticServiceSectionId | ID]
+        | tuple[DiagnosticServiceSectionId | ID, ...]
         | None = None,  # OBR.24
         result_status: ResultStatus
         | ID
-        | tuple[ResultStatus | ID]
+        | tuple[ResultStatus | ID, ...]
         | None = None,  # OBR.25
-        parent_result: PRL | tuple[PRL] | None = None,  # OBR.26
-        quantity_or_timing: TQ | tuple[TQ] | None = None,  # OBR.27
-        result_copies_to: XCN | tuple[XCN] | None = None,  # OBR.28
-        parent: EIP | tuple[EIP] | None = None,  # OBR.29
+        parent_result: PRL | tuple[PRL, ...] | None = None,  # OBR.26
+        quantity_or_timing: TQ | tuple[TQ, ...] | None = None,  # OBR.27
+        result_copies_to: XCN | tuple[XCN, ...] | None = None,  # OBR.28
+        parent: EIP | tuple[EIP, ...] | None = None,  # OBR.29
         transportation_mode: TransportationMode
         | ID
-        | tuple[TransportationMode | ID]
+        | tuple[TransportationMode | ID, ...]
         | None = None,  # OBR.30
-        reason_for_study: CE | tuple[CE] | None = None,  # OBR.31
-        principal_result_interpreter: NDL | tuple[NDL] | None = None,  # OBR.32
-        assistant_result_interpreter: NDL | tuple[NDL] | None = None,  # OBR.33
-        technician: NDL | tuple[NDL] | None = None,  # OBR.34
-        transcriptionist: NDL | tuple[NDL] | None = None,  # OBR.35
-        scheduled_date_or_time: TS | tuple[TS] | None = None,  # OBR.36
-        number_of_sample_containers: NM | tuple[NM] | None = None,  # OBR.37
-        transport_logistics_of_collected_sample: CE | tuple[CE] | None = None,  # OBR.38
-        collectors_comment: CE | tuple[CE] | None = None,  # OBR.39
-        transport_arrangement_responsibility: CE | tuple[CE] | None = None,  # OBR.40
+        reason_for_study: CE | tuple[CE, ...] | None = None,  # OBR.31
+        principal_result_interpreter: NDL | tuple[NDL, ...] | None = None,  # OBR.32
+        assistant_result_interpreter: NDL | tuple[NDL, ...] | None = None,  # OBR.33
+        technician: NDL | tuple[NDL, ...] | None = None,  # OBR.34
+        transcriptionist: NDL | tuple[NDL, ...] | None = None,  # OBR.35
+        scheduled_date_or_time: TS | tuple[TS, ...] | None = None,  # OBR.36
+        number_of_sample_containers: NM | tuple[NM, ...] | None = None,  # OBR.37
+        transport_logistics_of_collected_sample: CE
+        | tuple[CE, ...]
+        | None = None,  # OBR.38
+        collectors_comment: CE | tuple[CE, ...] | None = None,  # OBR.39
+        transport_arrangement_responsibility: CE
+        | tuple[CE, ...]
+        | None = None,  # OBR.40
         transport_arranged: TransportArranged
         | ID
-        | tuple[TransportArranged | ID]
+        | tuple[TransportArranged | ID, ...]
         | None = None,  # OBR.41
         escort_required: EscortRequired
         | ID
-        | tuple[EscortRequired | ID]
+        | tuple[EscortRequired | ID, ...]
         | None = None,  # OBR.42
-        planned_patient_transport_comment: CE | tuple[CE] | None = None,  # OBR.43
+        planned_patient_transport_comment: CE | tuple[CE, ...] | None = None,  # OBR.43
         procedure_code: ProcedureCode
         | CE
-        | tuple[ProcedureCode | CE]
+        | tuple[ProcedureCode | CE, ...]
         | None = None,  # OBR.44
         procedure_code_modifier: ProcedureCodeModifier
         | CE
-        | tuple[ProcedureCodeModifier | CE]
+        | tuple[ProcedureCodeModifier | CE, ...]
         | None = None,  # OBR.45
         placer_supplemental_service_information: SupplementalServiceInformationValues
         | CE
-        | tuple[SupplementalServiceInformationValues | CE]
+        | tuple[SupplementalServiceInformationValues | CE, ...]
         | None = None,  # OBR.46
         filler_supplemental_service_information: SupplementalServiceInformationValues
         | CE
-        | tuple[SupplementalServiceInformationValues | CE]
+        | tuple[SupplementalServiceInformationValues | CE, ...]
         | None = None,  # OBR.47
         medically_necessary_duplicate_procedure_reason: MedicallyNecessaryDuplicateProcedureReason
         | CWE
-        | tuple[MedicallyNecessaryDuplicateProcedureReason | CWE]
+        | tuple[MedicallyNecessaryDuplicateProcedureReason | CWE, ...]
         | None = None,  # OBR.48
         result_handling: ObservationResultHandling
         | IS
-        | tuple[ObservationResultHandling | IS]
+        | tuple[ObservationResultHandling | IS, ...]
         | None = None,  # OBR.49
-        parent_universal_service_identifier: CWE | tuple[CWE] | None = None,  # OBR.50
+        parent_universal_service_identifier: CWE
+        | tuple[CWE, ...]
+        | None = None,  # OBR.50
     ):
         """
         Observation Request - `OBR <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/OBR>`_

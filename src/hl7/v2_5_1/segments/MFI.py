@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7Segment
+from ..data_types.TS import TS
+from ..data_types.CE import CE
 from ..data_types.ID import ID
 from ..data_types.HD import HD
-from ..data_types.CE import CE
-from ..data_types.TS import TS
 from ..tables.FileLevelEventCode import FileLevelEventCode
-from ..tables.MasterFileIdentifierCode import MasterFileIdentifierCode
 from ..tables.Application import Application
+from ..tables.MasterFileIdentifierCode import MasterFileIdentifierCode
 from ..tables.ResponseLevel import ResponseLevel
 
 
@@ -18,7 +18,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     MFI,
-    ID, HD, CE, TS
+    TS, CE, ID, HD
 )
 
 mfi = MFI(  #  - The Technical Steward for the MFI segment is CQ
@@ -56,17 +56,19 @@ class MFI(HL7Segment):
         self,
         master_file_identifier: MasterFileIdentifierCode
         | CE
-        | tuple[MasterFileIdentifierCode | CE],  # MFI.1
+        | tuple[MasterFileIdentifierCode | CE, ...],  # MFI.1
         file_level_event_code: FileLevelEventCode
         | ID
-        | tuple[FileLevelEventCode | ID],  # MFI.3
-        response_level_code: ResponseLevel | ID | tuple[ResponseLevel | ID],  # MFI.6
+        | tuple[FileLevelEventCode | ID, ...],  # MFI.3
+        response_level_code: ResponseLevel
+        | ID
+        | tuple[ResponseLevel | ID, ...],  # MFI.6
         master_file_application_identifier: Application
         | HD
-        | tuple[Application | HD]
+        | tuple[Application | HD, ...]
         | None = None,  # MFI.2
-        entered_date_or_time: TS | tuple[TS] | None = None,  # MFI.4
-        effective_date_or_time: TS | tuple[TS] | None = None,  # MFI.5
+        entered_date_or_time: TS | tuple[TS, ...] | None = None,  # MFI.4
+        effective_date_or_time: TS | tuple[TS, ...] | None = None,  # MFI.5
     ):
         """
         Master File Identification - `MFI <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/MFI>`_

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import DataType
-from .DT import DT
 from .CNE import CNE
+from .DT import DT
 from ..tables.OccurrenceSpan import OccurrenceSpan
 
 
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     OSP,
-    DT, CNE
+    CNE, DT
 )
 
 osp = OSP(  # Occurrence Span Code and Date - A code and the related dates that identify an event that relates to the payment of the claim
@@ -48,9 +48,9 @@ class OSP(DataType):
         self,
         occurrence_span_code: OccurrenceSpan
         | CNE
-        | tuple[OccurrenceSpan | CNE],  # OSP.1
-        occurrence_span_start_date: DT | tuple[DT] | None = None,  # OSP.2
-        occurrence_span_stop_date: DT | tuple[DT] | None = None,  # OSP.3
+        | tuple[OccurrenceSpan | CNE, ...],  # OSP.1
+        occurrence_span_start_date: DT | tuple[DT, ...] | None = None,  # OSP.2
+        occurrence_span_stop_date: DT | tuple[DT, ...] | None = None,  # OSP.3
     ):
         """
                Occurrence Span Code and Date - `OSP <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/OSP>`_

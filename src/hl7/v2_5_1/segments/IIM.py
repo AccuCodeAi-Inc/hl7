@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.MO import MO
+from ..data_types.CE import CE
 from ..data_types.TS import TS
 from ..data_types.NM import NM
 from ..data_types.CWE import CWE
 from ..data_types.ST import ST
-from ..data_types.CE import CE
+from ..data_types.MO import MO
 from ..tables.ProcedureCode import ProcedureCode
 from ..tables.ProcedureCodeModifier import ProcedureCodeModifier
 
@@ -18,7 +18,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     IIM,
-    MO, TS, NM, CWE, ST, CE
+    CE, TS, NM, CWE, ST, MO
 )
 
 iim = IIM(  #  - The Inventory Item Master segment (IIM) contains information about the stock of product that can be used to fulfill an ordered test/service
@@ -63,26 +63,26 @@ class IIM(HL7Segment):
 
     def __init__(
         self,
-        primary_key_value_iim: CWE | tuple[CWE],  # IIM.1
-        service_item_code: CWE | tuple[CWE],  # IIM.2
-        inventory_lot_number: ST | tuple[ST] | None = None,  # IIM.3
-        inventory_expiration_date: TS | tuple[TS] | None = None,  # IIM.4
-        inventory_manufacturer_name: CWE | tuple[CWE] | None = None,  # IIM.5
-        inventory_location: CWE | tuple[CWE] | None = None,  # IIM.6
-        inventory_received_date: TS | tuple[TS] | None = None,  # IIM.7
-        inventory_received_quantity: NM | tuple[NM] | None = None,  # IIM.8
-        inventory_received_quantity_unit: CWE | tuple[CWE] | None = None,  # IIM.9
-        inventory_received_item_cost: MO | tuple[MO] | None = None,  # IIM.10
-        inventory_on_hand_date: TS | tuple[TS] | None = None,  # IIM.11
-        inventory_on_hand_quantity: NM | tuple[NM] | None = None,  # IIM.12
-        inventory_on_hand_quantity_unit: CWE | tuple[CWE] | None = None,  # IIM.13
+        primary_key_value_iim: CWE | tuple[CWE, ...],  # IIM.1
+        service_item_code: CWE | tuple[CWE, ...],  # IIM.2
+        inventory_lot_number: ST | tuple[ST, ...] | None = None,  # IIM.3
+        inventory_expiration_date: TS | tuple[TS, ...] | None = None,  # IIM.4
+        inventory_manufacturer_name: CWE | tuple[CWE, ...] | None = None,  # IIM.5
+        inventory_location: CWE | tuple[CWE, ...] | None = None,  # IIM.6
+        inventory_received_date: TS | tuple[TS, ...] | None = None,  # IIM.7
+        inventory_received_quantity: NM | tuple[NM, ...] | None = None,  # IIM.8
+        inventory_received_quantity_unit: CWE | tuple[CWE, ...] | None = None,  # IIM.9
+        inventory_received_item_cost: MO | tuple[MO, ...] | None = None,  # IIM.10
+        inventory_on_hand_date: TS | tuple[TS, ...] | None = None,  # IIM.11
+        inventory_on_hand_quantity: NM | tuple[NM, ...] | None = None,  # IIM.12
+        inventory_on_hand_quantity_unit: CWE | tuple[CWE, ...] | None = None,  # IIM.13
         procedure_code: ProcedureCode
         | CE
-        | tuple[ProcedureCode | CE]
+        | tuple[ProcedureCode | CE, ...]
         | None = None,  # IIM.14
         procedure_code_modifier: ProcedureCodeModifier
         | CE
-        | tuple[ProcedureCodeModifier | CE]
+        | tuple[ProcedureCodeModifier | CE, ...]
         | None = None,  # IIM.15
     ):
         """

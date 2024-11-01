@@ -3,13 +3,13 @@ from ...base import HL7SegmentGroup
 from ..segment_groups.CSU_C11_PATIENT_GROUP_VISIT_GROUP import (
     CSU_C11_PATIENT_GROUP_VISIT_GROUP,
 )
+from ..segments.PD1 import PD1
 from ..segment_groups.CSU_C11_PATIENT_GROUP_STUDY_PHASE_GROUP import (
     CSU_C11_PATIENT_GROUP_STUDY_PHASE_GROUP,
 )
-from ..segments.NTE import NTE
 from ..segments.CSR import CSR
-from ..segments.PD1 import PD1
 from ..segments.PID import PID
+from ..segments.NTE import NTE
 
 
 """
@@ -20,10 +20,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import CSU_C11_PATIENT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NTE, PID, PD1, CSR
+    PD1, CSR, NTE, PID
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    CSU_C11_PATIENT_GROUP_STUDY_PHASE_GROUP, CSU_C11_PATIENT_GROUP_VISIT_GROUP
+    CSU_C11_PATIENT_GROUP_VISIT_GROUP, CSU_C11_PATIENT_GROUP_STUDY_PHASE_GROUP
 )
 
 csu_c11_patient_group = CSU_C11_PATIENT_GROUP(  # PATIENT - Segment group for CSU_C11 - Patient completes a phase of the clinical trial consisting of PID, PD1|None, NTE|None, VISIT|None, CSR, STUDY PHASE

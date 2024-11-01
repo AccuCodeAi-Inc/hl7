@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
+from ..segments.CDM import CDM
 from ..segments.PRC import PRC
 from ..segments.MFE import MFE
-from ..segments.CDM import CDM
 
 
 """
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import MFN_M04_MF_CDM_GROUP
 from utils.hl7.v2_5_1.segments import (
-    PRC, CDM, MFE
+    PRC, MFE, CDM
 )
 
 mfn_m04_mf_cdm_group = MFN_M04_MF_CDM_GROUP(  # MF CDM - Segment group for MFN_M04 - Master files notification - Charge description master file consisting of MFE, CDM, PRC|None

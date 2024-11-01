@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.XTN import XTN
-from ..data_types.XAD import XAD
-from ..data_types.NM import NM
+from ..data_types.SI import SI
 from ..data_types.DT import DT
 from ..data_types.XCN import XCN
+from ..data_types.NM import NM
+from ..data_types.XTN import XTN
+from ..data_types.XAD import XAD
 from ..data_types.ST import ST
-from ..data_types.SI import SI
 from ..data_types.EI import EI
 
 
@@ -18,7 +18,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CM0,
-    XTN, XAD, NM, DT, XCN, ST, SI, EI
+    SI, DT, XCN, NM, XTN, XAD, ST, EI
 )
 
 cm0 = CM0(  #  - The Clinical Study Master (CM0) segment contains the information about the study itself
@@ -59,17 +59,17 @@ class CM0(HL7Segment):
 
     def __init__(
         self,
-        sponsor_study_id: EI | tuple[EI],  # CM0.2
-        title_of_study: ST | tuple[ST],  # CM0.4
-        set_id_cm0: SI | tuple[SI] | None = None,  # CM0.1
-        alternate_study_id: EI | tuple[EI] | None = None,  # CM0.3
-        chairman_of_study: XCN | tuple[XCN] | None = None,  # CM0.5
-        last_irb_approval_date: DT | tuple[DT] | None = None,  # CM0.6
-        total_accrual_to_date: NM | tuple[NM] | None = None,  # CM0.7
-        last_accrual_date: DT | tuple[DT] | None = None,  # CM0.8
-        contact_for_study: XCN | tuple[XCN] | None = None,  # CM0.9
-        contacts_telephone_number: XTN | tuple[XTN] | None = None,  # CM0.10
-        contacts_address: XAD | tuple[XAD] | None = None,  # CM0.11
+        sponsor_study_id: EI | tuple[EI, ...],  # CM0.2
+        title_of_study: ST | tuple[ST, ...],  # CM0.4
+        set_id_cm0: SI | tuple[SI, ...] | None = None,  # CM0.1
+        alternate_study_id: EI | tuple[EI, ...] | None = None,  # CM0.3
+        chairman_of_study: XCN | tuple[XCN, ...] | None = None,  # CM0.5
+        last_irb_approval_date: DT | tuple[DT, ...] | None = None,  # CM0.6
+        total_accrual_to_date: NM | tuple[NM, ...] | None = None,  # CM0.7
+        last_accrual_date: DT | tuple[DT, ...] | None = None,  # CM0.8
+        contact_for_study: XCN | tuple[XCN, ...] | None = None,  # CM0.9
+        contacts_telephone_number: XTN | tuple[XTN, ...] | None = None,  # CM0.10
+        contacts_address: XAD | tuple[XAD, ...] | None = None,  # CM0.11
     ):
         """
         Clinical Study Master - `CM0 <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/CM0>`_

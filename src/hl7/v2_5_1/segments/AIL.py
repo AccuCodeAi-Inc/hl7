@@ -1,16 +1,16 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TS import TS
-from ..data_types.ID import ID
-from ..data_types.NM import NM
-from ..data_types.PL import PL
-from ..data_types.IS import IS
 from ..data_types.SI import SI
 from ..data_types.CE import CE
-from ..tables.PersonLocationType import PersonLocationType
+from ..data_types.TS import TS
+from ..data_types.IS import IS
+from ..data_types.NM import NM
+from ..data_types.PL import PL
+from ..data_types.ID import ID
 from ..tables.AllowSubstitutionCodes import AllowSubstitutionCodes
-from ..tables.FillerStatusCodes import FillerStatusCodes
 from ..tables.SegmentActionCode import SegmentActionCode
+from ..tables.PersonLocationType import PersonLocationType
+from ..tables.FillerStatusCodes import FillerStatusCodes
 
 
 """
@@ -21,7 +21,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     AIL,
-    TS, ID, NM, PL, IS, SI, CE
+    SI, CE, TS, IS, NM, PL, ID
 )
 
 ail = AIL(  #  - The AIL segment contains information about location resources (meeting rooms, operating rooms, examination rooms, or other locations) that can be scheduled
@@ -63,29 +63,29 @@ class AIL(HL7Segment):
 
     def __init__(
         self,
-        set_id_ail: SI | tuple[SI],  # AIL.1
+        set_id_ail: SI | tuple[SI, ...],  # AIL.1
         segment_action_code: SegmentActionCode
         | ID
-        | tuple[SegmentActionCode | ID]
+        | tuple[SegmentActionCode | ID, ...]
         | None = None,  # AIL.2
-        location_resource_id: PL | tuple[PL] | None = None,  # AIL.3
+        location_resource_id: PL | tuple[PL, ...] | None = None,  # AIL.3
         location_type_ail: PersonLocationType
         | CE
-        | tuple[PersonLocationType | CE]
+        | tuple[PersonLocationType | CE, ...]
         | None = None,  # AIL.4
-        location_group: CE | tuple[CE] | None = None,  # AIL.5
-        start_date_or_time: TS | tuple[TS] | None = None,  # AIL.6
-        start_date_or_time_offset: NM | tuple[NM] | None = None,  # AIL.7
-        start_date_or_time_offset_units: CE | tuple[CE] | None = None,  # AIL.8
-        duration: NM | tuple[NM] | None = None,  # AIL.9
-        duration_units: CE | tuple[CE] | None = None,  # AIL.10
+        location_group: CE | tuple[CE, ...] | None = None,  # AIL.5
+        start_date_or_time: TS | tuple[TS, ...] | None = None,  # AIL.6
+        start_date_or_time_offset: NM | tuple[NM, ...] | None = None,  # AIL.7
+        start_date_or_time_offset_units: CE | tuple[CE, ...] | None = None,  # AIL.8
+        duration: NM | tuple[NM, ...] | None = None,  # AIL.9
+        duration_units: CE | tuple[CE, ...] | None = None,  # AIL.10
         allow_substitution_code: AllowSubstitutionCodes
         | IS
-        | tuple[AllowSubstitutionCodes | IS]
+        | tuple[AllowSubstitutionCodes | IS, ...]
         | None = None,  # AIL.11
         filler_status_code: FillerStatusCodes
         | CE
-        | tuple[FillerStatusCodes | CE]
+        | tuple[FillerStatusCodes | CE, ...]
         | None = None,  # AIL.12
     ):
         """

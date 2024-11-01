@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import SIU_S16_RESOURCES_GROUP_PERSONNEL_RESOURCE_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NTE, AIP
+    AIP, NTE
 )
 
 siu_s16_resources_group_personnel_resource_group = SIU_S16_RESOURCES_GROUP_PERSONNEL_RESOURCE_GROUP(  # PERSONNEL RESOURCE - Segment group for SIU_S16_RESOURCES_GROUP - RESOURCES consisting of AIP, NTE|None

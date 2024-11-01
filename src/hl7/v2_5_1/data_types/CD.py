@@ -1,11 +1,11 @@
 from __future__ import annotations
 from ...base import DataType
+from .CSU import CSU
+from .WVS import WVS
+from .WVI import WVI
 from .NM import NM
 from .NR import NR
 from .CCP import CCP
-from .WVI import WVI
-from .WVS import WVS
-from .CSU import CSU
 
 
 """
@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CD,
-    NM, NR, CCP, WVI, WVS, CSU
+    CSU, WVS, WVI, NM, NR, CCP
 )
 
 cd = CD(  # Channel Definition - This data type is used for labeling of digital waveform data
@@ -52,12 +52,12 @@ class CD(DataType):
 
     def __init__(
         self,
-        channel_identifier: WVI | tuple[WVI] | None = None,  # CD.1
-        waveform_source: WVS | tuple[WVS] | None = None,  # CD.2
-        channel_sensitivity_or_units: CSU | tuple[CSU] | None = None,  # CD.3
-        channel_calibration_parameters: CCP | tuple[CCP] | None = None,  # CD.4
-        channel_sampling_frequency: NM | tuple[NM] | None = None,  # CD.5
-        minimum_or_maximum_data_values: NR | tuple[NR] | None = None,  # CD.6
+        channel_identifier: WVI | tuple[WVI, ...] | None = None,  # CD.1
+        waveform_source: WVS | tuple[WVS, ...] | None = None,  # CD.2
+        channel_sensitivity_or_units: CSU | tuple[CSU, ...] | None = None,  # CD.3
+        channel_calibration_parameters: CCP | tuple[CCP, ...] | None = None,  # CD.4
+        channel_sampling_frequency: NM | tuple[NM, ...] | None = None,  # CD.5
+        minimum_or_maximum_data_values: NR | tuple[NR, ...] | None = None,  # CD.6
     ):
         """
         Channel Definition - `CD <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/CD>`_

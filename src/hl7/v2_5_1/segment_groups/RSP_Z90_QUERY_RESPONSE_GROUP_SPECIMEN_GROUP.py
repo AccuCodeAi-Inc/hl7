@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RSP_Z90_QUERY_RESPONSE_GROUP_SPECIMEN_GROUP
 from utils.hl7.v2_5_1.segments import (
-    OBX, SPM
+    SPM, OBX
 )
 
 rsp_z90_query_response_group_specimen_group = RSP_Z90_QUERY_RESPONSE_GROUP_SPECIMEN_GROUP(  # SPECIMEN - Segment group for RSP_Z90_QUERY_RESPONSE_GROUP - QUERY RESPONSE consisting of SPM, OBX|None

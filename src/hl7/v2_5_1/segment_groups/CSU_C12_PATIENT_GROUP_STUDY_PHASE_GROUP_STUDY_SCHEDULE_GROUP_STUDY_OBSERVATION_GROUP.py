@@ -16,7 +16,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import CSU_C12_PATIENT_GROUP_STUDY_PHASE_GROUP_STUDY_SCHEDULE_GROUP_STUDY_OBSERVATION_GROUP
 from utils.hl7.v2_5_1.segments import (
-    OBR, OBX, ORC
+    OBR, ORC, OBX
 )
 from utils.hl7.v2_5_1.segment_groups import (
     CSU_C12_PATIENT_GROUP_STUDY_PHASE_GROUP_STUDY_SCHEDULE_GROUP_STUDY_OBSERVATION_GROUP_TIMING_QTY_GROUP

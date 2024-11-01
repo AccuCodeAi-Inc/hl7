@@ -1,25 +1,25 @@
 from __future__ import annotations
 from ...base import HL7Segment
+from ..data_types.CE import CE
 from ..data_types.PT import PT
 from ..data_types.TS import TS
-from ..data_types.ID import ID
-from ..data_types.NM import NM
-from ..data_types.MSG import MSG
-from ..data_types.ST import ST
-from ..data_types.VID import VID
-from ..data_types.CE import CE
-from ..data_types.EI import EI
 from ..data_types.HD import HD
-from ..tables.AcceptOrApplicationAcknowledgmentConditions import (
-    AcceptOrApplicationAcknowledgmentConditions,
-)
-from ..tables.CountryCode import CountryCode
-from ..tables.AlternateCharacterSets import AlternateCharacterSets
-from ..tables.Facility import Facility
+from ..data_types.VID import VID
+from ..data_types.NM import NM
+from ..data_types.ST import ST
+from ..data_types.ID import ID
+from ..data_types.EI import EI
+from ..data_types.MSG import MSG
 from ..tables.AlternateCharacterSetHandlingScheme import (
     AlternateCharacterSetHandlingScheme,
 )
 from ..tables.Application import Application
+from ..tables.AlternateCharacterSets import AlternateCharacterSets
+from ..tables.Facility import Facility
+from ..tables.CountryCode import CountryCode
+from ..tables.AcceptOrApplicationAcknowledgmentConditions import (
+    AcceptOrApplicationAcknowledgmentConditions,
+)
 
 
 """
@@ -30,7 +30,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     MSH,
-    PT, TS, ID, NM, MSG, ST, VID, CE, EI, HD
+    CE, PT, TS, HD, VID, NM, ST, ID, EI, MSG
 )
 
 msh = MSH(  #  - The MSH segment defines the intent, source, destination, and some specifics of the syntax of a message
@@ -81,48 +81,55 @@ class MSH(HL7Segment):
 
     def __init__(
         self,
-        date_or_time_of_message: TS | tuple[TS],  # MSH.7
-        message_type: MSG | tuple[MSG],  # MSH.9
-        message_control_id: ST | tuple[ST],  # MSH.10
-        processing_id: PT | tuple[PT],  # MSH.11
-        version_id: VID | tuple[VID],  # MSH.12
-        field_separator: ST | tuple[ST] = ST | tuple[ST]("|"),  # MSH.1
-        encoding_characters: ST | tuple[ST] = ST | tuple[ST]("^~\\&"),  # MSH.2
+        date_or_time_of_message: TS | tuple[TS, ...],  # MSH.7
+        message_type: MSG | tuple[MSG, ...],  # MSH.9
+        message_control_id: ST | tuple[ST, ...],  # MSH.10
+        processing_id: PT | tuple[PT, ...],  # MSH.11
+        version_id: VID | tuple[VID, ...],  # MSH.12
+        field_separator: ST | tuple[ST, ...] = ST | tuple[ST, ...]("|"),  # MSH.1
+        encoding_characters: ST | tuple[ST, ...] = ST
+        | tuple[ST, ...]("^~\\&"),  # MSH.2
         sending_application: Application
         | HD
-        | tuple[Application | HD]
+        | tuple[Application | HD, ...]
         | None = None,  # MSH.3
-        sending_facility: Facility | HD | tuple[Facility | HD] | None = None,  # MSH.4
+        sending_facility: Facility
+        | HD
+        | tuple[Facility | HD, ...]
+        | None = None,  # MSH.4
         receiving_application: Application
         | HD
-        | tuple[Application | HD]
+        | tuple[Application | HD, ...]
         | None = None,  # MSH.5
-        receiving_facility: Facility | HD | tuple[Facility | HD] | None = None,  # MSH.6
-        security: ST | tuple[ST] | None = None,  # MSH.8
-        sequence_number: NM | tuple[NM] | None = None,  # MSH.13
-        continuation_pointer: ST | tuple[ST] | None = None,  # MSH.14
+        receiving_facility: Facility
+        | HD
+        | tuple[Facility | HD, ...]
+        | None = None,  # MSH.6
+        security: ST | tuple[ST, ...] | None = None,  # MSH.8
+        sequence_number: NM | tuple[NM, ...] | None = None,  # MSH.13
+        continuation_pointer: ST | tuple[ST, ...] | None = None,  # MSH.14
         accept_acknowledgment_type: AcceptOrApplicationAcknowledgmentConditions
         | ID
-        | tuple[AcceptOrApplicationAcknowledgmentConditions | ID]
+        | tuple[AcceptOrApplicationAcknowledgmentConditions | ID, ...]
         | None = None,  # MSH.15
         application_acknowledgment_type: AcceptOrApplicationAcknowledgmentConditions
         | ID
-        | tuple[AcceptOrApplicationAcknowledgmentConditions | ID]
+        | tuple[AcceptOrApplicationAcknowledgmentConditions | ID, ...]
         | None = None,  # MSH.16
         country_code: CountryCode
         | ID
-        | tuple[CountryCode | ID]
+        | tuple[CountryCode | ID, ...]
         | None = None,  # MSH.17
         character_set: AlternateCharacterSets
         | ID
-        | tuple[AlternateCharacterSets | ID]
+        | tuple[AlternateCharacterSets | ID, ...]
         | None = None,  # MSH.18
-        principal_language_of_message: CE | tuple[CE] | None = None,  # MSH.19
+        principal_language_of_message: CE | tuple[CE, ...] | None = None,  # MSH.19
         alternate_character_set_handling_scheme: AlternateCharacterSetHandlingScheme
         | ID
-        | tuple[AlternateCharacterSetHandlingScheme | ID]
+        | tuple[AlternateCharacterSetHandlingScheme | ID, ...]
         | None = None,  # MSH.20
-        message_profile_identifier: EI | tuple[EI] | None = None,  # MSH.21
+        message_profile_identifier: EI | tuple[EI, ...] | None = None,  # MSH.21
     ):
         """
         Message Header - `MSH <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/MSH>`_

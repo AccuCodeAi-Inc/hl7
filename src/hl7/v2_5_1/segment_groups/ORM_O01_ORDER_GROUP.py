@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.BLG import BLG
-from ..segments.ORC import ORC
-from ..segments.FT1 import FT1
 from ..segments.CTI import CTI
+from ..segments.BLG import BLG
+from ..segments.FT1 import FT1
 from ..segment_groups.ORM_O01_ORDER_GROUP_ORDER_DETAIL_GROUP import (
     ORM_O01_ORDER_GROUP_ORDER_DETAIL_GROUP,
 )
+from ..segments.ORC import ORC
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import ORM_O01_ORDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    FT1, BLG, CTI, ORC
+    FT1, CTI, ORC, BLG
 )
 from utils.hl7.v2_5_1.segment_groups import (
     ORM_O01_ORDER_GROUP_ORDER_DETAIL_GROUP

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import DataType
-from .ID import ID
 from .TS import TS
+from .ID import ID
 from ..tables.InvocationEvent import InvocationEvent
 
 
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     CCD,
-    ID, TS
+    TS, ID
 )
 
 ccd = CCD(  # Charge Code and Date - Specifies whether a charge action is based on an invocation event or is time-based
@@ -45,8 +45,10 @@ class CCD(DataType):
 
     def __init__(
         self,
-        invocation_event: InvocationEvent | ID | tuple[InvocationEvent | ID],  # CCD.1
-        date_or_time: TS | tuple[TS] | None = None,  # CCD.2
+        invocation_event: InvocationEvent
+        | ID
+        | tuple[InvocationEvent | ID, ...],  # CCD.1
+        date_or_time: TS | tuple[TS, ...] | None = None,  # CCD.2
     ):
         """
         Charge Code and Date - `CCD <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/CCD>`_

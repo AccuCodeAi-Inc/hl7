@@ -1,26 +1,26 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.AL1 import AL1
-from ..segment_groups.REF_I13_PATIENT_VISIT_GROUP import REF_I13_PATIENT_VISIT_GROUP
+from ..segments.DRG import DRG
+from ..segments.NTE import NTE
 from ..segment_groups.REF_I13_INSURANCE_GROUP import REF_I13_INSURANCE_GROUP
-from ..segments.DG1 import DG1
-from ..segments.SFT import SFT
+from ..segment_groups.REF_I13_OBSERVATION_GROUP import REF_I13_OBSERVATION_GROUP
+from ..segments.ACC import ACC
+from ..segments.NK1 import NK1
+from ..segment_groups.REF_I13_PATIENT_VISIT_GROUP import REF_I13_PATIENT_VISIT_GROUP
 from ..segments.MSH import MSH
+from ..segments.AL1 import AL1
+from ..segment_groups.REF_I13_PROCEDURE_GROUP import REF_I13_PROCEDURE_GROUP
 from ..segments.RF1 import RF1
 from ..segments.GT1 import GT1
-from ..segments.NTE import NTE
-from ..segment_groups.REF_I13_PROCEDURE_GROUP import REF_I13_PROCEDURE_GROUP
-from ..segment_groups.REF_I13_AUTHORIZATION_CONTACT_GROUP import (
-    REF_I13_AUTHORIZATION_CONTACT_GROUP,
-)
-from ..segments.PID import PID
-from ..segments.NK1 import NK1
 from ..segment_groups.REF_I13_PROVIDER_CONTACT_GROUP import (
     REF_I13_PROVIDER_CONTACT_GROUP,
 )
-from ..segments.ACC import ACC
-from ..segment_groups.REF_I13_OBSERVATION_GROUP import REF_I13_OBSERVATION_GROUP
-from ..segments.DRG import DRG
+from ..segments.PID import PID
+from ..segments.DG1 import DG1
+from ..segment_groups.REF_I13_AUTHORIZATION_CONTACT_GROUP import (
+    REF_I13_AUTHORIZATION_CONTACT_GROUP,
+)
+from ..segments.SFT import SFT
 
 
 """
@@ -31,10 +31,10 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import REF_I13
 from utils.hl7.v2_5_1.segments import (
-    RF1, MSH, PID, AL1, NK1, DG1, SFT, GT1, ACC, NTE, DRG
+    NK1, DG1, ACC, AL1, NTE, PID, SFT, MSH, RF1, DRG, GT1
 )
 from utils.hl7.v2_5_1.segment_groups import (
-    REF_I13_OBSERVATION_GROUP, REF_I13_PROCEDURE_GROUP, REF_I13_AUTHORIZATION_CONTACT_GROUP, REF_I13_PATIENT_VISIT_GROUP, REF_I13_INSURANCE_GROUP, REF_I13_PROVIDER_CONTACT_GROUP
+    REF_I13_AUTHORIZATION_CONTACT_GROUP, REF_I13_PROVIDER_CONTACT_GROUP, REF_I13_OBSERVATION_GROUP, REF_I13_PATIENT_VISIT_GROUP, REF_I13_INSURANCE_GROUP, REF_I13_PROCEDURE_GROUP
 )
 
 ref_i13 = REF_I13(  #  - This event triggers a message to be sent from one healthcare provider to another regarding changes to an existing referral

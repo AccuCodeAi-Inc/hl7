@@ -1,18 +1,18 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TS import TS
-from ..data_types.ID import ID
-from ..data_types.NM import NM
-from ..data_types.PL import PL
-from ..data_types.CWE import CWE
 from ..data_types.SI import SI
 from ..data_types.CE import CE
+from ..data_types.TS import TS
+from ..data_types.NM import NM
 from ..data_types.XAD import XAD
-from ..tables.YesOrNoIndicator import YesOrNoIndicator
-from ..tables.IndicationForUse import IndicationForUse
+from ..data_types.PL import PL
+from ..data_types.CWE import CWE
+from ..data_types.ID import ID
 from ..tables.BloodProductProcessingRequirements import (
     BloodProductProcessingRequirements,
 )
+from ..tables.IndicationForUse import IndicationForUse
+from ..tables.YesOrNoIndicator import YesOrNoIndicator
 
 
 """
@@ -23,7 +23,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     BPO,
-    TS, ID, NM, PL, CWE, SI, CE, XAD
+    SI, CE, TS, NM, XAD, PL, CWE, ID
 )
 
 bpo = BPO(  #  - Blood product order messages require additional information that is not available in other standard HL7 order messages
@@ -67,28 +67,28 @@ class BPO(HL7Segment):
 
     def __init__(
         self,
-        set_id_bpo: SI | tuple[SI],  # BPO.1
-        bp_universal_service_id: CWE | tuple[CWE],  # BPO.2
-        bp_quantity: NM | tuple[NM],  # BPO.4
+        set_id_bpo: SI | tuple[SI, ...],  # BPO.1
+        bp_universal_service_id: CWE | tuple[CWE, ...],  # BPO.2
+        bp_quantity: NM | tuple[NM, ...],  # BPO.4
         bp_processing_requirements: BloodProductProcessingRequirements
         | CWE
-        | tuple[BloodProductProcessingRequirements | CWE]
+        | tuple[BloodProductProcessingRequirements | CWE, ...]
         | None = None,  # BPO.3
-        bp_amount: NM | tuple[NM] | None = None,  # BPO.5
-        bp_units: CE | tuple[CE] | None = None,  # BPO.6
-        bp_intended_use_date_or_time: TS | tuple[TS] | None = None,  # BPO.7
-        bp_intended_dispense_from_location: PL | tuple[PL] | None = None,  # BPO.8
-        bp_intended_dispense_from_address: XAD | tuple[XAD] | None = None,  # BPO.9
-        bp_requested_dispense_date_or_time: TS | tuple[TS] | None = None,  # BPO.10
-        bp_requested_dispense_to_location: PL | tuple[PL] | None = None,  # BPO.11
-        bp_requested_dispense_to_address: XAD | tuple[XAD] | None = None,  # BPO.12
+        bp_amount: NM | tuple[NM, ...] | None = None,  # BPO.5
+        bp_units: CE | tuple[CE, ...] | None = None,  # BPO.6
+        bp_intended_use_date_or_time: TS | tuple[TS, ...] | None = None,  # BPO.7
+        bp_intended_dispense_from_location: PL | tuple[PL, ...] | None = None,  # BPO.8
+        bp_intended_dispense_from_address: XAD | tuple[XAD, ...] | None = None,  # BPO.9
+        bp_requested_dispense_date_or_time: TS | tuple[TS, ...] | None = None,  # BPO.10
+        bp_requested_dispense_to_location: PL | tuple[PL, ...] | None = None,  # BPO.11
+        bp_requested_dispense_to_address: XAD | tuple[XAD, ...] | None = None,  # BPO.12
         bp_indication_for_use: IndicationForUse
         | CWE
-        | tuple[IndicationForUse | CWE]
+        | tuple[IndicationForUse | CWE, ...]
         | None = None,  # BPO.13
         bp_informed_consent_indicator: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # BPO.14
     ):
         """

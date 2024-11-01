@@ -1,22 +1,22 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.XAD import XAD
-from ..data_types.TS import TS
-from ..data_types.CQ import CQ
-from ..data_types.ID import ID
-from ..data_types.NM import NM
-from ..data_types.CWE import CWE
-from ..data_types.XCN import XCN
-from ..data_types.ST import ST
 from ..data_types.CE import CE
+from ..data_types.CQ import CQ
 from ..data_types.LA2 import LA2
-from ..tables.PharmacyOrderTypes import PharmacyOrderTypes
-from ..tables.DispenseType import DispenseType
-from ..tables.DispenseMethod import DispenseMethod
+from ..data_types.TS import TS
+from ..data_types.XCN import XCN
+from ..data_types.NM import NM
+from ..data_types.XAD import XAD
+from ..data_types.CWE import CWE
+from ..data_types.ST import ST
+from ..data_types.ID import ID
+from ..tables.SubstitutionStatus import SubstitutionStatus
 from ..tables.VaccinesAdministered import VaccinesAdministered
+from ..tables.DispenseMethod import DispenseMethod
 from ..tables.YesOrNoIndicator import YesOrNoIndicator
 from ..tables.ManufacturersOfVaccines import ManufacturersOfVaccines
-from ..tables.SubstitutionStatus import SubstitutionStatus
+from ..tables.PharmacyOrderTypes import PharmacyOrderTypes
+from ..tables.DispenseType import DispenseType
 
 
 """
@@ -27,7 +27,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RXD,
-    XAD, TS, CQ, ID, NM, CWE, XCN, ST, CE, LA2
+    CE, CQ, LA2, TS, XCN, NM, XAD, CWE, ST, ID
 )
 
 rxd = RXD(  #  - 
@@ -90,60 +90,62 @@ class RXD(HL7Segment):
 
     def __init__(
         self,
-        dispense_sub_id_counter: NM | tuple[NM],  # RXD.1
+        dispense_sub_id_counter: NM | tuple[NM, ...],  # RXD.1
         dispense_or_give_code: VaccinesAdministered
         | CE
-        | tuple[VaccinesAdministered | CE],  # RXD.2
-        date_or_time_dispensed: TS | tuple[TS],  # RXD.3
-        actual_dispense_amount: NM | tuple[NM],  # RXD.4
-        prescription_number: ST | tuple[ST],  # RXD.7
-        actual_dispense_units: CE | tuple[CE] | None = None,  # RXD.5
-        actual_dosage_form: CE | tuple[CE] | None = None,  # RXD.6
-        number_of_refills_remaining: NM | tuple[NM] | None = None,  # RXD.8
-        dispense_notes: ST | tuple[ST] | None = None,  # RXD.9
-        dispensing_provider: XCN | tuple[XCN] | None = None,  # RXD.10
+        | tuple[VaccinesAdministered | CE, ...],  # RXD.2
+        date_or_time_dispensed: TS | tuple[TS, ...],  # RXD.3
+        actual_dispense_amount: NM | tuple[NM, ...],  # RXD.4
+        prescription_number: ST | tuple[ST, ...],  # RXD.7
+        actual_dispense_units: CE | tuple[CE, ...] | None = None,  # RXD.5
+        actual_dosage_form: CE | tuple[CE, ...] | None = None,  # RXD.6
+        number_of_refills_remaining: NM | tuple[NM, ...] | None = None,  # RXD.8
+        dispense_notes: ST | tuple[ST, ...] | None = None,  # RXD.9
+        dispensing_provider: XCN | tuple[XCN, ...] | None = None,  # RXD.10
         substitution_status: SubstitutionStatus
         | ID
-        | tuple[SubstitutionStatus | ID]
+        | tuple[SubstitutionStatus | ID, ...]
         | None = None,  # RXD.11
-        total_daily_dose: CQ | tuple[CQ] | None = None,  # RXD.12
-        dispense_to_location: LA2 | tuple[LA2] | None = None,  # RXD.13
+        total_daily_dose: CQ | tuple[CQ, ...] | None = None,  # RXD.12
+        dispense_to_location: LA2 | tuple[LA2, ...] | None = None,  # RXD.13
         needs_human_review: YesOrNoIndicator
         | ID
-        | tuple[YesOrNoIndicator | ID]
+        | tuple[YesOrNoIndicator | ID, ...]
         | None = None,  # RXD.14
         pharmacy_or_treatment_suppliers_special_dispensing_instructions: CE
-        | tuple[CE]
+        | tuple[CE, ...]
         | None = None,  # RXD.15
-        actual_strength: NM | tuple[NM] | None = None,  # RXD.16
-        actual_strength_unit: CE | tuple[CE] | None = None,  # RXD.17
-        substance_lot_number: ST | tuple[ST] | None = None,  # RXD.18
-        substance_expiration_date: TS | tuple[TS] | None = None,  # RXD.19
+        actual_strength: NM | tuple[NM, ...] | None = None,  # RXD.16
+        actual_strength_unit: CE | tuple[CE, ...] | None = None,  # RXD.17
+        substance_lot_number: ST | tuple[ST, ...] | None = None,  # RXD.18
+        substance_expiration_date: TS | tuple[TS, ...] | None = None,  # RXD.19
         substance_manufacturer_name: ManufacturersOfVaccines
         | CE
-        | tuple[ManufacturersOfVaccines | CE]
+        | tuple[ManufacturersOfVaccines | CE, ...]
         | None = None,  # RXD.20
-        indication: CE | tuple[CE] | None = None,  # RXD.21
-        dispense_package_size: NM | tuple[NM] | None = None,  # RXD.22
-        dispense_package_size_unit: CE | tuple[CE] | None = None,  # RXD.23
+        indication: CE | tuple[CE, ...] | None = None,  # RXD.21
+        dispense_package_size: NM | tuple[NM, ...] | None = None,  # RXD.22
+        dispense_package_size_unit: CE | tuple[CE, ...] | None = None,  # RXD.23
         dispense_package_method: DispenseMethod
         | ID
-        | tuple[DispenseMethod | ID]
+        | tuple[DispenseMethod | ID, ...]
         | None = None,  # RXD.24
-        supplementary_code: CE | tuple[CE] | None = None,  # RXD.25
-        initiating_location: CE | tuple[CE] | None = None,  # RXD.26
-        packaging_or_assembly_location: CE | tuple[CE] | None = None,  # RXD.27
-        actual_drug_strength_volume: NM | tuple[NM] | None = None,  # RXD.28
-        actual_drug_strength_volume_units: CWE | tuple[CWE] | None = None,  # RXD.29
-        dispense_to_pharmacy: CWE | tuple[CWE] | None = None,  # RXD.30
-        dispense_to_pharmacy_address: XAD | tuple[XAD] | None = None,  # RXD.31
+        supplementary_code: CE | tuple[CE, ...] | None = None,  # RXD.25
+        initiating_location: CE | tuple[CE, ...] | None = None,  # RXD.26
+        packaging_or_assembly_location: CE | tuple[CE, ...] | None = None,  # RXD.27
+        actual_drug_strength_volume: NM | tuple[NM, ...] | None = None,  # RXD.28
+        actual_drug_strength_volume_units: CWE
+        | tuple[CWE, ...]
+        | None = None,  # RXD.29
+        dispense_to_pharmacy: CWE | tuple[CWE, ...] | None = None,  # RXD.30
+        dispense_to_pharmacy_address: XAD | tuple[XAD, ...] | None = None,  # RXD.31
         pharmacy_order_type: PharmacyOrderTypes
         | ID
-        | tuple[PharmacyOrderTypes | ID]
+        | tuple[PharmacyOrderTypes | ID, ...]
         | None = None,  # RXD.32
         dispense_type: DispenseType
         | CWE
-        | tuple[DispenseType | CWE]
+        | tuple[DispenseType | CWE, ...]
         | None = None,  # RXD.33
     ):
         """

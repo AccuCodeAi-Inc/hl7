@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import DataType
+from .ST import ST
 from .IS import IS
 from .DT import DT
-from .ST import ST
 from ..tables.PractitionerIdNumberType import PractitionerIdNumberType
 
 
@@ -14,7 +14,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     PLN,
-    IS, DT, ST
+    ST, IS, DT
 )
 
 pln = PLN(  # Practitioner License or Other ID Number - This data type specifies a practitioners license number, or other ID number such as UPIN, Medicare and Medicaid number, and associated detail
@@ -48,12 +48,14 @@ class PLN(DataType):
 
     def __init__(
         self,
-        id_number: ST | tuple[ST],  # PLN.1
+        id_number: ST | tuple[ST, ...],  # PLN.1
         type_of_id_number: PractitionerIdNumberType
         | IS
-        | tuple[PractitionerIdNumberType | IS],  # PLN.2
-        state_or_other_qualifying_information: ST | tuple[ST] | None = None,  # PLN.3
-        expiration_date: DT | tuple[DT] | None = None,  # PLN.4
+        | tuple[PractitionerIdNumberType | IS, ...],  # PLN.2
+        state_or_other_qualifying_information: ST
+        | tuple[ST, ...]
+        | None = None,  # PLN.3
+        expiration_date: DT | tuple[DT, ...] | None = None,  # PLN.4
     ):
         """
         Practitioner License or Other ID Number - `PLN <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/PLN>`_

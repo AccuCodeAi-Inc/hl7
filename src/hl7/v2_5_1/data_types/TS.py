@@ -45,10 +45,10 @@ class TS(DataType):
 
     def __init__(
         self,
-        time: DTM | tuple[DTM],  # TS.1
+        time: DTM | tuple[DTM, ...],  # TS.1
         degree_of_precision: Precision
         | ID
-        | tuple[Precision | ID]
+        | tuple[Precision | ID, ...]
         | None = None,  # TS.2
     ):
         """

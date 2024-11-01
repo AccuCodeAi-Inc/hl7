@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.APR import APR
 from ..segments.NTE import NTE
 from ..segments.AIL import AIL
+from ..segments.APR import APR
 
 
 """

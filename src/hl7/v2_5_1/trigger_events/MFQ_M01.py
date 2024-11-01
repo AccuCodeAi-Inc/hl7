@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.DSC import DSC
-from ..segments.QRF import QRF
-from ..segments.SFT import SFT
 from ..segments.MSH import MSH
 from ..segments.QRD import QRD
+from ..segments.QRF import QRF
+from ..segments.DSC import DSC
+from ..segments.SFT import SFT
 
 
 """
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import MFQ_M01
 from utils.hl7.v2_5_1.segments import (
-    MSH, QRD, SFT, QRF, DSC
+    QRD, SFT, QRF, DSC, MSH
 )
 
 mfq_m01 = MFQ_M01(  #  - The MFQ transaction allows a system to query for a particular record or group records (defined by the primary key) in a particular master file

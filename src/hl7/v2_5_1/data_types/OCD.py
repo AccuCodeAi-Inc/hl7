@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import DataType
-from .DT import DT
 from .CNE import CNE
+from .DT import DT
 from ..tables.OccurrenceCode import OccurrenceCode
 
 
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     OCD,
-    DT, CNE
+    CNE, DT
 )
 
 ocd = OCD(  # Occurrence Code and Date - The code and associated date defining a significant event relating to a bill that may affect payer processing
@@ -45,8 +45,10 @@ class OCD(DataType):
 
     def __init__(
         self,
-        occurrence_code: OccurrenceCode | CNE | tuple[OccurrenceCode | CNE],  # OCD.1
-        occurrence_date: DT | tuple[DT],  # OCD.2
+        occurrence_code: OccurrenceCode
+        | CNE
+        | tuple[OccurrenceCode | CNE, ...],  # OCD.1
+        occurrence_date: DT | tuple[DT, ...],  # OCD.2
     ):
         """
                 Occurrence Code and Date - `OCD <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/OCD>`_

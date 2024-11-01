@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ...base import DataType
-from .IS import IS
 from .TS import TS
+from .IS import IS
 from ..tables.FinancialClass import FinancialClass
 
 
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     FC,
-    IS, TS
+    TS, IS
 )
 
 fc = FC(  # Financial Class - 
@@ -45,8 +45,10 @@ class FC(DataType):
 
     def __init__(
         self,
-        financial_class_code: FinancialClass | IS | tuple[FinancialClass | IS],  # FC.1
-        effective_date: TS | tuple[TS] | None = None,  # FC.2
+        financial_class_code: FinancialClass
+        | IS
+        | tuple[FinancialClass | IS, ...],  # FC.1
+        effective_date: TS | tuple[TS, ...] | None = None,  # FC.2
     ):
         """
         Financial Class - `FC <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/FC>`_

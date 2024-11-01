@@ -1,23 +1,23 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.XAD import XAD
-from ..data_types.TS import TS
-from ..data_types.ID import ID
-from ..data_types.NM import NM
-from ..data_types.VARIES import VARIES
-from ..data_types.IS import IS
-from ..data_types.EI import EI
-from ..data_types.ST import ST
 from ..data_types.SI import SI
 from ..data_types.CE import CE
+from ..data_types.TS import TS
+from ..data_types.IS import IS
 from ..data_types.XCN import XCN
+from ..data_types.NM import NM
+from ..data_types.XAD import XAD
+from ..data_types.VARIES import VARIES
 from ..data_types.XON import XON
+from ..data_types.ST import ST
+from ..data_types.ID import ID
+from ..data_types.EI import EI
 from ..tables.NatureOfAbnormalTesting import NatureOfAbnormalTesting
 from ..tables.ObservationResultStatusCodesInterpretation import (
     ObservationResultStatusCodesInterpretation,
 )
-from ..tables.ValueType import ValueType
 from ..tables.AbnormalFlags import AbnormalFlags
+from ..tables.ValueType import ValueType
 
 
 """
@@ -28,7 +28,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     OBX,
-    XAD, TS, ID, NM, VARIES, IS, EI, ST, SI, CE, XCN, XON
+    SI, CE, TS, IS, XCN, NM, XAD, VARIES, XON, ST, ID, EI
 )
 
 obx = OBX(  #  - The OBX segment is used to transmit a single observation or observation fragment
@@ -83,40 +83,46 @@ class OBX(HL7Segment):
 
     def __init__(
         self,
-        observation_identifier: CE | tuple[CE],  # OBX.3
+        observation_identifier: CE | tuple[CE, ...],  # OBX.3
         observation_result_status: ObservationResultStatusCodesInterpretation
         | ID
-        | tuple[ObservationResultStatusCodesInterpretation | ID],  # OBX.11
-        set_id_obx: SI | tuple[SI] | None = None,  # OBX.1
-        value_type: ValueType | ID | tuple[ValueType | ID] | None = None,  # OBX.2
-        observation_sub_id: ST | tuple[ST] | None = None,  # OBX.4
-        observation_value: VARIES | tuple[VARIES] | None = None,  # OBX.5
-        units: CE | tuple[CE] | None = None,  # OBX.6
-        references_range: ST | tuple[ST] | None = None,  # OBX.7
+        | tuple[ObservationResultStatusCodesInterpretation | ID, ...],  # OBX.11
+        set_id_obx: SI | tuple[SI, ...] | None = None,  # OBX.1
+        value_type: ValueType | ID | tuple[ValueType | ID, ...] | None = None,  # OBX.2
+        observation_sub_id: ST | tuple[ST, ...] | None = None,  # OBX.4
+        observation_value: VARIES | tuple[VARIES, ...] | None = None,  # OBX.5
+        units: CE | tuple[CE, ...] | None = None,  # OBX.6
+        references_range: ST | tuple[ST, ...] | None = None,  # OBX.7
         abnormal_flags: AbnormalFlags
         | IS
-        | tuple[AbnormalFlags | IS]
+        | tuple[AbnormalFlags | IS, ...]
         | None = None,  # OBX.8
-        probability: NM | tuple[NM] | None = None,  # OBX.9
+        probability: NM | tuple[NM, ...] | None = None,  # OBX.9
         nature_of_abnormal_test: NatureOfAbnormalTesting
         | ID
-        | tuple[NatureOfAbnormalTesting | ID]
+        | tuple[NatureOfAbnormalTesting | ID, ...]
         | None = None,  # OBX.10
-        effective_date_of_reference_range: TS | tuple[TS] | None = None,  # OBX.12
-        user_defined_access_checks: ST | tuple[ST] | None = None,  # OBX.13
-        date_or_time_of_the_observation: TS | tuple[TS] | None = None,  # OBX.14
-        producers_id: CE | tuple[CE] | None = None,  # OBX.15
-        responsible_observer: XCN | tuple[XCN] | None = None,  # OBX.16
-        observation_method: CE | tuple[CE] | None = None,  # OBX.17
-        equipment_instance_identifier: EI | tuple[EI] | None = None,  # OBX.18
-        date_or_time_of_the_analysis: TS | tuple[TS] | None = None,  # OBX.19
-        reserved_for_harmonization_with_v2_6: ST | tuple[ST] | None = None,  # OBX.20
-        reserved_for_harmonization_with_v2_6_20: ST | tuple[ST] | None = None,  # OBX.21
-        reserved_for_harmonization_with_v2_6_21: ST | tuple[ST] | None = None,  # OBX.22
-        performing_organization_name: XON | tuple[XON] | None = None,  # OBX.23
-        performing_organization_address: XAD | tuple[XAD] | None = None,  # OBX.24
+        effective_date_of_reference_range: TS | tuple[TS, ...] | None = None,  # OBX.12
+        user_defined_access_checks: ST | tuple[ST, ...] | None = None,  # OBX.13
+        date_or_time_of_the_observation: TS | tuple[TS, ...] | None = None,  # OBX.14
+        producers_id: CE | tuple[CE, ...] | None = None,  # OBX.15
+        responsible_observer: XCN | tuple[XCN, ...] | None = None,  # OBX.16
+        observation_method: CE | tuple[CE, ...] | None = None,  # OBX.17
+        equipment_instance_identifier: EI | tuple[EI, ...] | None = None,  # OBX.18
+        date_or_time_of_the_analysis: TS | tuple[TS, ...] | None = None,  # OBX.19
+        reserved_for_harmonization_with_v2_6: ST
+        | tuple[ST, ...]
+        | None = None,  # OBX.20
+        reserved_for_harmonization_with_v2_6_20: ST
+        | tuple[ST, ...]
+        | None = None,  # OBX.21
+        reserved_for_harmonization_with_v2_6_21: ST
+        | tuple[ST, ...]
+        | None = None,  # OBX.22
+        performing_organization_name: XON | tuple[XON, ...] | None = None,  # OBX.23
+        performing_organization_address: XAD | tuple[XAD, ...] | None = None,  # OBX.24
         performing_organization_medical_director: XCN
-        | tuple[XCN]
+        | tuple[XCN, ...]
         | None = None,  # OBX.25
     ):
         """

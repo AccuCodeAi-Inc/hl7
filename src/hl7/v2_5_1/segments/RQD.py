@@ -1,10 +1,10 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.NM import NM
-from ..data_types.IS import IS
-from ..data_types.DT import DT
 from ..data_types.SI import SI
 from ..data_types.CE import CE
+from ..data_types.DT import DT
+from ..data_types.IS import IS
+from ..data_types.NM import NM
 from ..tables.ItemNaturalAccountCode import ItemNaturalAccountCode
 from ..tables.DepartmentCostCenter import DepartmentCostCenter
 
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     RQD,
-    NM, IS, DT, SI, CE
+    SI, CE, DT, IS, NM
 )
 
 rqd = RQD(  #  - RQD contains the detail for each requisitioned item
@@ -57,22 +57,22 @@ class RQD(HL7Segment):
 
     def __init__(
         self,
-        requisition_line_number: SI | tuple[SI] | None = None,  # RQD.1
-        item_code_internal: CE | tuple[CE] | None = None,  # RQD.2
-        item_code_external: CE | tuple[CE] | None = None,  # RQD.3
-        hospital_item_code: CE | tuple[CE] | None = None,  # RQD.4
-        requisition_quantity: NM | tuple[NM] | None = None,  # RQD.5
-        requisition_unit_of_measure: CE | tuple[CE] | None = None,  # RQD.6
+        requisition_line_number: SI | tuple[SI, ...] | None = None,  # RQD.1
+        item_code_internal: CE | tuple[CE, ...] | None = None,  # RQD.2
+        item_code_external: CE | tuple[CE, ...] | None = None,  # RQD.3
+        hospital_item_code: CE | tuple[CE, ...] | None = None,  # RQD.4
+        requisition_quantity: NM | tuple[NM, ...] | None = None,  # RQD.5
+        requisition_unit_of_measure: CE | tuple[CE, ...] | None = None,  # RQD.6
         dept_cost_center: DepartmentCostCenter
         | IS
-        | tuple[DepartmentCostCenter | IS]
+        | tuple[DepartmentCostCenter | IS, ...]
         | None = None,  # RQD.7
         item_natural_account_code: ItemNaturalAccountCode
         | IS
-        | tuple[ItemNaturalAccountCode | IS]
+        | tuple[ItemNaturalAccountCode | IS, ...]
         | None = None,  # RQD.8
-        deliver_to_id: CE | tuple[CE] | None = None,  # RQD.9
-        date_needed: DT | tuple[DT] | None = None,  # RQD.10
+        deliver_to_id: CE | tuple[CE, ...] | None = None,  # RQD.9
+        date_needed: DT | tuple[DT, ...] | None = None,  # RQD.10
     ):
         """
         Requisition Detail - `RQD <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/RQD>`_

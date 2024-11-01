@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7Segment
-from ..data_types.TS import TS
 from ..data_types.CE import CE
-from ..data_types.ST import ST
+from ..data_types.TS import TS
 from ..data_types.XCN import XCN
+from ..data_types.ST import ST
 from ..data_types.EI import EI
 
 
@@ -15,7 +15,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.data_type import (
     VAR,
-    TS, CE, ST, XCN, EI
+    CE, TS, XCN, ST, EI
 )
 
 var = VAR(  #  - The variance segment contains the data necessary to describe differences that may have occurred at the time when a healthcare event was documented
@@ -51,12 +51,12 @@ class VAR(HL7Segment):
 
     def __init__(
         self,
-        variance_instance_id: EI | tuple[EI],  # VAR.1
-        documented_date_or_time: TS | tuple[TS],  # VAR.2
-        stated_variance_date_or_time: TS | tuple[TS] | None = None,  # VAR.3
-        variance_originator: XCN | tuple[XCN] | None = None,  # VAR.4
-        variance_classification: CE | tuple[CE] | None = None,  # VAR.5
-        variance_description: ST | tuple[ST] | None = None,  # VAR.6
+        variance_instance_id: EI | tuple[EI, ...],  # VAR.1
+        documented_date_or_time: TS | tuple[TS, ...],  # VAR.2
+        stated_variance_date_or_time: TS | tuple[TS, ...] | None = None,  # VAR.3
+        variance_originator: XCN | tuple[XCN, ...] | None = None,  # VAR.4
+        variance_classification: CE | tuple[CE, ...] | None = None,  # VAR.5
+        variance_description: ST | tuple[ST, ...] | None = None,  # VAR.6
     ):
         """
         Variance - `VAR <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/VAR>`_

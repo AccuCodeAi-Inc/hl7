@@ -51,16 +51,16 @@ class NA(DataType):
 
     def __init__(
         self,
-        value1: NM | tuple[NM],  # NA.1
-        value2: NM | tuple[NM] | None = None,  # NA.2
-        value3: NM | tuple[NM] | None = None,  # NA.3
-        value4: NM | tuple[NM] | None = None,  # NA.4
-        value5: NM | tuple[NM] | None = None,  # NA.5
-        value6: NM | tuple[NM] | None = None,  # NA.6
-        value7: NM | tuple[NM] | None = None,  # NA.7
-        value8: NM | tuple[NM] | None = None,  # NA.8
-        value9: NM | tuple[NM] | None = None,  # NA.9
-        value10: NM | tuple[NM] | None = None,  # NA.10
+        value1: NM | tuple[NM, ...],  # NA.1
+        value2: NM | tuple[NM, ...] | None = None,  # NA.2
+        value3: NM | tuple[NM, ...] | None = None,  # NA.3
+        value4: NM | tuple[NM, ...] | None = None,  # NA.4
+        value5: NM | tuple[NM, ...] | None = None,  # NA.5
+        value6: NM | tuple[NM, ...] | None = None,  # NA.6
+        value7: NM | tuple[NM, ...] | None = None,  # NA.7
+        value8: NM | tuple[NM, ...] | None = None,  # NA.8
+        value9: NM | tuple[NM, ...] | None = None,  # NA.9
+        value10: NM | tuple[NM, ...] | None = None,  # NA.10
     ):
         """
                 Numeric Array - `NA <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/NA>`_

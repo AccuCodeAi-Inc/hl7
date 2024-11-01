@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import RQA_I08_PROVIDER_GROUP
 from utils.hl7.v2_5_1.segments import (
-    CTD, PRD
+    PRD, CTD
 )
 
 rqa_i08_provider_group = RQA_I08_PROVIDER_GROUP(  # PROVIDER - Segment group for RQA_I08 - Request for treatment authorization information consisting of PRD, CTD|None

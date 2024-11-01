@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import PPV_PCA_PATIENT_GROUP_GOAL_GROUP_GOAL_PATHWAY_GROUP
 from utils.hl7.v2_5_1.segments import (
-    VAR, PTH
+    PTH, VAR
 )
 
 ppv_pca_patient_group_goal_group_goal_pathway_group = PPV_PCA_PATIENT_GROUP_GOAL_GROUP_GOAL_PATHWAY_GROUP(  # GOAL PATHWAY - Segment group for PPV_PCA_PATIENT_GROUP_GOAL_GROUP - GOAL consisting of PTH, VAR|None

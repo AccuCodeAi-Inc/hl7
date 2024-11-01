@@ -1,12 +1,12 @@
 from __future__ import annotations
 from ...base import HL7TriggerEvent
-from ..segments.EQU import EQU
-from ..segments.SFT import SFT
-from ..segments.MSH import MSH
 from ..segments.ROL import ROL
+from ..segments.MSH import MSH
 from ..segment_groups.EAR_U08_COMMAND_RESPONSE_GROUP import (
     EAR_U08_COMMAND_RESPONSE_GROUP,
 )
+from ..segments.SFT import SFT
+from ..segments.EQU import EQU
 
 
 """
@@ -17,7 +17,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import EAR_U08
 from utils.hl7.v2_5_1.segments import (
-    EQU, SFT, MSH, ROL
+    SFT, EQU, ROL, MSH
 )
 from utils.hl7.v2_5_1.segment_groups import (
     EAR_U08_COMMAND_RESPONSE_GROUP

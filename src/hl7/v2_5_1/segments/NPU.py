@@ -45,8 +45,8 @@ class NPU(HL7Segment):
 
     def __init__(
         self,
-        bed_location: PL | tuple[PL],  # NPU.1
-        bed_status: BedStatus | IS | tuple[BedStatus | IS] | None = None,  # NPU.2
+        bed_location: PL | tuple[PL, ...],  # NPU.1
+        bed_status: BedStatus | IS | tuple[BedStatus | IS, ...] | None = None,  # NPU.2
     ):
         """
         Bed Status Update - `NPU <https://hl7-definition.caristix.com/v2/HL7v2.5.1/Segments/NPU>`_

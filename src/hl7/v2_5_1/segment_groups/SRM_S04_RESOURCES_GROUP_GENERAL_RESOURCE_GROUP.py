@@ -1,8 +1,8 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.APR import APR
-from ..segments.AIG import AIG
 from ..segments.NTE import NTE
+from ..segments.AIG import AIG
+from ..segments.APR import APR
 
 
 """
@@ -13,7 +13,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import SRM_S04_RESOURCES_GROUP_GENERAL_RESOURCE_GROUP
 from utils.hl7.v2_5_1.segments import (
-    NTE, AIG, APR
+    AIG, APR, NTE
 )
 
 srm_s04_resources_group_general_resource_group = SRM_S04_RESOURCES_GROUP_GENERAL_RESOURCE_GROUP(  # GENERAL RESOURCE - Segment group for SRM_S04_RESOURCES_GROUP - RESOURCES consisting of AIG, APR|None, NTE|None

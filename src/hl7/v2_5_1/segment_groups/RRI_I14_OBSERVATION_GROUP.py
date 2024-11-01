@@ -1,9 +1,9 @@
 from __future__ import annotations
 from ...base import HL7SegmentGroup
-from ..segments.NTE import NTE
 from ..segment_groups.RRI_I14_OBSERVATION_GROUP_RESULTS_NOTES_GROUP import (
     RRI_I14_OBSERVATION_GROUP_RESULTS_NOTES_GROUP,
 )
+from ..segments.NTE import NTE
 from ..segments.OBR import OBR
 
 

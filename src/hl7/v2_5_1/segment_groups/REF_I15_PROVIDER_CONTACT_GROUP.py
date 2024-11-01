@@ -12,7 +12,7 @@ HL7 Version: 2.5.1
 
 from utils.hl7.v2_5_1.trigger_events import REF_I15_PROVIDER_CONTACT_GROUP
 from utils.hl7.v2_5_1.segments import (
-    CTD, PRD
+    PRD, CTD
 )
 
 ref_i15_provider_contact_group = REF_I15_PROVIDER_CONTACT_GROUP(  # PROVIDER CONTACT - Segment group for REF_I15 - Request patient referral status consisting of PRD, CTD|None
